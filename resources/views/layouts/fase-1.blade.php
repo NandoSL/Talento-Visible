@@ -11,7 +11,7 @@
         content="online learning, education, e-learning, courses, tutorials, educational resources, skill development, career enhancement" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/LogoOk.png') }}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -250,7 +250,7 @@
                                 <div class="ep-footer__widget footer-about">
                                     <div class="ep-footer__logo">
                                         <a href="index.html">
-                                            <img src="{{ asset('assets/images/logo-2.svg') }}" alt="footer-logo" />
+                                            <img src="{{ asset('assets/images/LogoOk.png') }}" alt="footer-logo" />
                                         </a>
                                     </div>
                                     <p class="ep-footer__text"> It is a long established fact that a reader will be

@@ -76,7 +76,7 @@
 <body>
     <div class="container">
         <div class="div-button">
-            {{-- <img src="{{ asset('assets/frontend/pymais/images/favicon.svg') }}" alt="" class="img"> --}}
+            {{-- <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="" class="img"> --}}
         </div>        
         <p class="titulo" >PYM<span>AI</span>S</p>
         <h2>{{ __('Hello') }} {{ $user->name }}</h2>        

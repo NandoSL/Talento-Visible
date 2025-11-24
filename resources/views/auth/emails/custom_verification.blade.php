@@ -75,7 +75,7 @@
     <div class="container">
         
         <div class="div-button">
-            <img src="{{ 'https://pymais-development-aacvfzhcfkdyc7hu.southcentralus-01.azurewebsites.net/assets/frontend/pymais/images/logo-3.svg' }}" alt="" class="img">
+            <img src="{{ 'https://pymais-development-aacvfzhcfkdyc7hu.southcentralus-01.azurewebsites.net/assets/frontend/pymais/images/LogoOk.png' }}" alt="" class="img">
         </div>        
         <p class="titulo" >PYM<span>AI</span>S</p>
         <h2>{{ __('Hello') }} {{ $user->name }}</h2>        

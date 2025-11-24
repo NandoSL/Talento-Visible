@@ -4,7 +4,7 @@
           <div class="row">
               <div class="col-lg-4 col-md-4">
                   <div class="footer-content">
-                      <img src="{{ asset('assets/frontend/pymais/images/logo.svg') }}" alt="logo">
+                      <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="logo">
                       <p class="description">
                           {{ __('Modernize, engage and promote: A proven acceleration program to strengthen & professionalize industry supply chain.') }}
                       </p>
@@ -52,7 +52,7 @@
                   </div>
                   <div class="col-lg-4">
                       <div class="copyright-text">
-                          <p>© PYMAIS @php echo date('Y')@endphp All Rights Reserved</p>
+                          <p>©  @php echo date('Y')@endphp All Rights Reserved</p>
                       </div>
                   </div>
               </div>

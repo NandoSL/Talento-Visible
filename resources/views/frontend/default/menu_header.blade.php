@@ -10,7 +10,7 @@
             <div class="col-auto">
                 <div class="logo-image">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('assets/frontend/pymais/images/logo.svg') }}" alt="system logo" class="object-fit-cover rounded">
+                        <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="system logo" class="object-fit-cover rounded">
                     </a>
                 </div>
             </div>

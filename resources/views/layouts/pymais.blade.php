@@ -11,7 +11,7 @@
         content="online learning, education, e-learning, courses, tutorials, educational resources, skill development, career enhancement" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/frontend/pymais/images/favicon.svg') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

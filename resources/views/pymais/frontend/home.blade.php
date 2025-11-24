@@ -458,8 +458,8 @@
                 </div>
                 <div class="col-lg-6 col-xl-5 offset-xl-1 col-12">
                     <div class="ep-group-study__video background-image ep-hobble position-relative"
-                        style="background-image: url('{{ asset('assets/frontend/pymais/images/home/home-04.jpg') }}');">
-                        <a href="{{ asset('assets/frontend/pymais/images/video/PYMAIS.mp4') }}"
+                        style="background-image: url('{{ asset('assets/frontend/pymais/images/home/') }}');">
+                        <a href="{{ asset('assets/frontend/pymais/images/video/') }}"
                             class="ep-video__btn popup-video ">
                             <i class="fi fi-sr-play"></i>
                         </a>
@@ -675,7 +675,7 @@
             <!-- Right Column: Logo -->
             <div class="col-lg-5 col-xl-5 col-12 d-flex justify-content-center align-items-center">
                 <div class="pymais-logo-container">
-                    <img src="{{ asset('assets/frontend/pymais/images/favicon.svg') }}" alt="Logo"
+                    <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="Logo"
                         class="pymais-newsletter-logo" />
                 </div>
             </div>

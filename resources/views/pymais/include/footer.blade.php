@@ -7,7 +7,7 @@
                     <div class="ep-footer__widget footer-about">
                         <div class="ep-footer__logo ep-footer__logo--style2">
                             <a href="#">
-                                <img src="{{asset('assets/frontend/pymais/images/logo-2.svg')}}" alt="footer-logo" />
+                                <img src="{{asset('assets/frontend/pymais/images/LogoOk.png')}}" alt="footer-logo" />
                             </a>
                         </div>
                         <p class="ep-footer__text mg-top-46"> {{__('Modernize, engage and promote: A proven acceleration program to strengthen & professionalize industry supply chain.')}}
@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="ep-footer__copyright">
-                        <p> © PYMAIS @php echo date('Y'); @endphp | {{__('All Rights Reserved')}} </p>
+                        <p> © @php echo date('Y'); @endphp | {{__('All Rights Reserved')}} </p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
@@ -104,6 +104,6 @@
         </div>
     </div>
     <div class="ep-footer__brand">
-        {{--  <img src="{{asset('assets/frontend/pymais/images/logo-2.svg')}}" alt="footer-brand-name" />  --}}
+        {{--  <img src="{{asset('assets/frontend/pymais/images/LogoOk.png')}}" alt="footer-brand-name" />  --}}
     </div>
 </footer>

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-7 col-md-6">
                 <div class="login-img text-center">
-                    <img class="w-75 h-auto ms-auto me-auto" src="{{ asset('assets/frontend/pymais/images/favicon.svg') }}" alt="...">
+                    <img class="w-75 h-auto ms-auto me-auto" src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="...">
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">

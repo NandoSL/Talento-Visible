@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6">
                         <div class="login-img ">
-                            <img src="{{ asset('assets/frontend/pymais/images/favicon.svg') }}"   alt="..." style="width:70%; height:70%; float: center">
+                            <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}"   alt="..." style="width:70%; height:70%; float: center">
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6">
