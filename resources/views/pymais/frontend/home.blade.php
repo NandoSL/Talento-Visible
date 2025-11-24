@@ -64,7 +64,7 @@
             <div class="col-lg-12 col-xl-6 col-12">
                 <div class="ep-hero__content ep-hero__content--style2">
                     <h1 class="ep-hero__title ep-split-text left"> {{ __('Welcome to') }} <span
-                            class="ep-hero__title ep-split-text" style="color:#506CC9;">PYMAIS</span></h1>
+                            class="ep-hero__title ep-split-text" style="color:#506CC9;">Talento Visible</span></h1>
                     <span class="ep-hero__text">
                         {{ __('Empowering SMEs by integrating AI to enhance their operations and efficiency, also connecting them with large manufacturers in North America. Accelerating their growth, strengthening and professionalizing them based on the real demands of each region.') }}
                     </span>
@@ -91,10 +91,10 @@
             <div class="col-lg-12 col-12 text-center">
                 <div class="ep-section__content ep-section__content--style2">
                     <h3 class="ep-section__title ep-split-text left"> {{ __('About ') }}
-                        <span style="color:#2849E6">PYMAIS</span>
+                        <span style="color:#2849E6">Talento Visible</span>
                     </h3>
                     <p class="ep-section__text">
-                        {{ __('The PyMAis platform is a groundbreaking initiative aimed at empowering Mexican small and medium-sized enterprises (SMEs) through advanced technologies, particularly artificial intelligence (AI). This program focuses on helping companies enhance their operations, allowing them to optimize processes and increase efficiency. Additionally, PYMAIS fosters strong business connections and opens opportunities for SMEs to become suppliers to major manufacturers across North America, driving growth and innovation in the region.') }}
+                        {{ __('The Talento Visible platform is a groundbreaking initiative aimed at empowering Mexican small and medium-sized enterprises (SMEs) through advanced technologies, particularly artificial intelligence (AI). This program focuses on helping companies enhance their operations, allowing them to optimize processes and increase efficiency. Additionally, Talento Visible fosters strong business connections and opens opportunities for SMEs to become suppliers to major manufacturers across North America, driving growth and innovation in the region.') }}
                     </p>
                     <div class="pymais-section__widget">
                         <ul class="pymais-feature-list">
@@ -112,7 +112,7 @@
                     <div class="ep-section__btn">
                         <a href="{{ asset(app()->getLocale() == 'es' ? 'pdfs/PYMAIS-es.pdf' : 'pdfs/PYMAIS-en.pdf') }}"
                             class="ep-btn border-btn pymais-20" target="_blank">
-                            {{ __('Why PYMAIS') }} <i class="fi fi-rs-arrow-small-right"></i>
+                            {{ __('Why Talento Visible') }} <i class="fi fi-rs-arrow-small-right"></i>
                         </a>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     <div id="collapseOne" class="accordion-collapse collapse hide" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <p class="accordion-body text-center">
-                            {{ __('By joining PYMAIS, you will be able to accelerate the growth of your SME through specialized training, mentoring, key certifications and connections with large companies. This will help you expand your operations and strengthen your competitiveness in the MX-US market.') }}
+                            {{ __('By joining Talento Visible, you will be able to accelerate the growth of your SME through specialized training, mentoring, key certifications and connections with large companies. This will help you expand your operations and strengthen your competitiveness in the MX-US market.') }}
                             <br><br>{{ __('To participate, your company must be an established SME with at least 2 years of operation, have a scalable business model and be interested in selling to the industry, and be committed to innovation and collaboration.') }}
                             <a href="{{ asset(app()->getLocale() == 'es' ? 'pdfs/Participante.pdf' : 'pdfs/Participant.pdf') }}"
                                 class="mt-3 pymais-button-gradient" target="_blank">{{ __('More Information') }}
@@ -181,7 +181,7 @@
                     <div id="collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <p class="accordion-body text-center">
-                            {{ __('As a PYMAIS consultant, you will have the opportunity to share your knowledge with growing SMEs, impact their development, and expand your network. You will also position yourself as a leader in your sector and gain access to valuable collaboration opportunities.') }}
+                            {{ __('As a Talento Visible consultant, you will have the opportunity to share your knowledge with growing SMEs, impact their development, and expand your network. You will also position yourself as a leader in your sector and gain access to valuable collaboration opportunities.') }}
                             <br><br>{{ __('To be a consultant, you need professional experience in key areas, industry sector knowledge, virtual mentoring skills and a focus on practical results that help SMEs grow.') }}
                             <a href="{{ asset(app()->getLocale() == 'es' ? 'pdfs/Consultor.pdf' : 'pdfs/consultan.pdf') }}"
                                 class="mt-3 pymais-button-gradient" target="_blank">{{ __('More Information') }}
@@ -208,7 +208,7 @@
                     <div id="collapseThree" class="accordion-collapse collapse hide" aria-labelledby="headingThree"
                         data-bs-parent="#accordionExample">
                         <p class="accordion-body text-center">
-                            {{ __('By joining PYMAIS as a traction company, you will be able to access a network of innovative SMEs, diversify your supply chain and explore nearshoring opportunities through virtual sessions. You will also strengthen your market position and contribute to regional economic development.') }}
+                            {{ __('By joining Talento Visible as a traction company, you will be able to access a network of innovative SMEs, diversify your supply chain and explore nearshoring opportunities through virtual sessions. You will also strengthen your market position and contribute to regional economic development.') }}
                             <br><br>
                             {{ __('To participate, you must be a corporate with an interest in acquiring products or investing in SMEs, with experience in supplier integration and a commitment to innovation and strategic collaboration.') }}
                             <a href="{{ asset(app()->getLocale() == 'es' ? 'pdfs/Corporativos.pdf' : 'pdfs/corporate.pdf') }}"
@@ -236,7 +236,7 @@
                     <div id="collapseFour" class="accordion-collapse collapse hide" aria-labelledby="headingFour"
                         data-bs-parent="#accordionExample">
                         <p class="accordion-body text-center">
-                            {{ __('By joining PYMAIS as an ally or partner, you will be able to collaborate in the growth of SMEs, position your brand in an environment of innovation and generate new business opportunities. You will contribute to economic development and create synergies with key market players.') }}
+                            {{ __('By joining Talento Visible as an ally or partner, you will be able to collaborate in the growth of SMEs, position your brand in an environment of innovation and generate new business opportunities. You will contribute to economic development and create synergies with key market players.') }}
                             <br><br>{{ __('To become an ally, you need to be an organization interested in supporting SMEs, preferably with experience in technology, finance, education or industry, and contribute resources, knowledge or connections that will boost their growth and professionalization.') }}
                             <a href="{{ asset(app()->getLocale() == 'es' ? 'pdfs/Socio.pdf' : 'pdfs/partner.pdf') }}"
                                 class="mt-3 pymais-button-gradient" target="_blank">{{ __('More Information') }}
@@ -446,9 +446,9 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-5 col-12">
                     <div class="ep-section__content ep-section__content--style2">
-                        <h3 class="ep-section__title ep-split-text left">{{ __('How PYMAIS works') }} </h3>
+                        <h3 class="ep-section__title ep-split-text left">{{ __('How Talento Visible works') }} </h3>
                         <p class="ep-section__text">
-                            {{ __('PYMAIS Platform is a training program that accelerates the growth of SMEs in the manufacturing supply chain by helping them take advantage of nearshoring opportunities and improve the MX-US value chains. It focuses on strengthening and professionalizing these businesses, aligning them with the specific demands and needs of each region to capitalize on opportunities in emerging markets.') }}
+                            {{ __('Talento Visible Platform is a training program that accelerates the growth of SMEs in the manufacturing supply chain by helping them take advantage of nearshoring opportunities and improve the MX-US value chains. It focuses on strengthening and professionalizing these businesses, aligning them with the specific demands and needs of each region to capitalize on opportunities in emerging markets.') }}
                         </p>
                         {{--  <div class="ep-section__btn">
                                                 <a href="#" class="ep-btn border-btn">Read More <i class="fi fi-rs-arrow-small-right"></i>
@@ -685,6 +685,7 @@
 <!-- End Newsletter Area -->
 
 <!-- Start Partnership -->
+{{--
 <div class="container mt-60">
     <div class="ep-brand section-gap pt-0">
         <div class="row">
@@ -694,7 +695,6 @@
                 </div>
             </div>
         </div>
-        {{-- QUITAR ESTILO DE COLOR EN EL DIV --}}
         <div class="container ep-container">
             <div class="row" style="display: flex; justify-content: center">
                 <div class="col-md-2 mb-3">
@@ -733,9 +733,8 @@
         </div>
 
     </div>
-
-
 </div>
+--}}
 <!-- End Start Partnership -->
 @endsection
 

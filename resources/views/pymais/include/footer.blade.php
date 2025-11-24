@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="ep-footer__copyright">
-                        <p> © @php echo date('Y'); @endphp | {{__('All Rights Reserved')}} </p>
+                        <p> © Talento Visible @php echo date('Y'); @endphp | {{__('All Rights Reserved')}} </p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
