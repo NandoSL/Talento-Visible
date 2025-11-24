@@ -1,0 +1,1 @@
+<a href="{{ route('blogs') }}" class="eBtn gradient">{{ get_phrase('View All Blogs') }}</a>

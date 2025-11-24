@@ -1215,7 +1215,7 @@ input[type="number"] {
   content: "";
   height: 50px;
   width: 50px;
-  background: url(../images/LogoOk.png);
+  background: url(../images/favicon.svg);
   transform: translateX(-50%);
   background-repeat: no-repeat;
   background-position: center;

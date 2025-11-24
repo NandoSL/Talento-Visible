@@ -19,7 +19,7 @@ class saveFileController extends Controller
 {
     public function saveFileInstructor(Request $request){
         //validate data before saving
-        $request->validate([            
+        $request->validate([
             'name' => 'nullable',
             'last_name' => 'nullable',
             'email' => 'required|email|unique:users,email',
@@ -53,15 +53,15 @@ class saveFileController extends Controller
             'job_area' => $job_area,
             'linkedin' => $linkedin,
             'email' => $email,
-            'password' => Hash::make($password_user),            
+            'password' => Hash::make($password_user),
         ]);
 
         Auth::login($user);
 
-        app(CustomEmailNotificationController::class)->store($request, 1);
-        
+        //app(CustomEmailNotificationController::class)->store($request, 1);
+
         return redirect()->route('login');
-        
+
     }
 
     public function saveFileSME(Request $request){
@@ -132,7 +132,7 @@ class saveFileController extends Controller
         $social_networking = $request->social_networking;
 
         // $content = "Contact Name: $contact_name\nContact Last Name: $contact_last_name\nContact Email: $contact_email\nContact Phone: $contact_phone\nContact Position: $contact_position\nContact Area Position: $contact_area_position\nContact LinkedIn: $contact_linkedin\nTrade Name: $trade_name\nRFC: $rfc\nLegal Name: $legal_name\nCompany Contact Phone: $company_contact_phone\nCompany Contact Mail: $company_contact_mail\nNAICS: $naics_code\nNumber Employees: $number_employees\nSeniority: $seniority\nSector: $sector\nProducts and/or Services: $products_services\nStreet: $street\nNumber: $number\nPostal Code: $postal_code\nNeighborhood: $neighborhood\nCity: $city\nState: $state\nIncorporated United States: $incorporated_united_states\nCompany Name: $company_name\nBusiness Line: $business_line\nCompany Linkedin: $company_linkedin\nWebsite: $website\nSocial Networking: $social_networking\nName: $name\nLast Name: $last_name\nPosition: $position\nEmail: $email\nPhone: $user_phone\nLinkedin: $user_linkedin\nPassword: $password";
-        
+
         $filename = 'sme_application_' . now()->format('Y-m-d_H-i-s') . '.txt';
 
         // Storage::disk('local')->put('sme_applications/' . $filename, $content);
@@ -169,7 +169,7 @@ class saveFileController extends Controller
             $company_id = $company->id;
 
         }
-        
+
         // Registrar al nuevo usuario en la plataforma en relación a la compañia
         $user = User::create([
             'role' => 'student',
@@ -191,9 +191,9 @@ class saveFileController extends Controller
         Enrollment::create([
             'user_id' => $user_id,
             'course_id' => 1,
-            'enrollment_type' => 'free' 
+            'enrollment_type' => 'free'
         ]);
-        
+
 
         // Key Resources Enrollment
         $key_resources = Category::where('title', 'Key Resources')->get();
@@ -202,7 +202,7 @@ class saveFileController extends Controller
             Enrollment::create([
                 'user_id' => $user_id,
                 'course_id' => $course->id,
-                'enrollment_type' => 'free' 
+                'enrollment_type' => 'free'
             ]);
         }
 
@@ -213,7 +213,7 @@ class saveFileController extends Controller
             Enrollment::create([
                 'user_id' => $user_id,
                 'course_id' => $course->id,
-                'enrollment_type' => 'free' 
+                'enrollment_type' => 'free'
             ]);
         }
 
@@ -224,14 +224,14 @@ class saveFileController extends Controller
             Enrollment::create([
                 'user_id' => $user_id,
                 'course_id' => $course->id,
-                'enrollment_type' => 'free' 
+                'enrollment_type' => 'free'
             ]);
         }
 
         Auth::login($user);
 
-        app(CustomEmailNotificationController::class)->store($request, 1);
-        
+        //app(CustomEmailNotificationController::class)->store($request, 1);
+
         return redirect()->route('login');
     }
 }

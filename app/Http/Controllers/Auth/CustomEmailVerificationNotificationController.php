@@ -35,7 +35,7 @@ class CustomEmailVerificationNotificationController extends Controller
         );
 
         // Enviar el correo de verificación con la URL firmada
-        Mail::to($user->email)->send(new CustomEmailVerification($user, $verificationUrl));
+        //Mail::to($user->email)->send(new CustomEmailVerification($user, $verificationUrl));
 
         return back()->with('status', 'verification-link-sent');
     }

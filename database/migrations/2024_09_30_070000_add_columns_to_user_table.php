@@ -13,9 +13,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('last_name')->nullable()->after('name');
-            $table->string('gender')->nullable()->after('photo');
-            $table->integer('state_id')->nullable()->after('gender');
-            $table->integer('municipality_id')->nullable()->after('state_id');
             $table->string('position')->nullable();
             $table->string('job_area')->nullable();
             $table->integer('company_id')->nullable();
@@ -32,9 +29,6 @@ return new class extends Migration
             $table->dropColumn('position');
             $table->dropColumn('job_area');
             $table->dropColumn('company_id');
-            $table->dropColumn('gender');
-            $table->dropColumn('state_id');
-            $table->dropColumn('municipality_id');
         });
     }
 };

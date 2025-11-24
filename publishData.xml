@@ -1,0 +1,11 @@
+<publishData>
+    <publishProfile profileName="Pymais - Web Deploy" publishMethod="MSDeploy" publishUrl="pymais-adc7afdfcmh0e3bg.scm.southcentralus-01.azurewebsites.net:443" msdeploySite="Pymais" userName="$Pymais" userPWD="t5h3Q8paKY4gYnFcv8jpdPnHQR90QdpxEEP5MpGcbouDrAisA9QEZJvGHtHf" destinationAppUrl="https://pymais-adc7afdfcmh0e3bg.southcentralus-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites">
+        <databases />
+    </publishProfile>
+    <publishProfile profileName="Pymais - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-sn1-165.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="Pymais\$Pymais" userPWD="t5h3Q8paKY4gYnFcv8jpdPnHQR90QdpxEEP5MpGcbouDrAisA9QEZJvGHtHf" destinationAppUrl="https://pymais-adc7afdfcmh0e3bg.southcentralus-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites">
+        <databases />
+    </publishProfile>
+    <publishProfile profileName="Pymais - Zip Deploy" publishMethod="ZipDeploy" publishUrl="pymais-adc7afdfcmh0e3bg.scm.southcentralus-01.azurewebsites.net:443" userName="$Pymais" userPWD="t5h3Q8paKY4gYnFcv8jpdPnHQR90QdpxEEP5MpGcbouDrAisA9QEZJvGHtHf" destinationAppUrl="https://pymais-adc7afdfcmh0e3bg.southcentralus-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites">
+        <databases />
+    </publishProfile>
+</publishData>

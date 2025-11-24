@@ -1,0 +1,39 @@
+@import "reset.css";
+@import "header.css";
+@import "hero.css";
+@import "about.css";
+@import "category.css";
+@import "course.css";
+@import "brand.css";
+@import "team.css";
+@import "funfact.css";
+@import "faq.css";
+@import "testimonial.css";
+@import "video.css";
+@import "blog.css";
+@import "group-study.css";
+@import "service.css";
+@import "pricing.css";
+@import "event.css";
+@import "product.css";
+@import "breadcrumbs.css";
+@import "contact.css";
+@import "auth.css";
+@import "error.css";
+@import "mobile-menu.css";
+@import "footer.css";
+
+@font-face {
+    font-family: "Segoe UI";
+    src: url('../fonts/segoeui.woff2') format('woff2'),
+         url('../fonts/segoeuii.woff2') format('woff2'),
+         url('../fonts/segoeuib.woff2') format('woff2'),
+         url('../fonts/segoeuiz.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+}
