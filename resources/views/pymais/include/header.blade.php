@@ -6,7 +6,7 @@
                         <!-- offcanvas-logo-start -->
                         <div class="offcanvas-logo">
                             <a href="{{route('home')}}">
-                                <img src="{{asset('assets/frontend/pymais/images/LogoOk.png')}}" alt="#" />
+                                <img src="{{asset('assets/frontend/Tv/images/LogoOk.png')}}" alt="#" />
                             </a>
                         </div>
                         <!-- offcanvas-logo-end -->

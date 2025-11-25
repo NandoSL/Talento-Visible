@@ -144,7 +144,7 @@
                             <div data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                 aria-controls="collapseOne">
                                 <div class="ep-category__icon ep2-bg">
-                                    <img src="{{ asset('assets/frontend/pymais/images/category/category-1/1.svg') }}"
+                                    <img src="{{ asset('assets/frontend/Tv/images/category/category-1/1.svg') }}"
                                         alt="category-icon" />
                                 </div>
                                 <h3 class="pymais-accordion-title">{{ __('SMEs') }}</h3>
@@ -171,7 +171,7 @@
                             <div data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
                                 aria-controls="collapseTwo">
                                 <div class="ep-category__icon ep2-bg">
-                                    <img src="{{ asset('assets/frontend/pymais/images/category/category-1/2.svg') }}"
+                                    <img src="{{ asset('assets/frontend/Tv/images/category/category-1/2.svg') }}"
                                         alt="category-icon" />
                                 </div>
                                 <h3 class="pymais-accordion-title">{{ __('Consultant and mentors') }}</h3>
@@ -198,7 +198,7 @@
                             <div data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true"
                                 aria-controls="collapseThree">
                                 <div class="ep-category__icon ep2-bg">
-                                    <img src="{{ asset('assets/frontend/pymais/images/category/category-1/3.svg') }}"
+                                    <img src="{{ asset('assets/frontend/Tv/images/category/category-1/3.svg') }}"
                                         alt="category-icon" />
                                 </div>
                                 <h3 class="pymais-accordion-title">{{ __('Industry and corporate') }}</h3>
@@ -226,7 +226,7 @@
                             <div data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true"
                                 aria-controls="collapseFour">
                                 <div class="ep-category__icon ep2-bg">
-                                    <img src="{{ asset('assets/frontend/pymais/images/category/category-1/7.svg') }}"
+                                    <img src="{{ asset('assets/frontend/Tv/images/category/category-1/7.svg') }}"
                                         alt="category-icon" />
                                 </div>
                                 <h3 class="pymais-accordion-title">{{ __('Allies and partners') }}</h3>
@@ -437,10 +437,10 @@
     <div class="container ep-container">
         <div class="ep-group-study__inner position-relative">
             <div class="ep-brand-name">
-                <img src="{{ asset('assets/frontend/pymais/images/brand-name.svg') }}" alt="brand-name" />
+                <img src="{{ asset('assets/frontend/Tv/images/brand-name.svg') }}" alt="brand-name" />
             </div>
             <div class="ep-group-study__shape updown-ani">
-                <img src="{{ asset('assets/frontend/pymais/images/group-study/shape.svg') }}" alt="arrow-icon" />
+                <img src="{{ asset('assets/frontend/Tv/images/group-study/shape.svg') }}" alt="arrow-icon" />
             </div>
 
             <div class="row">
@@ -458,8 +458,8 @@
                 </div>
                 <div class="col-lg-6 col-xl-5 offset-xl-1 col-12">
                     <div class="ep-group-study__video background-image ep-hobble position-relative"
-                        style="background-image: url('{{ asset('assets/frontend/pymais/images/home/') }}');">
-                        <a href="{{ asset('assets/frontend/pymais/images/video/') }}"
+                        style="background-image: url('{{ asset('assets/frontend/Tv/images/home/') }}');">
+                        <a href="{{ asset('assets/frontend/Tv/images/video/') }}"
                             class="ep-video__btn popup-video ">
                             <i class="fi fi-sr-play"></i>
                         </a>
@@ -484,7 +484,7 @@
     </div>
     <div class="ep-event__container">
         <div class="ep-event__shape updown-ani">
-            <img src="{{ asset('assets/frontend/pymais/images/event/event-1/arrow.svg') }}" alt="arrow-icon" />
+            <img src="{{ asset('assets/frontend/Tv/images/event/event-1/arrow.svg') }}" alt="arrow-icon" />
         </div>
         <div class="row container">
             <div class="owl-carousel ep-event__slider">
@@ -675,7 +675,7 @@
             <!-- Right Column: Logo -->
             <div class="col-lg-5 col-xl-5 col-12 d-flex justify-content-center align-items-center">
                 <div class="pymais-logo-container">
-                    <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="Logo"
+                    <img src="{{ asset('assets/frontend/Tv/images/LogoOk.png') }}" alt="Logo"
                         class="pymais-newsletter-logo" />
                 </div>
             </div>
@@ -701,7 +701,7 @@
                     <a href="https://www.microsoft.com/en-us/corporate-responsibility/techspark"
                         class="ep-brand__logo ep-brand__logo--style2 d-flex justify-content-center text-center"
                         target="_blank">
-                        <img src="{{ asset('assets/frontend/pymais/images/collab/Microsoft_Logo.png') }}"
+                        <img src="{{ asset('assets/frontend/Tv/images/collab/Microsoft_Logo.png') }}"
                             alt="brand-logo" />
                     </a>
                 </div>
@@ -709,7 +709,7 @@
                     <a href="https://funax.org/"
                         class="ep-brand__logo ep-brand__logo--style2 d-flex justify-content-center text-center"
                         target="_blank">
-                        <img src="{{ asset('assets/frontend/pymais/images/collab/LOGO-FUNAX-ACTUALIZACION-HORIZONTAL-ESP-01.png') }}"
+                        <img src="{{ asset('assets/frontend/Tv/images/collab/LOGO-FUNAX-ACTUALIZACION-HORIZONTAL-ESP-01.png') }}"
                             alt="brand-logo" />
                     </a>
                 </div>
@@ -717,7 +717,7 @@
                     <a href="https://tb-xl.com/"
                         class="ep-brand__logo ep-brand__logo--style2 d-flex justify-content-center text-center"
                         target="_blank">
-                        <img src="{{ asset('assets/frontend/pymais/images/collab/THEBRIDGE_LOGO-01.png') }}"
+                        <img src="{{ asset('assets/frontend/Tv/images/collab/THEBRIDGE_LOGO-01.png') }}"
                             alt="brand-logo" />
                     </a>
                 </div>
@@ -725,7 +725,7 @@
                     <a href="https://t-hub.mx/"
                         class="ep-brand__logo ep-brand__logo--style2 d-flex justify-content-center text-center"
                         target="_blank">
-                        <img src="{{ asset('assets/frontend/pymais/images/collab/logo-thub-01.png') }}"
+                        <img src="{{ asset('assets/frontend/Tv/images/collab/logo-thub-01.png') }}"
                             alt="brand-logo" />
                     </a>
                 </div>
@@ -768,8 +768,8 @@ document.querySelectorAll('.pymais-accordion-title').forEach(function(title) {
 });
 </script>
 @endpush
-<link rel="stylesheet" href="{{ asset('assets/frontend/pymais/plugins/css/particles.css') }}" />
-<script src="{{ asset('assets/frontend/pymais/plugins/js/particles.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('assets/frontend/Tv/plugins/css/particles.css') }}" />
+<script src="{{ asset('assets/frontend/Tv/plugins/js/particles.js') }}"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

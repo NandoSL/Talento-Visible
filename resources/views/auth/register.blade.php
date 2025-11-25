@@ -103,7 +103,7 @@
                                     <button type="button" id="form-student-btn" class="w-100 btn btn-outline-primary pymais-accordion-card active" onclick="showForm('form-student')">
                                         <div class="text-center pymais-accordion-title">
                                             <div class="icon-container">
-                                                <img src="{{ asset('assets/frontend/pymais/images/category/category-1/1.svg') }}" alt="category-icon" />
+                                                <img src="{{ asset('assets/frontend/Tv/images/category/category-1/1.svg') }}" alt="category-icon" />
                                             </div>
                                             <h3 class="pymais-accordion-title mt-3 fs-2">{{ __('SMEs') }}</h3>
                                         </div>
@@ -114,7 +114,7 @@
                                     <button type="button" id="form-instructor-btn" class="w-100 btn btn-outline-primary pymais-accordion-card" style="border: 2px solid blue;" onclick="showForm('form-instructor')">
                                         <div class="text-center pymais-accordion-title">
                                             <div class="icon-container">
-                                                <img src="{{ asset('assets/frontend/pymais/images/category/category-1/2.svg') }}" alt="category-icon" />
+                                                <img src="{{ asset('assets/frontend/Tv/images/category/category-1/2.svg') }}" alt="category-icon" />
                                             </div>
                                             <h3 class="pymais-accordion-title mt-3 fs-2">{{ __('Consultant and mentors') }}</h3>
                                         </div>
@@ -126,7 +126,7 @@
                                 <button type="butto" id="form-industry-btn" class="w-100 btn btn-outline-primary pymais-accordion-card" style="border: 2px solid blue;" onclick="showForm('form-industry')">
                                         <div class="text-center pymais-accordion-title">
                                             <div class="icon-container">
-                                                <img src="{{ asset('assets/frontend/pymais/images/category/category-1/3.svg') }}" alt="category-icon" />
+                                                <img src="{{ asset('assets/frontend/Tv/images/category/category-1/3.svg') }}" alt="category-icon" />
                                             </div>
                                             <h3 class="pymais-accordion-title mt-3 fs-2">{{ __('Industry and corporate') }}</h3>
                                         </div>
@@ -138,7 +138,7 @@
                                 <button type="butto" id="form-partnet-btn" class="w-100 btn btn-outline-primary pymais-accordion-card" style="border: 2px solid blue;" onclick="showForm('form-partnet')">
                                         <div class="text-center pymais-accordion-title">
                                             <div class="icon-container">
-                                                <img src="{{ asset('assets/frontend/pymais/images/category/category-1/7.svg') }}" alt="category-icon" />
+                                                <img src="{{ asset('assets/frontend/Tv/images/category/category-1/7.svg') }}" alt="category-icon" />
                                             </div>
                                             <h3 class="pymais-accordion-title mt-3 fs-2">{{ __('Allies and partners') }}</h3>
                                         </div>

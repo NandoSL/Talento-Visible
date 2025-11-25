@@ -4,7 +4,7 @@
           <div class="row">
               <div class="col-lg-4 col-md-4">
                   <div class="footer-content">
-                      <img src="{{ asset('assets/frontend/pymais/images/LogoOk.png') }}" alt="logo">
+                      <img src="{{ asset('assets/frontend/Tv/images/LogoOk.png') }}" alt="logo">
                       <p class="description">
                           {{ __('Modernize, engage and promote: A proven acceleration program to strengthen & professionalize industry supply chain.') }}
                       </p>

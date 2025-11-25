@@ -2,12 +2,12 @@
 
 @push('form-css')
 <!-- bootstrap css -->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/pymais/css/bootstrap.min.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/Tv/css/bootstrap.min.css')}}" />
    <!-- Font awesome 6 -->
    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" />
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/pymais/forms/css/style.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/pymais/forms/css/responsive.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/pymais/forms/css/animation.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/Tv/forms/css/style.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/Tv/forms/css/responsive.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/Tv/forms/css/animation.css')}}">
 @endpush
 
 @section('content')
@@ -597,10 +597,10 @@
 @push('form-js')
 
 <!-- bootstrap JS -->
-	<script src="{{asset('assets/frontend/pymais/forms/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('assets/frontend/Tv/forms/js/bootstrap.min.js')}}"></script>
    <!-- Jquery -->
    {{--  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  --}}
 
    <!-- custom JS -->
-   <script src="{{asset('assets/frontend/pymais/forms/js/custom.js')}}"></script>
+   <script src="{{asset('assets/frontend/Tv/forms/js/custom.js')}}"></script>
 @endpush

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: allsveam/talento:v1  # Imagen que construyes y subes a Docker Hub
+    image: daniel/talento:v1  # Imagen que construyes y subes a Docker Hub
     container_name: talento_app
     ports:
       - "8000:80"
