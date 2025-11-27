@@ -27,7 +27,7 @@ class ApiController extends Controller
         ]);
 
         // Check email
-        $user = User::where('email', $fields['email'])->where('status', 1)->first();
+        $user = User::where('email', $fields['email'])->where('status', 1)->first();z
 
         // Check password
         if (!$user || !Hash::check($fields['password'], $user->password)) {

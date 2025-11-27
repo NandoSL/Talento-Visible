@@ -65,3 +65,59 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # academy-laravel
+
+
+
+#
+##
+###
+####
+##### Talento Visible – Environment Setup Guide
+This document provides the official instructions for configuring, deploying, and restoring the Talento Visible application in a QA or development environment using Docker.
+These steps ensure a consistent and reproducible environment across all team members and automated pipelines.
+
+# Prerequisites
+Before starting, ensure that your system has the following installed:
+- Docker (version 20+ recommended)
+- Docker Compose (version 2+)
+- Internet connectivity for package installation and dependency resolution
+
+### 1 ### 
+# Environment Deployment
+Follow these steps to build and launch the Talento Visible environment using Docker.
+> docker compose build
+
+# Start Containers
+This launches the environment in detached mode, starting:
+- talento_app → Laravel + Apache
+- talento_db → MySQL 8.0
+> docker compose up -d
+
+# Access the Application Container
+This opens an interactive shell inside the PHP/Apache container.
+> Access the Application Container
+
+# Fix File Permissions
+Laravel requires write access to specific directories:
+> chown -R www-data:www-data storage bootstrap/cache
+> chmod -R 775 storage bootstrap/cache
+
+# Install PHP Dependencies
+Inside the container:
+> composer install
+
+# Generate Application Key
+> php artisan key:generate
+
+### 2 ### 
+# Database Restoration
+Copy Backup File Into the Database Container
+> docker cp backup_database_timestamp.sql talento_db:/backup.sql
+
+# Access the Database Container
+> docker exec -it talento_db bash
+
+# Import the Database Backup
+Inside the MySQL container:
+> mysql -u root -p academy_lms < /backup.sql
+When prompted, enter the MySQL root password: *root_password*

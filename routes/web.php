@@ -34,7 +34,9 @@ Route::get('/logout', function () {
 Route::get('/dashboard', function () {
     if (Auth::user()->role == 'admin') {
         return redirect(route('admin.dashboard'));
-    }elseif (Auth::user()->role == 'student' || Auth::user()->role == 'member' || Auth::user()->role == 'instructor') {
+    } elseif (Auth::user()->role == 'instructor') {
+        return redirect(route('instructor.dashboard'));
+    } elseif (Auth::user()->role == 'student') {
         return redirect(route('my.courses'));
     } else {
         return redirect(route('home'));
