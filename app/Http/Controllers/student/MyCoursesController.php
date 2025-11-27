@@ -12,7 +12,7 @@ class MyCoursesController extends Controller
     {
         $page_data['my_courses'] = Enrollment::join('courses', 'enrollments.course_id', 'courses.id')
             ->join('users', 'courses.user_id', '=', 'users.id')
-            ->where('enrollments.user_id', Auth::user()->id)->where('courses.category_id', 1)
+            ->where('enrollments.user_id', Auth::user()->id)
             ->select('enrollments.*', 'courses.slug', 'courses.title', 'courses.thumbnail', 'users.name as user_name', 'users.photo as user_photo')
             ->paginate(6);
 
@@ -21,13 +21,13 @@ class MyCoursesController extends Controller
         //     ->where('enrollments.user_id', Auth::user()->id)->where('courses.category_id', 2)
         //     ->select('enrollments.*', 'courses.slug', 'courses.title', 'courses.thumbnail', 'users.name as user_name', 'users.photo as user_photo')
         //     ->paginate(6);
-        
+
         // $page_data['primer'] = Enrollment::join('courses', 'enrollments.course_id', 'courses.id')
         //     ->join('users', 'courses.user_id', '=', 'users.id')
         //     ->where('enrollments.user_id', Auth::user()->id)->where('courses.category_id', 3)
         //     ->select('enrollments.*', 'courses.slug', 'courses.title', 'courses.thumbnail', 'users.name as user_name', 'users.photo as user_photo')
         //     ->paginate(6);
-        
+
         // $page_data['accelerator'] = Enrollment::join('courses', 'enrollments.course_id', 'courses.id')
         //     ->join('users', 'courses.user_id', '=', 'users.id')
         //     ->where('enrollments.user_id', Auth::user()->id)->where('courses.category_id', 4)
