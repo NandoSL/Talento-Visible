@@ -36,27 +36,26 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'unique:users,email'],
-            'password' => ['required', Rules\Password::defaults()],
+        $request->validate([
+            'username' => 'required|string|max:50',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+            // 'password' => ['required', Rules\Password::defaults()],
+            'confirm_password' => 'required|same:password',
         ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
 
         $user = User::create([
-            'name' => $request->name,
+            'role' => $request->checkedInstructor == null ? 'student' : 'instructor',
+            'name' => $request->username,
             'email' => $request->email,
-            'role' => 'student',
             'password' => Hash::make($request->password),
+            'email_verified_at' => date('Y-m-d H:i:s', time()),
         ]);
 
+        //TODO: Pendiente por lanzar mensaje de exito
         event(new Registered($user));
+        // Auth::login($user);
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('login');
     }
 }

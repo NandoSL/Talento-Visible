@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @push('title', get_phrase('My Team Packages'))
 @section('content')
-    <section class="my-course-content mt-50">
+    <section class="my-course-content">
         <div class="profile-banner-area"></div>
         <div class="profile-banner-area-container container">
             <div class="row">
