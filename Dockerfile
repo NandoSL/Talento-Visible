@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y \
     git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd zip pdo pdo_mysql
-
+    
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd zip pdo pdo_mysql exif \
+    && docker-php-ext-enable exif
 # Habilitar mod_rewrite
 RUN a2enmod rewrite
 
@@ -26,6 +29,7 @@ COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type d -exec chmod 755 {} \; \
     && find /var/www/html -type f -exec chmod 644 {} \;
+
 
 # Instalar dependencias de Laravel
 RUN php /var/www/html/artisan config:clear \
