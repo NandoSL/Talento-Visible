@@ -252,19 +252,21 @@
                                 </ul>
                             </li>
                         @endif
+                        {{--
                         @if (has_permission('admin.member.index'))
-                            <li class="sidebar-second-li second-li-have-sub @if ($current_route == 'admin.member.index' || $current_route == 'admin.member.edit' || $current_route == 'admin.member.create') active @endif">
-                                <a href="javascript:void(0);">{{ get_phrase('Member') }}</a>
-                                <ul class="second-sub-menu">
-                                    <li class="sidebar-third-li @if ($current_route == 'admin.member.index' || $current_route == 'admin.member.edit') active @endif">
-                                        <a href="{{ route('admin.member.index') }}">{{ get_phrase('Manage Members') }}</a>
-                                    </li>
-                                    <li class="sidebar-third-li @if ($current_route == 'admin.member.create') active @endif">
-                                        <a href="{{ route('admin.member.create') }}" >{{ get_phrase('Add new Member') }}</a>
-                                    </li>
-                                </ul>
-                            </li>
+                        <li class="sidebar-second-li second-li-have-sub @if ($current_route == 'admin.member.index' || $current_route == 'admin.member.edit' || $current_route == 'admin.member.create') active @endif">
+                            <a href="javascript:void(0);">{{ get_phrase('Member') }}</a>
+                            <ul class="second-sub-menu">
+                                <li class="sidebar-third-li @if ($current_route == 'admin.member.index' || $current_route == 'admin.member.edit') active @endif">
+                                    <a href="{{ route('admin.member.index') }}">{{ get_phrase('Manage Members') }}</a>
+                                </li>
+                                <li class="sidebar-third-li @if ($current_route == 'admin.member.create') active @endif">
+                                    <a href="{{ route('admin.member.create') }}" >{{ get_phrase('Add new Member') }}</a>
+                                </li>
+                            </ul>
+                        </li>
                         @endif
+                        --}}
                     </ul>
                 </li>
             @endif
