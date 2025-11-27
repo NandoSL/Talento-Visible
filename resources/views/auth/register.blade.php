@@ -64,7 +64,7 @@
                                 <label class="form-label">{{ __('Confirm password') }}</label>
                                 <div class="input-group justify-content-end">
                                     <input type="password" class="form-control mb-4 @error('confirm_password') border border-danger @enderror"
-                                        id="confirmPassword" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="{{ __('Confirm Password') }}">
+                                        id="confirmPassword" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="{{ __('Confirm password') }}">
                                     <div class="input-group-append position-absolute mt-3" style="z-index: 99">
                                         <button id="showConfirmPassword" class="btn btn-outline-secondary w-25 rounded-circle d-flex justify-content-center" type="button">
                                             <i class="fas fa-eye"></i>
