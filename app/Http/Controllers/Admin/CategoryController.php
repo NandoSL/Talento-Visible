@@ -114,14 +114,17 @@ class CategoryController extends Controller
 
         if ($query->first()->parent_id > 0) {
             remove_file($query->first()->thumbnail);
+            remove_file($query->first()->category_logo);
             $query->delete();
         } else {
             foreach ($query->first()->childs as $sub_category) {
                 $sub_query = Category::where('id', $sub_category->id);
                 remove_file($sub_query->first()->thumbnail);
+                remove_file($query->first()->category_logo);
                 $sub_query->delete();
             }
             remove_file($query->first()->thumbnail);
+            remove_file($query->first()->category_logo);
             $query->delete();
         }
 
