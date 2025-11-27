@@ -1,0 +1,7 @@
+# Dockerfile para MySQL
+FROM mysql:8.0
+
+ENV MYSQL_ROOT_PASSWORD=root_password
+ENV MYSQL_DATABASE=academy_lms
+
+EXPOSE 3306
