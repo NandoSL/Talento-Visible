@@ -25,16 +25,16 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Instalar dependencias de Laravel
-#RUN composer install --no-interaction --optimize-autoloader --working-dir=/var/www/html
+RUN composer install --no-interaction --optimize-autoloader --working-dir=/var/www/html
 
 # Generar APP_KEY
-#RUN php /var/www/html/artisan key:generate --force
+RUN php /var/www/html/artisan key:generate --force
 
 # Limpiar caches
-#RUN php /var/www/html/artisan config:clear \
-#    && php /var/www/html/artisan cache:clear \
-#    && php /var/www/html/artisan route:clear \
-#    && php /var/www/html/artisan view:clear
+RUN php /var/www/html/artisan config:clear \
+    && php /var/www/html/artisan cache:clear \
+    && php /var/www/html/artisan route:clear \
+    && php /var/www/html/artisan view:clear
 
 EXPOSE 80
 
