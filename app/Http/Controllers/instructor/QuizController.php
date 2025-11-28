@@ -57,6 +57,8 @@ class QuizController extends Controller
         }
 
         $data['title']       = $request->title;
+        $data['user_id']     = auth()->user()->id;
+        $data['course_id']   = $request->course_id;
         $data['section_id']  = $request->section;
         $data['total_mark']  = $request->total_mark;
         $data['pass_mark']   = $request->pass_mark;

@@ -22,6 +22,8 @@
         </div>
     </div>
 
+    <input type="hidden" name="course_id" value="{{$id}}">
+
     <div class="mb-3">
         <label class="form-label ol-form-label" for="duration">
             {{ get_phrase('Duration') }}
