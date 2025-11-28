@@ -22,6 +22,10 @@
 /public/uploads/category-thumbnail/optimized/*.png
 /public/uploads/category-thumbnail/optimized/*.mp4
 
+/public/uploads/course-thumbnail/*
+!/public/uploads/course-thumbnail
+!/public/uploads/course-thumbnail/course_default.png
+
 /public/assets/*.sql
 /vendor
 .env

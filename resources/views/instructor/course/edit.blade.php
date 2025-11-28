@@ -59,7 +59,8 @@
                                 }
                             @endphp
 
-                            <a href="{{ route('course.player', ['slug' => $course_details->slug, 'id' => $lesson_id ?? '']) }}" target="_blank" class="btn ol-btn-outline-secondary">
+                            {{--<a href="{{ route('course.player', ['slug' => $course_details->slug, 'id' => $lesson_id ?? '']) }}" target="_blank" class="btn ol-btn-outline-secondary">--}}
+                            <a href="{{ route('course.player', ['slug' => $course_details->slug, 'id' => $course_details->id]) }}" target="_blank" class="btn ol-btn-outline-secondary">
                                 {{ get_phrase('Course Player') }}
                                 <i class="fi-rr-arrow-up-right-from-square"></i>
                             </a>
