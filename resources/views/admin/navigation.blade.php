@@ -1,34 +1,31 @@
 @php $current_route = Route::currentRouteName(); @endphp
-
-<div class="sidebar-logo-area">
+<div class="sidebar-logo-area @if(!session('sidebar.collapsed')) sidebar-collapsed @endif">
     <a href="#" class="sidebar-logos">
         <img class="sidebar-logo-lg" height="50px" src="{{ get_image(get_frontend_settings('dark_logo')) }}" alt="">
-        <img class="sidebar-logo-sm" height="40px" src="{{ get_image(get_frontend_settings('favicon')) }}" alt="">
     </a>
-    <button class="sidebar-cross menu-toggler d-block d-lg-none">
-        <span class="fi-rr-cross"></span>
-    </button>
+    <div class="logo-text-area">
+         <p class="mb-0 fs-12px text-uppercase fw-bold text-dark">TALENTO VISIBLE</p>
+    </div>
 </div>
-<h3 class="sidebar-title fs-12px px-30px pb-20px text-uppercase mt-4">{{ get_phrase('Main Menu') }}</h3>
 <div class="sidebar-nav-area">
     <nav class="sidebar-nav">
         <ul class="px-14px pb-24px">
 
             @if (has_permission('admin.dashboard'))
-                <li class="sidebar-first-li {{ $current_route == 'admin.dashboard' ? 'active' : '' }}">
-                    <a href="{{ route('admin.dashboard') }}">
-                        <span class="icon fi-rr-house-blank"></span>
-                        <div class="text">
-                            <span>{{ get_phrase('Dashboard') }}</span>
-                        </div>
-                    </a>
-                </li>
+               <li class="sidebar-first-li {{ $current_route == 'admin.dashboard' ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard') }}" class="gradient-btn-base btn-cyan-blue">
+                     <span class="icon fi-rr-house-blank"></span>
+                         <div class="text">
+                     <span>{{ get_phrase('Dashboard') }}</span>
+       </div>
+                 </a>
+</li>
             @endif
 
 
             @if (has_permission('admin.categories'))
                 <li class="sidebar-first-li {{ $current_route == 'admin.categories' ? 'active' : '' }}">
-                    <a href="{{ route('admin.categories') }}">
+                    <a href="{{ route('admin.categories') }}" class="gradient-btn-base btn-green-emerald" >
                         <span class="icon fi-rr-chart-tree-map"></span>
                         <div class="text">
                             <span>{{ get_phrase('Category') }}</span>
@@ -49,13 +46,13 @@
                     <ul class="first-sub-menu">
                         <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Course') }}</li>
                         <li class="sidebar-second-li @if ($current_route == 'admin.courses' || $current_route == 'admin.course.edit') active @endif">
-                            <a href="{{ route('admin.courses') }}">{{ get_phrase('Manage Courses') }}</a>
+                            <a href="{{ route('admin.courses') }}" class="gradient-btn-base btn-navyBlue">{{ get_phrase('Manage Courses') }}</a>
                         </li>
                         <li class="sidebar-second-li @if ($current_route == 'admin.course.create') active @endif">
-                            <a href="{{ route('admin.course.create') }}">{{ get_phrase('Add New Course') }}</a>
+                            <a href="{{ route('admin.course.create') }}" class="gradient-btn-base btn-navyBlue">{{ get_phrase('Add New Course') }}</a>
                         </li>
                         <li class="sidebar-second-li @if ($current_route == 'admin.coupons') active @endif">
-                            <a href="{{ route('admin.coupons') }}">{{ get_phrase('Coupons') }}</a>
+                            <a href="{{ route('admin.coupons') }}" class="gradient-btn-base btn-navyBlue">{{ get_phrase('Coupons') }}</a>
                         </li>
                     </ul>
                 </li>
@@ -123,13 +120,13 @@
 
                         @if (has_permission('admin.enroll.history'))
                             <li class="sidebar-second-li {{ $current_route == 'admin.enroll.history' ? 'active' : '' }}">
-                                <a href="{{ route('admin.enroll.history') }}">{{ get_phrase('Enrollment History') }}</a>
+                                <a href="{{ route('admin.enroll.history') }}" class="gradient-btn-base btn-navyBlue">{{ get_phrase('Enrollment History') }}</a>
                             </li>
                         @endif
 
                         @if (has_permission('admin.student.enroll'))
                             <li class="sidebar-second-li {{ $current_route == 'admin.student.enroll' ? 'active' : '' }}">
-                                <a href="{{ route('admin.student.enroll') }}">{{ get_phrase('Enroll student') }}</a>
+                                <a href="{{ route('admin.student.enroll') }}" class="gradient-btn-base btn-navyBlue">{{ get_phrase('Enroll student') }}</a>
                             </li>
                         @endif
                     </ul>
@@ -151,21 +148,21 @@
 
                         @if (has_permission('admin.offline.payments'))
                             <li class="sidebar-second-li {{ $current_route == 'admin.offline.payments' ? 'active' : '' }}">
-                                <a href="{{ route('admin.offline.payments') }}">{{ get_phrase('Offline payments') }}</a>
+                                <a href="{{ route('admin.offline.payments') }}" class="btn-greends">{{ get_phrase('Offline payments') }}</a>
                             </li>
                         @endif
 
                         @if (has_permission('admin.revenue'))
-                            <li class="sidebar-second-li {{ $current_route == 'admin.revenue' ? 'active' : '' }}"><a href="{{ route('admin.revenue') }}">{{ get_phrase('Admin Revenue') }}</a></li>
+                            <li class="sidebar-second-li {{ $current_route == 'admin.revenue' ? 'active' : '' }}"><a href="{{ route('admin.revenue') }}"  class="btn-greends">{{ get_phrase('Admin Revenue') }}</a></li>
                         @endif
                         @if (has_permission('admin.instructor.revenue'))
                             <li class="sidebar-second-li {{ $current_route == 'admin.instructor.revenue' ? 'active' : '' }}">
-                                <a href="{{ route('admin.instructor.revenue') }}">{{ get_phrase('Instructor Revenue') }}</a>
+                                <a href="{{ route('admin.instructor.revenue') }}"  class="btn-greends">{{ get_phrase('Instructor Revenue') }}</a>
                             </li>
                         @endif
                         @if (has_permission('admin.purchase.history'))
                             <li class="sidebar-second-li {{ $current_route == 'admin.purchase.history' || $current_route == 'admin.purchase.history.invoice' ? 'active' : '' }}">
-                                <a href="{{ route('admin.purchase.history') }}">{{ get_phrase('Payment History') }}</a>
+                                <a href="{{ route('admin.purchase.history') }}"  class="btn-greends">{{ get_phrase('Payment History') }}</a>
                             </li>
                         @endif
                     </ul>
@@ -198,13 +195,13 @@
                         <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Users') }}</li>
                         @if (has_permission('admin.admins.index'))
                             <li class="sidebar-second-li second-li-have-sub @if ($current_route == 'admin.admins.index' || $current_route == 'admin.admins.create' || $current_route == 'admin.admins.edit' || $current_route == 'admin.admins.permission') active @endif">
-                                <a href="javascript:void(0);">{{ get_phrase('Admin') }}</a>
+                                <a href="javascript:void(0);" class="btn-orange">{{ get_phrase('Admin') }}</a>
                                 <ul class="second-sub-menu">
                                     <li class="sidebar-third-li @if ($current_route == 'admin.admins.index' || $current_route == 'admin.admins.permission' || $current_route == 'admin.admins.edit') active @endif">
-                                        <a href="{{ route('admin.admins.index') }}">{{ get_phrase('Manage Admin') }}</a>
+                                        <a href="{{ route('admin.admins.index') }}" class="btn-orange">{{ get_phrase('Manage Admin') }}</a>
                                     </li>
                                     <li class="sidebar-third-li @if ($current_route == 'admin.admins.create') active @endif">
-                                        <a href="{{ route('admin.admins.create') }}">{{ get_phrase('Add New Admin') }}</a>
+                                        <a href="{{ route('admin.admins.create') }}" class="btn-orange">{{ get_phrase('Add New Admin') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -222,19 +219,19 @@
                                 <a href="javascript:void(0);">{{ get_phrase('Instructor') }}</a>
                                 <ul class="second-sub-menu">
                                     <li class="sidebar-third-li @if ($current_route == 'admin.instructor.index' || $current_route == 'admin.instructor.edit') active @endif">
-                                        <a href="{{ route('admin.instructor.index') }}">{{ get_phrase('Manage Instructors') }}</a>
+                                        <a href="{{ route('admin.instructor.index') }}" class="btn-orange">{{ get_phrase('Manage Instructors') }}</a>
                                     </li>
                                     <li class="sidebar-third-li @if ($current_route == 'admin.instructor.create') active @endif">
-                                        <a href="{{ route('admin.instructor.create') }}">{{ get_phrase('Add new Instructor') }}</a>
+                                        <a href="{{ route('admin.instructor.create') }}" class="btn-orange">{{ get_phrase('Add new Instructor') }}</a>
                                     </li>
                                     <li class="sidebar-third-li @if ($current_route == 'admin.instructor.payout' || $current_route == 'admin.instructor.payout.filter') active @endif">
-                                        <a href="{{ route('admin.instructor.payout') }}">{{ get_phrase('Instructor Payout') }}</a>
+                                        <a href="{{ route('admin.instructor.payout') }}" class="btn-orange">{{ get_phrase('Instructor Payout') }}</a>
                                     </li>
                                     <li class="sidebar-third-li @if ($current_route == 'admin.instructor.setting') active @endif">
-                                        <a href="{{ route('admin.instructor.setting') }}">{{ get_phrase('Instructor Setting') }}</a>
+                                        <a href="{{ route('admin.instructor.setting') }}" class="btn-orange">{{ get_phrase('Instructor Setting') }}</a>
                                     </li>
                                     <li class="sidebar-third-li @if ($current_route == 'admin.instructor.application') active @endif">
-                                        <a href="{{ route('admin.instructor.application') }}">{{ get_phrase('Application') }}</a>
+                                        <a href="{{ route('admin.instructor.application') }}" class="btn-orange">{{ get_phrase('Application') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -244,10 +241,10 @@
                                 <a href="javascript:void(0);">{{ get_phrase('Student') }}</a>
                                 <ul class="second-sub-menu">
                                     <li class="sidebar-third-li @if ($current_route == 'admin.student.index' || $current_route == 'admin.student.edit') active @endif">
-                                        <a href="{{ route('admin.student.index') }}">{{ get_phrase('Manage Students') }}</a>
+                                        <a href="{{ route('admin.student.index') }}"class="btn-orange">{{ get_phrase('Manage Students') }}</a>
                                     </li>
                                     <li class="sidebar-third-li @if ($current_route == 'admin.student.create') active @endif">
-                                        <a href="{{ route('admin.student.create') }}">{{ get_phrase('Add new Student') }}</a>
+                                        <a href="{{ route('admin.student.create') }}" class="btn-orange">{{ get_phrase('Add new Student') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -273,7 +270,7 @@
 
             @if (has_permission('admin.message'))
                 <li class="sidebar-first-li {{ $current_route == 'admin.message' ? 'active' : '' }}">
-                    <a href="{{ route('admin.message') }}">
+                    <a href="{{ route('admin.message') }}" class="btn-cyan-blue">
                         <span class="icon fi-rr-messages"></span>
                         <div class="text">
                             <span>{{ get_phrase('Message') }}</span>
@@ -298,9 +295,9 @@
                     <ul class="first-sub-menu">
                         <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Newsletter') }}</li>
 
-                        <li class="sidebar-second-li {{ $current_route == 'admin.newsletter' ? 'active' : '' }}"><a href="{{ route('admin.newsletter') }}">{{ get_phrase('Manage Newsletters') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.newsletter' ? 'active' : '' }}"><a href="{{ route('admin.newsletter') }}" class="btn-purple">{{ get_phrase('Manage Newsletters') }}</a></li>
                         <li class="sidebar-second-li {{ $current_route == 'admin.subscribed_user' ? 'active' : '' }}">
-                            <a href="{{ route('admin.subscribed_user') }}">{{ get_phrase('Subscribed User') }}</a>
+                            <a href="{{ route('admin.subscribed_user') }}"  class="btn-purple">{{ get_phrase('Subscribed User') }}</a>
                         </li>
                     </ul>
                 </li>
@@ -329,11 +326,11 @@
                     <ul class="first-sub-menu">
                         <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Blogs') }}</li>
 
-                        <li class="sidebar-second-li {{ $current_route == 'admin.blogs' ? 'active' : '' }}"><a href="{{ route('admin.blogs') }}">{{ get_phrase('Manage Blogs') }}</a>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.blogs' ? 'active' : '' }}"><a href="{{ route('admin.blogs') }}" class="btn-greends">{{ get_phrase('Manage Blogs') }}</a>
                         </li>
-                        <li class="sidebar-second-li {{ $current_route == 'admin.blog.pending' ? 'active' : '' }}"><a href="{{ route('admin.blog.pending') }}">{{ get_phrase('Pending Blogs') }}</a></li>
-                        <li class="sidebar-second-li {{ $current_route == 'admin.blog.category' ? 'active' : '' }}"><a href="{{ route('admin.blog.category') }}">{{ get_phrase('Category') }}</a></li>
-                        <li class="sidebar-second-li {{ $current_route == 'admin.blog.settings' ? 'active' : '' }}"><a href="{{ route('admin.blog.settings') }}">{{ get_phrase('Settings') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.blog.pending' ? 'active' : '' }}"><a href="{{ route('admin.blog.pending') }}" class="btn-greends">{{ get_phrase('Pending Blogs') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.blog.category' ? 'active' : '' }}"><a href="{{ route('admin.blog.category') }}" class="btn-greends">{{ get_phrase('Category') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.blog.settings' ? 'active' : '' }}"><a href="{{ route('admin.blog.settings') }}" class="btn-greends">{{ get_phrase('Settings') }}</a></li>
                     </ul>
                 </li>
             @endif
@@ -359,7 +356,7 @@
             <ul class="px-14px pb-24px mb-5 pb-5">
                 <li
                     class="sidebar-first-li first-li-have-sub {{ $current_route == 'admin.system.settings' || $current_route == 'admin.website.settings' || $current_route == 'admin.language.phrase.edit' || $current_route == 'admin.payment.settings' || $current_route == 'admin.manage.language' || $current_route == 'admin.notification.settings' || $current_route == 'admin.live.class.settings' || $current_route == 'admin.live.class.settings' || $current_route == 'admin.certificate.settings' || $current_route == 'admin.player.settings' || $current_route == 'admin.open.ai.settings' || $current_route == 'admin.pages' || $current_route == 'admin.seo.settings' || $current_route == 'admin.about' ? 'active' : '' }}">
-                    <a href="javascript:void(0);">
+                    <a href="javascript:void(0);"  class="btn-pink">
                         <span class="icon fi fi-rr-settings"></span>
                         <div class="text">
                             <span>{{ get_phrase('System Settings') }}</span>
@@ -368,45 +365,45 @@
                     <ul class="first-sub-menu">
                         <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('System Settings') }}</li>
                         <li class="sidebar-second-li {{ $current_route == 'admin.system.settings' ? 'active' : '' }}">
-                            <a href="{{ route('admin.system.settings') }}">{{ get_phrase('System Settings') }}</a>
+                            <a href="{{ route('admin.system.settings') }}" class="btn-pink-opaque">{{ get_phrase('System Settings') }}</a>
                         </li>
                         <li class="sidebar-second-li {{ $current_route == 'admin.website.settings' ? 'active' : '' }}">
-                            <a href="{{ route('admin.website.settings') }}">{{ get_phrase('Website Settings') }}</a>
+                            <a href="{{ route('admin.website.settings') }}" class="btn-pink-opaque">{{ get_phrase('Website Settings') }}</a>
                         </li>
                         <li class="sidebar-second-li {{ $current_route == 'admin.payment.settings' ? 'active' : '' }}">
-                            <a href="{{ route('admin.payment.settings') }}">{{ get_phrase('Payment Settings') }}</a>
+                            <a href="{{ route('admin.payment.settings') }}" class="btn-pink-opaque">{{ get_phrase('Payment Settings') }}</a>
                         </li>
 
                         <li class="sidebar-second-li {{ $current_route == 'admin.manage.language' || $current_route == 'admin.language.phrase.edit' ? 'active' : '' }}">
-                            <a href="{{ route('admin.manage.language') }}">{{ get_phrase('Manage Language') }}</a>
+                            <a href="{{ route('admin.manage.language') }}" class="btn-pink-opaque">{{ get_phrase('Manage Language') }}</a>
                         </li>
 
                         <li class="sidebar-second-li {{ $current_route == 'admin.live.class.settings' ? 'active' : '' }}">
-                            <a href="{{ route('admin.live.class.settings') }}">{{ get_phrase('Live Class Settings') }}</a>
+                            <a href="{{ route('admin.live.class.settings') }}" class="btn-pink-opaque">{{ get_phrase('Live Class Settings') }}</a>
                         </li>
-                        <li class="sidebar-second-li {{ $current_route == 'admin.notification.settings' ? 'active' : '' }}"><a href="{{ route('admin.notification.settings') }}">{{ get_phrase('SMTP Settings') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.notification.settings' ? 'active' : '' }}"><a href="{{ route('admin.notification.settings') }}" class="btn-pink-opaque">{{ get_phrase('SMTP Settings') }}</a></li>
 
                         <li class="sidebar-second-li {{ $current_route == 'admin.certificate.settings' ? 'active' : '' }}">
-                            <a href="{{ route('admin.certificate.settings') }}">{{ get_phrase('Certificate Settings') }}</a>
+                            <a href="{{ route('admin.certificate.settings') }}" class="btn-pink-opaque">{{ get_phrase('Certificate Settings') }}</a>
                         </li>
 
                         <li class="sidebar-second-li {{ $current_route == 'admin.player.settings' ? 'active' : '' }}">
-                            <a href="{{ route('admin.player.settings') }}">{{ get_phrase('Player Settings') }}</a>
+                            <a href="{{ route('admin.player.settings') }}" class="btn-pink-opaque">{{ get_phrase('Player Settings') }}</a>
                         </li>
 
-                        <li class="sidebar-second-li {{ $current_route == 'admin.open.ai.settings' ? 'active' : '' }}"><a href="{{ route('admin.open.ai.settings') }}">{{ get_phrase('Open AI Settings') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.open.ai.settings' ? 'active' : '' }}"><a href="{{ route('admin.open.ai.settings') }}" class="btn-pink-opaque">{{ get_phrase('Open AI Settings') }}</a></li>
 
-                        <li class="sidebar-second-li {{ $current_route == 'admin.pages' ? 'active' : '' }}"><a href="{{ route('admin.pages') }}">{{ get_phrase('Home Page Builder') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.pages' ? 'active' : '' }}"><a href="{{ route('admin.pages') }}" class="btn-pink-opaque">{{ get_phrase('Home Page Builder') }}</a></li>
 
-                        <li class="sidebar-second-li {{ $current_route == 'admin.seo.settings' ? 'active' : '' }}"><a href="{{ route('admin.seo.settings') }}">{{ get_phrase('SEO Settings') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.seo.settings' ? 'active' : '' }}"><a href="{{ route('admin.seo.settings') }}" class="btn-pink-opaque">{{ get_phrase('SEO Settings') }}</a></li>
 
-                        <li class="sidebar-second-li {{ $current_route == 'admin.about' ? 'active' : '' }}"><a href="{{ route('admin.about') }}">{{ get_phrase('About') }}</a></li>
+                        <li class="sidebar-second-li {{ $current_route == 'admin.about' ? 'active' : '' }}"><a href="{{ route('admin.about') }}" class="btn-pink-opaque">{{ get_phrase('About') }}</a></li>
                     </ul>
                 </li>
 
                 @if (has_permission('admin.manage.profile'))
                     <li class="sidebar-first-li {{ $current_route == 'admin.manage.profile' ? 'active' : '' }}">
-                        <a href="{{ route('admin.manage.profile') }}">
+                        <a href="{{ route('admin.manage.profile') }}" class="btn-brightOrange">
                             <span class="icon fi-rr-circle-user"></span>
                             <div class="text">
                                 <span>{{ get_phrase('Manage Profile') }}</span>

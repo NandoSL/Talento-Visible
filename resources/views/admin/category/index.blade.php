@@ -31,11 +31,11 @@
     <div class="row g-4 all-category-list">
         @foreach ($categories as $category)
             <div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="ol-card category-card radious-10px h-100">
+                <div class="ol-card category-card radious-0.75rem h-100">
                     <img src="{{ get_image($category->thumbnail) }}" class="card-img-top" alt="...">
-                    <h6 class="title fs-14px mb-12px px-3 pt-3 d-flex align-baseline">
+                    <h6 class="title fs-18px mb-12px px-3 pt-3 d-flex align-baseline font-roboto" >
                         <i class="me-1 {{ $category->icon }}"></i>
-                        {{ $category->title }} <span class="text-muted d-inline-block ms-auto">({{ $category->childs->count() }})</span>
+                        {{ $category->title }}<span class="d-inline-block ms-auto p-2 rounded-pill bg-info text-white">({{ $category->childs->count() }})</span>
                     </h6>
                     <div class="ol-card-body">
                         <ul class="list-group list-group-flush">
@@ -43,7 +43,7 @@
                                 <li class="list-group-item text-muted">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <i class="{{ $child_category->icon }}"></i> <span class="text-12px">{{ $child_category->title }}</span>
+                                            <i class="{{ $child_category->icon }}"></i> <span class="text-500px">{{ $child_category->title }}</span>
                                         </div>
                                         <div class="col-auto ms-auto d-flex subcategory-actions">
                                             <a onclick="ajaxModal('{{ route('modal', ['admin.category.edit', 'id' => $child_category->id]) }}', '{{ get_phrase('Edit category') }}')" class="mx-1" data-bs-toggle="tooltip" title="{{ get_phrase('Edit') }}" href="#"><i class="fi fi-rr-pen-clip"></i></a>
@@ -54,9 +54,9 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="category-footer ol-card-body text-center py-1">
+                    <div class="category-footer ol-card-body text-center py-1  radious-o.75rem">
                         <a onclick="ajaxModal('{{ route('modal', ['admin.category.create', 'parent_id' => $category->id]) }}', '{{ get_phrase('Add new category') }}')" href="#" class="btn text-12px fw-600"><i class="fi fi-rr-plus"></i></i> {{ get_phrase('Add') }}</a>
-                        <a href="#" onclick="ajaxModal('{{ route('modal', ['admin.category.edit', 'id' => $category->id]) }}', '{{ get_phrase('Edit category') }}')" class="btn text-12px fw-600"><i class="fi fi-rr-pen-clip"></i> {{ get_phrase('Edit') }}</a>
+                        <a href="#" onclick="ajaxModal('{{ route('modal', ['admin.category.edit', 'id' => $category->id]) }}', '{{ get_phrase('Edit category') }}')" class="btn text-12px fw-600 "><i class="fi fi-rr-pen-clip"></i> {{ get_phrase('Edit') }}</a>
                         <a href="#" onclick="confirmModal('{{ route('admin.category.delete', $category->id) }}')" class="btn text-12px fw-600"><i class="fi-rr-trash"></i>
                             {{ get_phrase('Delete') }}</a>
                     </div>
