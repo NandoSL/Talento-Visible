@@ -7,7 +7,7 @@
         <input type="text" name = "class_topic" id = "class_topic" class="form-control ol-form-control" required>
     </div>
 
-    <div class="fpb-7 mb-3">
+    <div class="fpb-7 mb-3" style="display: none">
         <label class="form-label ol-form-label" for="live_class_instructor_id">{{ get_phrase('Instructor') }}<span class="required">*</span></label>
         <select class="ol-select2" name="user_id" id="live_class_instructor_id">
             @foreach (App\Models\Course::where('id', $course_id)->first()->instructors() as $instructor)
