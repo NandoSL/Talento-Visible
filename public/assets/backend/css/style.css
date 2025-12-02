@@ -404,7 +404,7 @@ span[class="fi-rr-"]:before {
 /* card */
 .ol-card{
     border-radius: 0.75rem;
-    background: #ECFEFF;
+    background: var(--neutral-100);
 
 }
 .card-hover{
