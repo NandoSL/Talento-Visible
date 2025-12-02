@@ -30,9 +30,9 @@
                         <div class="fpb-7 mb-3">
                             <label class="form-label ol-form-label" for="multiple_user_id">{{ get_phrase('Users') }}<span class="required text-danger">*</span>
                             </label>
-                            <select class="ol-select2 select2-hidden-accessible" name="user_id[]" multiple="multiple" required>
+                            <select class="ol-select2 select2-hidden-accessible" name="user_id[]" multiple="multiple" required class="caja-sombra-azul">
                                 @foreach ($students as $student)
-                                    <option value="{{$student->id}}">{{$student->name}} ({{$student->email}})</option>
+                                    <option value="{{$student->id}}" >{{$student->name}} ({{$student->email}})</option>
                                 @endforeach
                             </select>
                         </div>
@@ -49,7 +49,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn ol-btn-primary mt-2">{{ get_phrase('Enroll student') }}</button>
+                        <button type="submit" class="Enrroll-students">{{ get_phrase('Enroll student') }}</button>
                     </form>
                 </div>
             </div>

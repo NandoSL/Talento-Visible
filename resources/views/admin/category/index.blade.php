@@ -21,7 +21,7 @@
 
                 <a onclick="ajaxModal('{{ route('modal', ['admin.category.create', 'parent_id' => 0]) }}', '{{ get_phrase('Add new category') }}')" href="#" class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
                     <span class="fi-rr-plus"></span>
-                    <span>{{ get_phrase('Add new category') }}</span>
+                    <span class="fdfdfdfd">{{ get_phrase('Add new category') }}</span>
                 </a>
             </div>
         </div>

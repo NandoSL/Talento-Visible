@@ -86,6 +86,7 @@
 }
 :root {
     --skinColor: #0088bd;
+    --blue:#005fcf;
     --whiteColor: #FFF;
     --blackColor: #000;
     --darkColor: #0a1017;
@@ -402,8 +403,9 @@ span[class="fi-rr-"]:before {
 
 /* card */
 .ol-card{
-    border-radius: 12px;
-    background: var(--whiteColor);
+    border-radius: 0.75rem;
+    background: #ECFEFF;
+
 }
 .card-hover{
     transition: .3s;
@@ -464,7 +466,7 @@ span[class="fi-rr-"]:before {
 .ol-btn-primary{
     border-radius: 8px;
     padding: 10.5px 24px;
-    background: var(--skinColor);
+    background: var(--blue);
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.01em;
@@ -502,7 +504,7 @@ span[class="fi-rr-"]:before {
 
 .ol-btn-outline-secondary{
     border: 1px solid var(--borderColor);
-    background: linear-gradient(to right, #00BD80, #00BBAF, #08BAD4);;
+    background: linear-gradient(to right, #00BD80, #00BBAF, #08BAD4);
     border-radius: 8px;
     padding: 9.5px 23px;
     font-weight: 500;
@@ -3433,6 +3435,20 @@ team training start
 
 .categori-create {
      border: 1px solid var(--borderColor);
+    background: linear-gradient(to right, #00BD80, #00BBAF, #08BAD4);;
+    border-radius: 8px;
+    padding: 9.5px 23px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: var(--neutral-100);
+    border-radius: 0.5rem;
+    transition: .3s;
+    width: max-content;
+}
+
+.Enrroll-students{
+         border: 1px solid var(--borderColor);
     background: linear-gradient(to right, #00BD80, #00BBAF, #08BAD4);;
     border-radius: 8px;
     padding: 9.5px 23px;
