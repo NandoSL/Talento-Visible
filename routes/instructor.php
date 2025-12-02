@@ -16,6 +16,7 @@ use App\Http\Controllers\instructor\QuizController;
 use App\Http\Controllers\instructor\SalesReportController;
 use App\Http\Controllers\instructor\SectionController;
 use App\Http\Controllers\instructor\TeamTrainingController;
+use App\Http\Controllers\LiveClassController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -176,6 +177,18 @@ Route::name('instructor.')->prefix('instructor')->middleware(['instructor', 'ip.
 
         Route::get('get-courses-by-privacy/', 'get_courses')->name('get.courses.by.privacy');
         Route::get('get-courses-price/', 'get_course_price')->name('get.course.price');
+    });
+
+    // Live class
+    Route::controller(LiveClassController::class)->group(function () {
+        Route::post('live-class/store/{course_id}/{rol?}', 'live_class_store')->name('live.class.store');
+        Route::post('live-class/update/{id}/{rol?}', 'live_class_update')->name('live.class.update');
+        Route::get('live-class/delete/{id}/{rol?}', 'live_class_delete')->name('live.class.delete');
+
+        Route::get('live-class/start/{id}', 'live_class_start')->name('live.class.start');
+
+        //Route::get('live-class/settings', 'live_class_settings')->name('live.class.settings');
+        //Route::post('live-class/settings/update', 'update_live_class_settings')->name('live.class.settings.update');
     });
 
 });
