@@ -36,7 +36,7 @@
                             </td>
                             <td class="p-0 pt-3">
                                 <a href="{{ route('admin.live.class.start', ['id' => $live_class->id]) }}" class="btn py-0 ps-1 pe-1 text-dark" data-bs-toggle="tooltip"
-                                    data-bs-title="{{ get_phrase('Start live class') }}"><i class="fi-rr-video-camera"></i></a>
+                                    data-bs-title="{{ get_phrase('Start live class') }}" @if (get_settings('zoom_web_sdk') !== 'active') target="_blank" @endif><i class="fi-rr-video-camera"></i></a>
                                 <a href="#" class="btn py-0 px-1 text-dark"
                                     onclick="ajaxModal('{{ route('modal', ['view_path' => 'admin.course.edit_live_class', 'id' => $live_class->id]) }}', '{{ get_phrase('Edit live class') }}')"
                                     data-bs-toggle="tooltip" data-bs-title="{{ get_phrase('Edit') }}"><i class="fi-rr-pencil"></i></a>

@@ -22,9 +22,9 @@
                             <td class="p-0">{{ date('d M Y - h:i A', strtotime($live_class->class_date_and_time)) }}
                             </td>
                             <td class="p-0">
-                                <a href="{{ route('instructor.live.class.start', ['id' => $live_class->id]) }}" class="btn py-0 ps-1 pe-1 text-dark" data-bs-toggle="tooltip" data-bs-title="{{ get_phrase('Start live class') }}"><i class="fi-rr-video-camera"></i></a>
+                                <a href="{{ route('instructor.live.class.start', ['id' => $live_class->id]) }}" @if (get_settings('zoom_web_sdk') !== 'active') target="_blank" @endif class="btn py-0 ps-1 pe-1 text-dark" data-bs-toggle="tooltip" data-bs-title="{{ get_phrase('Start live class') }}"><i class="fi-rr-video-camera"></i></a>
                                 <a href="#" class="btn py-0 px-1 text-dark" onclick="ajaxModal('{{ route('modal', ['view_path' => 'instructor.course.edit_live_class', 'id' => $live_class->id]) }}', '{{ get_phrase('Edit live class') }}')" data-bs-toggle="tooltip" data-bs-title="{{ get_phrase('Edit') }}"><i class="fi-rr-pencil"></i></a>
-                                <a href="#" class="btn py-0 px-1 text-danger" onclick="confirmModal('{{ route('instructor.live.class.delete', ['id' => $live_class->id]) }}')" data-bs-toggle="tooltip" data-bs-title="{{ get_phrase('Delete') }}"><i class="fi-rr-trash"></i></a>
+                                <a href="#" class="btn py-0 px-1 text-danger" onclick="confirmModal('{{ route('instructor.live.class.delete', ['id' => $live_class->id, 'rol' => 'instructor']) }}')" data-bs-toggle="tooltip" data-bs-title="{{ get_phrase('Delete') }}"><i class="fi-rr-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

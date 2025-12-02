@@ -27,17 +27,18 @@ class LiveClassController extends Controller
         }
     }
 
-    public function live_class_store(Request $request, $course_id)
+    public function live_class_store(Request $request, $course_id, $rol = 'admin')
     {
         $validated = $request->validate([
             'class_topic'         => 'required|max:255',
             'class_date_and_time' => 'date|required',
-            'user_id'             => 'required',
+            //'user_id'             => 'required',
         ]);
 
         $data['class_topic']         = $request->class_topic;
         $data['course_id']           = $request->course_id;
-        $data['user_id']             = $request->user_id;
+        //$data['user_id']             = $request->user_id;
+        $data['user_id']             = auth()->user()->id;
         $data['provider']            = $request->provider;
         $data['class_date_and_time'] = date('Y-m-d\TH:i:s', strtotime($request->class_date_and_time));
         $data['note']                = $request->note;
@@ -52,21 +53,28 @@ class LiveClassController extends Controller
         }
         Live_class::insert($data);
 
+        if ($rol !== 'admin') {
+            return redirect()->route('instructor.course.edit', [
+                'id' => $course_id,
+                'tab' => 'live-class'
+            ])->with('success', get_phrase('Live class added successfully'));
+        }
+
         return redirect(route('admin.course.edit', ['id' => $course_id, 'tab' => 'live-class']))->with('success', get_phrase('Live class added successfully'));
     }
 
-    public function live_class_update(Request $request, $id)
+    public function live_class_update(Request $request, $id, $rol = 'admin')
     {
         $previous_meeting_data = Live_class::where('id', $id)->first();
 
         $request->validate([
             'class_topic'         => 'required|max:255',
             'class_date_and_time' => 'date|required',
-            'user_id'             => 'required',
+            //'user_id'             => 'required',
         ]);
 
         $data['class_topic']         = $request->class_topic;
-        $data['user_id']             = $request->user_id;
+        $data['user_id']             = auth()->user()->id;
         $data['class_date_and_time'] = date('Y-m-d\TH:i:s', strtotime($request->class_date_and_time));
         $data['note']                = $request->note;
 
@@ -79,10 +87,17 @@ class LiveClassController extends Controller
         }
         Live_class::where('id', $id)->update($data);
 
+        if ($rol !== 'admin') {
+            return redirect()->route('instructor.course.edit', [
+                'id' => $previous_meeting_data->course_id,
+                'tab' => 'live-class'
+            ])->with('success', get_phrase('Live class updated successfully'));
+        }
+
         return redirect(route('admin.course.edit', ['id' => $previous_meeting_data->course_id, 'tab' => 'live-class']))->with('success', get_phrase('Live class updated successfully'));
     }
 
-    public function live_class_delete($id)
+    public function live_class_delete($id, $rol = 'admin')
     {
         $previous_meeting_data = Live_class::where('id', $id)->first();
         $course                = Course::where('id', $previous_meeting_data->course_id)->first();
@@ -91,6 +106,13 @@ class LiveClassController extends Controller
             $previous_meeting_info = json_decode($previous_meeting_data->additional_info, true);
             $this->delete_zoom_live_class($previous_meeting_info['id']);
             Live_class::where('id', $id)->delete();
+        }
+
+        if ($rol !== 'admin') {
+            return redirect()->route('instructor.course.edit', [
+                'id' => $previous_meeting_data->course_id,
+                'tab' => 'live-class'
+            ])->with('success', get_phrase('Live class deleted successfully'));
         }
 
         return redirect(route('admin.course.edit', ['id' => $previous_meeting_data->course_id, 'tab' => 'live-class']))->with('success', get_phrase('Live class deleted successfully'));
@@ -103,6 +125,12 @@ class LiveClassController extends Controller
 
     public function update_live_class_settings(Request $request)
     {
+
+        // TODO: Forzar a que zoom_web_sdk sea inactive hasta poder configurar un servicio sdk actual
+        $request->merge([
+            'zoom_web_sdk' => 'inactive'
+        ]);
+
         $validated = $request->validate([
             'zoom_account_email' => 'required:email',
             'zoom_web_sdk'       => 'required|in:active,inactive',
