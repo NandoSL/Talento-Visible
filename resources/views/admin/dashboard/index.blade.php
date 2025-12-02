@@ -9,7 +9,7 @@
         <div class="ol-card-body my-3 py-4 px-20px">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
                 <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
+                    <i class="fi-rr-settings-sliders  me-2"></i>
                     {{ get_phrase('Dashboard') }}
                 </h4>
             </div>
@@ -20,7 +20,7 @@
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
                     <div class="w-10 h-10  flex items-center justify-center rounded">
-                        <i class="fi fi-rr-book-open-cover p-2 txt-color bg-color-degraded" style="--txt-color: #FFF;  --color1:#3B9FD0; --color2:#107BE3; border-radius:10%;"></i>
+                        <i class="fi fi-rr-book-open-cover fs-30px p-2 txt-color bg-color-degraded" style="--txt-color: #FFF;  --color1:#3B9FD0; --color2:#107BE3; border-radius:10%;"></i>
                     </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\Course::count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Courses') }}</p>
@@ -31,7 +31,7 @@
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
                     <div class="w-10 h-10  flex items-center justify-center rounded">
-                        <i class="fi fi-rr-file-spreadsheet p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#6111D1; --color2:#B487F2; border-radius:10%;"></i>
+                        <i class="fi fi-rr-file-spreadsheet fs-30px p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#6111D1; --color2:#B487F2; border-radius:10%;"></i>
                     </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\Lesson::count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Lessons') }}</p>
@@ -42,9 +42,7 @@
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
                     <div class="w-10 h-10  flex items-center justify-center rounded">
-                        <i class="fi fi-rr-users-alt p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#50F350; --color2:#009C00; border-radius:10%;">
-</i>
-
+                        <i class="fi fi-rr-users-alt fs-30px p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#50F350; --color2:#009C00; border-radius:10%;"></i>
                     </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\Enrollment::count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Enrollment') }}</p>
@@ -55,7 +53,7 @@
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
                     <div class="w-10 h-10  flex items-center justify-center rounded">
-                        <i class="fi fi-rr-users p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#FF9302; --color2:#BA6A00; border-radius:10%;"></i>
+                        <i class="fi fi-rr-users fs-30px p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#FF9302; --color2:#BA6A00; border-radius:10%;"></i>
                     </div> 
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\User::where('role', 'student')->count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Students') }}</p>
@@ -66,7 +64,7 @@
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
                     <div class="w-10 h-10  flex items-center justify-center rounded">
-                        <i class="fi fi-rr-graduation-cap p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#F0027F; --color2:#970050; border-radius:10%;"></i>
+                        <i class="fi fi-rr-graduation-cap fs-30px p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#F0027F; --color2:#970050; border-radius:10%;"></i>
                     </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\User::where('role', 'instructor')->count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Instructor') }}</p>
