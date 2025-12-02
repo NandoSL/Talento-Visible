@@ -3230,3 +3230,42 @@ team training start
     right: 20px;
     transform: translateY(-50%);
 }
+/*text*/
+.txt-color {
+    color: var(--txt-color);
+}
+.bg-color-solid {
+    background-color: var(--bg-color);
+}
+.bg-color-degraded{
+    background:linear-gradient(to bottom right,var(--color1),var(--color2))
+}
+.stadistic_row{
+    display: flex;
+    gap:10px;
+   
+    
+}
+.admin_revenue_table_stadistic{
+    width: 100%;
+    
+}
+.course_status_table{
+    width: 100%;
+    padding: 10px;
+    background-color: #FFF; 
+    border-radius: 10px;
+}
+.status_stadisctic{
+    width: 100%;
+    align-items: center;
+}
+.bg_status_stadistic{
+    display: flex;
+    align-self:center;
+    width: 100%;
+    
+}
+.pending_request_withdrawal{
+    width: 100%;
+}

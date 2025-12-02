@@ -4,6 +4,7 @@
 @push('css')
 @endpush
 @section('content')
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
     <div class="ol-card radius-8px">
         <div class="ol-card-body my-3 py-4 px-20px">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
@@ -14,11 +15,13 @@
             </div>
         </div>
     </div>
-
     <div class="row g-2 g-sm-3 my-3 row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
+                    <div class="w-10 h-10  flex items-center justify-center rounded">
+                        <i class="fi fi-rr-book-open-cover p-2 txt-color bg-color-degraded" style="--txt-color: #FFF;  --color1:#3B9FD0; --color2:#107BE3; border-radius:10%;"></i>
+                    </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\Course::count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Courses') }}</p>
                 </div>
@@ -27,6 +30,9 @@
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
+                    <div class="w-10 h-10  flex items-center justify-center rounded">
+                        <i class="fi fi-rr-file-spreadsheet p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#6111D1; --color2:#B487F2; border-radius:10%;"></i>
+                    </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\Lesson::count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Lessons') }}</p>
                 </div>
@@ -35,6 +41,11 @@
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
+                    <div class="w-10 h-10  flex items-center justify-center rounded">
+                        <i class="fi fi-rr-users-alt p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#50F350; --color2:#009C00; border-radius:10%;">
+</i>
+
+                    </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\Enrollment::count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Enrollment') }}</p>
                 </div>
@@ -43,6 +54,9 @@
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
+                    <div class="w-10 h-10  flex items-center justify-center rounded">
+                        <i class="fi fi-rr-users p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#FF9302; --color2:#BA6A00; border-radius:10%;"></i>
+                    </div> 
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\User::where('role', 'student')->count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Students') }}</p>
                 </div>
@@ -51,83 +65,88 @@
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-20px py-3">
+                    <div class="w-10 h-10  flex items-center justify-center rounded">
+                        <i class="fi fi-rr-graduation-cap p-2 txt-color bg-color-degraded" style="--txt-color: #FFF; --color1:#F0027F; --color2:#970050; border-radius:10%;"></i>
+                    </div>
                     <p class="title card-title-hover fs-18px my-2">{{App\Models\User::where('role', 'instructor')->count()}}</p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Instructor') }}</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="ol-card p-3">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="title fs-14px">{{ get_phrase('Admin Revenue This Year') }}</h2>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <a class="btn-link" href="{{route('admin.revenue')}}" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" title="{{ get_phrase('Admin Revenue') }}"><i class="fi-rr-arrow-alt-right"></i></a>
-                    </div>
-                </div>
-                <div class="ol-card-body">
-                    <canvas id="myChart" class="mw-100 w-100" height="320px"></canvas>
-                </div> <!-- end card body-->
-            </div> <!-- end card -->
-        </div><!-- end col-->
-    </div>
-
-
-    <div class="row my-3">
-        <div class="col-md-5">
-            <div class="ol-card">
-                <div class="ol-card-body p-3">
+    <div class="stadistic_row">
+        <div class="admin_revenue_table_stadistic">
+            <div class="col-xl-12">
+                <div class="ol-card p-3">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4 class="title fs-14px">{{get_phrase('Course Status')}}</h4>
+                            <h2 class="title fs-14px">{{ get_phrase('Admin Revenue This Year') }}</h2>
                         </div>
                         <div class="col-md-6 text-end">
-                            <a class="btn-link" href="{{route('admin.courses')}}" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="{{ get_phrase('Explore Courses') }}"><i class="fi-rr-arrow-alt-right"></i></a>
+                            <a class="btn-link" href="{{route('admin.revenue')}}" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="{{ get_phrase('Admin Revenue') }}"><i class="fi-rr-arrow-alt-right"></i></a>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center g-30px flex-wrap flex-xl-nowrap justify-content-center">
-                        <div class="pie-chart-sm">
-                            <canvas id="pie2"></canvas>
+                    <div class="ol-card-body">
+                        <canvas id="myChart" class="mw-100 w-100" height="320px"></canvas>
+                    </div> <!-- end card body-->
+                </div> <!-- end card -->
+            </div><!-- end col-->
+        </div>
+        <div class="course_status_table">
+            <div class=" text-end">
+                                <a class="btn-link" href="{{route('admin.courses')}}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    title="{{ get_phrase('Explore Courses') }}"><i class="fi-rr-arrow-alt-right"></i></a>
+                            </div>
+            <div class="status_stadisctic">
+                 
+                <div class="bg_status_stadistic">
+                            <div class="col-md-6">
+                                <h4 class="title fs-14px">{{get_phrase('Course Status')}}</h4>
+                            </div>
+                
+                        
+                        <div class="d-flex align-items-center g-30px flex-wrap flex-xl-nowrap justify-content-center">
+                            <div class="pie-chart-sm">
+                                <canvas id="pie2"></canvas>
+                            </div>
+                            <div class="pie-chart-sm-details">
+                                <ul class="color-info-list">
+                                    <li>
+                                        <span class="info-list-color bg-active"></span>
+                                        <span class="title2 fs-14px">{{get_phrase('Active')}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="info-list-color bg-upcoming"></span>
+                                        <span class="title2 fs-14px">{{get_phrase('Upcoming')}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="info-list-color bg-pending"></span>
+                                        <span class="title2 fs-14px">{{get_phrase('Pending')}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="info-list-color bg-private"></span>
+                                        <span class="title2 fs-14px">{{get_phrase('Private')}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="info-list-color bg-draft"></span>
+                                        <span class="title2 fs-14px">{{get_phrase('Draft')}}</span>
+                                    </li>
+                                    <li>
+                                        <span class="info-list-color bg-inactive"></span>
+                                        <span class="title2 fs-14px">{{get_phrase('Inactive')}}</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="pie-chart-sm-details">
-                            <ul class="color-info-list">
-                                <li>
-                                    <span class="info-list-color bg-active"></span>
-                                    <span class="title2 fs-14px">{{get_phrase('Active')}}</span>
-                                </li>
-                                <li>
-                                    <span class="info-list-color bg-upcoming"></span>
-                                    <span class="title2 fs-14px">{{get_phrase('Upcoming')}}</span>
-                                </li>
-                                <li>
-                                    <span class="info-list-color bg-pending"></span>
-                                    <span class="title2 fs-14px">{{get_phrase('Pending')}}</span>
-                                </li>
-                                <li>
-                                    <span class="info-list-color bg-private"></span>
-                                    <span class="title2 fs-14px">{{get_phrase('Private')}}</span>
-                                </li>
-                                <li>
-                                    <span class="info-list-color bg-draft"></span>
-                                    <span class="title2 fs-14px">{{get_phrase('Draft')}}</span>
-                                </li>
-                                <li>
-                                    <span class="info-list-color bg-inactive"></span>
-                                    <span class="title2 fs-14px">{{get_phrase('Inactive')}}</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
-        <div class="col-md-7">
+    </div>
+    <br>
+    <div class="pending_request_withdrawal">
+        
             <div class="ol-card" id = 'unpaid-instructor-revenue'>
                 <div class="ol-card-body p-3">
                     <div class="row">
@@ -162,7 +181,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </div>
 
     @php
