@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <div class="ol-card-body">
                     <form action="{{ route('admin.blog.settings.update') }}" method="post" enctype="multipart/form-data">@csrf
                         <div class="fpb-7 mb-3">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="fpb7 mb-3">
-                            <button class="ol-btn-primary" type="submit">{{ get_phrase('Save changes') }}</button>
+                            <button class="Enrroll-students" type="submit">{{ get_phrase('Save changes') }}</button>
                         </div>
                     </form>
                 </div>

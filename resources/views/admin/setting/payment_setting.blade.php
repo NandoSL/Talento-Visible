@@ -24,7 +24,7 @@
                 $payment_gateways = App\Models\Payment_gateway::get();
             @endphp
             <div class="ol-card">
-                <div class="ol-card-body p-4">
+                <div class="ol-card2  p-4">
                     <div class="d-flex gap-3 flex-wrap flex-md-nowrap">
                         <div class="ol-sidebar-tab">
                             <div class="nav flex-column nav-pills" id="myv-pills-tab" role="tablist" aria-orientation="vertical">

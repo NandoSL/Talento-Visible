@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="col-md-7">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('Configure ZOOM server-to-server-oauth credentials') }}</h3>
                 <div class="ol-card-body">
                     <form class="required-form" action="{{ route('admin.live.class.settings.update') }}" method="post">
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="fpb-7 mb-3">
-                            <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                            <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
                         </div>
                     </form>
                 </div>

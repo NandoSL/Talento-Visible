@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ol-card p-3">
+            <div class="ol-card2 p-3">
                 <div class="ol-card-body">
                     <form action="{{ route('admin.course.store') }}" method="post" enctype="multipart/form-data">
                         @csrf

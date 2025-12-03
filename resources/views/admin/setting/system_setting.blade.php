@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="col-xl-7">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('System Settings') }}</h3>
                 <div class="ol-card-body">
                     <div class="col-lg-12">
@@ -127,7 +127,7 @@
                                 <input type="text" name = "footer_link" id = "footer_link" class="form-control ol-form-control" value="{{ get_settings('footer_link') }}">
                             </div>
 
-                            <button type="submit" class="btn ol-btn-primary" onclick="checkRequiredFields()">{{ get_phrase('Save Changes') }}</button>
+                            <button type="submit" class="Enrroll-students" onclick="checkRequiredFields()">{{ get_phrase('Save Changes') }}</button>
                         </form>
 
 
@@ -136,7 +136,7 @@
             </div> <!-- end card -->
         </div><!-- end col-->
         <div class="col-xl-5">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('Update Product') }}</h3>
                 <div class="ol-card-body">
                     <div class="col-lg-12">

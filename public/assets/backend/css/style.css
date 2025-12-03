@@ -123,6 +123,7 @@
     --color-purple-400: oklch(.714 .203 305.504);
     --color-purple-500: oklch(.627 .265 303.9);
     --color-pink-500: oklch(.656 .241 354.308);
+    --formBackground: #F6F0FE;
 }    
 body{
     padding: 0;
@@ -407,6 +408,12 @@ span[class="fi-rr-"]:before {
     background: var(--neutral-100);
 
 }
+
+.ol-card2 {
+    background: var(--formBackground);
+       box-shadow:0 4px 8px rgb(215, 154, 223);
+       border-radius: 0.75rem;
+}
 .card-hover{
     transition: .3s;
     cursor: pointer;
@@ -663,7 +670,7 @@ span[class="fi-rr-"]:before {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 10px; 
+    padding-left: 25%; 
     padding-right: 10px;
     padding-top: 45px;
     padding-bottom: 45px;
@@ -1236,7 +1243,7 @@ span[class="fi-rr-"]:before {
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-    background: var(--whiteColor);
+    box-shadow:0 4px 8px rgb(215, 154, 223);
 }
 .mobile-search-inner .form-control::placeholder{
     color: var(--grayColor);
@@ -1489,23 +1496,24 @@ span[class="fi-rr-"]:before {
     width: 30px;
 }
 .user-profile-sm img{
-   /* Define el tamaño fijo del área del perfil (ejemplo) */
+   /* ... (Propiedades existentes) ... */
     width: 100px; 
     height: 100px;
-    
-    /* Aplica el fondo azul al contenedor. Se verá si la imagen no se carga. */
     background: #005fcf; 
-    
-    /* Asegura que cualquier cosa que se desborde (como la imagen antes de ajustarse) se oculte */
     overflow: hidden; 
-    
-    /* Aplica el redondeo al contenedor */
     border-radius: 0.75rem; 
-    
-    /* Si quieres centrar un texto/letra si no hay imagen: */
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* 👇 AGREGAR ESTO: La sombra desplazada y sin desenfoque */
+    /* Sintaxis: H-Offset | V-Offset | Blur | Spread | Color */
+    box-shadow: 8px 8px 0px 0px #1abc9c; /* Ejemplo de color verde azulado */
+    
+    /* Nota: Si quieres un cuadro que parezca más 'separado',
+       puedes usar un color blanco/claro y luego el box-shadow:
+       box-shadow: 8px 8px 0px 0px #1abc9c; 
+    */
 }
 .header-dropdown-menu-md{
     position: absolute;
@@ -1726,9 +1734,9 @@ span[class="fi-rr-"]:before {
 }
 /* Input */
 .ol-form-control{
-    border: 1px solid var(--brand-cyan);
+    border: 1px solid var(--background);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 8px rgba(6, 59, 233, 0.1); 
+    box-shadow: 0 4px 8px rgb(215, 154, 223); 
     transition: box-shadow 0.3s ease-in-out;
     padding: 10px 15px;
     font-weight: 400;
@@ -1777,6 +1785,7 @@ textarea.ol-form-textarea{
     line-height: 14px;
     color: var(--darkColor);
     margin-top: 10px;
+   
 }
 
 /* Select 2 */
@@ -1791,6 +1800,15 @@ textarea.ol-form-textarea{
     border-radius: 8px;
     padding: 10px 35px 10px 15px;
     transition: .3s;
+    box-shadow:0 4px 8px rgb(215, 154, 223);
+}
+
+.ol-card-enroll{
+      border: 1px solid var(--borderColor);
+    border-radius: 8px;
+    padding: 10px 35px 10px 15px;
+    transition: .3s;
+    box-shadow:0 4px 8px rgb(215, 154, 223);
 }
 .ol-select2 ~ .select2-container--default .select2-selection--single:hover{
     border-color: var(--skinColor);
@@ -2908,7 +2926,7 @@ textarea.ol-form-textarea{
     transition: .3s;
   }
   .ol-sidebar-tab .nav-link:hover{
-    background: var(--skinColor);
+    background:  #F4A1CF;
     color: var(--whiteColor);
   }
   .ol-sidebar-tab .nav-link.active{
@@ -2924,7 +2942,7 @@ textarea.ol-form-textarea{
   .ol-sidebar-tab .nav-pills .nav-link.active,
   .ol-sidebar-tab .nav-pills .show > .nav-link {
     color: var(--whiteColor);
-    background-color: var(--skinColor);
+    background: linear-gradient(to right, #CE90F3, #F4A1CF, #F693A7);;;
   }
   .ol-sidebar-tab .nav-pills .nav-link:hover span::before,
   .ol-sidebar-tab .nav-pills .nav-link.active span::before,
@@ -3392,8 +3410,8 @@ opacity: 1;
     border: 3px solid #fff;
     outline: 1px solid rgb(255 85 119);
     animation: blink 2s linear infinite;
+ 
 }
-
 @keyframes blink{
     0%{
         background: rgba(255, 85,119, .3);
@@ -3487,7 +3505,45 @@ team training start
 
 .Enrroll-students{
          border: 1px solid var(--borderColor);
-    background: linear-gradient(to right, #00BD80, #00BBAF, #08BAD4);;
+    background: linear-gradient(to right, #CC8EF3, #EF96D0, #F891A4);;
+    border-radius: 8px;
+    padding: 9.5px 23px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: var(--neutral-100);
+    border-radius: 0.5rem;
+    transition: .3s;
+    width: max-content;
+}
+
+
+
+.image-admins {
+
+    /* ... (Propiedades existentes) ... */
+    width: 50px; 
+    height: 50px;
+    background: #005fcf; 
+    overflow: hidden; 
+    border-radius: 0.75rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 👇 AGREGAR ESTO: La sombra desplazada y sin desenfoque */
+    /* Sintaxis: H-Offset | V-Offset | Blur | Spread | Color */
+    box-shadow: 2px 2px 2px 2px #68dac3; /* Ejemplo de color verde azulado */
+    
+    /* Nota: Si quieres un cuadro que parezca más 'separado',
+       puedes usar un color blanco/claro y luego el box-shadow:
+       box-shadow: 8px 8px 0px 0px #1abc9c; 
+    */
+}
+
+.categori-creates{
+       border: 1px solid var(--borderColor);
+    background: linear-gradient(to right, #CE90F3, #F4A1CF, #F693A7);;
     border-radius: 8px;
     padding: 9.5px 23px;
     font-weight: 500;

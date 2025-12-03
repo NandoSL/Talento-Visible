@@ -21,7 +21,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="ol-card p-4">
+            <div class="ol-card-enroll p-4">
                 <h3 class="title fs-14px mb-3">{{get_phrase('Enroll students')}}</h3>
                 <div class="ol-card-body">
                     <form class="" action="{{ route('admin.student.post') }}" method="post" enctype="multipart/form-data">

@@ -41,7 +41,7 @@
             </div>
 
             <div class="mb-2">
-                <button class="categori-create">{{ get_phrase('Submit') }}</button>
+                <button class="categori-creates">{{ get_phrase('Submit') }}</button>
             </div>
         </div>
     </div>

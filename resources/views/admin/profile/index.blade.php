@@ -20,7 +20,7 @@
 
     <div class="row ">
         <div class="col-xl-7">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <div class="ol-card-body">
                     <form action="{{ route('admin.manage.profile.update') }}" method="post" enctype="multipart/form-data">@csrf
                         <input type="hidden" name="type" value="general">
@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="fpb7 mb-2">
-                            <button type="submit" class="btn mt-4 ol-btn-primary">{{ get_phrase('Update profile') }}</button>
+                            <button type="submit" class="Enrroll-students mt-4">{{ get_phrase('Update profile') }}</button>
                         </div>
                     </form>
 
@@ -89,7 +89,7 @@
             </div> <!-- end card -->
         </div>
         <div class="col-xl-5">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <div class="ol-card-body">
                     <form action="{{ route('admin.manage.profile.update') }}" method="post"> @csrf
                         <div class="fpb7 mb-2">
@@ -105,7 +105,7 @@
                             <input type="password" class="form-control ol-form-control" name="confirm_password" required />
                         </div>
                         <div class="fpb7 mb-2">
-                            <button type="submit" class="ol-btn-primary">{{ get_phrase('Update password') }}</button>
+                            <button type="submit" class="Enrroll-students">{{ get_phrase('Update password') }}</button>
                         </div>
                     </form>
                 </div>

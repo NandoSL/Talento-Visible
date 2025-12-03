@@ -214,7 +214,8 @@
     cursor:text;
     padding-bottom:5px;
     padding-right:5px;
-    position:relative
+    position:relative;
+    box-shadow:0 4px 8px rgb(215, 154, 223);
 }
 .select2-container--default .select2-selection--multiple.select2-selection--clearable{
     padding-right:25px

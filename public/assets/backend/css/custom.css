@@ -2,6 +2,8 @@
 
 :root{
     --color-emerald-500: oklch(82.67% 0.17865 162.064);
+    --formBackground: #F6F0FE;
+
 }
 .text-20px {
     font-size: 20px !important;
@@ -868,7 +870,9 @@ i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:bef
 
 /*Summernote*/
 .note-editable {
-    background: #fff;
+    background: var(--formBackground);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgb(215, 154, 223);
 }
 
 .note-editor .dropdown-toggle::after {

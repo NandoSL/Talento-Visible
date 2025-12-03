@@ -7,7 +7,7 @@
         $auth = auth()->user();
     @endphp
 
-    <div class="ol-card radius-8px">
+    <div class="ol-card2 radius-8px">
         <div class="ol-card-body my-3 py-4 px-20px">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
                 <h4 class="title fs-16px">
@@ -20,7 +20,7 @@
 
     <div class="row ">
         <div class="col-xl-7">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <div class="ol-card-body">
                     <form action="{{ route('instructor.manage.profile.update') }}" method="post" enctype="multipart/form-data">@csrf
                         <input type="hidden" name="type" value="general">
@@ -89,7 +89,7 @@
             </div> <!-- end card -->
         </div>
         <div class="col-xl-5">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <div class="ol-card-body">
                     <form action="{{ route('instructor.manage.profile.update') }}" method="post"> @csrf
                         <div class="fpb7 mb-2">

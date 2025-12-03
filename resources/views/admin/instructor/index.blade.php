@@ -89,7 +89,7 @@
                                             <td>
                                                 <div class="dAdmin_profile d-flex align-items-center min-w-200px">
                                                     <div class="dAdmin_profile_img">
-                                                        <img class="img-fluid rounded-circle image-45" width="45" height="45" src="{{ $row->photo ? get_image($row->photo) : asset('assets/frontend/default/image/foto-perfil.png') }}" />
+                                                        <img class="img-fluid image-admins " width="45" height="45" src="{{ $row->photo ? get_image($row->photo) : asset('assets/frontend/default/image/foto-perfil.png') }}" />
                                                     </div>
                                                     <div class="ms-1">
                                                         <h4 class="title fs-14px">{{ $row->name }}</h4>

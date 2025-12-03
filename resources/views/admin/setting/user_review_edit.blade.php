@@ -22,7 +22,7 @@
 
     <div class="row ">
         <div class="col-md-8">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <div class="ol-card-body">
                     <form action="{{ route('admin.review.update', $review_data->id) }}" method="post" enctype="multipart/form-data">
                         @csrf

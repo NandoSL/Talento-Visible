@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('Manage your open ai settings') }}</h3>
                 <div class="ol-card-body">
                     <form action="{{ route('admin.open.ai.settings.update') }}" method="post">
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                            <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
                         </div>
                     </form>
                     

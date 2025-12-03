@@ -18,7 +18,7 @@
 
     <div class="row justify-content-center">
         <div class="col-xl-12">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <div class="ol-card-body">
                     <div class="col-md-12 pb-3">
                         <ul class="nav nav-tabs eNav-Tabs-custom eTab" id="myTab" role="tablist">

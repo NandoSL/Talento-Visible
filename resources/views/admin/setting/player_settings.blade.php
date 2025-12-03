@@ -19,13 +19,13 @@
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
                 <h4 class="title fs-16px">
                     <i class="fi-rr-settings-sliders me-2"></i>
-                    {{ get_phrase('Player settings') }}
+                    {{ get_phrase('Player settings') }}dasds
                 </h4>
             </div>
         </div>
     </div>
 
-    <div class="ol-card p-4">
+    <div class="ol-card2  p-4">
         <div class="ol-card-body">
 
             <form action="{{ route('admin.player.settings.update') }}" method="post" enctype="multipart/form-data">
@@ -128,7 +128,7 @@
                             </div>
                             <div class="col-12">
                                 <button type="submit"
-                                    class="btn ol-btn-primary float-end">{{ get_phrase('Save changes') }}</button>
+                                    class="Enrroll-students float-end">{{ get_phrase('Save changes') }}</button>
                             </div>
                         </div>
                     </div>
