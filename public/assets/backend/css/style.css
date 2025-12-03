@@ -286,8 +286,8 @@ span[class="fi-rr-"]:before {
     padding-bottom: 10px;
 }
 .py-12px{
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 .py-14px{
     padding-top: 14px;
@@ -486,7 +486,7 @@ span[class="fi-rr-"]:before {
 .ol-btn-primary:active,
 .ol-btn-primary:hover{
     color: var(--whiteColor) !important;
-    background-color: #005fcf !important;
+    background-color: #2188ff !important;
 }
 
 /* Light button  */
@@ -497,12 +497,13 @@ span[class="fi-rr-"]:before {
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.01em;
-    color: var(--grayColor);
+    color: black;;
     transition: .3s;
     border: none;
     text-align: center;
     width: max-content;
 }
+
 .ol-btn-light:active,
 .ol-btn-light:hover{
     background: var(--skinColor) !important;
@@ -3554,3 +3555,61 @@ team training start
     transition: .3s;
     width: max-content;
 }
+
+/* Copia y pega este CSS si no lo habías aplicado */
+.search-input-wrapper {
+    position: relative; 
+    display: block; 
+}
+
+.search-input-wrapper .form-control {
+    /* Si el texto se acerca, el padding debe ser menor (e.g., de 140px a 110px) */
+    padding-left: 45px; /* Ajusta este valor */
+    z-index: 1; 
+    position: relative;
+}
+
+.search-input-wrapper .search-icon {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: 10px; /* Distancia desde el borde izquierdo */
+    color: #6c757d; 
+    z-index: 2; 
+    font-size: 1rem;
+    pointer-events: none; 
+}
+
+.search-input-wrapper .search-text {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: 28px; /* Ajusta para que quede junto al icono */
+    color: #6c757d; 
+    z-index: 2; 
+    font-size: 1rem;
+    pointer-events: none; 
+}
+.table-sm-custom td, 
+.table-sm-custom th {
+    padding: 4px 8px !important;
+}
+
+.table-sm-custom {
+    font-size: 12px;
+}
+
+.table-wrapper-small {
+    max-width: 90%;
+    margin: auto;
+}
+
+.icon-blue {
+    color: #007bff !important;
+}
+
+.icon-red {
+    color: #ff3b30 !important;
+}
+
+

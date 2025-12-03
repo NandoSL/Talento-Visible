@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @push('title', get_phrase('Course Manager'))
 @section('content')
+<!--
     <div class="ol-card radius-8px">
         <div class="ol-card-body my-3 py-12px px-20px">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
@@ -16,16 +17,20 @@
             </div>
         </div>
     </div>
+    -->
 
     <div class="row g-2 g-sm-3 mb-3 row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5">
         <div class="col">
             <a href="{{ route('admin.courses', ['status' => 'active']) }}" class="d-block">
                 <div class="ol-card card-hover h-100">
                     <div class="ol-card-body px-3 py-12px">
-                        <div class="d-flex align-items-center cg-12px">
-                            <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $active_courses }}</p>
-                                <h6 class="title fs-14px mb-1">{{ get_phrase('Active courses') }}</h6>
+                        <div class="ol-card-body px-3 py-12px d-flex content-center align-items-centerx">
+                            <div class="text-center">
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $active_courses }}</p>
+
+                                <div>
+                                <h6 class="title fs-16px fw-light mb-1">{{ get_phrase('Active courses') }}</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -36,11 +41,13 @@
             <a href="{{ route('admin.courses', ['status' => 'pending']) }}" class="d-block">
                 <div class="ol-card card-hover h-100">
                     <div class="ol-card-body px-3 py-12px">
-                        <div class="d-flex align-items-center cg-12px">
-                            <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $pending_courses }}</p>
-                                <h6 class="title fs-14px mb-1">{{ get_phrase('Pending courses') }}</h6>
+                        <div class="ol-card-body px-3 py-12px d-flex content-center align-items-center">
+                            <div class="text-center">
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $pending_courses }}</p>
+                                <div>
+                                <h6 class="title fs-16px fw-light mb-1">{{ get_phrase('Pending courses') }}</h6>
                             </div>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -50,10 +57,12 @@
             <a href="{{ route('admin.courses', ['status' => 'upcoming']) }}" class="d-block">
                 <div class="ol-card card-hover h-100">
                     <div class="ol-card-body px-3 py-12px">
-                        <div class="d-flex align-items-center cg-12px">
-                            <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $upcoming_courses }}</p>
-                                <h6 class="title fs-14px mb-1">{{ get_phrase('Upcoming courses') }}</h6>
+                        <div class="ol-card-body px-3 py-12px d-flex content-center align-items-center">
+                            <div class="text-center">
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $upcoming_courses }}</p>
+                                 <div>
+                                <h6 class="title fs-16px fw-light mb-1">{{ get_phrase('Upcoming courses') }}</h6>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -64,10 +73,12 @@
             <a href="{{ route('admin.courses', ['price' => 'free']) }}" class="d-block">
                 <div class="ol-card card-hover h-100">
                     <div class="ol-card-body px-3 py-12px">
-                        <div class="d-flex align-items-center cg-12px">
-                            <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $free_courses }}</p>
-                                <h6 class="title fs-14px mb-1">{{ get_phrase('Free courses') }}</h6>
+                        <div class="ol-card-body px-3 py-12px d-flex content-center align-items-center">
+                            <div class="text-center">
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $free_courses }}</p>
+                                 <div>
+                                <h6 class="title fs-16px fw-light mb-1">{{ get_phrase('Free courses') }}</h6>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -78,11 +89,13 @@
             <a href="{{ route('admin.courses', ['price' => 'paid']) }}" class="d-block">
                 <div class="ol-card card-hover h-100">
                     <div class="ol-card-body px-3 py-12px">
-                        <div class="d-flex align-items-center cg-12px">
-                            <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $paid_courses }}</p>
-                                <h6 class="title fs-14px mb-1">{{ get_phrase('Paid courses') }}</h6>
+                        <div class="ol-card-body px-3 py-12px d-flex content-center align-items-center">
+                            <div class="text-center">
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $paid_courses }}</p>
+                                <div>
+                                <h6 class="title fs-16px fw-light mb-1">{{ get_phrase('Paid courses') }}</h6>
                             </div>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -91,136 +104,128 @@
     </div>
 
     <!-- Start Admin area -->
-    <div class="row">
-        <div class="col-12">
-            <div class="ol-card">
-                <div class="ol-card-body p-3 mb-5">
-                    <div class="row mt-3 mb-4">
-                        <div class="col-md-6 d-flex align-items-center gap-3">
-                            <div class="custom-dropdown ms-2">
-                                <button class="dropdown-header btn ol-btn-light">
-                                    {{ get_phrase('Export') }}
-                                    <i class="fi-rr-file-export ms-2"></i>
-                                </button>
-                                <ul class="dropdown-list">
-                                    <li>
-                                        <a class="dropdown-item export-btn" href="#" onclick="downloadPDF('.print-table', 'course-list')"><i class="fi-rr-file-pdf"></i> {{ get_phrase('PDF') }}</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item export-btn" href="#" onclick="window.print();"><i class="fi-rr-print"></i> {{ get_phrase('Print') }}</a>
-                                    </li>
-                                </ul>
+   <div class="row mt-3 mb-4">
+    <div class="col-12">
+        <div class="d-flex align-items-center justify-content-center gap-3">
+              <div class="custom-dropdown">
+                <button class="dropdown-header btn ol-btn-light d-flex align-items-center justify-content-center">
+                   <i class="fi-rr-download me-2"></i>
+                    {{ get_phrase('Export') }} </button>
+                <ul class="dropdown-list">
+                    <li>
+                        <a class="dropdown-item export-btn" href="#" onclick="downloadPDF('.print-table', 'course-list')"><i class="fi-rr-file-pdf"></i> {{ get_phrase('PDF') }}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item export-btn" href="#" onclick="window.print();"><i class="fi-rr-print"></i> {{ get_phrase('Print') }}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="custom-dropdown dropdown-filter @if (!isset($_GET) || (isset($_GET) && count($_GET) == 0)) @endif">
+                <button class="dropdown-header btn ol-btn-light d-flex align-items-center justify-content-center">
+                    <i class="fi-rr-filter me-2"></i>
+                    {{ get_phrase('Filter') }} 
+                    @if (isset($_GET) && count($_GET))
+                        <span class="text-12px">
+                            ({{count($_GET)}})
+                        </span>
+                    @endif
+                </button>
+                
+                <ul class="dropdown-list w-250px">
+                    <li>
+                        <form id="filter-dropdown" action="{{ route('admin.courses') }}" method="get">
+                            <div class="filter-option d-flex flex-column gap-3">
+                                <div>
+                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Category') }}</label>
+                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="category" data-placeholder="Type to search...">
+                                        <option value="all">{{ get_phrase('All') }}</option>
+                                        @foreach (App\Models\Category::where('parent_id', 0)->orderBy('title', 'desc')->get() as $category)
+                                            <option value="{{ $category->slug }}"@if (isset($parent_cat) && $parent_cat == $category->slug) selected @endif>
+                                                {{ $category->title }}</option>
+                                            @foreach ($category->childs as $sub_category)
+                                                <option value="{{ $sub_category->slug }}"@if (isset($child_cat) && $child_cat == $sub_category->slug) selected @endif>
+                                                    --{{ $sub_category->title }}</option>
+                                            @endforeach
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Status') }}</label>
+                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="status" class="ol-select-2" data-placeholder="Type to search...">
+                                        <option value="all">{{ get_phrase('All') }}
+                                            
+                                        </option>
+                                        <option value="active"@if (isset($status) && $status == 'active') selected @endif>{{ get_phrase('Active') }} </option>
+                                        <option value="inactive"@if (isset($status) && $status == 'inactive') selected @endif>{{ get_phrase('Inactive') }} </option>
+                                        <option value="pending"@if (isset($status) && $status == 'pending') selected @endif>{{ get_phrase('Pending') }} </option>
+                                        <option value="upcoming"@if (isset($status) && $status == 'upcoming') selected @endif>{{ get_phrase('Upcoming') }} </option>
+                                        <option value="private"@if (isset($status) && $status == 'private') selected @endif>{{ get_phrase('Private') }} </option>
+                                        <option value="draft"@if (isset($status) && $status == 'draft') selected @endif>{{ get_phrase('Draft') }} </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Instructor') }}</label>
+                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="instructor" class="ol-select-2" data-placeholder="Type to search...">
+                                        <option value="all">{{ get_phrase('All') }}</option>
+                                        @foreach (App\Models\Course::select('user_id')->distinct()->get() as $course)
+                                            <option value="{{ $course->user_id }}"@if (isset($instructor) && $instructor == $course->user_id) selected @endif>
+                                                {{ ucfirst(get_user_info($course->user_id)->name) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Price') }}</label>
+                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="price" class="ol-select-2" data-placeholder="Type to search...">
+                                        <option value="all">{{ get_phrase('All') }}</option>
+                                        <option value="free"@if (isset($price) && $price == 'free') selected @endif>{{ get_phrase('Free') }}</option>
+                                        <option value="paid"@if (isset($price) && $price == 'paid') selected @endif>{{ get_phrase('Paid') }}</option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <div class="custom-dropdown dropdown-filter @if (!isset($_GET) || (isset($_GET) && count($_GET) == 0))  @endif">
-                                <button class="dropdown-header btn ol-btn-light">
-                                    <i class="fi-rr-filter me-2"></i>
-                                    {{ get_phrase('Filter') }}
-
-                                    @if (isset($_GET) && count($_GET))
-                                        <span class="text-12px">
-                                            ({{count($_GET)}})
-                                        </span>
-                                    @endif
-                                </button>
-                                <ul class="dropdown-list w-250px">
-                                    <li>
-                                        <form id="filter-dropdown" action="{{ route('admin.courses') }}" method="get">
-                                            <div class="filter-option d-flex flex-column gap-3">
-                                                <div>
-                                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Category') }}</label>
-                                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="category" data-placeholder="Type to search...">
-                                                        <option value="all">{{ get_phrase('All') }}</option>
-
-                                                        @foreach (App\Models\Category::where('parent_id', 0)->orderBy('title', 'desc')->get() as $category)
-                                                            <option value="{{ $category->slug }}"@if (isset($parent_cat) && $parent_cat == $category->slug) selected @endif>
-                                                                {{ $category->title }}</option>
-
-                                                            @foreach ($category->childs as $sub_category)
-                                                                <option value="{{ $sub_category->slug }}"@if (isset($child_cat) && $child_cat == $sub_category->slug) selected @endif>
-                                                                    --{{ $sub_category->title }}</option>
-                                                            @endforeach
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Status') }}</label>
-                                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="status" class="ol-select-2" data-placeholder="Type to search...">
-                                                        <option value="all">{{ get_phrase('All') }}
-                                                        </option>
-
-                                                        <option value="active"@if (isset($status) && $status == 'active') selected @endif>{{ get_phrase('Active') }} </option>
-                                                        <option value="inactive"@if (isset($status) && $status == 'inactive') selected @endif>{{ get_phrase('Inactive') }} </option>
-                                                        <option value="pending"@if (isset($status) && $status == 'pending') selected @endif>{{ get_phrase('Pending') }} </option>
-                                                        <option value="upcoming"@if (isset($status) && $status == 'upcoming') selected @endif>{{ get_phrase('Upcoming') }} </option>
-                                                        <option value="private"@if (isset($status) && $status == 'private') selected @endif>{{ get_phrase('Private') }} </option>
-                                                        <option value="draft"@if (isset($status) && $status == 'draft') selected @endif>{{ get_phrase('Draft') }} </option>
-                                                    </select>
-                                                </div>
-
-                                                <div>
-                                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Instructor') }}</label>
-                                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="instructor" class="ol-select-2" data-placeholder="Type to search...">
-                                                        <option value="all">{{ get_phrase('All') }}
-                                                        </option>
-                                                        @foreach (App\Models\Course::select('user_id')->distinct()->get() as $course)
-                                                            <option value="{{ $course->user_id }}"@if (isset($instructor) && $instructor == $course->user_id) selected @endif>
-                                                                {{ ucfirst(get_user_info($course->user_id)->name) }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <label for="eDataList" class="form-label ol-form-label">{{ get_phrase('Price') }}</label>
-                                                    <select class="form-control ol-form-control ol-select2" data-toggle="select2" name="price" class="ol-select-2" data-placeholder="Type to search...">
-                                                        <option value="all">{{ get_phrase('All') }}
-                                                        </option>
-
-                                                        <option value="free"@if (isset($price) && $price == 'free') selected @endif>
-                                                            {{ get_phrase('Free') }}</option>
-                                                        <option value="paid"@if (isset($price) && $price == 'paid') selected @endif>
-                                                            {{ get_phrase('Paid') }}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="filter-button d-flex justify-content-end align-items-center mt-3">
-                                                <button type="submit" class="ol-btn-primary">{{ get_phrase('Apply') }}</button>
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
+                            <div class="filter-button d-flex justify-content-end align-items-center mt-3">
+                                <button type="submit" class="ol-btn-primary">{{ get_phrase('Apply') }}</button>
                             </div>
-
-                            @if (isset($_GET) && count($_GET) > 0)
-                                <a href="{{ route('admin.courses') }}" class="me-2" data-bs-toggle="tooltip" title="{{ get_phrase('Clear') }}"><i class="fi-rr-cross-circle"></i></a>
-                            @endif
-                        </div>
-                        <div class="col-md-6 mt-3 mt-md-0">
-                            <form action="{{ route('admin.courses') }}" method="get">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            
+            @if (isset($_GET) && count($_GET) > 0)
+                <a href="{{ route('admin.courses') }}" class="me-2" data-bs-toggle="tooltip" title="{{ get_phrase('Clear') }}"><i class="fi-rr-cross-circle"></i></a>
+            @endif
+                        <div class="col-md-10 mt-3 mt-md-2">
+                            <form action="{{ route('admin.courses') }}" method="get"class="flex-grow-1" >
                                 <div class="row row-gap-3">
-                                    <div class="col-md-9">
-                                        <div class="search-input flex-grow-1">
-                                            <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ get_phrase('Search Title') }}" class="ol-form-control form-control" />
+                                    <div class="col-md-10">
+                                        <div class="search-input-wrapper"> 
+                                           <i class="fi-rr-search search-icon"></i>
+                                            <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ get_phrase('Search Title') }}" class="ol-form-control form-control search-input" />
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <button type="submit" class="btn ol-btn-primary w-100" id="submit-button">{{ get_phrase('Search') }}</button>
+                                    <div class="col-md-1">
+                                        <button type="submit" class="btn ol-btn-primary w-30" id="submit-button">{{ get_phrase('Search') }}</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+                 </div>
 
                     <div class="row">
                         <div class="col-md-12">
                             @if ($courses->count() > 0)
                                 <div class="admin-tInfo-pagi d-flex justify-content-between justify-content-center align-items-center flex-wrap gr-15">
+                                   <div class="table-responsive overflow-auto course_list table-wrapper-small" id="course_list">
+                                     <table class="table eTable eTable-2 print-table table-sm-custom">
                                     <p class="admin-tInfo">
                                         {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
                                     </p>
+                                    
                                 </div>
-                                <div class="table-responsive overflow-auto course_list overflow-auto" id="course_list">
-                                    <table class="table eTable eTable-2 print-table">
+                                
+
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -272,7 +277,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="sub-title2 text-12px">
+                                                       <p class="sub-title2 text-xs mb-0">
                                                             <a href="{{ route('admin.courses', ['category' => $row->category->slug]) }}">{{ category_by_course($row->category_id)->title }}</a>
                                                         </div>
                                                     </td>
@@ -311,22 +316,27 @@
 
                                                         <div class="dropdown ol-icon-dropdown ol-icon-dropdown-transparent">
                                                             <button class="btn ol-btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <span class="fi-rr-menu-dots-vertical"></span>
+                                                               
+                                                                  <i class="fi-rr-eye me-2"></i> 
+                                                                 <i class="fi-rr-pencil me-2 icon-blue"></i>
+                                                                  <i class="fi-rr-trash me-2 icon-red"></i>
+                                                                 <span class="fi-rr-menu-dots-vertical"></span>
                                                             </button>
 
                                                             <ul class="dropdown-menu">
+                                                                  
                                                                 <li>
-                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.details', $row->slug) }}">{{ get_phrase('View Course On Frontend') }}</a>
+                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.details', $row->slug) }}">  <i class="fi-rr-eye me-2"></i> {{ get_phrase('View Course On Frontend') }}</a>
                                                                 </li>
 
                                                                 <li>
-                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.player', ['slug' => $row->slug]) }}">{{ get_phrase('Go To Course Playing Page') }}</a>
+                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.player', ['slug' => $row->slug]) }}"><i class="fi-rr-play me-2"></i> {{ get_phrase('Go To Course Playing Page') }}</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="{{ route('admin.course.edit', [$row->id, 'tab' => 'basic']) }}">{{ get_phrase('Edit Course') }}</a>
+                                                                    <a class="dropdown-item" href="{{ route('admin.course.edit', [$row->id, 'tab' => 'basic']) }}"> <i class="fi-rr-edit me-2"></i>{{ get_phrase('Edit Course') }}</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.duplicate', $row->id) }}')" href="javascript:void(0)">{{ get_phrase('Duplicate Course') }}</a>
+                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.duplicate', $row->id) }}')" href="javascript:void(0)"> <i class="fi-rr-copy me-2"></i>{{ get_phrase('Duplicate Course') }}</a>
                                                                 </li>
 
                                                                 @if ($row->status == 'active')
@@ -339,11 +349,11 @@
                                                                     </li>
                                                                 @else
                                                                     <li>
-                                                                        <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.status', ['type' => 'active', 'id' => $row->id]) }}')" href="#">{{ get_phrase('Make As Active') }}</a>
+                                                                        <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.status', ['type' => 'active', 'id' => $row->id]) }}')" href="#"> <i class="fi-rr-check me-2"></i>{{ get_phrase('Make As Active') }}</a>
                                                                     </li>
                                                                 @endif
                                                                 <li>
-                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.delete', $row->id) }}')" href="javascript:void(0)">{{ get_phrase('Delete Course') }}</a>
+                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.delete', $row->id) }}')" href="javascript:void(0)"> <i class="fi-rr-trash me-2"></i>{{ get_phrase('Delete Course') }}</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
