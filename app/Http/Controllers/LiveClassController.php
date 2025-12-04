@@ -32,12 +32,13 @@ class LiveClassController extends Controller
         $validated = $request->validate([
             'class_topic'         => 'required|max:255',
             'class_date_and_time' => 'date|required',
-            'user_id'             => 'required',
+            //'user_id'             => 'required',
         ]);
 
         $data['class_topic']         = $request->class_topic;
         $data['course_id']           = $request->course_id;
-        $data['user_id']             = $request->user_id;
+        //$data['user_id']             = $request->user_id;
+        $data['user_id']             = auth()->user()->id;
         $data['provider']            = $request->provider;
         $data['class_date_and_time'] = date('Y-m-d\TH:i:s', strtotime($request->class_date_and_time));
         $data['note']                = $request->note;
@@ -69,11 +70,11 @@ class LiveClassController extends Controller
         $request->validate([
             'class_topic'         => 'required|max:255',
             'class_date_and_time' => 'date|required',
-            'user_id'             => 'required',
+            //'user_id'             => 'required',
         ]);
 
         $data['class_topic']         = $request->class_topic;
-        $data['user_id']             = $request->user_id;
+        $data['user_id']             = auth()->user()->id;
         $data['class_date_and_time'] = date('Y-m-d\TH:i:s', strtotime($request->class_date_and_time));
         $data['note']                = $request->note;
 
