@@ -108,7 +108,7 @@ class LessonController extends Controller
             }
             $lesson->video_type = $request->lesson_provider;
             $lesson->lesson_src = $file;
-            $lesson->duration   = $request->system_video_file_duration;
+            $lesson->duration   = $request->system_video_file_duration ?? '00:15:00';
         }
 
         $lesson->save();
