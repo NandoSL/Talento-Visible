@@ -6353,17 +6353,30 @@ i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:bef
 }
 
 .profile-banner-area-container {
-    margin-top: -280px;
+    /*margin-top: -280px;*/
 }
 
 .profile-info {
     position: relative;
 }
 
+.profile-info a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .profile-info img.photo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.profile-info img.logo-photo {
+    width: 100px;
+    height: 100px;
     margin: auto;
     text-align: center;
 }

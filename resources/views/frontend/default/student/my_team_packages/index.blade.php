@@ -1,15 +1,26 @@
 @extends('layouts.default')
 @push('title', get_phrase('My Team Packages'))
 @section('content')
+    @php
+        $sidebar = session('sidebar', false);
+    @endphp
     <section class="my-course-content">
-        <div class="profile-banner-area"></div>
-        <div class="profile-banner-area-container container">
+        {{--<div class="profile-banner-area"></div>--}}
+        {{--<div class="container profile-banner-area-container">--}}
+        <div class="profile-banner-area-container">
             <div class="row">
                 @include('frontend.default.student.left_sidebar')
-
-                <div class="col-lg-9">
-                    <h4 class="g-title text-capitalize">{{ get_phrase('My Team Packages') }}</h4>
-                    <div class="my-panel mt-5">
+                <div class="{{ $sidebar ? 'content-3' : 'content-2' }} bg-r" id="profile-contenedor">
+                    <div class="container header-content-student">
+                        <h1>
+                            <span class="g-title mb-2 mt-20 ml-20">{{ get_phrase('My Team Packages') }} | </span>
+                            {{ get_settings('system_title') }}
+                        </h1>
+                        <h3 class="mt-20 ml-20">
+                            Cursos que has guardado para comprar más tarde
+                        </h3>
+                    </div>
+                    <div class="my-panel mt-5 my-panel-margin">
                         <div class="row">
                             @if (count($packages) > 0)
                                 <ul class="my-bootcamps">

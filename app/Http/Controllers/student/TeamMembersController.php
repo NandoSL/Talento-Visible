@@ -24,7 +24,7 @@ class TeamMembersController extends Controller
     {
         $page_data['members'] = Team_members::join('users', 'team_members.member_user_id', 'users.id')->select('users.*')
             ->where('team_members.main_user_id', Auth::user()->id)->get();
-        
+
         return view('frontend.default.student.team_members.index', $page_data);
     }
 
@@ -79,12 +79,12 @@ class TeamMembersController extends Controller
             Enrollment::create([
                 'user_id' => $member_id,
                 'course_id' => $enroll->course_id,
-                'enrollment_type' => $enroll->enrollment_type 
+                'enrollment_type' => $enroll->enrollment_type
             ]);
         }
 
         $link = URL::temporarySignedRoute('set.password', now()->addHours(1), ['id' => $user->id]);
-        Mail::to($user->email)->send(new InviteMember($user, $link));
+        //Mail::to($user->email)->send(new InviteMember($user, $link));
 
         return redirect()->route('team.members')->with('success', app()->getLocale() === 'en' ? 'Participant added successfully.' : 'Participante agregado con éxito.');
     }
@@ -120,7 +120,7 @@ class TeamMembersController extends Controller
 
         return redirect()->route('team.members')->with('success', app()->getLocale() === 'en' ? 'Participant updated successfully.' : 'Participante actualizado con éxito.');
     }
-    
+
     public function delete($id)
     {
         $member = User::where('id', $id);
@@ -156,5 +156,5 @@ class TeamMembersController extends Controller
 
         return redirect()->route('dashboard');
     }
-    
+
 }

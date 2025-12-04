@@ -84,3 +84,11 @@ Route::controller(TeamTrainingController::class)->group(function () {
     Route::get('team-packages/{course_category?}', 'index')->name('team.packages');
     Route::get('team-package/{slug}', 'show')->name('team.package.details');
 });
+
+// Estado barra lateral perfil de estudiante
+Route::post('/toggle-sidebar', function () {
+    $current = session('sidebar', false);
+    $new = !$current;
+    session(['sidebar' => $new]);
+    return response()->json(['sidebar' => $new]);
+})->name('toggle.sidebar');

@@ -32,6 +32,8 @@ Default Css
     --color-white: #fff;
     --color-1: #2f57ef;
     --color-2: #192335;
+    --color-3: #f5f9ff;
+    --color-4: #e8eef3;
     --color-black: #000;
     --box-shadow: rgba(100, 100, 111, 0.2) 12px 11px 34px 11px;
     --box-shadow-2: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -727,6 +729,54 @@ img {
     margin-top: 2px !important;
     padding: 15px;
 }
+
+
+/* --- Estilos de los enlaces --- */
+.Userprofile .dropmenu-start a {
+    display: flex;              /* Asegura buena alineación */
+    align-items: center;        /* Centra iconos y texto */
+    padding: 5px 0;
+    font-size: 16px !important; /* Antes 15px → más legible */
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.Userprofile .dropmenu-start a:hover,
+.Userprofile .dropmenu-start a:hover svg path {
+    color: #c664ff;
+    fill: #c664ff;
+}
+
+/* --- Iconos --- */
+.Userprofile .dropmenu-start a i,
+.Userprofile .dropmenu-start a svg {
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+    flex-shrink: 0;  /* evita que los iconos se deformen */
+}
+
+/* --- Estilo del menú dropdown --- */
+.Userprofile .dropmenu-start {
+    border: none;
+    border-radius: 1px 1px 12px 12px;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    width: auto;          /* antes 100% → se hacía pequeño */
+    min-width: 230px;     /* evita que se junte el texto */
+    max-width: 260px;     /* opcional, para mantener proporción */
+
+    margin-top: 6px !important;
+    padding: 15px;
+
+    right: 0 !important;  /* se pega al botón */
+    left: auto !important;
+    transform: none !important; /* evita desplazamientos raros */
+}
+
 .Userprofile .dropdown-item.active,
 .Userprofile .dropdown-item:active {
     background-color: transparent;
@@ -2528,6 +2578,7 @@ html .ui-button.ui-state-disabled:active {
     background-color: var(--bg-white);
     box-shadow: var(--box-shadow-2);
     padding-bottom: 42px;
+    margin-bottom: 1rem;
 }
 .image-panel {
     display: flex;
@@ -2651,21 +2702,16 @@ html .ui-button.ui-state-disabled:active {
     justify-content: flex-end;
 }
 .gradient-border {
-    background: linear-gradient(
-        to right,
-        #2f57ef 0%,
-        #c664ff 51%,
-        #c664ff 100%
-    );
+    background: #e8eef3;
     border-radius: 12px;
     padding: 2px;
     width: 100%;
 }
 .course-sideBar {
     padding: 30px;
+    /*background-color: var(--bg-white);
     border-radius: 10px;
-    background-color: var(--bg-white);
-    box-shadow: var(--box-shadow-2);
+    box-shadow: var(--box-shadow-2);*/
 }
 .course-sideBar p {
     text-transform: uppercase;
@@ -2675,9 +2721,58 @@ html .ui-button.ui-state-disabled:active {
 }
 .couses-tab-list li {
     padding-bottom: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     border-bottom: 1px solid #edf0f7;
+    margin-left: 1rem;
 }
+
+.couses-tab-list li a {
+    margin-top: 8px;
+}
+.couses-tab-list li:hover {
+    background: var(--color-3);
+    border-radius: 15px;
+}
+.couses-tab-list li.active, .couses-tab-list li.active:hover {
+    background: linear-gradient(90deg,rgb(197, 232, 253) 0%, rgb(86, 153, 241) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.boot-active, .couses-tab-list li.boot-active:hover {
+    background: linear-gradient(90deg,rgb(240, 176, 243) 0%, rgb(242, 0, 255) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.team-active, .couses-tab-list li.team-active:hover {
+    background: linear-gradient(90deg,rgb(130, 252, 142) 0%, rgb(16, 247, 39) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.member-active, .couses-tab-list li.member-active:hover {
+    background: linear-gradient(90deg,rgb(255, 198, 123) 0%, rgb(248, 160, 46) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.profile-active, .couses-tab-list li.profile-active:hover {
+    background: linear-gradient(90deg,rgb(104, 209, 204) 0%, rgb(22, 199, 190) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.whish-active, .couses-tab-list li.whish-active:hover {
+    background: linear-gradient(90deg,rgb(238, 143, 241) 0%, rgb(247, 0, 255) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.msg-active, .couses-tab-list li.msg-active:hover {
+    background: linear-gradient(90deg,rgb(255, 160, 160) 0%, rgb(255, 44, 44) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.history-active, .couses-tab-list li.history-active:hover {
+    background: linear-gradient(90deg,rgb(239, 141, 248) 0%, rgb(215, 20, 233) 100%);
+    border-radius: 15px;
+}
+
 .couses-tab-list li:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -2688,6 +2783,7 @@ html .ui-button.ui-state-disabled:active {
     font-weight: 500;
     color: var(--text-color);
     display: inline-block;
+    margin-left: 0.5rem;
 }
 .couses-tab-list li svg {
     height: 24px;
@@ -2695,19 +2791,176 @@ html .ui-button.ui-state-disabled:active {
     margin-right: 12px;
 }
 .couses-tab-list li.active a {
-    color: var(--color-1);
+    color: var(--color-3);
+    margin-top: 8px;
 }
 .couses-tab-list li.active a svg path {
-    fill: var(--color-1);
+    fill: var(--color-3);
 }
 .couses-tab-list li a:hover svg path,
 .couses-tab-list li a:hover {
-    color: var(--color-1);
-    fill: var(--color-1);
+    color: var(--color-black);
+    fill: var(--color-black);
 }
+
+.sidebar-logout{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-logout a{
+    color: red !important;
+}
+
+.sidebar-logout a:hover{
+    color: var(--color-black) !important;
+}
+
+.disabled-link {
+    pointer-events: none; /* desactiva clic */
+    cursor: default;
+}
+
+.sidebar-menu-izq {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.fi-rr-menu-burger {
+    color: var(--color-black);
+    font-size: x-large;
+}
+
+.fi-rr-menu-burger:hover {
+    color: #ff5722;       /* color al pasar mouse */
+    transform: scale(1.2);
+}
+
+/* Contenedores */
+
+.content-1 {
+    width: 15%;
+}
+
+.content-2 {
+    width: 85%;
+}
+
+.content-3 {
+    width: 95%;
+}
+
+/* Menu lateral */
+.disabled-sidebar {
+    width: 5% !important;
+}
+
+.disabled-sidebar .sidebar-menu-izq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.disabled-sidebar span{
+    display: none;
+}
+
+.disabled-sidebar li{
+    margin-left: -0.5rem;
+    margin-top: 1rem;
+}
+
+/* Burbuja icono perfil */
+.header-bubble-profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+@media all and (max-width:991px) {
+    #sidebar-menu-lateral {
+        display: none;
+    }
+
+    .content-2, .content-3 {
+        width: 100% !important;
+    }
+}
+
+.header-bubble-profile .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+    transform: translateX(0) !important;
+    max-width: 240px;
+}
+
+.img-profile-response {
+    border-radius: 100%;
+}
+
+.disabled-sidebar .sidebar-logout{
+    margin: 5rem auto;
+}
+
+.disabled-sidebar .couses-tab-list li {
+    width: 3.5rem;
+}
+
+/* Contenido dasboard estudiante */
+
+.bg-r {
+    /*background-color: #f5f9ff !important;*/
+    background-color: var(--color-3);
+}
+
+.my-panel-margin {
+    margin: 0 5rem;
+    margin-bottom: 5rem;
+}
+
+/* Cursos estudiante */
+
+.card-course {
+    border-radius: 20px;
+}
+
+.card-info-course {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-info-course .count{
+    font-weight: 900;
+    font-size: x-large;
+    text-align: center;
+}
+
+
+.card-info-course .svg-info-course svg path {
+    fill: var(--bg-white);
+}
+
+.card-info-course .svg-info-course {
+    border-radius: 10px;
+    padding: 0.5rem;
+    background: rgb(86, 153, 241);
+}
+
+
+.header-content-student{
+    padding: 5rem 0;
+}
+
 .course-content .g-title {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .course-content .g-card {
     padding: 20px !important;
@@ -3802,8 +4055,8 @@ html .ui-button.ui-state-disabled:active {
 /******** Footer  Area Start
 ***************************************************************/
 .footer-area {
-    margin-top: 110px;
-    background-color: #f2f2f2;
+    /*margin-top: 110px;*/
+    background-color: var(--color-4);
     padding: 50px 0 30px 0;
     color: #1f1c35;
 }

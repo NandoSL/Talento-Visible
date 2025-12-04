@@ -63,9 +63,9 @@
         </span>
         <h4 class="g-title">{{ get_phrase('No data found !') }}</h4>
 
-        @if(Route::currentRouteName() == 'courses')
+        @if(Route::currentRouteName() == 'my.courses')
             <p class="w-50 text-center">{{ get_phrase("Please attempt utilizing the suitable keywords in your search query to obtain more precise results.") }}</p>
-            <a href="{{route('courses')}}" class="eBtn gradient d-flex mt-3"><i class="fi-rr-arrow-alt-left me-2"></i> {{get_phrase('Back')}}</a>
+            <a href="{{route('courses')}}" class="eBtn gradient d-flex mt-3">{{get_phrase('courses')}}</a>
         @else
             <p class="w-50 text-center">{{ get_phrase("Please try using the appropriate keywords.") }}</p>
             <a href="{{url()->previous()}}" class="eBtn gradient d-flex mt-3"><i class="fi-rr-arrow-alt-left me-2"></i> {{get_phrase('Back')}}</a>

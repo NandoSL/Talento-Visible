@@ -3,16 +3,26 @@
 @push('meta')@endpush
 @push('css')@endpush
 @section('content')
+    @php
+        $sidebar = session('sidebar', false);
+    @endphp
     <section class="wishlist-content">
-        <div class="profile-banner-area"></div>
-        <div class="container profile-banner-area-container">
+        {{--<div class="profile-banner-area"></div>--}}
+        {{--<div class="container profile-banner-area-container">--}}
+        <div class="profile-banner-area-container">
             <div class="row">
                 @include('frontend.default.student.left_sidebar')
+                <div class="{{ $sidebar ? 'content-3' : 'content-2' }} bg-r" id="profile-contenedor">
+                    <div class="container header-content-student">
+                        <h1>
+                            <span class="g-title mb-2 mt-20 ml-20">{{ get_phrase('Message') }} | </span>
+                            {{ get_settings('system_title') }}
+                        </h1>
+                        <h3 class="mt-20 ml-20">Comunícate con tu equipo y compañeros
+                        </h3>
+                    </div>
 
-                <div class="col-lg-9">
-                    <h4 class="g-title mb-5">{{ get_phrase('Message') }}</h4>
-
-                    <div class="my-panel message-panel">
+                    <div class="my-panel message-panel my-panel-margin" >
                         <div class="row">
                             <div class="col-lg-4 pe-0">
                                 @include('frontend.default.student.message.sidebar')

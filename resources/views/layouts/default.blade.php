@@ -31,10 +31,14 @@
 
     <!-- FlatIcons Css -->
     <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-bold-rounded/css/uicons-bold-rounded.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-bold-straight/css/uicons-bold-straight.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-regular-rounded/css/uicons-regular-rounded.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-solid-rounded/css/uicons-solid-rounded.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-solid-rounded/css/uicons-solid-rounded.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('assets/global/icons/uicons-bold-straight/css/uicons-bold-straight.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('assets/global/icons/uicons-regular-rounded/css/uicons-regular-rounded.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('assets/global/icons/uicons-solid-rounded/css/uicons-solid-rounded.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('assets/global/icons/uicons-solid-rounded/css/uicons-solid-rounded.css') }}" />
 
 
     <!-- Custom Fonts -->
@@ -59,7 +63,8 @@
 
 
     <!-- Yaireo Tagify -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/tagify-master/dist/tagify.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/tagify-master/dist/tagify.css') }}"
+        rel="stylesheet" type="text/css" />
 
 
     <!-- Custom Style -->
@@ -72,11 +77,11 @@
     @stack('css')
 </head>
 
-<body>
+<body style="background-color: #e8eef3">
     <!-- Start Header -->
 
     <section class="py-30">
-        @include('frontend.default.menu_header')
+        @include('frontend.default.menu_header_bubble')
     </section>
 
 
@@ -95,8 +100,33 @@
     <!-- End Footer -->
     @include('frontend.default.modal')
 
-
-
+    <!-- Menu lateral de estudiante -->
+    <script>
+        document.getElementById('sidebar-btn-menu').addEventListener('click', function() {
+             fetch('{{ route("toggle.sidebar") }}', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    let sidebar = document.getElementById('sidebar-menu-lateral');
+                    let contenedor = document.getElementById('profile-contenedor');
+                    if (data.sidebar) {
+                        sidebar.classList.add("disabled-sidebar");
+                        contenedor.classList.add("content-3");
+                        contenedor.classList.remove("content-2");
+                    } else {
+                        sidebar.classList.remove("disabled-sidebar");
+                        contenedor.classList.add("content-2");
+                        contenedor.classList.remove("content-3");
+                    }
+                });
+            });
+    </script>
 
     <!-- Bootstrap Js -->
     <script src="{{ asset('assets/frontend/default/js/bootstrap.bundle.min.js') }}"></script>
