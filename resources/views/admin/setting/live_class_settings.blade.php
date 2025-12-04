@@ -46,6 +46,8 @@
 
                         <hr>
 
+                        {{-- TODO: La configuracion de web sdk, no se encuentra en la documentacion de solo incluir credenciales es un ambiente cargado en el proyecto --}}
+                        {{--
                         <div class="fpb-7 mb-3">
                             <label class="form-label ol-form-label" for="zoom_web_sdk_active">{{ get_phrase('Do you want to use Web SDK for your live class?') }}<span class="required">*</span></label><br>
                             <input type="radio" id="zoom_web_sdk_active" class="form-check-input" value="active" name="zoom_web_sdk" @if (get_settings('zoom_web_sdk') == 'active') checked @endif>
@@ -67,6 +69,7 @@
                                 <input type="text" name = "zoom_sdk_client_secret" id = "zoom_sdk_client_secret" class="form-control ol-form-control" value="{{ get_settings('zoom_sdk_client_secret') }}" required>
                             </div>
                         </div>
+                        --}}
 
                         <div class="fpb-7 mb-3">
                             <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
