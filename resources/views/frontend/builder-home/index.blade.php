@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
 
 <head>
-    {{ config(['app.name' => get_settings('system_title')]) }}
+    <meta charset="UTF-8">{{ config(['app.name' => get_settings('system_title')]) }}
     <title>{{ get_phrase('Home') }} | {{ config('app.name') }}</title>
-
 
     @include('layouts.seo')
     <!-- all the meta tags -->
+   
     <meta content="" name="author" />
     <meta content="{{ csrf_token() }}" name="csrf_token" />
 
-    @stack('meta')
+
 
 
     <!-- fav icon -->
@@ -72,7 +72,6 @@
 </head>
 
 <body>
-
 
     @php
         if (isset($page_id)) {

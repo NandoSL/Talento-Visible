@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     @include('layouts.seo')
-    @stack('meta')
+    @push('meta')
 
     <!-- fav icon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/frontend/Tv/images/LogoOk.png') }}" />

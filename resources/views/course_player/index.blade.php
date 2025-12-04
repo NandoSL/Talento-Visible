@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <title>{{ get_phrase('Course Playing Page') }}| {{ config('app.name') }}</title>

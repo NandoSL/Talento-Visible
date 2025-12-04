@@ -1,3 +1,5 @@
+
+@charset "UTF-8";
 /**
 * Template Name: Academy - v1.0
 * Template URL:https://creativeitem.com
@@ -241,7 +243,13 @@ img {
     background: #2849E6;
     /*transition: 0.5s;*/
     background-size: 200% auto;
-    /*box-shadow: 0 0 20px #eee;*/
+    box-shadow: 0 5px 20px #05acdf;
+}
+
+.gradient2 {
+   margin-left: 20px;
+   padding-right:  20px;
+   color: black !important;
 }
 .shadow-none {
     box-shadow: none !important;
@@ -260,7 +268,8 @@ img {
 
 .sub-header {
     padding: 16px 0;
-    border-bottom: 1px solid #edf0f7;
+    border-bottom: 10px solid #edf0f7;
+    background: var(--color-black);
 }
 .sub-header-left ul {
     gap: 20px;
@@ -288,6 +297,17 @@ img {
 .offcanvas {
     display: none;
 }
+.fa-linkedin{
+ color: #0077B5 !important;   
+}
+
+.fa-twitter{
+   color: #0077B5 !important;     
+}
+
+ .fa-square-facebook {
+       color: #0077B5 !important;
+ }
 
 /******** Header Area Start
 ***************************************************************/
@@ -325,6 +345,7 @@ img {
     background-color: var(--color-1);
     transition: 0.5s;
 }
+
 .primary-menu li a:hover:after {
     width: 100%;
 }
@@ -463,13 +484,97 @@ img {
     font-size: 15px;
 }
 
-/* Mega Menu */
-.main-menu-ul > li {
+/* 1. Espaciado entre los enlaces "Home" y "Courses" */
+.mi-primary-menu li {
+    margin-left: 20px; /* Ajusta el espaciado horizontal entre los ítems */
+    list-style: none;
+}
+
+/* 2. Posicionamiento del Dropdown */
+/* El padre (<li> de "Courses") debe ser relativo */
+.mi-have-mega-menu {
     position: relative;
 }
-.main-menu-ul > li.have-mega-menu {
+
+/* 3. Estilos y posicionamiento del Mega-Menú */
+.mi-mega-dropdown-menu {
+    display: none; /* Ocultar por defecto */
+    
+    position: absolute;
+    top: 100%; /* Aparece debajo del enlace padre */
+    left: 50%; /* Intenta centrar el dropdown respecto al enlace */
+    transform: translateX(-50%); /* Ajusta el centrado horizontal */
+    
+    width: 600px; /* Define un ancho razonable */
+    
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    z-index: 100;
+}
+
+/* 4. Mostrar el menú al pasar el ratón (Hover) */
+.mi-have-mega-menu:hover > .mi-mega-dropdown-menu {
+    display: block; 
+}
+.mi-mega-list > li {
+    margin-bottom: 5px; /* Pequeño margen debajo de cada ítem para separarlos */
+}
+/* 5. Estilos internos para evitar el desorden de las listas anidadas */
+.mi-mega-list,
+.mi-child-category-menu {
+    list-style: none; /* Quita viñetas */
+    padding: 0;
+    margin: 0;
+}
+/* Espaciado entre los enlaces "Home" y "Courses" */
+.mi-primary-menu li {
+    margin-left: 20px; 
+    list-style: none;
+}
+.mi-mega-list a {
+    display: flex; /* Habilita Flexbox para alinear contenido */
+    align-items: center; /* Centra verticalmente el ícono y el texto */
+    padding: 8px 10px; /* Padding interno para que el área de clic sea más grande */
+    text-decoration: none;
+    color: #333; 
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.mi-mega-list a:hover {
+    background-color: #f0f0f0; 
+}
+
+/* Mantenemos el espaciado horizontal de los elementos principales (Inicio | Cursos) */
+.mi-primary-menu li {
+    margin-left: 20px; 
+    list-style: none;
+}
+
+/* Para que el mega-menú funcione: */
+.mi-have-mega-menu {
     position: relative;
 }
+
+.mi-mega-dropdown-menu {
+   padding: 20px; /* Aumentamos el padding para más espacio visual */
+    
+    /* Asegúrate de que las propiedades de posicionamiento sigan activas */
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.mi-have-mega-menu:hover > .mi-mega-dropdown-menu {
+    display: block; 
+}
+
 
 
 .main-menu-ul > li:hover .main-mega-menu {
@@ -5188,3 +5293,257 @@ a#team-training-header-menu-icon svg{
 /* Buttons Css End ***
 *********************/
 /* Sham ended */
+.title-home {
+    color: #0d0d0e !important;
+    text-align: center;
+}
+.title-home_color{
+background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul */
+
+    /* 2. Recortar el fondo para que solo se vea dentro del texto */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* 3. Hacer que el color del texto sea transparente para revelar el fondo */
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback para navegadores compatibles */
+    
+    /* 4. Opcional: Asegúrate de que el tamaño de fuente sea lo suficientemente grande para ver el efecto */
+
+    font-weight: bold;
+    text-align: center;
+    width: min-content;
+    height: max-content;
+}
+
+.texto-home {
+    text-align: center;
+}
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Hace que sea un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+/* Estilo para la sección principal si la necesitas */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    
+}
+/* Estilos adicionales para los círculos de íconos en las tarjetas */
+.icon-circle {
+    width: 60px; /* Aumentado para coincidir con el tamaño de la imagen */
+    height: 60px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem; /* Ícono más grande */
+    margin: 0 auto; /* Centrar el círculo en su columna */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra ligera en el círculo */
+}
+
+/* Estilo para la sección principal */
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Estilo para la tarjeta principal de la oferta de valor */
+.tv-offer-card {
+    border-radius: 15px;
+    background: #FFFFFF;
+}
+/* Estilos para los Círculos de Íconos (Asegúrate de que sean consistentes) */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para las Tarjetas de Ventajas */
+.tv-advantage-card {
+    border: none;
+    border-radius: 10px; 
+    transition: transform 0.3s ease; /* Efecto suave al pasar el mouse */
+    text-align: left; /* Alineación del texto dentro de la tarjeta */
+}
+
+/* Efecto al pasar el mouse (opcional, pero mejora la UX) */
+.tv-advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Estilo para la lista de ecosistema */
+.tv-ecosystem-list {
+    padding-left: 0;
+}
+
+.tv-ecosystem-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.list-item-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    /* Estilo del ícono sin círculo visible, solo el color */
+}
+
+/* Estilo para el recuadro azul claro (tv-highlight-box) */
+.tv-highlight-box {
+    background-color: #E6F2FF; /* Fondo azul muy claro */
+    border: 1px solid #B3D9FF; /* Borde azul claro */
+    border-radius: 8px;
+    color: #333;
+}
+
+
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Estilo para la tarjeta principal del programa */
+.tv-program-card {
+    border-radius: 10px;
+    border: 1px solid #E0E0E0; /* Borde muy ligero */
+}
+
+/* Estilo para el recuadro destacado con la estrella */
+.tv-highlight-star-box {
+    background-color: #F0FFF0; /* Fondo verde muy pálido, casi blanco */
+    border: 1px solid #C8E6C9; /* Borde verde claro */
+    border-radius: 8px;
+    color: #333;
+    box-shadow: none; /* Asegurar que no tenga sombra si la tarjeta padre la tiene */
+}
+
+.tv-highlight-star-box .fa-star {
+    /* Color de la estrella para que sea dorado/amarillo */
+    color: #FFD700;
+}
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Estilo de la tarjeta de testimonio */
+.tv-testimonial-card {
+    border: none;
+    border-radius: 10px;
+    /* Usar flexbox para asegurar que el pie (autor) siempre esté abajo si los textos varían de tamaño */
+    display: flex;
+    flex-direction: column; 
+}
+
+/* Estilo de las comillas grandes y coloridas */
+.quote-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1; /* Para que la comilla no ocupe demasiado espacio vertical */
+}
+
+/* Estilo del punto de color al lado del nombre */
+.dot-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* El color se establece inline en el HTML para variar */
+}
+/* === ESTILOS DEL BANNER CTA === */
+.tv-cta-banner {
+    /* Gradiente de fondo visto en la imagen */
+    background: linear-gradient(90deg, #3700b3, #5e35b1); 
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Estilo del botón "Contáctanos" */
+.tv-cta-btn {
+    background-color: #FF8C00; /* Naranja fuerte */
+    border-color: #FF8C00;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tv-cta-btn:hover {
+    background-color: #FFA040; /* Naranja más claro al pasar el mouse */
+    border-color: #FFA040;
+    color: white;
+}
+
+/* === ESTILOS DEL FOOTER === */
+.tv-footer-bg {
+    background-color: #1E2741; /* Azul oscuro/casi negro del footer */
+    color: white;
+}
+
+/* Estilo de los enlaces del footer */
+.tv-footer-links a {
+    color: rgba(255, 255, 255, 0.7); /* Gris claro */
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.2s;
+}
+
+.tv-footer-links a:hover {
+    color: white;
+}
+
+/* Estilos de los iconos sociales */
+.tv-social-icons .social-icon-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #384055; /* Fondo más oscuro para los íconos */
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.tv-social-icons .social-icon-btn:hover {
+    background-color: #1E90FF; /* Color de hover para los iconos */
+}

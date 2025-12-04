@@ -154,6 +154,7 @@ class InstallController extends Controller
             "password"  => $password,
             'driver'    => env('DB_CONNECTION', 'mysql'),
             'charset'   => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => 'utf8mb4_unicode_ci',
         ]);
         try {
             DB::connection($newName)->getPdo();

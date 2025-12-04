@@ -1,4 +1,4 @@
-<div class="banner-image mt-0 mt-md-5">
+<!-- <div class="banner-image mt-0 mt-md-5">
     <img class="large-img" src="{{ asset(get_frontend_settings('banner_image')) }}" alt="banner-image">
     <div class="over-text">
         <span>
@@ -43,4 +43,4 @@
             <p>{{ get_phrase('Students has Enrolled') }}</p>
         </div>
     </div>
-</div>
+</div> -->

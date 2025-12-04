@@ -24,7 +24,7 @@
                             $phrase_two = end($arr);
                             $phrase_one = str_replace($phrase_two, '', $banner_title);
                         @endphp
-                        <p class="light">{{ get_phrase('The Leader in online learning') }}</p>
+                        <p class="light">{{ get_phrase('The Leader in online learning') }}dfdsf</p>
                         <h1 class="title">{{ $phrase_one }} <span class="highlight">{{ $phrase_two }}</span></h1>
                         <p class="info mb-20">{{ get_frontend_settings('banner_sub_title') }}</p>
                         <div class="buttons d-flex align-items-center flex-wrap">
