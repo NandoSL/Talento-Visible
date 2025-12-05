@@ -404,6 +404,15 @@ if (!function_exists('duration_to_seconds')) {
     }
 }
 
+if (!function_exists('transform_time')) {
+    function transform_time($duration = "00:00:00:", $type)
+    {
+        $time = explode(':', $duration);
+        return $time[$type];
+    }
+}
+
+
 if (!function_exists('total_durations')) {
     function total_durations($course_id = '')
     {
@@ -497,7 +506,7 @@ if (!function_exists('removeScripts')) {
     function removeScripts($text)
     {
         if(!$text) return;
-        
+
         // Remove <script> tags and their content
         $pattern_script = '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/is';
         $cleanText = preg_replace($pattern_script, '', $text);
