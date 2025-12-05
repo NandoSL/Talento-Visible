@@ -779,7 +779,7 @@ if (!function_exists('addon_status')) {
     {
 
         $result = DB::table('addons')->where('unique_identifier', $unique_identifier);
-        if ($result->count() > 0) {
+        if ($result->count() == null ) {
             $result = $result->firstOrNew();
             return $result['status'];
         } else {

@@ -1202,33 +1202,33 @@ span[class="fi-rr-"]:before {
 }
 
 /* Footer Bottom */
-.footer-bottom-area {
+.-area {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.footer-bottom-wrap {
+.-wrap {
     padding: 30px 0;
     column-gap: 40px;
     row-gap: 10px;
 }
 
-.footer-bottom-nav {
+.-nav {
     column-gap: 40px;
     row-gap: 7px;
 }
 
-.footer-bottom-nav a {
+.-nav a {
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 13px;
     color: #dedede;
 }
 
-.footer-bottom-nav a:hover {
+.-nav a:hover {
     color: #436aff;
 }
 
-.footer-bottom-wrap .copyright {
+.-wrap .copyright {
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 13px;

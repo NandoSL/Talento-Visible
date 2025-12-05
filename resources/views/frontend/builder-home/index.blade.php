@@ -90,6 +90,7 @@
         }
 
         $dom = new \DOMDocument();
+        $static_home_page_html = mb_convert_encoding($static_home_page_html, 'HTML-ENTITIES', 'UTF-8');
         @$dom->loadHTML($static_home_page_html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
         // Define an array of classes to target
@@ -148,7 +149,9 @@
     @endphp
 
 
-
+  <footer class="ls-footer-one bg-261954">
+        @include('frontend.default.footer')
+    </footer>
 
     <!-- Bootstrap Js -->
     <script src="{{ asset('assets/frontend/default/js/bootstrap.bundle.min.js') }}"></script>

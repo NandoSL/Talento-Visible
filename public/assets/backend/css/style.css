@@ -749,6 +749,7 @@ span[class="fi-rr-"]:before {
 .sidebar-first-li > a.btn-brightOrange:active {
  background: linear-gradient(to right, #FE9800, #FF8500, #FF6C00); 
     box-shadow: 0 0 15px 5px rgba(233, 234, 235, 0.7); 
+    
 }
 
 

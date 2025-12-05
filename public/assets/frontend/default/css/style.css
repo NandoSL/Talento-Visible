@@ -4054,25 +4054,7 @@ html .ui-button.ui-state-disabled:active {
 
 /******** Footer  Area Start
 ***************************************************************/
-.footer-area {
-    /*margin-top: 110px;*/
-    background-color: var(--color-4);
-    padding: 50px 0 30px 0;
-    color: #1f1c35;
-}
-.footer-content img {
-    height: 46px;
-    width: 161px;
-    object-fit: cover;
-    margin-bottom: 29px;
-}
-.footer-content p {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 27px;
-    margin-bottom: 30px;
-    color: #212121;
-}
+
 .f-socials {
     gap: 16px;
     margin-bottom: 30px;
@@ -4192,11 +4174,7 @@ html .ui-button.ui-state-disabled:active {
 .newslater-bottom {
     margin-top: 20px;
 }
-.footer-bottom {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid #ffffff38;
-}
+
 .footer-policy {
     display: flex;
 }
@@ -5525,7 +5503,7 @@ a#team-training-header-menu-icon svg{
 }
 
 .pymais-button-gradient:hover {
-    background: linear-gradient(to right, #3C6EE2, #2849E6); /* Efecto al pasar el ratón */
+    background: linear-gradient(to right, #3C6EE2, #2849E6); 
     color: #f2f2f2;
 }
 
@@ -5551,18 +5529,11 @@ a#team-training-header-menu-icon svg{
     text-align: center;
 }
 .title-home_color{
-background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul */
-
-    /* 2. Recortar el fondo para que solo se vea dentro del texto */
+background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); 
     -webkit-background-clip: text;
     background-clip: text;
-
-    /* 3. Hacer que el color del texto sea transparente para revelar el fondo */
     -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback para navegadores compatibles */
-    
-    /* 4. Opcional: Asegúrate de que el tamaño de fuente sea lo suficientemente grande para ver el efecto */
-
+    color: transparent; 
     font-weight: bold;
     text-align: center;
     width: min-content;
@@ -5590,15 +5561,15 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 }
 /* Estilos adicionales para los círculos de íconos en las tarjetas */
 .icon-circle {
-    width: 60px; /* Aumentado para coincidir con el tamaño de la imagen */
+    width: 60px; 
     height: 60px;
     border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem; /* Ícono más grande */
-    margin: 0 auto; /* Centrar el círculo en su columna */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra ligera en el círculo */
+    font-size: 1.8rem;
+    margin: 0 auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
 }
 
 /* Estilo para la sección principal */
@@ -5628,8 +5599,8 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 .tv-advantage-card {
     border: none;
     border-radius: 10px; 
-    transition: transform 0.3s ease; /* Efecto suave al pasar el mouse */
-    text-align: left; /* Alineación del texto dentro de la tarjeta */
+    transition: transform 0.3s ease; 
+    text-align: left; 
 }
 
 /* Efecto al pasar el mouse (opcional, pero mejora la UX) */
@@ -5671,13 +5642,12 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
     align-items: center;
     font-size: 1.1rem;
     margin-right: 10px;
-    /* Estilo del ícono sin círculo visible, solo el color */
 }
 
 /* Estilo para el recuadro azul claro (tv-highlight-box) */
 .tv-highlight-box {
-    background-color: #E6F2FF; /* Fondo azul muy claro */
-    border: 1px solid #B3D9FF; /* Borde azul claro */
+    background-color: #E6F2FF; 
+    border: 1px solid #B3D9FF; 
     border-radius: 8px;
     color: #333;
 }
@@ -5692,20 +5662,19 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 /* Estilo para la tarjeta principal del programa */
 .tv-program-card {
     border-radius: 10px;
-    border: 1px solid #E0E0E0; /* Borde muy ligero */
+    border: 1px solid #E0E0E0; 
 }
 
 /* Estilo para el recuadro destacado con la estrella */
 .tv-highlight-star-box {
-    background-color: #F0FFF0; /* Fondo verde muy pálido, casi blanco */
-    border: 1px solid #C8E6C9; /* Borde verde claro */
+    background-color: #F0FFF0;
+    border: 1px solid #C8E6C9; 
     border-radius: 8px;
     color: #333;
-    box-shadow: none; /* Asegurar que no tenga sombra si la tarjeta padre la tiene */
+    box-shadow: none;
 }
 
 .tv-highlight-star-box .fa-star {
-    /* Color de la estrella para que sea dorado/amarillo */
     color: #FFD700;
 }
 /* Relleno general para la sección */
@@ -5718,7 +5687,6 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 .tv-testimonial-card {
     border: none;
     border-radius: 10px;
-    /* Usar flexbox para asegurar que el pie (autor) siempre esté abajo si los textos varían de tamaño */
     display: flex;
     flex-direction: column; 
 }
@@ -5727,7 +5695,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 .quote-icon {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    line-height: 1; /* Para que la comilla no ocupe demasiado espacio vertical */
+    line-height: 1; 
 }
 
 /* Estilo del punto de color al lado del nombre */
@@ -5735,11 +5703,9 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    /* El color se establece inline en el HTML para variar */
 }
 /* === ESTILOS DEL BANNER CTA === */
 .tv-cta-banner {
-    /* Gradiente de fondo visto en la imagen */
     background: linear-gradient(90deg, #3700b3, #5e35b1); 
     background-size: cover;
     padding-top: 80px;
@@ -5748,8 +5714,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 
 /* Estilo del botón "Contáctanos" */
 .tv-cta-btn {
-    background-color: #FF8C00; /* Naranja fuerte */
-    border-color: #FF8C00;
+    background-color: #FF8C00; 
     color: white;
     font-weight: bold;
     padding: 10px 30px;
@@ -5758,20 +5723,20 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 }
 
 .tv-cta-btn:hover {
-    background-color: #FFA040; /* Naranja más claro al pasar el mouse */
+    background-color: #FFA040; 
     border-color: #FFA040;
     color: white;
 }
 
 /* === ESTILOS DEL FOOTER === */
 .tv-footer-bg {
-    background-color: #1E2741; /* Azul oscuro/casi negro del footer */
+    background-color: #1E2741; 
     color: white;
 }
 
 /* Estilo de los enlaces del footer */
 .tv-footer-links a {
-    color: rgba(255, 255, 255, 0.7); /* Gris claro */
+    color: rgba(255, 255, 255, 0.7); 
     text-decoration: none;
     line-height: 2;
     transition: color 0.2s;
@@ -5789,7 +5754,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #384055; /* Fondo más oscuro para los íconos */
+    background-color: #384055; 
     color: white;
     font-size: 1.1rem;
     margin-right: 10px;
@@ -5798,5 +5763,100 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); /* Verde a azul 
 }
 
 .tv-social-icons .social-icon-btn:hover {
-    background-color: #1E90FF; /* Color de hover para los iconos */
+    background-color: #1E90FF; 
+}
+
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.tv-welcome-cta-btn {
+    background: linear-gradient(135deg, #1E90FF 0%, #0056B3 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 12px 35px;
+    border-radius: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.tv-welcome-cta-btn:hover {
+    background: linear-gradient(135deg, #0056B3 0%, #1E90FF 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 86, 179, 0.4);
+}
+
+.tatelnto{
+   background: linear-gradient(to right, #688CFD, #5250FB, #6D44FB);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.visible {
+    background-image: linear-gradient(
+        to right, 
+       #688CFD, #5250FB, #6D44FB, 
+        #56A697, #718DB6,
+                #718DB6, #56A697, #2ABB73, 
+       #688CFD, #5250FB, #6D44FB
+    );
+    background-size: 400% auto;
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: infiniteSlide 10s linear infinite; 
+}
+
+
+@keyframes infiniteSlide {
+  0% {
+    background-position: 0% center; 
+  }
+  50% {
+    background-position: 100% center; 
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.text-instructures {
+ background: linear-gradient(to right, #679EF9, #84C3EC, #A9DDE7);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+.text-expertos {
+    background: linear-gradient(to right, #45C4B5, #00B885, #00C560);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.text-formacion {
+    background: linear-gradient(to right, #0964F7, #3DB5C8, #25C396);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    -webkit-text-fill-color: transparent;
+}
+
+.force-center-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 15px !important; 
+    padding-right: 15px !important;
+}
+
+.force-center-col {
+    display: flex;
+    justify-content: center;
 }
