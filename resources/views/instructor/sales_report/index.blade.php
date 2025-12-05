@@ -4,14 +4,25 @@
 @push('css')@endpush
 @section('content')
     <!-- start page title -->
-    <div class="ol-card radius-8px">
+    <div class="ol-card radius-8px ml-5">
         <div class="ol-card-body my-3 py-4 px-20px">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
-                <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
+                <h4 class=" txt-bold fs-16px">
                     {{ get_phrase('Sales report') }}
                 </h4>
             </div>
+            <form class="" action="{{ route('instructor.sales.report') }}" method="get">
+                <div class="">
+                    <div class="width-" style="--w:100%">
+                        <div class=" d-flex align-items-center gap-3">
+                            <input type="text" class=" inline form-control w-80 " name="eDateRange"value="{{ date('m/d/Y', $start_date)}}" />
+                            -
+                            <input type="text" class="form-control w-80 " name="eDateRange"value="{{date('m/d/Y', $end_date) }}" />                        
+                            <button type="submit" class="btn bg-color-degraded txt-color w-50" style="--txt-color: #FFF; --color1:#3B9FD0; --color2:#107BE3;" id="submit-button" onclick="update_date_range();"> {{ get_phrase('Filter') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -40,20 +51,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="col-md-6">
-                            <form class="form-inline" action="{{ route('instructor.sales.report') }}" method="get">
-                                <div class="row row-gap-3">
-                                    <div class="col-md-9">
-                                        <div class="mb-3 position-relative position-relative">
-                                            <input type="text" class="form-control ol-form-control daterangepicker w-100" name="eDateRange"value="{{ date('m/d/Y', $start_date) . ' - ' . date('m/d/Y', $end_date) }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="submit" class="btn ol-btn-primary w-100" id="submit-button" onclick="update_date_range();"> {{ get_phrase('Filter') }}</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        
                     </div>
 
                     <!-- Table -->

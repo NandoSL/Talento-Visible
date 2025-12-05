@@ -1795,4 +1795,49 @@ body {
     background: #F1F4F9;
 }
 
+.txt-bold{
+    font-weight: bold;
+}
+.width-{
+    width: var(--w);
+}
+.height-{
+    height: var(--h);
+}
+.space-top{
+    margin-top: var(--mg-top);
+}
+.option {
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid transparent;
+}
 
+/* Estilo cuando está activa */
+.option.active {
+    color: white;
+}
+
+.round-{
+    border-radius: var(--br);
+}
+.jc-{
+    justify-content: var(--jc);
+}
+.panel {
+    display: none;
+}
+.panel.active {
+    display: block;
+    
+}
+.text-box-bg{
+    border-style:solid ;
+    border-width: 5px;
+    border-color:var(--border-color);
+    background-color:var(--b-bg-c) ;
+}
+.text-box-bg:focus-within {
+    border: 5px solid #ffa034; 
+    
+}
