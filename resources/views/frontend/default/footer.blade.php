@@ -1,4 +1,4 @@
-<section class="tv-cta-banner text-center py-5">
+<section class="tv-cta-banner text-center py-5 mt-5">
     <div class="container">
         <h2 class="display-5 fw-bold text-white mb-3">
             Empoderando a las PyME para el futuro
@@ -30,15 +30,7 @@
                     <li class="mb-2"><i class="fas fa-globe me-2"></i> www.talentovisible.com.mx</li>
                 </ul>
             </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4"> 
-                <h5 class="fw-bold text-white mb-3">Enlaces de Interés</h5>
-                <ul class="list-unstyled tv-footer-links">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Beneficios</a></li>
-                    <li><a href="#">Programa</a></li>
-                </ul>
-            </div>
+        
             
             <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="fw-bold text-white mb-3">Síguenos</h5>
