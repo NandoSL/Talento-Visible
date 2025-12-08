@@ -233,6 +233,24 @@ if (!function_exists('total_enrolled')) {
         return $total_enrolled;
     }
 }
+
+// TODO: Se agrego funcion para traer los enrolamientos por medio del id del instructor
+if (!function_exists('total_enrolled_by_id')) {
+    function total_enrolled_by_id($user_id)
+    {
+        $courses = App\Models\Course::where('user_id', $user_id)->get();
+        $total_enrolled = 0;
+
+        foreach ($courses as $course) {
+            $enrolles = App\Models\Enrollments::where('course_id', $course->id)->count();
+            $total_enrolled += $enrolles;
+        }
+
+        return $total_enrolled;
+    }
+}
+
+
 if (!function_exists('total_enroll')) {
     function total_enroll($course_id = "")
     {

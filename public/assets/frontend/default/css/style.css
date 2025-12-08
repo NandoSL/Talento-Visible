@@ -300,11 +300,11 @@ img {
     display: none;
 }
 .fa-linkedin{
- color: #0077B5 !important;   
+ color: #0077B5 !important;
 }
 
 .fa-twitter{
-   color: #0077B5 !important;     
+   color: #0077B5 !important;
 }
 
  .fa-square-facebook {
@@ -501,14 +501,14 @@ img {
 /* 3. Estilos y posicionamiento del Mega-Menú */
 .mi-mega-dropdown-menu {
     display: none; /* Ocultar por defecto */
-    
+
     position: absolute;
     top: 100%; /* Aparece debajo del enlace padre */
     left: 50%; /* Intenta centrar el dropdown respecto al enlace */
     transform: translateX(-50%); /* Ajusta el centrado horizontal */
-    
+
     width: 600px; /* Define un ancho razonable */
-    
+
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     padding: 15px;
@@ -517,7 +517,7 @@ img {
 
 /* 4. Mostrar el menú al pasar el ratón (Hover) */
 .mi-have-mega-menu:hover > .mi-mega-dropdown-menu {
-    display: block; 
+    display: block;
 }
 .mi-mega-list > li {
     margin-bottom: 5px; /* Pequeño margen debajo de cada ítem para separarlos */
@@ -531,7 +531,7 @@ img {
 }
 /* Espaciado entre los enlaces "Home" y "Courses" */
 .mi-primary-menu li {
-    margin-left: 20px; 
+    margin-left: 20px;
     list-style: none;
 }
 .mi-mega-list a {
@@ -539,17 +539,17 @@ img {
     align-items: center; /* Centra verticalmente el ícono y el texto */
     padding: 8px 10px; /* Padding interno para que el área de clic sea más grande */
     text-decoration: none;
-    color: #333; 
+    color: #333;
     border-radius: 4px;
     transition: background-color 0.2s;
 }
 .mi-mega-list a:hover {
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
 }
 
 /* Mantenemos el espaciado horizontal de los elementos principales (Inicio | Cursos) */
 .mi-primary-menu li {
-    margin-left: 20px; 
+    margin-left: 20px;
     list-style: none;
 }
 
@@ -560,12 +560,12 @@ img {
 
 .mi-mega-dropdown-menu {
    padding: 20px; /* Aumentamos el padding para más espacio visual */
-    
+
     /* Asegúrate de que las propiedades de posicionamiento sigan activas */
-    display: none; 
+    display: none;
     position: absolute;
-    top: 100%; 
-    left: 50%; 
+    top: 100%;
+    left: 50%;
     transform: translateX(-50%);
     width: 600px;
     background-color: #ffffff;
@@ -574,7 +574,7 @@ img {
 }
 
 .mi-have-mega-menu:hover > .mi-mega-dropdown-menu {
-    display: block; 
+    display: block;
 }
 
 
@@ -5503,7 +5503,7 @@ a#team-training-header-menu-icon svg{
 }
 
 .pymais-button-gradient:hover {
-    background: linear-gradient(to right, #3C6EE2, #2849E6); 
+    background: linear-gradient(to right, #3C6EE2, #2849E6);
     color: #f2f2f2;
 }
 
@@ -5529,11 +5529,11 @@ a#team-training-header-menu-icon svg{
     text-align: center;
 }
 .title-home_color{
-background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C); 
+background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; 
+    color: transparent;
     font-weight: bold;
     text-align: center;
     width: min-content;
@@ -5557,19 +5557,19 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 .section-padding {
     padding-top: 60px;
     padding-bottom: 60px;
-    
+
 }
 /* Estilos adicionales para los círculos de íconos en las tarjetas */
 .icon-circle {
-    width: 60px; 
+    width: 60px;
     height: 60px;
-    border-radius: 50%; 
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;
-    margin: 0 auto; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Estilo para la sección principal */
@@ -5587,7 +5587,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 .icon-circle {
     width: 50px;
     height: 50px;
-    border-radius: 50%; 
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -5598,9 +5598,9 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 /* Estilos para las Tarjetas de Ventajas */
 .tv-advantage-card {
     border: none;
-    border-radius: 10px; 
-    transition: transform 0.3s ease; 
-    text-align: left; 
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    text-align: left;
 }
 
 /* Efecto al pasar el mouse (opcional, pero mejora la UX) */
@@ -5646,8 +5646,8 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 
 /* Estilo para el recuadro azul claro (tv-highlight-box) */
 .tv-highlight-box {
-    background-color: #E6F2FF; 
-    border: 1px solid #B3D9FF; 
+    background-color: #E6F2FF;
+    border: 1px solid #B3D9FF;
     border-radius: 8px;
     color: #333;
 }
@@ -5662,13 +5662,13 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 /* Estilo para la tarjeta principal del programa */
 .tv-program-card {
     border-radius: 10px;
-    border: 1px solid #E0E0E0; 
+    border: 1px solid #E0E0E0;
 }
 
 /* Estilo para el recuadro destacado con la estrella */
 .tv-highlight-star-box {
     background-color: #F0FFF0;
-    border: 1px solid #C8E6C9; 
+    border: 1px solid #C8E6C9;
     border-radius: 8px;
     color: #333;
     box-shadow: none;
@@ -5688,14 +5688,14 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
     border: none;
     border-radius: 10px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 /* Estilo de las comillas grandes y coloridas */
 .quote-icon {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    line-height: 1; 
+    line-height: 1;
 }
 
 /* Estilo del punto de color al lado del nombre */
@@ -5706,7 +5706,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 }
 /* === ESTILOS DEL BANNER CTA === */
 .tv-cta-banner {
-    background: linear-gradient(90deg, #3700b3, #5e35b1); 
+    background: linear-gradient(90deg, #3700b3, #5e35b1);
     background-size: cover;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -5714,7 +5714,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 
 /* Estilo del botón "Contáctanos" */
 .tv-cta-btn {
-    background-color: #FF8C00; 
+    background-color: #FF8C00;
     color: white;
     font-weight: bold;
     padding: 10px 30px;
@@ -5723,20 +5723,20 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 }
 
 .tv-cta-btn:hover {
-    background-color: #FFA040; 
+    background-color: #FFA040;
     border-color: #FFA040;
     color: white;
 }
 
 /* === ESTILOS DEL FOOTER === */
 .tv-footer-bg {
-    background-color: #1E2741; 
+    background-color: #1E2741;
     color: white;
 }
 
 /* Estilo de los enlaces del footer */
 .tv-footer-links a {
-    color: rgba(255, 255, 255, 0.7); 
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     line-height: 2;
     transition: color 0.2s;
@@ -5754,7 +5754,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #384055; 
+    background-color: #384055;
     color: white;
     font-size: 1.1rem;
     margin-right: 10px;
@@ -5763,7 +5763,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 }
 
 .tv-social-icons .social-icon-btn:hover {
-    background-color: #1E90FF; 
+    background-color: #1E90FF;
 }
 
 .section-padding {
@@ -5790,7 +5790,7 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 
 .tatelnto{
    background: linear-gradient(to right, #688CFD, #5250FB, #6D44FB);
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
@@ -5798,27 +5798,27 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 
 .visible {
     background-image: linear-gradient(
-        to right, 
-       #688CFD, #5250FB, #6D44FB, 
+        to right,
+       #688CFD, #5250FB, #6D44FB,
         #56A697, #718DB6,
-                #718DB6, #56A697, #2ABB73, 
+                #718DB6, #56A697, #2ABB73,
        #688CFD, #5250FB, #6D44FB
     );
     background-size: 400% auto;
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    animation: infiniteSlide 10s linear infinite; 
+    animation: infiniteSlide 10s linear infinite;
 }
 
 
 @keyframes infiniteSlide {
   0% {
-    background-position: 0% center; 
+    background-position: 0% center;
   }
   50% {
-    background-position: 100% center; 
+    background-position: 100% center;
   }
   100% {
     background-position: 200% center;
@@ -5826,14 +5826,14 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 }
 .text-instructures {
  background: linear-gradient(to right, #679EF9, #84C3EC, #A9DDE7);
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
 .text-expertos {
     background: linear-gradient(to right, #45C4B5, #00B885, #00C560);
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
@@ -5845,14 +5845,14 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    
+
     -webkit-text-fill-color: transparent;
 }
 
 .force-center-row {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-left: 15px !important; 
+    padding-left: 15px !important;
     padding-right: 15px !important;
 }
 
