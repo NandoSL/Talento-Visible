@@ -31,7 +31,7 @@
                                     <div class="card-body card-info-course" style="padding: 3rem">
                                         <div class="text-info-course">
                                             <p class="card-text">Cursos activos</p>
-                                            <p class="card-text count">{{ $my_courses->count() }}</p>
+                                            <p class="card-text count">{{ $my_courses->total() }}</p>
                                         </div>
                                         <div class="svg-info-course">
                                             <svg width="35" height="35" viewBox="0 0 24 24" fill="none"
@@ -49,7 +49,7 @@
                                     <div class="card-body card-info-course" style="padding: 3rem">
                                         <div class="text-info-course">
                                             <p class="card-text">Horas totales</p>
-                                            <p class="card-text count">0</p>
+                                            <p class="card-text count"> {{ $courses_hours }} </p>
                                         </div>
                                         <div class="svg-info-course">
                                             <svg width="35" height="35" viewBox="0 0 24 24" fill="none"
@@ -67,7 +67,7 @@
                                     <div class="card-body card-info-course" style="padding: 3rem">
                                         <div class="text-info-course">
                                             <p class="card-text">Completados</p>
-                                            <p class="card-text count">0</p>
+                                            <p class="card-text count"> {{ $courses_completed }} </p>
                                         </div>
                                         <div class="svg-info-course">
                                             <svg width="35" height="35" viewBox="0 0 24 24" fill="none"
@@ -85,7 +85,8 @@
                                     <div class="card-body card-info-course" style="padding: 3rem">
                                         <div class="text-info-course">
                                             <p class="card-text">Progreso</p>
-                                            <p class="card-text count">0</p>
+                                            <p class="card-text count"> {{ $courses_promedio / $my_courses->total() }} %
+                                            </p>
                                         </div>
                                         <div class="svg-info-course">
                                             <svg width="35" height="35" viewBox="0 0 24 24" fill="none"
@@ -134,6 +135,11 @@
                                                     <h5>{{ $course->user_name }}</h5>
                                                 </div>
                                             </div>
+                                            <div class="creator">
+                                                <div class="d-flex justify-content-between align-items-center mb-10">
+                                                    <h5>{{ get_phrase('Duration') }} : 6.5 hrs</h5>
+                                                </div>
+                                            </div>
                                             <div class="single-progress">
                                                 <div class="d-flex justify-content-between align-items-center mb-10">
                                                     <h5>{{ __('Progress') }}</h5>
@@ -146,6 +152,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
 
                                             @php
                                                 $watch_history = App\Models\Watch_history::where(
@@ -179,9 +186,9 @@
                                     </div>
                                 </div>
                                 {{--
-                                        @if (($index + 1) % 3 === 0 || $index === count($my_courses) - 1)
-                                </div>
                             </div>
+                        </div>
+                                        @if (($index + 1) % 3 === 0 || $index === count($my_courses) - 1)
                             @endif
                             --}}
                             @endforeach
@@ -191,19 +198,22 @@
                                         @include('frontend.default.empty')
                                     </div>
                                 </div>
+                            @else
                                 {{--
-                                @else
                                 <button class="carousel-control-prev" type="button"
                                 data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                                 <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="false"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                        --}}
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                                --}}
+                                <div style="display: flex; align-items: center; justify-content: center; padding: 5rem 0">
+                                    {{ $my_courses->links() }}
+                                </div>
                             @endif
                         </div>
                     </div>

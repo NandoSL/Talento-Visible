@@ -29,7 +29,7 @@ Route::middleware(['auth', 'ip.detector'])->group(function () {
         Route::post('my-profile/update/{user_id}', 'update')->name('update.profile');
         Route::post('update-profile-picture', 'update_profile_picture')->name('update.profile.picture');
     });
-    
+
     // team members routes
     Route::controller(TeamMembersController::class)->group(function () {
         Route::get('team-members', 'index')->name('team.members');
