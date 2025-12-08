@@ -96,45 +96,24 @@
                 </a>
             </li>
 
-            <li class="sidebar-first-li first-li-have-sub @if ($current_route == 'instructor.payout.reports' || $current_route == 'instructor.payout.setting') active showMenu @endif">
-                <a href="javascript:void(0);">
+            <li class="sidebar-first-li  @if ($current_route == 'instructor.payout.reports' || $current_route == 'instructor.payout.setting') active showMenu @endif">
+                <a href="{{ route('instructor.payout.reports') }}">
                     <span class="icon fi fi-rr-file-invoice-dollar"></span>
                     <div class="text">
                         <span>{{ get_phrase('Payout') }}</span>
                     </div>
                 </a>
-                <ul class="first-sub-menu">
-                    <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Payout') }}</li>
-                    <li class="sidebar-second-li @if ($current_route == 'instructor.payout.reports' || $current_route == 'instructor.course.edit') active @endif">
-                        <a href="{{ route('instructor.payout.reports') }}">{{ get_phrase('Withdraw') }}</a>
-                    </li>
-                    <li class="sidebar-second-li @if ($current_route == 'instructor.payout.setting') active @endif">
-                        <a href="{{ route('instructor.payout.setting') }}">{{ get_phrase('Settings') }}</a>
-                    </li>
-                </ul>
             </li>
 
 
             @if (get_frontend_settings('instructors_blog_permission'))
-                <li class="sidebar-first-li first-li-have-sub @if ($current_route == 'instructor.blogs' || $current_route == 'instructor.blog.create' || $current_route == 'instructor.blog.edit' || $current_route == 'instructor.blog.pending') active showMenu @endif">
-                    <a href="javascript:void(0);">
+                <li class="sidebar-first-li  @if ($current_route == 'instructor.blogs' || $current_route == 'instructor.blog.create' || $current_route == 'instructor.blog.edit' || $current_route == 'instructor.blog.pending') active showMenu @endif">
+                    <a href="{{ route('instructor.blogs') }}">
                         <span class="icon fi fi-rr-blog-text"></span>
                         <div class="text">
                             <span>{{ get_phrase('Blogs') }}</span>
                         </div>
                     </a>
-                    <ul class="first-sub-menu">
-                        <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Blogs') }}</li>
-                        <li class="sidebar-second-li @if ($current_route == 'instructor.blogs' || $current_route == 'instructor.blog.edit') active @endif">
-                            <a href="{{ route('instructor.blogs') }}">{{ get_phrase('Manage Blogs') }}</a>
-                        </li>
-                        <li class="sidebar-second-li @if ($current_route == 'instructor.blog.create') active @endif">
-                            <a href="{{ route('instructor.blog.create') }}">{{ get_phrase('Add New Blog') }}</a>
-                        </li>
-                        <li class="sidebar-second-li @if ($current_route == 'instructor.blog.pending') active @endif">
-                            <a href="{{ route('instructor.blog.pending') }}">{{ get_phrase('Pending Blogs') }}</a>
-                        </li>
-                    </ul>
                 </li>
             @endif
 
