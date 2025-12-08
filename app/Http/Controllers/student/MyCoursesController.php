@@ -36,11 +36,20 @@ class MyCoursesController extends Controller
         $page_data['courses_promedio'] = 0;
 
         foreach ($page_data['my_courses_data'] as $course) {
-            $total = progress_bar($course->course_id);
-            if ($total == 100) {
+            $course_duration_seconds = Lesson::where('course_id', $course->course_id)
+                ->select(DB::raw('SUM(TIME_TO_SEC(duration)) AS duracion'))
+                ->value('duracion') ?? 0;
+
+            $progress = progress_bar($course->course_id);
+
+            if ($progress == 100) {
                 $page_data['courses_completed'] += 1;
             }
-            $page_data['courses_promedio'] += $total;
+
+            $progress_seconds = ($course_duration_seconds * ( $progress )) / 100;
+
+            $page_data['courses_promedio'] += $progress;
+            $page_data['courses_hours'] += round($progress_seconds / 3600, 2);
         }
 
         $view_path = 'frontend.' . get_frontend_settings('theme') . '.student.my_courses.index';

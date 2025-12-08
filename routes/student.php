@@ -27,6 +27,7 @@ Route::middleware(['auth', 'ip.detector'])->group(function () {
     Route::controller(MyProfileController::class)->group(function () {
         Route::get('my-profile', 'index')->name('my.profile');
         Route::post('my-profile/update/{user_id}', 'update')->name('update.profile');
+        Route::post('my-profile/update', 'update_password')->name('update.password');
         Route::post('update-profile-picture', 'update_profile_picture')->name('update.profile.picture');
     });
 

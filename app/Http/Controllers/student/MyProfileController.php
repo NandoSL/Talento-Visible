@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MyProfileController extends Controller
 {
@@ -60,6 +62,34 @@ class MyProfileController extends Controller
 
         User::where('id', auth()->user()->id)->update(['photo' => $path]);
         Session::flash('success', get_phrase('Profile picture updated.'));
+        return redirect()->back();
+    }
+
+    public function update_password(Request $request)
+    {
+
+        $validated = $request->validate([
+            'current_password'   => 'required|string',
+            'new_password' => 'required|string|min:8|max:59',
+            'confirm_password' => 'required|string|min:8|max:59',
+        ]);
+
+        $old_pass_check = Auth::attempt(['email' => auth()->user()->email, 'password' => $request->current_password]);
+
+        if (!$old_pass_check) {
+            Session::flash('error', get_phrase('Su contraseña es incorrecta'));
+            return redirect()->back();
+        }
+
+        if ($request->new_password != $request->confirm_password) {
+            Session::flash('error', get_phrase('Confirm password not same'));
+            return redirect()->back();
+        }
+
+        $password = Hash::make($request->new_password);
+        User::where('id', auth()->user()->id)->update(['password' => $password]);
+
+        Session::flash('success', get_phrase('Your changes has been saved.'));
         return redirect()->back();
     }
 }

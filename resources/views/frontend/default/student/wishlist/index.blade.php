@@ -23,7 +23,7 @@
                             Cursos que has guardado para comprar más tarde
                         </h3>
                     </div>
-                    <div class="row mt-5">
+                    <div class="my-panel mt-5 my-panel-margin">
                         @foreach ($wishlist as $wishitem)
                             <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
                                 <a href="{{ route('course.details', $wishitem->slug) }}" class="">
