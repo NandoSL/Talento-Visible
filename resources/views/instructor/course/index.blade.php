@@ -1,21 +1,31 @@
 @extends('layouts.instructor')
 @push('title', get_phrase('Course Manager'))
 @section('content')
-    <div class="ol-card radius-8px">
-        <div class="ol-card-body my-3 py-12px px-20px">
-            <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
-                <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
-                    {{ get_phrase('Manage Courses') }}
-                </h4>
-
-                <a href="{{ route('instructor.course.create') }}"class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
-                    <span class="fi-rr-plus"></span>
-                    <span>{{ get_phrase('Add New Course') }}</span>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+   <div class="ol-card radius-10px mb-4"> 
+    <div class="ol-card-body py-3">
+        <div class="d-flex justify-content-start gap-3 flex-wrap">
+                 <a
+                    href="{{ route('instructor.courses') }}" class="dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-m">
+    </button>
+                     <span>{{ get_phrase('Manage Courses') }}</span>
+                </a>
+                <a 
+                   href="{{ route('instructor.course.create') }}"class=" dropdown-header btn btn-light text-black rounded-pill  px-5 py-3 fw-bold tab-btn-n">
+                     <span>{{ get_phrase('Add New Course') }}</span>
+                </a>
+                 <a 
+                   href="{{ route('instructor.team.packages.purchase.history') }}" class=" dropdown-header btn btn-light text-black rounded-pill  px-5 py-3 fw-bold tab-btn-l">
+                     <span>{{ get_phrase('My lessons') }}</span>
+                </a>
+                <a 
+                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-k">
+                     <span>{{ get_phrase('Add new exam') }}</span>
                 </a>
             </div>
         </div>
     </div>
+
 
     <div class="row g-2 g-sm-3 mb-3 row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5">
         <div class="col">
@@ -24,7 +34,10 @@
                     <div class="ol-card-body px-3 py-12px">
                         <div class="d-flex align-items-center cg-12px">
                             <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $active_courses }}</p>
+                                <i class="fi fi-ss-book-open-cover p-2 ms-2  txt-color bg-color-degraded"
+                              style="--txt-color:#FFF; --color1:#4FD1C5; --color2:#38B2AC; border-radius:20%; font-size:2em;">
+                                  </i>
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $active_courses }}</p>
                                 <h6 class="title fs-14px mb-1">{{ get_phrase('Active courses') }}</h6>
                             </div>
                         </div>
@@ -38,7 +51,10 @@
                     <div class="ol-card-body px-3 py-12px">
                         <div class="d-flex align-items-center cg-12px">
                             <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $pending_courses }}</p>
+                                <i class="fi fi-ss-book-open-cover p-2 ms-2 txt-color bg-color-degraded"
+                                  style="--txt-color:#FFF; --color1:#4C70DD; --color2:#3851B2; border-radius:20%; font-size:2em;">
+                                   </i>
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $pending_courses }}</p>
                                 <h6 class="title fs-14px mb-1">{{ get_phrase('Pending courses') }}</h6>
                             </div>
                         </div>
@@ -52,7 +68,10 @@
                     <div class="ol-card-body px-3 py-12px">
                         <div class="d-flex align-items-center cg-12px">
                             <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $upcoming_courses }}</p>
+                                <i class="fi fi-ss-book-open-cover p-2 ms-2 txt-color bg-color-degraded"
+                                   style="--txt-color:#FFF; --color1:#FF9800; --color2:#F57C00; border-radius:20%; font-size:2em;">
+                                       </i>
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $upcoming_courses }}</p>
                                 <h6 class="title fs-14px mb-1">{{ get_phrase('Upcoming courses') }}</h6>
                             </div>
                         </div>
@@ -66,7 +85,10 @@
                     <div class="ol-card-body px-3 py-12px">
                         <div class="d-flex align-items-center cg-12px">
                             <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $free_courses }}</p>
+                                <i class="fi fi-ss-book-open-cover p-2 ms-2 txt-color bg-color-degraded"
+                                  style="--txt-color:#FFF; --color1:#424242; --color2:#212121; border-radius:20%; font-size:2em;">
+                                    </i>
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $free_courses }}</p>
                                 <h6 class="title fs-14px mb-1">{{ get_phrase('Free courses') }}</h6>
                             </div>
                         </div>
@@ -80,7 +102,10 @@
                     <div class="ol-card-body px-3 py-12px">
                         <div class="d-flex align-items-center cg-12px">
                             <div>
-                                <p class="sub-title fs-14px fw-semibold mb-2">{{ $paid_courses }}</p>
+                                <i class="fi fi-ss-book-open-cover p-2 ms-2 txt-color bg-color-degraded"
+                                   style="--txt-color:#FFF; --color1:#FFEB3B; --color2:#FFC107; border-radius:20%; font-size:2em;">
+                                   </i>
+                                <p class="sub-title fs-30px fw-semibold mb-2">{{ $paid_courses }}</p>
                                 <h6 class="title fs-14px mb-1">{{ get_phrase('Paid courses') }}</h6>
                             </div>
                         </div>
@@ -89,7 +114,16 @@
             </a>
         </div>
     </div>
-
+      <div class="row">
+    <div class="col-12">
+        <div class="ol-card">
+            <div class="ol-card-header d-flex justify-content-between align-items-center p-3">
+                <h4 class="m-0">{{ get_phrase('Manage courses') }}</h4>
+                <a href="{{ route('instructor.course.create') }}" class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
+                    <i class="fi-rr-add"></i>
+                    {{ get_phrase('Add New Course') }}
+                </a>
+            </div>
     <!-- Start Admin area -->
     <div class="row">
         <div class="col-12">
@@ -99,8 +133,9 @@
                         <div class="col-md-6 d-flex align-items-center gap-3">
                             <div class="custom-dropdown ms-2">
                                 <button class="dropdown-header btn ol-btn-light">
+                                      <i class="fi-rr-download me-2"></i>
                                     {{ get_phrase('Export') }}
-                                    <i class="fi-rr-file-export ms-2"></i>
+                                    
                                 </button>
                                 <ul class="dropdown-list">
                                     <li>
@@ -195,17 +230,36 @@
                                 <a href="{{ route('instructor.courses') }}" class="me-2" data-bs-toggle="tooltip" title="{{ get_phrase('Clear') }}"><i class="fi-rr-cross-circle"></i></a>
                             @endif
                         </div>
-                        <div class="col-md-6 mt-3 mt-md-0">
+                        <div class="ol-card-body p-3 mb-5">
+                          <div class="row mt-3 mb-2"> 
+                           <div class="col-md-6 d-flex align-items-center gap-3">
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0">
+                              </div>
+                            </div>
+                            <div class="row mb-4"> 
+                                <div class="col-md-12">
                             <form action="{{ route('instructor.courses') }}" method="get">
-                                <div class="row row-gap-3">
-                                    <div class="col-md-9 flex-grow-1">
-                                        <div class="search-input flex-grow-1">
-                                            <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ get_phrase('Search Title') }}" class="ol-form-control form-control" />
+                                @php $search_val = request()->has('search'); @endphp
+                                         <div class="row">
+                                            <div class="col-12">
+                                                <div class="search-input flex-grow-1" style="position: relative;">
+                                                   <i class="fi-rr-search" style="
+                                                       position: absolute; 
+                                                         left: 10px; 
+                                                          top: 50%; 
+                                                          transform: translateY(-50%); 
+                                                           z-index: 2; 
+                                                          color: #A9A9A9; /* Color gris para el ícono */  "></i>
+                                                <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ get_phrase('Search Title') }}" class="ol-form-control2 form-control" 
+                                                style="padding-left: 35px;"  />
                                         </div>
                                     </div>
+                                    <!-- 
+
                                     <div class="col-md-3">
                                         <button type="submit" class="btn ol-btn-primary w-100" id="submit-button">{{ get_phrase('Search') }}</button>
-                                    </div>
+                                    </div></div>-->
                                 </div>
                             </form>
                         </div>
@@ -213,14 +267,21 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            @if ($courses->count() > 0)
+                            @if ($courses->count() <= 0)
                                 <div class="admin-tInfo-pagi d-flex justify-content-between justify-content-center align-items-center flex-wrap gr-15">
                                     <p class="admin-tInfo">
                                         {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
                                     </p>
                                 </div>
-                                <div class="table-responsive overflow-auto course_list overflow-auto" id="course_list">
-                                    <table class="table eTable eTable-2 print-table">
+                              <div class="table-responsive overflow-auto course_list table-wrapper-small" id="course_list">
+                                     <table class="table eTable eTable-2 print-table">
+                                    <p class="admin-tInfo">
+                                        {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
+                                    </p>
+                                    
+                                </div>
+                                
+
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -272,7 +333,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="sub-title2 text-12px">
+                                                       <div class="sub-title2 text-12px">
                                                             <a href="{{ route('instructor.courses', ['category' => $row->category->slug]) }}">{{ category_by_course($row->category_id)->title }}</a>
                                                         </div>
                                                     </td>
@@ -309,25 +370,39 @@
 
                                                         <div class="dropdown ol-icon-dropdown ol-icon-dropdown-transparent">
                                                             <button class="btn ol-btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <span class="fi-rr-menu-dots-vertical"></span>
+                                                               
+                                                                  <i class="fi-rr-eye me-2"></i> 
+                                                                 <i class="fi-rr-pencil me-2 icon-blue"></i>
+                                                                  <i class="fi-rr-trash me-2 icon-red"></i>
+                                                                 <span class="fi-rr-menu-dots-vertical"></span>
                                                             </button>
 
                                                             <ul class="dropdown-menu">
+                                                                  
                                                                 <li>
-                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.details', $row->slug) }}">{{ get_phrase('View Course On Frontend') }}</a>
+                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.details', $row->slug) }}">  <i class="fi-rr-eye me-2"></i> {{ get_phrase('View Course On Frontend') }}</a>
                                                                 </li>
 
                                                                 <li>
-                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.player', ['slug' => $row->slug]) }}">{{ get_phrase('Go To Course Playing Page') }}</a>
+                                                                    <a class="dropdown-item" target="_blank" href="{{ route('course.player', ['slug' => $row->slug]) }}"><i class="fi-rr-play me-2"></i> {{ get_phrase('Go To Course Playing Page') }}</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="{{ route('instructor.course.edit', [$row->id, 'tab' => 'basic']) }}">{{ get_phrase('Edit Course') }}</a>
+                                                                    <a class="dropdown-item" href="{{ route('admin.course.edit', [$row->id, 'tab' => 'basic']) }}"> <i class="fi-rr-edit me-2"></i>{{ get_phrase('Edit Course') }}</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('instructor.course.duplicate', $row->id) }}')" href="javascript:void(0)">{{ get_phrase('Duplicate Course') }}</a>
+                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.duplicate', $row->id) }}')" href="javascript:void(0)"> <i class="fi-rr-copy me-2"></i>{{ get_phrase('Duplicate Course') }}</a>
                                                                 </li>
+
+                                                                @if ($row->status == 'active')
+@@ -339,32 +349,32 @@
+                                                                    </li>
+                                                                @else
+                                                                    <li>
+                                                                        <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.status', ['type' => 'active', 'id' => $row->id]) }}')" href="#"> <i class="fi-rr-check me-2"></i>{{ get_phrase('Make As Active') }}</a>
+                                                                    </li>
+                                                                @endif
                                                                 <li>
-                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('instructor.course.delete', $row->id) }}')" href="javascript:void(0)">{{ get_phrase('Delete Course') }}</a>
+                                                                    <a class="dropdown-item" onclick="confirmModal('{{ route('admin.course.delete', $row->id) }}')" href="javascript:void(0)"> <i class="fi-rr-trash me-2"></i>{{ get_phrase('Delete Course') }}</a>
                                                                 </li>
                                                             </ul>
                                                         </div>

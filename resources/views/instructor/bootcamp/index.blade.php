@@ -2,16 +2,18 @@
 @push('title', get_phrase('Bootcamp Manager'))
 @section('content')
     <div class="ol-card radius-8px">
-        <div class="ol-card-body my-3 py-12px px-20px">
-            <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
-                <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
-                    {{ get_phrase('Manage Bootcamp') }}
-                </h4>
+       <div class="col-md-6 d-flex align-items-center gap-3">
+            <div class="d-flex gap-3 my-3">
+                
+                <a
+                    href="{{ route('instructor.bootcamps') }}"class=" dropdown-header btn btn-light text-black rounded-pill  px-5 py-3 fw-bold tab-btn">
+                   
+                    <span>{{ get_phrase('My bootcamp') }}</span>
+                </a>
 
                 <a
-                    href="{{ route('instructor.bootcamp.create') }}"class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
-                    <span class="fi-rr-plus"></span>
+                    href="{{ route('instructor.bootcamp.create') }}"class="dropdown-header btn btn-light text-black rounded-pill  px-5 py-3 fw-bold tab-btn-t">
+                    
                     <span>{{ get_phrase('Add New Bootcamp') }}</span>
                 </a>
             </div>
@@ -20,16 +22,24 @@
 
 
     <!-- Start Admin area -->
-    <div class="row">
-        <div class="col-12">
-            <div class="ol-card">
-                <div class="ol-card-body p-3 mb-5">
+   <div class="row">
+    <div class="col-12">
+        <div class="ol-card">
+            <div class="ol-card-header d-flex justify-content-between align-items-center p-3">
+                <h4 class="m-0">{{ get_phrase('Manage Bootcamps') }}</h4>
+                <a href="{{ route('instructor.bootcamp.create') }}" class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
+                    <i class="fi-rr-add"></i>
+                    {{ get_phrase('Add Bootcamp') }}
+                </a>
+            </div>
+            
+           <div class="ol-card-body p-3 mb-5">
                     <div class="row mt-3 mb-4">
                         <div class="col-md-6 d-flex align-items-center gap-3">
                             <div class="custom-dropdown ms-2">
                                 <button class="dropdown-header btn ol-btn-light">
-                                    {{ get_phrase('Export') }}
-                                    <i class="fi-rr-file-export ms-2"></i>
+                                     <i class="fi-rr-download me-2"></i>
+                                 {{ get_phrase('Export') }}
                                 </button>
                                 <ul class="dropdown-list">
                                     <li>
@@ -44,9 +54,9 @@
                                 </ul>
                             </div>
 
-                            <div class="custom-dropdown dropdown-filter @if (!isset($_GET) || (isset($_GET) && count($_GET) == 0))  @endif">
-                                <button class="dropdown-header btn ol-btn-light">
-                                    <i class="fi-rr-filter me-2"></i>
+                           <div class="custom-dropdown dropdown-filter">
+                            <button class="dropdown-header btn ol-btn-light">
+                                <i class="fi-rr-filter me-2"></i>
                                     {{ get_phrase('Filter') }}
 
                                     <span class="text-12px"> (4)</span>
@@ -144,27 +154,41 @@
                                         class="fi-rr-cross-circle"></i></a>
                             @endif
                         </div>
-                        <div class="col-md-6 mt-3 mt-md-0">
-                            <form
-                                action="{{ route('instructor.bootcamps', ['type' => request()->route()->parameter('type')]) }}"
-                                method="get">
-
-                                @php
-                                    $queries = request()->query();
-                                    unset($queries['search']);
-                                @endphp
+                        <div class="ol-card-body p-3 mb-5">
+                          <div class="row mt-3 mb-2"> 
+                           <div class="col-md-6 d-flex align-items-center gap-3">
+                            </div>
+        
+                            <div class="col-md-6 mt-3 mt-md-0">
+                              </div>
+                            </div>
+    
+                             <div class="row mb-4"> 
+                                <div class="col-md-12"> <form action="{{ route('instructor.bootcamps', ['type' => request()->route()->parameter('type')]) }}" method="get">
+                                     @php
+                                        $queries = request()->query();
+                                               unset($queries['search']);
+                                            @endphp
                                 <div class="row">
-                                    <div class="col-9">
-                                        <div class="search-input flex-grow-1">
-                                            <input type="text" name="search" value="{{ request('search') }}"
+                                   <div class="col-12">
+                            <div class="search-input flex-grow-1" style="position: relative;">
+                                  <i class="fi-rr-search" style="
+                                          position: absolute; 
+                                          left: 10px; 
+                                          top: 50%; 
+                                          transform: translateY(-50%); 
+                                          z-index: 2; 
+                                           color: #A9A9A9; /* Color gris para el ícono */  "></i>
+                                <input type="text" name="search" value="{{ request('search') }}"
                                                 placeholder="{{ get_phrase('Search Title') }}"
-                                                class="ol-form-control form-control" />
+                                               class="ol-form-control2 form-control" 
+                                                style="padding-left: 35px;" />
                                         </div>
                                     </div>
-                                    <div class="col-3">
+                                    <!-- <div class="col-3">
                                         <button type="submit" class="btn ol-btn-primary w-100"
                                             id="submit-button">{{ get_phrase('Search') }}</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 @foreach ($queries as $key => $query)
                                     <input type="hidden" name="{{ $key }}" value="{{ $query }}">
@@ -172,6 +196,20 @@
                             </form>
                         </div>
                     </div>
+                    <div class="card-centered-section d-flex flex-column justify-content-center align-items-center" style="min-height: 400px; padding: 20px;">
+                      <div class="icono-vacio-bootcamp mb-3">
+                        <i class="fas fa-search"></i>
+                    </div>
+                       <p class="title2 fs-20px text-center mb-1 fw-bold">
+                            {{ get_phrase('No se encontraron datos') }} </p>
+                            
+                            <p class="text-center text-muted mb-4">
+                                 {{ get_phrase('No hay bootcamps registrados aún') }} </p>
+
+                                <a href="{{ route('instructor.bootcamp.create') }}" class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
+                                    <i class="fi-rr-add"></i>
+                                        {{ get_phrase('Agregar Bootcamp') }}</a>
+                            </div>
 
                     <div class="row">
                         <div class="col-md-12">

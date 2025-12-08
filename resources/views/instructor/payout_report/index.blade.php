@@ -5,27 +5,6 @@
 @section('content')
     <!-- start page title -->
 
-    <div class="ol-card radius-8px">
-        <div class="ol-card-body py-12px px-20px my-3">
-            <div class="d-flex align-items-center justify-content-between flex-md-nowrap flex-wrap gap-3">
-                <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
-                    {{ get_phrase('Payouts') }}
-                </h4>
-                @if ($payout_request)
-                    <a onclick="confirmModal('{{ route('instructor.payout.delete', $payout_request->id) }}')" href="javascript:void(0)" class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
-                        <span class="fi-rr-minus"></span>
-                        {{ get_phrase('Delete request') }}</a>
-                @else
-                    <a href="#" onclick="ajaxModal('{{ route('modal', ['instructor.payout_report.withdrawal']) }}', '{{ get_phrase('Request a new withdrawal') }}')" class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
-                        <span class="fi-rr-plus"></span>
-                        <span>{{ get_phrase('Request withdrawal') }}</span>
-                    </a>
-                @endif
-            </div>
-        </div>
-    </div>
-
     <div class="bg-color-solid width- space-top rounded-t-2xl" style="--bg-color:#FFF; --w:22%; --mg-top:1%">
         <div class="row p-1">
             <div class="col width-" >

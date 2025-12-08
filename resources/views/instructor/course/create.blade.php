@@ -3,16 +3,36 @@
 
 @section('content')
     <div class="row mb-5">
-        <div class="col-lg-12">
-            <div class="ol-card radius-8px">
-                <div class="ol-card-body my-3 py-4 px-20px">
-                    <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
-                        <h4 class="title fs-16px">
-                            <i class="fi-rr-settings-sliders me-2"></i>
-                            {{ get_phrase('Add new Course') }}
-                        </h4>
-                    </div>
-                </div>
+         <div class="ol-card radius-8px">
+        <div class="col-md-6 d-flex align-items-center gap-3">
+            <div class="d-flex gap-3 my-3">
+                 <a
+                    href="{{ route('instructor.courses') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-m">
+                     <span>{{ get_phrase('Manage Courses') }}</span>
+                </a>
+                <a 
+                   href="{{ route('instructor.course.create') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-n">
+                     <span>{{ get_phrase('Add New Course') }}</span>
+                </a>
+                 <a 
+                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-l">
+                     <span>{{ get_phrase('My lessons') }}</span>
+                </a>
+                <a 
+                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-k">
+                     <span>{{ get_phrase('Add new exam') }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+      <div class="row">
+    <div class="col-12">
+        <div class="ol-card">
+            <div class="ol-card-header d-flex justify-content-between align-items-center p-3">
+                <h4 class="m-0">{{ get_phrase('Add new course') }}</h4>
+                <a href="{{ route('instructor.course.create') }}" class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
+                    {{ get_phrase('return') }}
+                </a>
             </div>
             <div class="ol-card p-3">
                 <div class="ol-card-body">
@@ -85,14 +105,16 @@
                                                 <label for="paid" class="form-check-label">{{ get_phrase('Paid') }}</label>
                                             </div>
 
-                                            <div class="form-check">
-                                                <input type="radio" name="is_paid" value="0" class="form-check-input eRadioSuccess" id="free" onchange="$('#paid-section').slideUp(200)">
-                                                <label for="free" class="form-check-label">{{ get_phrase('Free') }}</label>
-                                            </div>
-                                            <div class="paid-section" id="paid-section">
-                                                <div class="fpb-7 mb-3">
-                                                    <label for="price" class="form-label ol-form-label">{{ get_phrase('Price') }}
-                                                        <small>({{ currency() }})</small><span class="text-danger ms-1">*</span></label>
+                                <div class="form-check">
+                                    <input type="radio" name="is_paid" value="0" class="form-check-input eRadioSuccess" id="free" onchange="$('#paid-section').slideUp(200)">
+                                    <label for="free" class="form-check-label">{{ get_phrase('Free') }}</label>
+                                </div>
+                                
+                                {{-- Sección de Precio --}}
+                                <div class="paid-section" id="paid-section">
+                                    <div class="fpb-7 mb-3">
+                                        <label for="price" class="form-label ol-form-label">{{ get_phrase('Price') }}
+                                            <small>({{ currency() }})</small><span class="text-danger ms-1">*</span></label>
 
                                                     <input type="number" name="price" class="form-control ol-form-control" id="price" min="1" step=".01" placeholder="{{ get_phrase('Enter your course price') }} ({{ currency() }})">
                                                 </div>
@@ -114,14 +136,44 @@
                                     </div>
 
                                 </div>
-                                <div class="fpb-7">
-                                    <label for="thumbnail" class="form-label ol-form-label">{{ get_phrase('Thumbnail') }}</label>
-                                    <input type="file" name="thumbnail" class="form-control ol-form-control" id="thumbnail" accept="image/*" />
-                                </div>
-                            </div>
-                            <div class="pt-2">
-                                <button type="submit" class="btn ol-btn-primary float-end">{{ get_phrase('Submit') }}</button>
-                            </div>
+                             <div class="fpb-7">
+                               <label for="thumbnail" class="form-label ol-form-label">{{ get_phrase('Imagen del curso') }}</label>
+                                    <input 
+                                     type="file" 
+                                     name="thumbnail" 
+                                     id="thumbnail" 
+                                     accept="image/*" 
+                                     class="d-none"
+                                        onchange="previewThumbnailModern(event)"
+                                 />
+                                    <div class="upload-modern-box" onclick="document.getElementById('thumbnail').click()">
+                               <!-- Preview -->
+                                  <div id="previewContainer" class="preview-container d-none">
+                                  <img id="previewImage" />
+                                       </div> 
+                                       <!-- Placeholder -->
+                                            <div id="placeholderUpload">
+                                                <div class="upload-icon-modern">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                          <polyline points="17 8 12 3 7 8"></polyline>
+                                                             <line x1="12" y1="3" x2="12" y2="15"></line>
+                                                             </svg>
+                                                      </div>
+                                                          <p class="upload-text-modern">Haz clic para subir o arrastra la imagen</p>
+                                                            <p class="upload-sub-modern">Tamaño recomendado: 1200×675px</p>
+                                                           </div>
+                                                       </div>
+                                                    </div>
+                                               </div>
+                                       <div class="d-flex justify-content-end pt-2">
+                                          <button type="submit" class="btn ol-btn-primary2 me-2">
+                                             {{ get_phrase('Cancel') }}
+                                             </button>
+                                          <button type="submit" class="btn ol-btn-primary2">
+                                                {{ get_phrase('create course') }}
+                                        </button>
+                                  </div>
                         </div>
                     </form>
                 </div>

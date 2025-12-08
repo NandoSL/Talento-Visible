@@ -85,9 +85,9 @@
     box-sizing: border-box;
 }
 :root {
-    --skinColor: #0088bd;
-    --blue:#005fcf;
-    --whiteColor: #FFF;
+    --skinColor: #b2cfee;
+    --blue:#809bb9;
+    --whiteColor: #070606;
     --blackColor: #000;
     --darkColor: #0a1017;
     --grayColor: #4b5675;
@@ -271,9 +271,11 @@ span[class="fi-rr-"]:before {
     padding-left: 18px;
     padding-right: 18px;
 }
-.px-20px{
+.px-20px {
     padding-left: 20px;
     padding-right: 20px;
+    width: 20%; 
+    box-sizing: border-box;
 }
 .px-30px{
     padding-left: 30px;
@@ -485,7 +487,7 @@ span[class="fi-rr-"]:before {
 .ol-btn-primary{
     border-radius: 8px;
     padding: 10.5px 24px;
-    background: var(--blue);
+    box-shadow: 0 4px 8px rgb(10, 192, 224);
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.01em;
@@ -498,13 +500,14 @@ span[class="fi-rr-"]:before {
 .ol-btn-primary:active,
 .ol-btn-primary:hover{
     color: var(--whiteColor) !important;
-    background-color: #2188ff !important;
+    background-color: #66e4f5 !important;
 }
 
 /* Light button  */
 .ol-btn-light{
     border-radius: 8px;
     padding: 10.5px 24px;
+    box-shadow: 0 4px 8px rgb(104, 101, 101);
     background: #f4f7fe;
     font-weight: 500;
     font-size: 14px;
@@ -1747,10 +1750,22 @@ span[class="fi-rr-"]:before {
     color: var(--darkColor);
 }
 /* Input */
+.ol-form-control2{
+    border: 1px solid var(--background);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgb(64, 160, 238); 
+    transition: box-shadow 0.3s ease-in-out;
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--grayColor);
+    transition: .3s;
+}
 .ol-form-control{
     border: 1px solid var(--background);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 8px rgb(215, 154, 223); 
+    box-shadow: 0 4px 8px rgb(197, 64, 238); 
     transition: box-shadow 0.3s ease-in-out;
     padding: 10px 15px;
     font-weight: 400;
@@ -3624,9 +3639,288 @@ team training start
 .icon-red {
     color: #ff3b30 !important;
 }
-
-
-
 .titolo-home {
     color: #005fcf !important;
+}
+
+.metric-card {
+    height: 140px;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 20px;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.metric-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 22px;
+}
+.icon-money-large {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff6a00, #ff3d00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 70, 0, 0.4);
+}
+.icon-square-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Dimensiones personalizadas */
+    width: 35px; /* Ancho: 40px */
+    height: 35px; /* Alto: 35px */
+    
+    /* Bordes */
+    border-radius: 6px; /* Bordes ligeramente redondeados */ 
+    
+    /* Colores */
+    background-color: #0267ff; /* Fondo azul */
+    color: #ffffff; /* Color del ícono (blanco) */
+    font-size: 20px; /* Tamaño del ícono */
+}
+.icon-square-success {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Dimensiones rectangulares */
+    width: 35px; 
+    height: 35px; 
+    
+    border-radius: 6px; /* Bordes ligeramente redondeados */ 
+    
+    /* Colores para el estado de curso/activo */
+    background-color: #12c093; /* Un verde de éxito/activo */
+    color: #ffffff; /* Ícono blanco */
+    font-size: 20px; /* Tamaño del ícono */
+}
+/* CSS para la forma del punto de color */
+.info-list-color {
+    display: inline-block;
+    width: 8px;    /* TAMAÑO REDUCIDO: 8px */
+    height: 8px;   /* TAMAÑO REDUCIDO: 8px */
+    border-radius: 50%; /* Lo mantiene como un círculo */
+    margin-right: 6px; /* Ajustamos ligeramente el margen para compensar el tamaño */
+    vertical-align: middle;
+}
+
+/* CSS para alinear el texto si es necesario (sin cambios) */
+.color-info-list li {
+    list-style: none;
+    margin-bottom: 3px; /* Reducimos el margen entre filas para hacerlo más compacto */
+    display: flex; 
+    align-items: center;
+}
+
+/* CSS para los colores específicos (debes definir el resto) */
+.bg-active {
+    background-color: #00bcd4; 
+}
+.bg-upcoming {
+    background-color: #3b82f6; 
+}
+
+/* 💥 AÑADE LOS COLORES RESTANTES BASÁNDOSE EN TU GRÁFICA: */
+
+.bg-pending {
+    background-color: #ff2583; /* Rosa de la gráfica */
+}
+.bg-private {
+    background-color: #000000; /* Negro de la gráfica */
+}
+.bg-draft {
+    background-color: #878d97; /* Gris oscuro de la gráfica */
+}
+.bg-inactive {
+    background-color: #dadada; /* Gris claro de la gráfica */
+}
+.tab-btn {
+    background: #ffffff;
+    color: #606060;
+    font-weight: 500;
+    border-radius: 30px;
+    padding: 8px 20px;
+    transition: 0.25s ease;
+}
+.tab-btn:hover {
+    box-shadow: 0 4px 8px rgb(11, 116, 214);
+    background: #2791f5;
+}
+ 
+.tab-btn-t:hover {
+    box-shadow: 0 4px 8px rgb(11, 214, 62);
+    background: #5bda11;
+}
+.tab-btn-m:hover {
+    box-shadow: 0 4px 8px rgb(11, 116, 214);
+    background: #2791f5;
+}
+.tab-btn-n:hover {
+    box-shadow: 0 4px 8px rgb(245, 125, 27);
+    background: #fa8c0d;
+}
+.tab-btn-l:hover {
+    box-shadow: 0 4px 8px rgb(11, 214, 62);
+    background: #5bda11;
+}
+.tab-btn-k:hover {
+    box-shadow: 0 4px 8px rgb(227, 6, 247);
+    background: #cc03f5;
+}
+.tab-btn-y:hover {
+    box-shadow: 0 4px 8px rgb(11, 214, 62);
+    background: #5bda11;
+}
+.tab-btn-o:hover {
+    box-shadow: 0 4px 8px rgb(21, 135, 241);
+    background: #1184f0;
+}
+.tab-btn-v:hover {
+    box-shadow: 0 4px 8px rgb(245, 125, 27);
+    background: #fa8c0d;
+}
+
+/* Cuadro blanco */
+.tabs-box {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+/* Botones estilo pastilla */
+.tab-btn-t {
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #f8f9fa;
+    color: #e0d6d6;
+    transition: 0.25s;
+}
+/* Botones estilo pastilla */
+.tab-btn {
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #f8f9fa;
+    color: #e0d6d6;
+    transition: 0.25s;
+}
+.btn-degradado-azul {
+    /* El degradado de color de fondo */
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    
+    /* Elimina el borde */
+    border: none;
+    
+    /* Opcional: Asegúrate de que el texto sea blanco para que contraste con el fondo oscuro */
+    color: white !important; 
+    
+    /* Opcional: Si quieres mantener los bordes redondeados del botón de la imagen */
+    border-radius: var(--bs-border-radius-pill) !important;
+}
+.icono-vacio-bootcamp {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+
+    box-shadow:
+        0 0 0 10px rgba(0, 114, 255, 0.1),
+        0 0 0 20px rgba(0, 114, 255, 0.05),
+        0 0 0 30px rgba(0, 114, 255, 0.02);
+
+    transition: box-shadow 0.3s ease;
+}
+
+.icono-vacio-bootcamp i.fas {
+    color: white;
+    font-size: 32px;
+}
+.icono-vacio-Packages {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Degradado del icono de la imagen: de rosa claro a morado oscuro */
+    background: linear-gradient(135deg, #FF66A3, #A357D6); 
+
+    /* Efecto de sombra sutil basado en el color morado oscuro del degradado */
+    box-shadow:
+        0 0 0 10px rgba(163, 87, 214, 0.15), 
+        0 0 0 20px rgba(163, 87, 214, 0.08),
+        0 0 0 30px rgba(163, 87, 214, 0.04);
+
+    transition: box-shadow 0.3s ease;
+}
+
+.icono-vacio-Packages i.fas {
+    /* Color del icono dentro del círculo (suele ser blanco o muy claro en ese tipo de diseño) */
+    color: white; 
+    font-size: 32px;
+}
+.upload-modern-box {
+    border: 2px dashed #ccc;
+    padding: 40px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+
+    /* 👇 ESTO CENTRA TODO */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-icon-modern {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Sobrescribe el estilo de ol-btn-primary */
+.ol-btn-primary2 {
+    /* Color de fondo */
+    background-color: #e4ece9 !important; 
+    /* Color del borde */
+   box-shadow: 0 4px 8px rgb(17, 223, 10); 
+    /* Asegura que el texto sea legible */
+    color: rgb(12, 12, 12) !important;
+}
+
+/* Estilo para el estado HOVER (cuando el usuario pasa el ratón) */
+.ol-btn-primary2:hover {
+    /* Un verde ligeramente más oscuro para el efecto */
+    background-color: #3ddb37 !important;
+    border-color: #e3e9e6 !important;
+}
+
+/* Estilo para el estado FOCUS (cuando el botón está seleccionado) */
+.ol-btn-primary2:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 168, 107, 0.5) !important; /* Sombra de enfoque verde */
 }

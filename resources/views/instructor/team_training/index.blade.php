@@ -3,21 +3,35 @@
 
 @section('content')
     <div class="ol-card radius-8px">
-        <div class="ol-card-body py-12px px-20px my-3">
-            <div class="d-flex align-items-center justify-content-between flex-md-nowrap flex-wrap gap-3">
-                <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
-                    {{ get_phrase('Manage Packages') }}
-                </h4>
-
-                <a href="{{ route('instructor.team.packages.create') }}"class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
-                    <span class="fi-rr-plus"></span>
-                    <span>{{ get_phrase('Add New Package') }}</span>
+       <div class="col-md-6 d-flex align-items-center gap-3">
+            <div class="d-flex gap-3 my-3">
+                 <a
+                    href="{{ route('instructor.team.packages') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-y">
+                     <span>{{ get_phrase('Manage Packages') }}</span>
+                </a>
+                <a 
+                   href="{{ route('instructor.team.packages.create') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-o">
+                     <span>{{ get_phrase('Add New Package') }}</span>
+                </a>
+                 <a 
+                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-v">
+                     <span>{{ get_phrase('Purchase History') }}</span>
                 </a>
             </div>
         </div>
     </div>
 
+
+    <div class="row">
+    <div class="col-12">
+        <div class="ol-card">
+            <div class="ol-card-header d-flex justify-content-between align-items-center p-3">
+                <h4 class="m-0">{{ get_phrase('Manage Packages') }}</h4>
+                <a href="{{ route('instructor.team.packages.create') }}" class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
+                    <i class="fi-rr-add"></i>
+                    {{ get_phrase('Add New Package') }}
+                </a>
+            </div>
 
     <div class="row">
         <div class="col-12">
@@ -27,8 +41,8 @@
                         <div class="col-md-6 col-lg-3 col-xl-6 d-flex align-items-center gap-3">
                             <div class="custom-dropdown ms-2">
                                 <button class="dropdown-header btn ol-btn-light">
+                                     <i class="fi-rr-download me-2"></i>
                                     {{ get_phrase('Export') }}
-                                    <i class="fi-rr-file-export ms-2"></i>
                                 </button>
                                 <ul class="dropdown-list">
                                     <li>
@@ -40,15 +54,30 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-9 col-xl-6 mt-md-0 mt-3">
+                        <div class="ol-card-body p-3 mb-5">
+                          <div class="row mt-3 mb-2"> 
+                           <div class="col-md-6 d-flex align-items-center gap-3">
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0">
+                              </div>
+                            </div>
+                            <div class="row mb-4"> 
+                                <div class="col-md-12">
                             <form action="{{ route('instructor.team.packages') }}"method="get">
-                                <div class="row">
-                                    <div class="col-9">
-                                        <div class="row">
                                             @php $search_val = request()->has('search'); @endphp
-                                            <div class="search-input flex-grow-1">
-                                                <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ get_phrase('Search Title') }}" class="ol-form-control form-control" />
-
+                                         <div class="row">
+                                            <div class="col-12">
+                                                <div class="search-input flex-grow-1" style="position: relative;">
+                                                   <i class="fi-rr-search" style="
+                                                       position: absolute; 
+                                                         left: 10px; 
+                                                          top: 50%; 
+                                                          transform: translateY(-50%); 
+                                                           z-index: 2; 
+                                                          color: #A9A9A9; /* Color gris para el ícono */  "></i>
+                                                <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ get_phrase('Search Title') }}" class="ol-form-control2 form-control" 
+                                                style="padding-left: 35px;"  />
+                                        
                                                 @if (request()->has('search'))
                                                     <div class="cancle-search-btn">
                                                         <a href="{{ route('instructor.team.packages') }}">
@@ -59,14 +88,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- 
 
                                     <div class="col-3">
                                         <button type="submit" class="btn ol-btn-primary w-100" id="submit-button">{{ get_phrase('Search') }}</button>
-                                    </div>
+                                    </div> </div>-->
                                 </div>
                             </form>
                         </div>
                     </div>
+                    <div class="card-centered-section d-flex flex-column justify-content-center align-items-center" style="min-height: 400px; padding: 20px;">
+                      <div class="icono-vacio-bootcamp mb-3">
+                        <i class="fas fa-search"></i>
+                    </div>
+                       <p class="title2 fs-20px text-center mb-1 fw-bold">
+                            {{ get_phrase('No data found') }} </p>
+                            
+                            <p class="text-center text-muted mb-4">
+                                 {{ get_phrase('There are no team training packages registered yet') }} </p>
+
+                                <a href="{{ route('instructor.team.packages.create') }}"  class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
+                                    <i class="fi-rr-add"></i>
+                                         {{ get_phrase('Add New Package') }}</a>
+                            </div>
 
                     <div class="row">
                         <div class="col-md-12">
