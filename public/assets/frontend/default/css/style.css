@@ -3015,6 +3015,10 @@ html .ui-button.ui-state-disabled:active {
     padding: 5rem 0;
 }
 
+.header-content-student .g-title {
+    display: inline-flex !important;
+}
+
 .course-content .g-title {
     font-size: 35px;
     margin-bottom: 12px;
@@ -5968,14 +5972,14 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
     border-radius: 50px; /* Bordes muy redondeados (píldora) */
     text-decoration: none; /* Quita el subrayado del enlace */
     cursor: pointer;
-    
+
     /* Configuración para el ícono y el texto en línea */
     display: inline-flex;
     align-items: center; /* Alineación vertical centrada */
     text-align: center;
     /* Fondo con gradiente naranja (los colores son aproximados al de la imagen) */
     background: linear-gradient(to right, #FFAC00, #FF7F00);
-    
+
     /* Transición suave para el efecto hover */
     transition: background 0.3s ease;
 }
@@ -5993,17 +5997,17 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 35px; 
+    width: 35px;
     height: 35px;
     margin-right: 15px; /* Espacio entre el ícono y el texto del título */
     border-radius: 8px; /* Esquinas ligeramente redondeadas */
-    
+
     /* Fondo con un gradiente suave o color naranja claro */
     background: #00e1ff; /* Color de fondo base naranja */
-    /* Puedes usar un gradiente si lo prefieres: 
+    /* Puedes usar un gradiente si lo prefieres:
     background: linear-gradient(to bottom right, #ffb347, #ff8c00); */
-    
-    
+
+
     /* Asegura que no se rompa la línea de texto */
     vertical-align: middle;
 }
