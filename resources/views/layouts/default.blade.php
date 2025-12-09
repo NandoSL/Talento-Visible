@@ -77,7 +77,7 @@
     @stack('css')
 </head>
 
-<body style="background-color: white">
+<body style="background-color: #e8eef3">
     <!-- Start Header -->
 
     <section class="py-30">

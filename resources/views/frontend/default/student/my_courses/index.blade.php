@@ -24,7 +24,7 @@
                     <pre><code>@json($my_courses, JSON_PRETTY_PRINT)</code></pre>
                     --}}
 
-                    <div style="padding: 0 15rem">
+                    <div style="padding: 0 15rem" class="details-course-student">
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="card card-course">

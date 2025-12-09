@@ -7,7 +7,7 @@
 
     @include('layouts.seo')
     <!-- all the meta tags -->
-   
+
     <meta content="" name="author" />
     <meta content="{{ csrf_token() }}" name="csrf_token" />
 
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/default/vendors/slick/slick-theme.css') }}">
 
     <!-- FlatIcons Css -->
-    
+
     <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-regular-rounded/css/uicons-regular-rounded.css') }}" />
 
 
@@ -149,7 +149,7 @@
     @endphp
 
 
-  <footer class="ls-footer-one bg-261954">
+    <footer class="ls-footer-one bg-261954">
         @include('frontend.default.footer')
     </footer>
 

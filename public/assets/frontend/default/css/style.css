@@ -1183,7 +1183,7 @@ img {
     font-weight: 500;
     color: var(--color-5);
     transition: 0.5s;
-    
+
     /* Propiedades para replicar el estilo de botón */
     display: block;   /* Asegura que siempre ocupe el 100% del ancho */
     padding: 10px 20px; /* Espaciado interno para la altura del botón */
@@ -1192,7 +1192,7 @@ img {
     /* Borde redondeado y color azul claro */
     border: 1px solid var(--color-5); /* Borde con el mismo color del texto */
     border-radius: 8px; /* Esquinas redondeadas (ajusta este valor si necesitas más o menos) */
-    
+
     /* Ajustes visuales */
     margin-top: 6px; /* Separación de arriba (ya lo tenías) */
     text-decoration: none; /* Asegura que no haya línea debajo si es un enlace <a> */
@@ -2274,7 +2274,7 @@ html .ui-button.ui-state-disabled:active {
     font-weight: 500;
     color: var(--color-5);
     transition: 0.5s;
-    
+
     /* Propiedades para replicar el estilo de botón */
     display: block; /* Hace que ocupe todo el ancho de su contenedor */
     width: 100%;    /* Asegura que siempre ocupe el 100% del ancho */
@@ -2284,7 +2284,7 @@ html .ui-button.ui-state-disabled:active {
     /* Borde redondeado y color azul claro */
     border: 1px solid var(--color-5); /* Borde con el mismo color del texto */
     border-radius: 8px; /* Esquinas redondeadas (ajusta este valor si necesitas más o menos) */
-    
+
     /* Ajustes visuales */
     margin-top: 6px; /* Separación de arriba (ya lo tenías) */
     text-decoration: none; /* Asegura que no haya línea debajo si es un enlace <a> */
@@ -2936,6 +2936,16 @@ html .ui-button.ui-state-disabled:active {
 
     .content-2, .content-3 {
         width: 100% !important;
+    }
+
+    .details-course-student {
+        display: none;
+    }
+}
+
+@media all and (max-width:1400px) {
+    .svg-info-course {
+        display: none;
     }
 }
 
@@ -5911,39 +5921,39 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 
 
 .botons-red {
- background-color: #00BFFF; 
+ background-color: #00BFFF;
     color: #FFFFFF;
     padding: 8px 16px;
     border-radius: 8px;
     border: none;
     font-size: 16px;
-    font-weight: 500; 
-    display: inline-block; 
+    font-weight: 500;
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .botons-red:hover {
-    background-color: #00A3D9; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    background-color: #00A3D9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .botons-lista {
-     background-color: #ffffff; 
-    color: #FFFFFF; 
-    padding: 8px 16px; 
-    border-radius: 8px; 
+     background-color: #ffffff;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 8px;
     border: none;
     font-size: 16px;
-    font-weight: 500; 
-    display: inline-block; 
+    font-weight: 500;
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .botons-red:hover {
-    background-color: #00A3D9; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    background-color: #00A3D9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
