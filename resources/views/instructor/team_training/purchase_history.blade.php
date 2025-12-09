@@ -48,19 +48,7 @@
                             </div>
                         </div>
                     </div>
-                            <div class="card-centered-section d-flex flex-column justify-content-center align-items-center" style="min-height: 400px; padding: 20px;">
-                                <div class="icono-vacio-Packages mb-3">
-                                    <i class="fas fa-shopping-bag fa-4x" ></i> 
-                            </div>
-                        <p class="title2 fs-20px text-center mb-1 fw-bold">
-                              {{ get_phrase('No se encontraron datos') }} 
-                        </p>
-                            <p class="text-center text-muted mb-4">
-                                {{ get_phrase('No hay compras de paquetes de team training registradas') }} 
-                            </p>
-                     </div>
-
-                   </div>
+                           
                     <!-- Table -->
                     @if (count($purchases) > 0)
                         <div class="admin-tInfo-pagi d-flex justify-content-md-between justify-content-center align-items-center gr-15 flex-wrap">

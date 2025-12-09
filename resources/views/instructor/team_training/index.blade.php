@@ -97,21 +97,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="card-centered-section d-flex flex-column justify-content-center align-items-center" style="min-height: 400px; padding: 20px;">
-                      <div class="icono-vacio-bootcamp mb-3">
-                        <i class="fas fa-search"></i>
-                    </div>
-                       <p class="title2 fs-20px text-center mb-1 fw-bold">
-                            {{ get_phrase('No data found') }} </p>
                             
-                            <p class="text-center text-muted mb-4">
-                                 {{ get_phrase('There are no team training packages registered yet') }} </p>
-
-                                <a href="{{ route('instructor.team.packages.create') }}"  class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
-                                    <i class="fi-rr-add"></i>
-                                         {{ get_phrase('Add New Package') }}</a>
-                            </div>
-
                     <div class="row">
                         <div class="col-md-12">
                             @if ($packages->count() > 0)

@@ -172,13 +172,7 @@
                                 <div class="row">
                                    <div class="col-12">
                             <div class="search-input flex-grow-1" style="position: relative;">
-                                  <i class="fi-rr-search" style="
-                                          position: absolute; 
-                                          left: 10px; 
-                                          top: 50%; 
-                                          transform: translateY(-50%); 
-                                          z-index: 2; 
-                                           color: #A9A9A9; /* Color gris para el ícono */  "></i>
+                                        <i class="fi-rr-search" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #6B7385;"></i>
                                 <input type="text" name="search" value="{{ request('search') }}"
                                                 placeholder="{{ get_phrase('Search Title') }}"
                                                class="ol-form-control2 form-control" 
@@ -196,20 +190,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="card-centered-section d-flex flex-column justify-content-center align-items-center" style="min-height: 400px; padding: 20px;">
-                      <div class="icono-vacio-bootcamp mb-3">
-                        <i class="fas fa-search"></i>
-                    </div>
-                       <p class="title2 fs-20px text-center mb-1 fw-bold">
-                            {{ get_phrase('No se encontraron datos') }} </p>
-                            
-                            <p class="text-center text-muted mb-4">
-                                 {{ get_phrase('No hay bootcamps registrados aún') }} </p>
-
-                                <a href="{{ route('instructor.bootcamp.create') }}" class="btn btn-info ol-btn-primary d-flex align-items-center gap-2">
-                                    <i class="fi-rr-add"></i>
-                                        {{ get_phrase('Agregar Bootcamp') }}</a>
-                            </div>
+                    
 
                     <div class="row">
                         <div class="col-md-12">
