@@ -18,10 +18,10 @@
         </div>
     -->
 
-    <div class="row g-2 g-sm-3 my-3 row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+  <div class="row g-2 g-sm-3 my-3 row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center">
         <div class="col">
             <div class="ol-card card-hover">
-                <div class="ol-card-body px-25px py-1">
+                 <div class="ol-card-body px-25px py-1 text-center">
                     <i class="fi fi-ss-book-open-cover p-2 txt-color bg-color-degraded"
                         style="--txt-color:#FFF; --color1:#4FD1C5; --color2:#38B2AC; border-radius:20%; font-size:2em;">
                     </i>
@@ -35,6 +35,7 @@
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-25px py-1">
+                     <div class="ol-card-body px-25px py-1 text-center">
                     <i class="fi fi-ss-video-camera p-2 txt-color bg-color-degraded"
                         style="--txt-color:#FFF; --color1:#3BA5FF; --color2:#007BFF; border-radius:20%; font-size:2em;">
                     </i>
@@ -45,22 +46,12 @@
                 </div>
             </div>
         </div>
+     </div>
+        
         <div class="col">
             <div class="ol-card card-hover">
                 <div class="ol-card-body px-25px py-1">
-                    <i class="fi fi-ss-user p-2 txt-color bg-color-degraded"
-                        style="--txt-color:#FFF; --color1:#4FD1C5; --color2:#38B2AC; border-radius:20%; font-size:2em;">
-                    </i>
-                    <p class="title card-title-hover fs-18px my-2">
-                        {{ count_student_by_instructor(auth()->user()->id) }}
-                    </p>
-                    <p class="sub-title fs-14px">{{ get_phrase('Number of Enrollment') }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="ol-card card-hover">
-                <div class="ol-card-body px-25px py-1">
+                     <div class="ol-card-body px-25px py-1 text-center">
                     <i class="fi fi-ss-graduation-cap p-2 txt-color bg-color-degraded"
                         style="--txt-color:#FFF; --color1:#A855F7; --color2:#7C3AED; border-radius:20%; font-size:2em;">
                     </i>
@@ -68,24 +59,12 @@
                         {{--
                         {{ total_enrolled() }}
                         --}}
-
-                        {{ total_enrolled_by_id(auth()->user()->id) }}
-
+                        {{ total_enrolled_by_id(auth()->user()->id) }} {{ get_phrase('Alumno') }}
                     </p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Students') }}</p>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="ol-card card-hover">
-                <div class="ol-card-body px-25px py-1">
-                    <i class="fi fi-ss-badge p-2 txt-color bg-color-degraded"
-                        style="--txt-color:#FFF; --color1:#FB923C; --color2:#F97316; border-radius:20%; font-size:2em;">
-                    </i>
-                    <p class="title card-title-hover fs-18px my-2">
-                        {{ App\Models\User::where('role', 'instructor')->count() }}</p>
-                    <p class="sub-title fs-14px">{{ get_phrase('Number of Instructor') }}</p>
-                </div>
             </div>
         </div>
     </div>

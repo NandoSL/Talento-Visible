@@ -7,21 +7,13 @@
         <div class="d-flex justify-content-start gap-3 flex-wrap">
                  <a
                     href="{{ route('instructor.courses') }}" class="dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-m">
-    </button>
                      <span>{{ get_phrase('Manage Courses') }}</span>
                 </a>
                 <a 
                    href="{{ route('instructor.course.create') }}"class=" dropdown-header btn btn-light text-black rounded-pill  px-5 py-3 fw-bold tab-btn-n">
                      <span>{{ get_phrase('Add New Course') }}</span>
                 </a>
-                 <a 
-                   href="{{ route('instructor.team.packages.purchase.history') }}" class=" dropdown-header btn btn-light text-black rounded-pill  px-5 py-3 fw-bold tab-btn-l">
-                     <span>{{ get_phrase('My lessons') }}</span>
-                </a>
-                <a 
-                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-k">
-                     <span>{{ get_phrase('Add new exam') }}</span>
-                </a>
+                
             </div>
         </div>
     </div>
@@ -267,21 +259,12 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            @if ($courses->count() <= 0)
+                            @if ($courses->count() > 0)
                                 <div class="admin-tInfo-pagi d-flex justify-content-between justify-content-center align-items-center flex-wrap gr-15">
                                     <p class="admin-tInfo">
                                         {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
                                     </p>
                                 </div>
-                              <div class="table-responsive overflow-auto course_list table-wrapper-small" id="course_list">
-                                     <table class="table eTable eTable-2 print-table">
-                                    <p class="admin-tInfo">
-                                        {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
-                                    </p>
-                                    
-                                </div>
-                                
-
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -292,7 +275,7 @@
                                                 <th class="print-d-none" scope="col">{{ get_phrase('Status') }}</th>
                                                 <th scope="col">{{ get_phrase('Price') }}</th>
                                                 <th class="print-d-none" scope="col">{{ get_phrase('Options') }}</th>
-                                            </tr>
+                                            </tr>                                        
                                         </thead>
                                         <tbody>
                                             @foreach ($courses as $key => $row)
@@ -369,11 +352,25 @@
                                                     <td class="print-d-none">
 
                                                         <div class="dropdown ol-icon-dropdown ol-icon-dropdown-transparent">
-                                                            <button class="btn ol-btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                               
-                                                                  <i class="fi-rr-eye me-2"></i> 
-                                                                 <i class="fi-rr-pencil me-2 icon-blue"></i>
-                                                                  <i class="fi-rr-trash me-2 icon-red"></i>
+                                                            <div style="display: flex; align-items: center; justify-content: center">
+                                                              <a class="dropdown-item" target="_blank"
+                                                                  href="{{ route('course.details', $row->slug) }}">
+                                                                    <i class="fi-rr-eye me-2"></i>
+                                                                </a>
+                                                                <a class="dropdown-item"
+                                                                   href="{{ route('admin.course.edit', [$row->id, 'tab' => 'basic']) }}">
+                                                                        <i class="fi-rr-pencil me-2 icon-blue"></i>
+                                                               </a>
+                                                                  <a class="dropdown-item"
+                                                                      onclick="confirmModal('{{ route('admin.course.delete', $row->id) }}')"
+                                                                         href="javascript:void(0)">
+                                                                          <i class="fi-rr-trash me-2 icon-red"></i>
+                                                                     </a>
+                                                                    <button class="btn ol-btn-secondary dropdown-toggle" type="button" 
+                                                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                                                       {{--<i class="fi-rr-eye me-2"></i> 
+                                                                          <i class="fi-rr-pencil me-2 icon-blue"></i>
+                                                                              <i class="fi-rr-trash me-2 icon-red"></i>--}}
                                                                  <span class="fi-rr-menu-dots-vertical"></span>
                                                             </button>
 
@@ -411,13 +408,13 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                </div>
+                                {{--</div>
                                 <div class="admin-tInfo-pagi d-flex justify-content-between justify-content-center align-items-center flex-wrap gr-15">
                                     <p class="admin-tInfo">
                                         {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
                                     </p>
                                     {{ $courses->links() }}
-                                </div>
+                                </div>--}}
                             @else
                                 @include('instructor.no_data')
                             @endif

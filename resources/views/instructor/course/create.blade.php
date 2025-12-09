@@ -14,14 +14,7 @@
                    href="{{ route('instructor.course.create') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-n">
                      <span>{{ get_phrase('Add New Course') }}</span>
                 </a>
-                 <a 
-                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-l">
-                     <span>{{ get_phrase('My lessons') }}</span>
-                </a>
-                <a 
-                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-k">
-                     <span>{{ get_phrase('Add new exam') }}</span>
-                </a>
+
             </div>
         </div>
     </div>
