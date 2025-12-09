@@ -5566,20 +5566,149 @@ textarea.lsForm-control {
 }
 
 .summery-tab-content .info {
-    color: #6e798a;
+    color: black;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
 }
 
+.info-summary p, span, label, div{
+    color: #000 !important;
+}
+
 /* Playlist Area */
 .course-content-playlist {
-    border-radius: 12px;
+    border-radius: 20px;
     background: #fff;
     box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.1);
-    padding: 24px 10px;
 }
+
+.course-content-playlist {
+    border: 1px solid lightgray;
+}
+
+.course-content-playlist .header-details{
+    background-color: #1db2f2;
+    padding: 24px 10px;
+    border-radius: 20px 20px 0 0;
+    /*
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    */
+}
+
+.course-content-playlist .header-details h1, h2, p, span{
+    color: white;
+}
+
+.progress-ring {
+    --size: 90px;
+    --thickness: 8px;
+    --progress: 0%;
+
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #0d6efd var(--progress),
+            #e9ecef 0%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring-inner {
+    width: calc(var(--size) - var(--thickness) * 2);
+    height: calc(var(--size) - var(--thickness) * 2);
+    background: #1db2f2;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Exam area */
+.head-exam{
+    display: flex;
+    justify-content: space-between;
+}
+
+.head-exam-title{
+    display: flex;
+}
+
+.head-exam-svg {
+    border-radius: 20px;
+    padding: 1rem;
+    background-color: orange;
+    display: flex;
+    margin: auto;
+}
+
+.head-exam-svg svg path{
+    fill: white;
+}
+
+.head-exam-title h1, p, span{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+.examen-details {
+    border-radius: 15px;
+    margin: 1rem ;
+    padding: 0.5rem;
+    border: orange solid 1px;
+    background: rgba(255, 166, 0, 0.068);
+}
+
+.examen-details-head {
+    display: flex;
+    align-items: center;
+}
+
+.examen-details-head svg{
+    margin-top: auto;
+}
+
+.examen-details-head svg path {
+    fill: orange;
+}
+
+.exam-requiered {
+    padding: 5px 3rem;
+}
+
+.exam-requiered li{
+    text-align: justify;
+}
+
+.examen-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.examen-btn button{
+    padding: 1rem;
+    border-radius: 10px;
+    border: lightgray solid 1px;
+    background-color: orange;
+    color: white;
+}
+
 
 .course-content-playlist .heading {
     color: #0a0717;

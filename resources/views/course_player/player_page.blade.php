@@ -5,7 +5,9 @@
         </div>
     @elseif ($lesson_details->lesson_type == 'video-url')
         <div class="plyr__video-embed " id="player">
-            <iframe src="{{ $lesson_details->lesson_src }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1" allowfullscreen allowtransparency allow="autoplay"></iframe>
+            <iframe
+                src="{{ $lesson_details->lesson_src }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+                allowfullscreen allowtransparency allow="autoplay"></iframe>
         </div>
         @include('course_player.player_config')
     @elseif($lesson_details->lesson_type == 'system-video')
@@ -37,7 +39,9 @@
             $video_id = str_replace('https://vimeo.com/', '', $video_url);
         @endphp
 
-        <iframe height="500" src="https://player.vimeo.com/video/{{ $video_id }}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen allowtransparency allow="autoplay"></iframe>
+        <iframe height="500"
+            src="https://player.vimeo.com/video/{{ $video_id }}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+            allowfullscreen allowtransparency allow="autoplay"></iframe>
         @include('course_player.player_config')
     @elseif($lesson_details->lesson_type == 'google_drive')
         @php
@@ -52,7 +56,9 @@
             endif;
         @endphp
         <video width="100%" height="680" id="player" playsinline controls>
-            <source class="remove_video_src" src="https://www.googleapis.com/drive/v3/files/{{ $video_id }}?alt=media&key=api-key-for-youtube-and-google-drive" type="video/mp4">
+            <source class="remove_video_src"
+                src="https://www.googleapis.com/drive/v3/files/{{ $video_id }}?alt=media&key=api-key-for-youtube-and-google-drive"
+                type="video/mp4">
         </video>
 
         @include('course_player.player_config')
@@ -64,16 +70,22 @@
         @include('course_player.player_config')
     @elseif($lesson_details->lesson_type == 'document_type')
         @if ($lesson_details->attachment_type == 'pdf')
-            <iframe class="embed-responsive-item" width="100%" src="{{ asset('assets/upload/lesson_file/attachment/' . $lesson_details->attachment) }}" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" width="100%"
+                src="{{ asset('assets/upload/lesson_file/attachment/' . $lesson_details->attachment) }}"
+                allowfullscreen></iframe>
         @elseif($lesson_details->attachment_type == 'doc')
-            <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ asset('assets/upload/lesson_file/attachment/' . $lesson_details->attachment) }}" width='100%' frameborder='0'></iframe>
+            <iframe
+                src="https://view.officeapps.live.com/op/embed.aspx?src={{ asset('assets/upload/lesson_file/attachment/' . $lesson_details->attachment) }}"
+                width='100%' frameborder='0'></iframe>
         @elseif($lesson_details->attachment_type == 'txt')
-            <iframe src="{{ asset('assets/upload/lesson_file/attachment/' . $lesson_details->attachment) }}" width='100%' frameborder='0'></iframe>
+            <iframe src="{{ asset('assets/upload/lesson_file/attachment/' . $lesson_details->attachment) }}"
+                width='100%' frameborder='0'></iframe>
         @endif
     @elseif($lesson_details->lesson_type == 'quiz')
         @include('course_player.quiz.index')
     @else
-        <iframe class="embed-responsive-item" width="100%" src="{{ $lesson_details->lesson_src }}" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" width="100%" src="{{ $lesson_details->lesson_src }}"
+            allowfullscreen></iframe>
 
     @endif
 @else
