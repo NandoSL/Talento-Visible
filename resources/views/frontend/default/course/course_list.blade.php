@@ -7,14 +7,14 @@
                     <div class="cText d-flex">
                         <h4>
                             @if ($course->is_paid == 0)
-                                {{ get_phrase('Free') }}
+                               <h1 class="free">{{ get_phrase('Free') }} </h1> 
                             @else
                                 @if ($course->discount_flag == 1)
                                     @php $discounted_price = number_format(($course->discounted_price), 2) @endphp
-                                    {{ currency($discounted_price) }}
+                                   <h1 class="discounted">  {{ currency($discounted_price) }} </h1>
                                     <del>{{ currency(number_format($course->price, 2)) }}</del>
                                 @else
-                                    {{ currency(number_format($course->price, 2)) }}
+                                  <h1 class="price">  {{ currency(number_format($course->price, 2)) }}</h1>
                                 @endif
                             @endif
                         </h4>
@@ -58,7 +58,7 @@
                     <p class="description ellipsis-2">{{ ellipsis($course->description, 150) }}</p>
                     <div class="learn-creator">
                         <div class="creator">
-                            <img src="{{ get_image($course->instructor_image) }}" alt="author-image">
+                            <img src="{{ get_image($course->instructor) }}" alt="author-image">
                             <p><span>{{ $course->instructor_name }}</span></p>
                         </div>
                         <div class="learn-more">{{ get_phrase('Learn more') }} <i class="fa-solid fa-arrow-right-long ms-2"></i></div>

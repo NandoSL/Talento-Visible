@@ -1,8 +1,14 @@
 <div class="sidebar">
     <div class="row mb-4">
         <div class="col-6">
-            <span class="d-inline-block py-1">{{get_phrase('Filter')}}</span>
-        </div>
+                <button type="button" class="btn btn-info p-2 rounded-3 text-white shadow-sm me-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+                    </svg>
+                </button>
+        
+                    <span class="d-inline-block text-dark py-1">{{get_phrase('Filter')}}</span>
+            </div>
         <div class="col-6 text-end">
             @if(count(request()->all()) > 0 || !empty($category_details))
             <a class="btn d-flex align-items-center float-end border py-2" href="{{route('courses')}}"><i class="fi-rr-cross-circle me-2"></i> <span>{{get_phrase('Clear')}} @if(isset($_GET) && count($_GET) > 0)({{count($_GET)}})@endif</span></a>
@@ -22,7 +28,15 @@
 
     <!------------------- categories start ------------------->
     <div class="widget">
-        <h4 class="widget-title">{{ get_phrase('Categories') }}</h4>
+    <div class="d-flex align-items-center">
+    <button type="button" class="btn btn-info p-2 rounded-3 text-white shadow-sm me-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
+            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm0 8A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm-8 0A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3z"/>
+        </svg>
+    </button>
+
+    <h4 class="widget-title mb-0 mt-4">{{ get_phrase('Categories') }}</h4> 
+</div>
         <ul class="entry-widget" id="parent-category">
             @php
                 $parent_categories = App\Models\Category::where('parent_id', 0)->get();
@@ -40,7 +54,7 @@
                         @php
                             $count_parent_courses = explode(' ', count_category_courses($parent_category->id));
                         @endphp
-                        <span>{{ array_shift($count_parent_courses) }}</span>
+                        <span class="categorie-count">{{ array_shift($count_parent_courses) }}</span>
                     </a>
                 </li>
 
@@ -56,7 +70,7 @@
                                 @php
                                     $count_child_courses = explode(' ', count_category_courses($child_category->id));
                                 @endphp
-                                <span>{{ array_shift($count_child_courses) }}</span>
+                                <span class="categorie-count">{{ array_shift($count_child_courses) }}</span>
                             </a>
                         </li>
                     @endforeach
@@ -79,43 +93,65 @@
 
 
         <!------------------- price filter start ------------------->
-        <div class="widget">
-            <h4 class="widget-title">{{ get_phrase('Price') }}</h4>
-            <ul class="entry-widget">
-                @foreach (['paid', 'discount', 'free'] as $price)
-                    <li class="filter-item">
-                        <div class="form-check">
-                            <input class="form-check-input mt-0" type="radio" name="price"
-                                value="{{ $price }}" id="price-{{ $price }}"
-                                @if (request()->has('price') && request()->input('price') == $price) checked @endif />
-                            <label class="form-check-label"
-                                for="price-{{ $price }}">{{ get_phrase(ucfirst($price)) }}</label>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+     <div class="widget">
+    <h4 class="widget-title">{{ get_phrase('Price') }}</h4>
+    <ul class="entry-widget">
+        @foreach (['paid', 'discount', 'free'] as $price)
+            <li class="filter-item">
+                <div class="form-check">
+                    <input class="form-check-input mt-0" type="radio" name="price"
+                        value="{{ $price }}" id="price-{{ $price }}"
+                        @if (request()->has('price') && request()->input('price') == $price) checked @endif />
+                        
+                    <label class="form-check-label" for="price-{{ $price }}">
+                        {{-- 🎯 ICONOS AÑADIDOS AQUÍ --}}
+                        @if ($price === 'paid')
+                            <i class="fas fa-credit-card me-2 text-warning"></i>
+                        @elseif ($price === 'discount')
+                            <i class="fas fa-tag me-2 text-info"></i>
+                        @elseif ($price === 'free')
+                            <i class="fas fa-magic me-2 text-success"></i>
+                        @endif
+                        {{-- 🎯 FIN DE ICONOS --}}
+                        
+                        {{ get_phrase(ucfirst($price)) }}
+                    </label>
+                </div>
+            </li>
+        @endforeach
+    </ul>
+</div>
         <!------------------- price filter end ------------------->
 
 
 
         <!------------------- level filter start ------------------->
-        <div class="widget">
-            <h4 class="widget-title">{{ get_phrase('Level') }}</h4>
-            <ul class="entry-widget">
-                @foreach (['beginner', 'intermediate', 'advanced'] as $level)
-                    <li class="filter-item">
-                        <div class="form-check">
-                            <input class="form-check-input mt-0" type="radio" name="level"
-                                value="{{ $level }}" id="level-{{ $level }}"
-                                @if (request()->has('level') && request()->input('level') == $level) checked @endif />
-                            <label class="form-check-label"
-                                for="level-{{ $level }}">{{ get_phrase(ucfirst($level)) }}</label>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="widget">
+    <h4 class="widget-title">{{ get_phrase('Level') }}</h4>
+    <ul class="entry-widget">
+        @foreach (['beginner', 'intermediate', 'advanced'] as $level)
+            <li class="filter-item">
+                <div class="form-check">
+                    <input class="form-check-input mt-0" type="radio" name="level"
+                        value="{{ $level }}" id="level-{{ $level }}"
+                        @if (request()->has('level') && request()->input('level') == $level) checked @endif />
+                    <label class="form-check-label" for="level-{{ $level }}">
+                        {{-- 🎯 ICONOS/EMOJIS AÑADIDOS AQUÍ --}}
+                        @if ($level === 'beginner')
+                            <span class="me-2">🌱</span>
+                        @elseif ($level === 'intermediate')
+                            <span class="me-2">🔥</span>
+                        @elseif ($level === 'advanced')
+                            <span class="me-2">🚀</span>
+                        @endif
+                        {{-- 🎯 FIN DE ICONOS/EMOJIS --}}
+                        {{ get_phrase(ucfirst($level)) }}
+                    </label>
+                </div>
+            </li>
+        @endforeach
+    </ul>
+</div>
         <!------------------- level filter end ------------------->
 
 

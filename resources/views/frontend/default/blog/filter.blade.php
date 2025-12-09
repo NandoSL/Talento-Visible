@@ -10,7 +10,7 @@
 
 
     <div class="widget border-bottom">
-        <h4 class="widget-title pb-15 border-none">{{ get_phrase('Categories') }}</h4>
+        <h4 class="widget-title pb-15 border-none">{{ get_phrase('Categories') }}dfdfds</h4>
         <ul class="entry-widget" id="blog-category">
             @php
                 $active_category = request()->route()->parameter('category');
