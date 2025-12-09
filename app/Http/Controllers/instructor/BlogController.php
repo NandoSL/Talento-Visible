@@ -78,7 +78,7 @@ class BlogController extends Controller
         $data['is_popular'] = $request->is_popular;
 
         Blog::where('id', $id)->update($data);
-
+        /*
 
         // Blog SEO
         $blog_details = Blog::where('id', $id)->first();
@@ -125,8 +125,7 @@ class BlogController extends Controller
         // Blog SEO Ended
 
 
-
-
+        */
         Session::flash('success', get_phrase('Blog updated successfully'));
         return redirect()->route('instructor.blogs');
     }

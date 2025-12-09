@@ -101,7 +101,7 @@
                         </div>
 
                         <hr class="my-4">
-
+                        {{--
                         <h3 class="title fs-16px mb-3">{{ get_phrase('SEO Fields') }}</h3>
 
                         @php
@@ -161,7 +161,7 @@
                             <label for="json_ld" class="form-label ol-form-label">{{ get_phrase('Json Id') }}</label>
                             <textarea class="form-control ol-form-control" id="json_ld" name="json_ld">{{ $seo_meta_tag->json_ld }}</textarea>
                         </div>
-
+                    --}}
                         <div class=" mb-3">
                             <button type="submit" class="ol-btn-primary">{{ get_phrase('Update blog') }}</button>
                         </div>

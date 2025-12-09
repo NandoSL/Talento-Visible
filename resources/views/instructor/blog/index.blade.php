@@ -7,16 +7,18 @@
 @endpush
 @section('content')
     <div class="ol-card radius-8px">
-        <div class="ol-card-body my-3 py-12px px-20px">
+        <div class="ol-card-body my-3 py-12px px-20px width-" style="--w:100%"  >
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
                 <h4 class="title fs-16px">
                     <i class="fi-rr-settings-sliders me-2"></i>
                     {{ get_phrase('Manage Blogs') }}
                 </h4>
+                {{-- 
                 <a href="{{ route('instructor.blog.create') }}" class="btn ol-btn-outline-secondary d-flex align-items-center cg-10px">
                     <span class="fi-rr-plus"></span>
                     <span>{{ get_phrase('Add new blog') }}</span>
                 </a>
+                 --}}
             </div>
         </div>
     </div>

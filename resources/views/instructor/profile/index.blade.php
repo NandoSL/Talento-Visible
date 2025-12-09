@@ -41,11 +41,10 @@
                         <b class="fonsize" style="--fs:1vw;">Foto de Perfil</b>
                     </div>
                     <div class="d-flex p-4 -width height-" style="--w:100%; --h:100%;">
-                        <div class="-width txt-color txt-bold round-  pad- fonsize" style="--txt-color:#FFF;--fs:1.8vw;--w:30%; background-color:#d86100; 
-                        --br:100%; --p:70px; ">
-                            <span class="">
-                                IN
-                            </span>
+                        <div id="preview" class="d-flex width- height- txt-color txt-bold round- pad- fonsize"
+                            style="--txt-color:#FFF;--fs:1.8vw;--w:200px; background-color:#d86100; 
+                            --br:100%; --p:70px; --h:200px; display:flex; align-items:center; justify-content:center;">
+                            <span>IN</span>
                         </div>
                         <div class="p-4 lh-lg">
                             <div class="">
@@ -54,7 +53,7 @@
                                     <i class="fi fi-rr-camera txt-color fonsize" style="--fs:1.2vw;--txt-color:#f39c36"></i>
                                     <label>Adjuntar documento</label>
                                 </button>
-                                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" style="display:none;" />
+                                <input type="file" id="avatar" name="foto" accept="image/png, image/jpeg" style="display:none;" />
                             </div>
                         </div>
                     </div>
@@ -74,7 +73,7 @@
                     </div>
                     <div class="fpb7 mb-2">
                         <label class="form-label ol-form-label">Titulo profesional</label>
-                        <input type="text" placeholder="Ej:Desarrolador Full Stack Senior" class="form-control ol-form-control" name="email"  required />
+                        <input type="text" placeholder="Ej:Desarrolador Full Stack Senior" class="form-control ol-form-control" name="profesional_title" {{--  required --}}  />
                     </div>
                 </div>
                 <div class="ol-card mb-5 rounded-top">
@@ -84,7 +83,7 @@
                     </div>
                     <div class="fpb7 mb-2">
                         <label class="form-label ol-form-label">Años de experiencia</label>
-                        <select class="form-control ol-form-control">
+                        <select class="form-control ol-form-control" name="years_of_experience" {{--  required --}} >
                             <option selected disabled>Seleccionar</option>
                             <option value="0-1">0-1 años</option>
                             <option value="1-3">1-3 años</option>
@@ -95,7 +94,7 @@
                     </div>
                     <div class="fpb7 mb-2">
                         <label class="form-label ol-form-label">Especialidad</label>
-                        <input type="email" class="form-control ol-form-control" name="email" value="Ej:Desarrollo Web,Data Science" required />
+                        <input type="text" class="form-control ol-form-control" name="speciality" placeholder="Ej:Desarrollo Web,Data Science" {{--  required --}} />
                     </div>
                 </div>
                 <div class="ol-card mb-5 rounded-top">
@@ -126,7 +125,7 @@
                     <div class="fpb7 mb-2">
                         <label class="form-label ol-form-label">{{ get_phrase('A short title about yourself') }}</label>
                         <textarea rows="5" id="short-title" class="form-control ol-form-control" name="about" placeholder="{{ $auth->about }}"></textarea>
-                        <label>Máximo 200 caracteres - Esto se mostrará en tus cursos</label>
+                        <label class="mt-2">Máximo 200 caracteres - Esto se mostrará en tus cursos</label>
                     </div>
                 </div>
                 <div class="ol-card mb-5 rounded-top">
@@ -135,10 +134,11 @@
                         <b class="fonsize" style="--fs:1vw;">Habilidades</b>
                     </div>
                     <div class="fpb7 mb-2">
-                        <input type="text" class="form-control ol-form-control" name="linkedin" placeholder="Ej:JavaScript,REact, Node.js, Python, Docker (separadas por comas)" />
+                        <input type="text" class="form-control ol-form-control" name="skills" placeholder="Ej:JavaScript,REact, Node.js, Python, Docker (separadas por comas)" />
                     </div>
                 </div>
-                <div class="ol-card mb-5 rounded-top">
+                {{-- 
+                <div class="ol-card mb-5 rounded-top"> 
                     <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#d2d2d263;--w:100%;    ">
                         <i class="fi fi-rr-file-spreadsheet  fonsize" style="--fs:1.8vw;"></i>
                         <b class="fonsize" style="--fs:1vw;">{{ get_phrase('Biography') }}</b>
@@ -147,10 +147,11 @@
                         <label class="form-label ol-form-label">{{ get_phrase('Biography') }}</label>
                         <textarea rows="5" class="form-control ol-form-control text_editor" name="biography" placeholder="">{!! removeScripts($auth->biography) !!}</textarea>
                     </div>
-                    <div class="fpb7 mb-2">
+                </div>
+                --}}
+                <div class="fpb7 mb-2">
                         <button type="submit" class="btn mt-4 ol-btn-primary">{{ get_phrase('Update profile') }}</button>
                     </div>
-                </div>
             </form>
         </div>
         <!-- end 1st colum -->
@@ -185,4 +186,34 @@
     </div>
 @endsection
 @push('js')
+    <script>
+    document.getElementById("avatar").addEventListener("change", function(event) {
+
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const preview = document.getElementById("preview");
+
+            // ❌ Quitar todos los estilos inline
+            preview.removeAttribute("style");
+            preview.removeAttribute("class");
+
+            // ❌ Quitar clases si también deseas
+            // preview.className = "";
+
+            // Mostrar la imagen
+            preview.innerHTML = `
+                <img src="${e.target.result}" 
+                    style="width:200px; height:200px; object-fit:cover; border-radius:50%;" />
+            `;
+        };
+
+        reader.readAsDataURL(file);
+    });
+    </script>
+
+
 @endpush

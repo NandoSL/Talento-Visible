@@ -5,17 +5,17 @@
 @section('content')
     <!-- start page title -->
     <div class="ol-card radius-8px ml-5">
-        <div class="ol-card-body my-3 py-4 px-20px">
+        <div class="ol-card-body my-3 py-4 px-20px width-" style="--w:100%">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
                 <h4 class=" txt-bold fs-16px">
                     {{ get_phrase('Sales report') }}
                 </h4>
             </div>
-            <form class="" action="{{ route('instructor.sales.report') }}" method="get">
+            <form class="width-" style="--w:100%" action="{{ route('instructor.sales.report') }}" method="get">
                 <div class="">
                     <div class="width-" style="--w:100%">
-                        <div class=" d-flex align-items-center gap-3">
-                            <input type="text" class=" inline form-control w-80 " name="eDateRange"value="{{ date('m/d/Y', $start_date)}}" />
+                        <div class=" d-flex align-items-center gap-3 width-" style="--w:100%">
+                            <input type="text" class="  form-control w-80 " name="sDateRange"value="{{ date('m/d/Y', $start_date)}}" />
                             -
                             <input type="text" class="form-control w-80 " name="eDateRange"value="{{date('m/d/Y', $end_date) }}" />                        
                             <button type="submit" class="btn bg-color-degraded txt-color w-50" style="--txt-color: #FFF; --color1:#3B9FD0; --color2:#107BE3;" id="submit-button" onclick="update_date_range();"> {{ get_phrase('Filter') }}</button>

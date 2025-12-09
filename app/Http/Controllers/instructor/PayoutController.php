@@ -16,10 +16,18 @@ class PayoutController extends Controller
         $page_data['end_date']   = strtotime('last day of this month');
 
 // modify date and prepare to compare with database
-        if (request()->has('eDateRange')) {
-            $date                    = explode('-', urldecode(request()->query('eDateRange')));
-            $page_data['start_date'] = strtotime($date[0] . ' 00:00:00');
-            $page_data['end_date']   = strtotime($date[1] . ' 23:59:59');
+        $start_date = strtotime('first day of this month');
+        $end_date   = strtotime('last day of this month');
+
+        if (request()->has(['sDateRange', 'eDateRange'])) {
+
+            // Extrae valores
+            $sDate = urldecode(request()->query('sDateRange')); // ejemplo: 01/01/2025
+            $eDate = urldecode(request()->query('eDateRange')); // ejemplo: 01/31/2025
+
+            // Convierte a timestamp
+            $start_date = strtotime($sDate . ' 00:00:00');
+            $end_date   = strtotime($eDate . ' 23:59:59');
         }
         $query = Payout::where('user_id', auth()->user()->id)->where('created_at', '>=', date('Y-m-d H:i:s', $page_data['start_date']))
             ->where('created_at', '<=', date('Y-m-d H:i:s', $page_data['end_date']))->latest('id');

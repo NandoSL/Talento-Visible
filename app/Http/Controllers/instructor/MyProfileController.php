@@ -28,15 +28,19 @@ class MyProfileController extends Controller
             $profile['linkedin']  = $request->linkedin;
             $profile['about']     = $request->about;
             $profile['skills']    = $request->skills;
-            $profile['biography'] = $request->biography;
+             /*
+            $profile['profesional_title'] = $request->profesional_title;
+            $profile['years_of_experience'] = $request->years_of_experience;
+            $profile['speciality'] = $request->speciality;
+            */
 
             if ($request->photo) {
-                if (isset($request->photo) && $request->photo != '') {
+                if ($request->hasFile('photo')) {
                     $profile['photo'] = "assets/upload/users/admin/" . nice_file_name($request->title, $request->photo->extension());
                     FileUploader::upload($request->photo, $profile['photo'], 400, null, 200, 200);
                 }
             }
-            User::where('id', auth()->user()->id)->update($profile);
+            User::where('id', 30)->update($profile);
         } else {
             $old_pass_check = Auth::attempt(['email' => auth()->user()->email, 'password' => $request->current_password]);
 

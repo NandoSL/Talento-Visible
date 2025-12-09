@@ -25,7 +25,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone',
         'linkedin',
         'password',
-        'email_verified_at'
+        'profesional_title',
+        'about',
+        'facebook',
+        'skills',
+        /*
+        'years_of_experience',
+        'speciality',*/
+        'email_verified_at',
     ];
 
     /**
