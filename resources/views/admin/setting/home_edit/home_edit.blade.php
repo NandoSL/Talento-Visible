@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="fpb-7 mb-2 flex-grow-1 px-2">
-                    <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                    <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="fpb-7 mb-2 flex-grow-1 px-2">
-                    <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                    <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
                 <div class="fpb-7 mb-2 flex-grow-1 px-2">
-                    <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                    <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="fpb-7 mb-2 flex-grow-1 px-2">
-                    <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                    <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
                 </div>
             </div>
         </div>
@@ -263,7 +263,7 @@
             </div>
         </div>
         <div class="fpb-7 mb-2 flex-grow-1 px-2">
-            <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+            <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
         </div>
         <script type="text/javascript">
             "use strict";
@@ -390,7 +390,7 @@
                 </div>
             </div>
             <div class="fpb-7 mb-2 flex-grow-1 px-2">
-                <button type="submit" class="btn ol-btn-primary">{{ get_phrase('Save changes') }}</button>
+                <button type="submit" class="Enrroll-students">{{ get_phrase('Save changes') }}</button>
             </div>
         </div>
         <script type="text/javascript">

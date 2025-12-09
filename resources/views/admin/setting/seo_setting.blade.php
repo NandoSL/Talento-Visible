@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-md-12">
-        <div class="ol-card">
+        <div class="ol-card2 ">
             <div class="ol-card-body p-20px mb-3">
                 <h4 class="title fs-16px mb-20px">{{ get_phrase('Manage SEO Settings') }}</h4>
                 <div class="d-flex gap-3 flex-wrap flex-md-nowrap">
@@ -92,7 +92,7 @@
                                         </div>
 
                                         <div class="mt-2">
-                                            <button type="submit" class="ol-btn-primary">{{ get_phrase('Submit') }}</button>
+                                            <button type="submit" class="Enrroll-students">{{ get_phrase('Submit') }}</button>
                                         </div>
                                     </form>
                                 </div>

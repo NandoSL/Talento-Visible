@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="ol-card p-4">
+    <div class="ol-card2  p-4">
         <p class="title text-14px mb-3">{{ get_phrase('Manage Language') }}</p>
         <div class="ol-card-body">
             <ul class="nav nav-tabs eNav-Tabs-custom eTab" id="myTab" role="tablist">

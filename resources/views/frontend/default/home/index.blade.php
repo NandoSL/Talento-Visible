@@ -3,6 +3,7 @@
 @push('meta')@endpush
 @push('css')@endpush
 @section('content')
+
     <!-----------  Banner Area Start   ------------->
     <section class="banner-wraper">
         @include('frontend.default.home.banner')
@@ -11,7 +12,7 @@
 
     <!-----------  Performance Area Start   ------------->
     <section class="performance-wrapper section-padding">
-        @include('frontend.default.home.sort_banner')
+        @include('frontend.default.home.sort_banner') 
     </section>
     <!-----------  Performance Area End   ------------->
 

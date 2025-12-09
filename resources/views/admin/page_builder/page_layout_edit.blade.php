@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     {{ config(['app.name' => get_settings('system_title')]) }}

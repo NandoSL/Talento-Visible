@@ -17,7 +17,9 @@
         @else
             {{ ucfirst($lesson_type) }}
         @endif
-        <a onclick="ajaxModal('{{ route('modal', ['instructor.course.lesson_type', 'id' => $id]) }}', '{{ get_phrase('Sort sections') }}')" class="btn text-primary ms-auto p-0" href="javascript:void(0)">{{ get_phrase('Change') }} <i class="fi-rr-arrow-alt-circle-right"></i></a>
+        <a onclick="ajaxModal('{{ route('modal', ['instructor.course.lesson_type', 'id' => $id]) }}', '{{ get_phrase('Sort sections') }}')"
+            class="btn text-primary ms-auto p-0 text-14px" href="javascript:void(0)">{{ get_phrase('Change') }}
+                <i class="fi-rr-arrow-alt-circle-right"></i></a>
     </p>
 </div>
 
@@ -28,13 +30,13 @@
     <input type="hidden" name="course_id" value="{{ $id }}">
     <input type="hidden" name="lesson_type" value="{{ $lesson_type }}">
     <div class="form-group mb-3">
-        <label class="form-label ol-form-label">{{ get_phrase('Title') }}</label>
+        <label class="form-label ol-form-label">{{ get_phrase('Title') }}</label> <span class="text-danger ms-1">*</span>
         <input type="text" name="title" class="form-control ol-form-control" required>
     </div>
 
     <div class="form-group mb-3">
-        <label class="form-label ol-form-label">{{ get_phrase('Section') }}</label>
-        <select class="form-control select2" data-toggle="select2" name="section_id" required>
+        <label class="form-label ol-form-label">{{ get_phrase('Section') }}</label> <span class="text-danger ms-1">*</span>
+        <select class="form-control ol-select2" data-toggle="select2" name="section_id" required>
             @foreach ($sections as $section)
                 <option value="{{ $section->id }}">{{ $section->title }}</option>
             @endforeach

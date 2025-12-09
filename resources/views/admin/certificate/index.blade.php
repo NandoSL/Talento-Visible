@@ -31,16 +31,16 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <p class="title text-14px mb-3">{{ get_phrase('Certificate template') }}</p>
                 <div class="ol-card-body certificate_builder_view" id="certificate_builder_view">
                     {!! get_settings('certificate_builder_content') !!}
-                    <a class="btn ol-btn-primary mt-3" href="{{ route('admin.certificate.builder') }}">{{ get_phrase('Build your certificate') }}</a>
+                    <a class="Enrroll-students mt-3" href="{{ route('admin.certificate.builder') }}">{{ get_phrase('Build your certificate') }}</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="ol-card p-4">
+            <div class="ol-card2 p-4">
                 <p class="title text-14px mb-3">{{ get_phrase('Certificate template') }}</p>
                 <div class="ol-card-body">
                     <form action="{{ route('admin.certificate.update.template') }}" method="post" enctype="multipart/form-data">
@@ -53,7 +53,7 @@
                             <input type="file" class="form-control" name="certificate_template" id="certificate_template"rows="4">
                         </div>
                         <div class="form-group">
-                            <button class="btn ol-btn-primary" type="submit">{{ get_phrase('Upload') }}</button>
+                            <button class="Enrroll-students" type="submit">{{ get_phrase('Upload') }}</button>
                         </div>
                     </form>
                 </div>

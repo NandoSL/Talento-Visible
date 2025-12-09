@@ -14,13 +14,13 @@
 
         <div class="ps-price d-flex">
             @if (isset($course_details->discount_flag) && $course_details->discount_flag == 1)
-                <h4 class="g-title">
+                <h4 class="discounted">
                     {{ currency(number_format($course_details->discounted_price ,2)) }}</h4>
                 <del>{{ currency(number_format($course_details->price, 2)) }}</del>
             @elseif (isset($course_details->is_paid) && $course_details->is_paid == 0)
-                <h4 class="g-title">{{ get_phrase('Free') }}</h4>
+                <h4 class="free">{{ get_phrase('Free') }}</h4>
             @else
-                <h4 class="g-title">{{ currency(number_format($course_details->price, 2)) }}</h4>
+                <h4 class="price">{{ currency(number_format($course_details->price, 2)) }}</h4>
             @endif
         </div>
 
@@ -61,7 +61,7 @@
                         <img src="{{ asset('assets/frontend/default/image/enroll.png') }}" alt="...">
                         {{ get_phrase('Start Now') }}</a>
                 @else
-                    <a href="{{ route('purchase.course', $course_details->id) }}" class="eBtn gradient w-100">
+                    <a href="{{ route('purchase.course', $course_details->id) }}" class="btn-primary-course w-100">
                         <img src="{{ asset('assets/frontend/default/image/enroll.png') }}" alt="...">
                         {{ get_phrase($course_details->is_paid ? get_phrase('Buy Now') : get_phrase('Enroll Now')) }}
                     </a>
@@ -84,9 +84,10 @@
                 @endif
             @endif
         @else
-            <a href="{{ route('purchase.course', $course_details->id) }}" class="eBtn gradient mt-3 w-100">
-                <img src="{{ asset('assets/frontend/default/image/enroll.png') }}" alt="...">
-                {{ get_phrase($course_details->is_paid ? get_phrase('Buy Now') : get_phrase('Enroll Now')) }}</a>
+            <a href="{{ route('purchase.course', $course_details->id) }}" class="btn-primary-course  mx-auto  w-100">
+                <img src="{{ asset('assets/frontend/default/image/enroll.png') }} " alt="...">
+                <h3 class="mx-auto">{{ get_phrase($course_details->is_paid ? get_phrase('Buy Now') : get_phrase('Enroll Now')) }}</h3>
+                </a>
         @endif
 
 
@@ -114,7 +115,7 @@
             </li>
             <li class="d-flex justify-content-between align-items-center py-3 mb-0">
                 <span>
-                    <i class="fi fi-rr-dashboard"></i>
+                  <img src="{{ asset('assets/frontend/default/image/signo.png') }}" alt="...">
                     <p>{{ get_phrase('Level') }}</p>
                 </span>
                 {{ $course_details->level }}

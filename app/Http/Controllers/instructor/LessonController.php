@@ -20,6 +20,20 @@ class LessonController extends Controller
             return redirect()->back();
         }
 
+        $validated = $request->validate([
+            'hour'   => 'required|string|min:0',
+            'minute' => 'required|string|min:0|max:59',
+            'second' => 'required|string|min:0|max:59',
+        ]);
+
+        if ($validated['hour'] == 0 && $validated['minute'] == 0 && $validated['second'] == 0) {
+            return back()->withErrors(['time' => 'Debe agregar la duracion de la seccion, no puede ser 00:00:00'])->withInput();
+        }
+
+        $request->merge([
+            'duration' => sprintf('%02d:%02d:%02d', $request->hour, $request->minute, $request->second)
+        ]);
+
         $lesson              = new Lesson();
         $lesson->title       = $request->title;
         $lesson->user_id     = auth()->user()->id;
@@ -108,7 +122,7 @@ class LessonController extends Controller
             }
             $lesson->video_type = $request->lesson_provider;
             $lesson->lesson_src = $file;
-            $lesson->duration   = $request->system_video_file_duration ?? '00:15:00';
+            $lesson->duration   = $request->duration;
         }
 
         $lesson->save();
@@ -132,6 +146,20 @@ class LessonController extends Controller
             Session::flash('error', get_phrase('Lesson already exists.'));
             return redirect()->back();
         }
+
+        $validated = $request->validate([
+            'hour'   => 'required|string|min:0',
+            'minute' => 'required|string|min:0|max:59',
+            'second' => 'required|string|min:0|max:59',
+        ]);
+
+        if ($validated['hour'] == 0 && $validated['minute'] == 0 && $validated['second'] == 0) {
+            return back()->withErrors(['time' => 'Debe agregar la duracion de la seccion, no puede ser 00:00:00'])->withInput();
+        }
+
+        $request->merge([
+            'duration' => sprintf('%02d:%02d:%02d', $request->hour, $request->minute, $request->second)
+        ]);
 
 
         $lesson['title']      = $request->title;
@@ -208,7 +236,7 @@ class LessonController extends Controller
             }
 
             $lesson['lesson_src'] = $file;
-            $lesson['duration']   = $request->system_video_file_duration;
+            $lesson['duration']   = $request->duration;
         }
 
         Lesson::where('id', $request->id)->update($lesson);

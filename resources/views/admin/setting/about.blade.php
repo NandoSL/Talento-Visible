@@ -20,7 +20,7 @@
 
     <div class="row mt-4">
         <div class="col-xl-7">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <p class="title text-14px mb-3">{{ get_phrase('About this application') }}</p>
                 <div class="ol-card-body">
                     <div class="row">

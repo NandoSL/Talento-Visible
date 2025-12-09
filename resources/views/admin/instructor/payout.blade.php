@@ -104,7 +104,7 @@
                                                                 <img class="img-fluid rounded-circle image-45" width="45" height="45" src="{{ get_image_by_id($instructor_payout_incompleted->user_id) }}" />
                                                             </div>
                                                             <div class="ms-1">
-                                                                <h4 class="title fs-14px">{{ get_user_info($instructor_payout_incompleted->user_id)->name }}</h4>
+                                                                <h4 class="title fs-14px">{{ get_user_info($instructor_payout_incompleted->user_id)->name }}fgfg</h4>
                                                                 <p class="sub-title2 text-12px">{{ get_user_info($instructor_payout_incompleted->user_id)->email }}</p>
                                                             </div>
                                                         </div>

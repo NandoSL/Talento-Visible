@@ -58,6 +58,26 @@ class CurriculumController extends Controller
 
     public function lesson_store(Request $request)
     {
+
+        if (Lesson::where('course_id', $request->course_id)->where('title', $request->title)->exists()) {
+            Session::flash('error', get_phrase('Lesson already exists.'));
+            return redirect()->back();
+        }
+
+        $validated = $request->validate([
+            'hour'   => 'required|string|min:0',
+            'minute' => 'required|string|min:0|max:59',
+            'second' => 'required|string|min:0|max:59',
+        ]);
+
+        if ($validated['hour'] == 0 && $validated['minute'] == 0 && $validated['second'] == 0) {
+            return back()->withErrors(['time' => 'Debe agregar la duracion de la seccion, no puede ser 00:00:00'])->withInput();
+        }
+
+        $request->merge([
+            'duration' => sprintf('%02d:%02d:%02d', $request->hour, $request->minute, $request->second)
+        ]);
+
         $data['title']       = $request->title;
         $data['user_id']     = auth()->user()->id;
         $data['course_id']   = $request->course_id;
@@ -144,7 +164,7 @@ class CurriculumController extends Controller
             $sec                = sprintf('%02d', $duration_formatter[2]);
             $data['duration']   = $hour . ':' . $min . ':' . $sec;
         } elseif ($request->lesson_type == 'system-video') {
-            
+
             if ($request->system_video_file == '') {
                 $file = '';
             } else {
@@ -202,6 +222,21 @@ class CurriculumController extends Controller
 
     public function lesson_edit(Request $request)
     {
+
+        $validated = $request->validate([
+            'hour'   => 'required|string|min:0',
+            'minute' => 'required|string|min:0|max:59',
+            'second' => 'required|string|min:0|max:59',
+        ]);
+
+        if ($validated['hour'] == 0 && $validated['minute'] == 0 && $validated['second'] == 0) {
+            return back()->withErrors(['time' => 'Debe agregar la duracion de la seccion, no puede ser 00:00:00'])->withInput();
+        }
+
+        $request->merge([
+            'duration' => sprintf('%02d:%02d:%02d', $request->hour, $request->minute, $request->second)
+        ]);
+
 
         $lesson['title']      = $request->title;
         $lesson['section_id'] = $request->section_id;

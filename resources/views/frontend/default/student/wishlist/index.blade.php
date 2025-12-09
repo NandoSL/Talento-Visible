@@ -3,23 +3,36 @@
 @push('meta')@endpush
 @push('css')@endpush
 @section('content')
+    @php
+        $sidebar = session('sidebar', false);
+    @endphp
     <section class="wishlist-content">
-        <div class="profile-banner-area"></div>
-        <div class="container profile-banner-area-container">
+        {{--<div class="profile-banner-area"></div>--}}
+        {{--<div class="container profile-banner-area-container">--}}
+        <div class="profile-banner-area-container">
             <div class="row">
                 @include('frontend.default.student.left_sidebar')
 
-
-
-                <div class="col-lg-9">
-                    <h4 class="g-title">{{ get_phrase('Wishlisted courses') }}</h4>
-                    <div class="row mt-5">
+                <div class="{{ $sidebar ? 'content-3' : 'content-2' }} bg-r" id="profile-contenedor">
+                    <div class="container header-content-student">
+                        <h1>
+                            <span class="g-title mb-2 mt-20 ml-20">{{ get_phrase('Wishlisted courses') }} | </span>
+                            {{ get_settings('system_title') }}
+                        </h1>
+                        <h3 class="mt-20 ml-20">
+                            Cursos que has guardado para comprar más tarde
+                        </h3>
+                    </div>
+                    <div class="my-panel mt-5 my-panel-margin">
                         @foreach ($wishlist as $wishitem)
                             <div class="col-lg-4 col-md-4 col-sm-6 mb-30">
                                 <a href="{{ route('course.details', $wishitem->slug) }}" class="">
                                     <div class="card Ecard g-card wish-card">
                                         <div class="card-head">
-                                            <img src="{{ get_image($wishitem->course_thumbnail) }}" alt="{{ get_phrase('course_thumbnail') }}">
+                                            <img src="{{ get_image($wishitem->course_thumbnail) }}"
+                                                alt="{{ get_phrase('course_thumbnail') }}"
+                                                onerror="this.src='{{ asset('assets/frontend/default/image/course-1.png') }}'"
+                                            >
                                         </div>
                                         <div class="card-body entry-details">
                                             <div class="info-card">
@@ -45,6 +58,7 @@
                                                         @endif
                                                     @endif
                                                 </h4>
+                                                {{-- TODO: Hace falta hacer la funcion de rankeo --}}
                                                 <p><span>4.8</span><i class="fa fa-star"></i></p>
                                             </div>
                                         </div>

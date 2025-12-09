@@ -27,7 +27,7 @@
     </div>
 
     <!-- Start Admin area -->
-    <div class="ol-card p-4">
+    <div class="ol-card-enroll p-4">
         <h4 class="title fs-16px mb-20px">{{ get_phrase('Admin Info') }}</h4>
         <div class="ol-card-body">
             <form action="{{ route('admin.admins.store') }}" method="post" enctype="multipart/form-data">
@@ -73,7 +73,7 @@
                             @include('admin.admin.create_social')
                         </div>
 
-                        <button type="submit" class="btn ol-btn-primary mt-3">
+                        <button type="submit" class="Enrroll-students mt-3">
                             <span>{{ get_phrase('Create Admin') }}</span>
                         </button>
                     </div>

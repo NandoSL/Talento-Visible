@@ -16,7 +16,7 @@
 
     <div class="row ">
         <div class="col-md-8">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('SMTP Settings') }}</h3>
                 <div class="ol-card-body">
                     @include('admin.setting.smtp_settings')

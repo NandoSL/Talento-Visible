@@ -2,7 +2,7 @@
 @push('title', get_phrase('Create course'))
 
 @section('content')
-    <div class="row mb-5">
+    <div class="row mb-5" style="padding: 2rem">
         <div class="col-lg-12">
             <div class="ol-card radius-8px">
                 <div class="ol-card-body my-3 py-4 px-20px">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ol-card p-3">
+            <div class="ol-card2 p-3">
                 <div class="ol-card-body">
                     <form action="{{ route('admin.course.store') }}" method="post" enctype="multipart/form-data">
                         @csrf

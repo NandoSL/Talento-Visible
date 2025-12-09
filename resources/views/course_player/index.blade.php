@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <title>{{ get_phrase('Course Playing Page') }}| {{ config('app.name') }}</title>
@@ -43,7 +43,7 @@
     <!-- End Course Playing Header -->
 
     <!-- Start Course Playing Video and Playlist Area -->
-    <section class="video-playlist-section">
+    <section class="video-playlist-section" style="margin:2rem 5rem">
         <div class="my-container">
             <div class="row">
                 <div class="col-lg-8" id="player_content">

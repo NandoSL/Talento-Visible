@@ -36,9 +36,14 @@
                     </div>
 
                     <div class="course-details pe-auto pe-lg-5">
-
-                        <h2 class="g-title ellipsis-line-4">{{ $course_details->title }}</h2>
-                        <p class="g-text text-dark ellipsis-line-2">
+                           
+                        <h2 class="g-title ellipsis-line-4">
+                            <span class="module-icon-box-title">
+                                <i class="fas fa-book-open module-icon-symbol"></i>
+                            </span>
+                            {{ $course_details->title }}
+                        </h2>
+                         <p class="g-text text-dark ellipsis-line-2">
                             {{ ellipsis($course_details->short_description, 160) }}
                         </p>
 

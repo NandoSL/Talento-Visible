@@ -7,7 +7,7 @@
         $auth = auth()->user();
     @endphp
 
-    <div class="ol-card radius-8px">
+    <div class="ol-card radius-8px ">
         <div class="ol-card-body my-3 py-4 px-20px">
             <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap flex-md-nowrap">
                 <h4 class="title fs-16px">
@@ -17,79 +17,150 @@
             </div>
         </div>
     </div>
+    <div class="row mb-5">
+        <div class="ol-card d-flex p-3">
+            <div class="width-" style="--w:5%">
+                <div class="bg-color-degraded width- height- txt-color p-3 round-"style="--color1: #f39c36; --color2: #d86100; --w:100%; --txt-color:#FFF; text-align: center; --br:15px; --h:100%">
+                    <i class="fi fi-rr-user fonsize" style="--fs:1.8vw"></i>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="fonsize txt-bold" style="--fs:1.8vw;">Mi perfil de instructor</div>
+                <div class="sub-title">Actualiza tu información personal y profesional</div>
+            </div>
+        </div>
+    </div>
 
     <div class="row ">
         <div class="col-xl-7">
-            <div class="ol-card p-4">
-                <div class="ol-card-body">
-                    <form action="{{ route('instructor.manage.profile.update') }}" method="post" enctype="multipart/form-data">@csrf
-                        <input type="hidden" name="type" value="general">
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Name') }}</label>
-                            <input type="text" class="form-control ol-form-control" name="name" value="{{ $auth->name }}" required />
+            <form action="{{ route('instructor.manage.profile.update') }}" method="post" enctype="multipart/form-data">@csrf
+                <div class="ol-card mb-5 rounded-top">
+                    <input type="hidden" name="type" value="general">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#f39c3663;--w:100%;    ">
+                        <i class="fi fi-rr-camera txt-color fonsize" style="--fs:1.8vw;--txt-color:#f39c36"></i>
+                        <b class="fonsize" style="--fs:1vw;">Foto de Perfil</b>
+                    </div>
+                    <div class="d-flex p-4 -width height-" style="--w:100%; --h:100%;">
+                        <div class="-width txt-color txt-bold round-  pad- fonsize" style="--txt-color:#FFF;--fs:1.8vw;--w:30%; background-color:#d86100; 
+                        --br:100%; --p:70px; ">
+                            <span class="">
+                                IN
+                            </span>
                         </div>
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Email') }}</label>
-                            <input type="email" class="form-control ol-form-control" name="email" value="{{ $auth->email }}" required />
-                        </div>
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Facebook link') }}</label>
-                            <input type="text" class="form-control ol-form-control" name="facebook" value="{{ $auth->facebook }}" />
-                        </div>
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Twitter link') }}</label>
-                            <input type="text" class="form-control ol-form-control" name="twitter" value="{{ $auth->twitter }}" />
-                        </div>
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Linkedin link') }}</label>
-                            <input type="text" class="form-control ol-form-control" name="linkedin" value="{{ $auth->linkedin }}" />
-                        </div>
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('A short title about yourself') }}</label>
-                            <textarea rows="5" id="short-title" class="form-control ol-form-control" name="about" placeholder="{{ $auth->about }}"></textarea>
-                        </div>
-
-                        <div class="fpb-7 mb-3">
-                            <label class="form-label ol-form-label" for="skills">{{ get_phrase('Skills') }}</label>
-                            <input type="text" name="skills" value="{{ $auth->skills }}" id="skills" class="tagify ol-form-control w-100" data-role="tagsinput">
-                            <small class="text-muted">{{ get_phrase('Write your skill and click the enter button') }}</small>
-                        </div>
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Biography') }}</label>
-                            <textarea rows="5" class="form-control ol-form-control text_editor" name="biography" placeholder="">{!! removeScripts($auth->biography) !!}</textarea>
-                        </div>
-
-
-                        <div class="fpb7 mb-2">
-                            <label class="form-label ol-form-label">{{ get_phrase('Photo') }}
-                                <small>({{ get_phrase('The image size should be any square image') }})</small>
-                            </label>
-                            <div class="row align-items-center">
-                                <div class="col-2">
-                                    <img class = "rounded-circle img-thumbnail image-50" src="{{ get_image($auth->photo) }}" alt="">
-                                </div>
-                                <div class="col-10">
-                                    <input type="file" class="form-control ol-form-control" name="photo" id="user_image" onchange="changeTitleOfImageUploader(this.id)" accept="image/*">
-                                </div>
+                        <div class="p-4 lh-lg">
+                            <div class="">
+                                Tamaño recomendado: 400x400px<br>
+                                <button class="p-1 bg-color-solid bor-button round-" onclick="document.getElementById('avatar').click()" style="--border-color:#dbdbdb; --b-bg-c:#FFF; --br:15px">
+                                    <i class="fi fi-rr-camera txt-color fonsize" style="--fs:1.2vw;--txt-color:#f39c36"></i>
+                                    <label>Adjuntar documento</label>
+                                </button>
+                                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" style="display:none;" />
                             </div>
                         </div>
-
-                        <div class="fpb7 mb-2">
-                            <button type="submit" class="btn mt-4 ol-btn-primary">{{ get_phrase('Update profile') }}</button>
-                        </div>
-                    </form>
-
-                </div> <!-- end card body-->
-            </div> <!-- end card -->
+                    </div>
+                </div>
+                <div class="ol-card mb-5 rounded-top">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#36aaf363;--w:100%;    ">
+                        <i class="fi fi-rr-user txt-color fonsize" style="--fs:1.8vw;--txt-color:#368cf3"></i>
+                        <b class="fonsize" style="--fs:1vw;">Informacion Basica</b>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('Name') }}</label>
+                        <input type="text" class="form-control ol-form-control" name="name" value="{{ $auth->name }}" required />
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('Email') }}</label>
+                        <input type="email" class="form-control ol-form-control" name="email" value="{{ $auth->email }}" required />
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">Titulo profesional</label>
+                        <input type="text" placeholder="Ej:Desarrolador Full Stack Senior" class="form-control ol-form-control" name="email"  required />
+                    </div>
+                </div>
+                <div class="ol-card mb-5 rounded-top">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#ab36f333;--w:100%;    ">
+                        <i class="fi fi-rr-graduation-cap txt-color fonsize" style="--fs:1.8vw;--txt-color:#8d36f3"></i>
+                        <b class="fonsize" style="--fs:1vw;">Información Profesional</b>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">Años de experiencia</label>
+                        <select class="form-control ol-form-control">
+                            <option selected disabled>Seleccionar</option>
+                            <option value="0-1">0-1 años</option>
+                            <option value="1-3">1-3 años</option>
+                            <option value="3-5">3-5 años</option>
+                            <option value="5-10">5-10 años</option>
+                            <option value="+10">Mas de 10 años</option>
+                        </select>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">Especialidad</label>
+                        <input type="email" class="form-control ol-form-control" name="email" value="Ej:Desarrollo Web,Data Science" required />
+                    </div>
+                </div>
+                <div class="ol-card mb-5 rounded-top">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#f3eb3663;--w:100%;    ">
+                        
+                        <b class="fonsize" style="--fs:1vw;">Redes Sociales</b>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('Facebook link') }}</label>
+                        <input type="text" class="form-control ol-form-control" name="facebook" value="{{ $auth->facebook }}" />
+                    </div>
+        
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('Twitter link') }}</label>
+                        <input type="text" class="form-control ol-form-control" name="twitter" value="{{ $auth->twitter }}" />
+                    </div>
+        
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('Linkedin link') }}</label>
+                        <input type="text" class="form-control ol-form-control" name="linkedin" value="{{ $auth->linkedin }}" />
+                    </div>
+                </div>
+                <div class="ol-card mb-5 rounded-top">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#7af33663;--w:100%;    ">
+                        <i class="fi fi-rr-file-spreadsheet txt-color fonsize" style="--fs:1.8vw;--txt-color:#20bd43"></i>
+                        <b class="fonsize" style="--fs:1vw;">Breve biografia</b>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('A short title about yourself') }}</label>
+                        <textarea rows="5" id="short-title" class="form-control ol-form-control" name="about" placeholder="{{ $auth->about }}"></textarea>
+                        <label>Máximo 200 caracteres - Esto se mostrará en tus cursos</label>
+                    </div>
+                </div>
+                <div class="ol-card mb-5 rounded-top">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#f3eb3663;--w:100%;    ">
+                        <i class="fi fi-rr-face-glasses txt-color fonsize" style="--fs:1.8vw;--txt-color:#d09514"></i>
+                        <b class="fonsize" style="--fs:1vw;">Habilidades</b>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <input type="text" class="form-control ol-form-control" name="linkedin" placeholder="Ej:JavaScript,REact, Node.js, Python, Docker (separadas por comas)" />
+                    </div>
+                </div>
+                <div class="ol-card mb-5 rounded-top">
+                    <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#d2d2d263;--w:100%;    ">
+                        <i class="fi fi-rr-file-spreadsheet  fonsize" style="--fs:1.8vw;"></i>
+                        <b class="fonsize" style="--fs:1vw;">{{ get_phrase('Biography') }}</b>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <label class="form-label ol-form-label">{{ get_phrase('Biography') }}</label>
+                        <textarea rows="5" class="form-control ol-form-control text_editor" name="biography" placeholder="">{!! removeScripts($auth->biography) !!}</textarea>
+                    </div>
+                    <div class="fpb7 mb-2">
+                        <button type="submit" class="btn mt-4 ol-btn-primary">{{ get_phrase('Update profile') }}</button>
+                    </div>
+                </div>
+            </form>
         </div>
+        <!-- end 1st colum -->
         <div class="col-xl-5">
-            <div class="ol-card p-4">
+            <div class="ol-card p-2">
+                <div class="bg-color-solid  rounded-top width- p-4" style=" --bg-color:#d2d2d263;--w:100%;    ">
+                    <i class="fi fi-rr-lock  fonsize" style="--fs:1.8vw;"></i>
+                    <b class="fonsize" style="--fs:1vw;">Cambiar Contraseña</b><br>
+                    <label>Actualiza tu contraseña regularmente</label>
+                </div>
                 <div class="ol-card-body">
                     <form action="{{ route('instructor.manage.profile.update') }}" method="post"> @csrf
                         <div class="fpb7 mb-2">
@@ -105,7 +176,7 @@
                             <input type="password" class="form-control ol-form-control" name="confirm_password" required />
                         </div>
                         <div class="fpb7 mb-2">
-                            <button type="submit" class="ol-btn-primary">{{ get_phrase('Update password') }}</button>
+                            <button type="submit" class="bg-color-solid txt-color width- round- p-2" style="--bg-color:#000; --txt-color:#FFF; --w:100%; --br:15px">{{ get_phrase('Update password') }}</button>
                         </div>
                     </form>
                 </div>

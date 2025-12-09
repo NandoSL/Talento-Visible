@@ -31,7 +31,7 @@
         </div>
         @foreach ($phrases as $phrase)
             <div class="col-md-4 mb-3">
-                <div class="ol-card p-4">
+                <div class="ol-card2  p-4">
                     <div class="ol-card-body translation-fields">
                         <label class="ol-form-label" for="translated_phrase_{{ $phrase->id }}">{{ $phrase->phrase }}</label>
                         <input type="text" id="translated_phrase_{{ $phrase->id }}" value="{{ $phrase->translated }}" class="form-control ol-form-control">

@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-xl-6">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('Instructor settings') }}</h3>
                 <div class="ol-card-body">
                     <form action="{{ route('admin.instructor.setting.store') }}" method="post" enctype="multipart/form-data">
@@ -46,7 +46,7 @@
 
 
         <div class="col-xl-6">
-            <div class="ol-card p-4">
+            <div class="ol-card2  p-4">
                 <h3 class="title text-14px mb-3">{{ get_phrase('Revenue settings') }}</h3>
                 <div class="ol-card-body">
                     <form action="{{ route('admin.instructor.setting.store') }}" method="post" enctype="multipart/form-data">

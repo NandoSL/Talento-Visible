@@ -1,3 +1,5 @@
+
+@charset "UTF-8";
 /**
 * Template Name: Academy - v1.0
 * Template URL:https://creativeitem.com
@@ -30,6 +32,9 @@ Default Css
     --color-white: #fff;
     --color-1: #2f57ef;
     --color-2: #192335;
+    --color-3: #f5f9ff;
+    --color-4: #e8eef3;
+     --color-5:#00a8e8;
     --color-black: #000;
     --box-shadow: rgba(100, 100, 111, 0.2) 12px 11px 34px 11px;
     --box-shadow-2: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -241,7 +246,13 @@ img {
     background: #2849E6;
     /*transition: 0.5s;*/
     background-size: 200% auto;
-    /*box-shadow: 0 0 20px #eee;*/
+    box-shadow: 0 5px 20px #05acdf;
+}
+
+.gradient2 {
+   margin-left: 20px;
+   padding-right:  20px;
+   color: black !important;
 }
 .shadow-none {
     box-shadow: none !important;
@@ -260,7 +271,8 @@ img {
 
 .sub-header {
     padding: 16px 0;
-    border-bottom: 1px solid #edf0f7;
+    border-bottom: 10px solid #edf0f7;
+    background: var(--color-black);
 }
 .sub-header-left ul {
     gap: 20px;
@@ -288,6 +300,17 @@ img {
 .offcanvas {
     display: none;
 }
+.fa-linkedin{
+ color: #ffff !important;
+}
+
+.fa-twitter{
+   color: #fff !important;
+}
+
+ .fa-square-facebook {
+       color: #ffff !important;
+ }
 
 /******** Header Area Start
 ***************************************************************/
@@ -325,6 +348,7 @@ img {
     background-color: var(--color-1);
     transition: 0.5s;
 }
+
 .primary-menu li a:hover:after {
     width: 100%;
 }
@@ -463,13 +487,97 @@ img {
     font-size: 15px;
 }
 
-/* Mega Menu */
-.main-menu-ul > li {
+/* 1. Espaciado entre los enlaces "Home" y "Courses" */
+.mi-primary-menu li {
+    margin-left: 20px; /* Ajusta el espaciado horizontal entre los ítems */
+    list-style: none;
+}
+
+/* 2. Posicionamiento del Dropdown */
+/* El padre (<li> de "Courses") debe ser relativo */
+.mi-have-mega-menu {
     position: relative;
 }
-.main-menu-ul > li.have-mega-menu {
+
+/* 3. Estilos y posicionamiento del Mega-Menú */
+.mi-mega-dropdown-menu {
+    display: none; /* Ocultar por defecto */
+
+    position: absolute;
+    top: 100%; /* Aparece debajo del enlace padre */
+    left: 50%; /* Intenta centrar el dropdown respecto al enlace */
+    transform: translateX(-50%); /* Ajusta el centrado horizontal */
+
+    width: 600px; /* Define un ancho razonable */
+
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    z-index: 100;
+}
+
+/* 4. Mostrar el menú al pasar el ratón (Hover) */
+.mi-have-mega-menu:hover > .mi-mega-dropdown-menu {
+    display: block;
+}
+.mi-mega-list > li {
+    margin-bottom: 5px; /* Pequeño margen debajo de cada ítem para separarlos */
+}
+/* 5. Estilos internos para evitar el desorden de las listas anidadas */
+.mi-mega-list,
+.mi-child-category-menu {
+    list-style: none; /* Quita viñetas */
+    padding: 0;
+    margin: 0;
+}
+/* Espaciado entre los enlaces "Home" y "Courses" */
+.mi-primary-menu li {
+    margin-left: 20px;
+    list-style: none;
+}
+.mi-mega-list a {
+    display: flex; /* Habilita Flexbox para alinear contenido */
+    align-items: center; /* Centra verticalmente el ícono y el texto */
+    padding: 8px 10px; /* Padding interno para que el área de clic sea más grande */
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.mi-mega-list a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mantenemos el espaciado horizontal de los elementos principales (Inicio | Cursos) */
+.mi-primary-menu li {
+    margin-left: 20px;
+    list-style: none;
+}
+
+/* Para que el mega-menú funcione: */
+.mi-have-mega-menu {
     position: relative;
 }
+
+.mi-mega-dropdown-menu {
+   padding: 20px; /* Aumentamos el padding para más espacio visual */
+
+    /* Asegúrate de que las propiedades de posicionamiento sigan activas */
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.mi-have-mega-menu:hover > .mi-mega-dropdown-menu {
+    display: block;
+}
+
 
 
 .main-menu-ul > li:hover .main-mega-menu {
@@ -622,6 +730,54 @@ img {
     margin-top: 2px !important;
     padding: 15px;
 }
+
+
+/* --- Estilos de los enlaces --- */
+.Userprofile .dropmenu-start a {
+    display: flex;              /* Asegura buena alineación */
+    align-items: center;        /* Centra iconos y texto */
+    padding: 5px 0;
+    font-size: 16px !important; /* Antes 15px → más legible */
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.Userprofile .dropmenu-start a:hover,
+.Userprofile .dropmenu-start a:hover svg path {
+    color: #c664ff;
+    fill: #c664ff;
+}
+
+/* --- Iconos --- */
+.Userprofile .dropmenu-start a i,
+.Userprofile .dropmenu-start a svg {
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+    flex-shrink: 0;  /* evita que los iconos se deformen */
+}
+
+/* --- Estilo del menú dropdown --- */
+.Userprofile .dropmenu-start {
+    border: none;
+    border-radius: 1px 1px 12px 12px;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    width: auto;          /* antes 100% → se hacía pequeño */
+    min-width: 230px;     /* evita que se junte el texto */
+    max-width: 260px;     /* opcional, para mantener proporción */
+
+    margin-top: 6px !important;
+    padding: 15px;
+
+    right: 0 !important;  /* se pega al botón */
+    left: auto !important;
+    transform: none !important; /* evita desplazamientos raros */
+}
+
 .Userprofile .dropdown-item.active,
 .Userprofile .dropdown-item:active {
     background-color: transparent;
@@ -1023,10 +1179,31 @@ img {
     color: var(--color-1);
 }
 .learn-creator .learn-more {
-    color: var(--color-2);
+      font-size: 15px;
     font-weight: 500;
-    margin-right: 7px;
+    color: var(--color-5);
     transition: 0.5s;
+
+    /* Propiedades para replicar el estilo de botón */
+    display: block;   /* Asegura que siempre ocupe el 100% del ancho */
+    padding: 10px 20px; /* Espaciado interno para la altura del botón */
+    text-align: center; /* Centra el texto */
+
+    /* Borde redondeado y color azul claro */
+    border: 1px solid var(--color-5); /* Borde con el mismo color del texto */
+    border-radius: 8px; /* Esquinas redondeadas (ajusta este valor si necesitas más o menos) */
+
+    /* Ajustes visuales */
+    margin-top: 6px; /* Separación de arriba (ya lo tenías) */
+    text-decoration: none; /* Asegura que no haya línea debajo si es un enlace <a> */
+}
+
+/* Opcional: Estilo al pasar el ratón (hover) */
+.learn-creator .learn-more:hover {
+    background: var(--color-5);
+    color: white !important; /* Un ligero fondo azul al pasar el ratón */
+
+
 }
 .learn-creator {
     display: flex;
@@ -1738,16 +1915,24 @@ img {
 .tab-list ul li {
     padding: 6px;
 }
-.tab-list a {
-    color: var(--color-2);
-    font-weight: 500;
-    display: inline-block;
-}
+/* 1. Define los estilos de fondo y contenedor en el LI activo (como ya lo tienes) */
 .tab-list li.active {
     padding: 7px 14px;
-    background: var(--bg-white);
+    background: var(--color-5);
     border-radius: 10px;
 }
+
+/* 2. Aplica el color blanco directamente al ENLACE (<a>) dentro del LI activo */
+.tab-list li.active a {
+    color: #fff !important; /* ¡Ahora se aplica directamente al texto! */
+    font-weight: 500; /* Puedes mantener el resto de los estilos aquí */
+    display: inline-block;
+}
+/* Opcional: Si quieres anular la Regla 1 (color-2) solo para el estado activo: */
+.tab-list a {
+    color: var(--color-2);
+}
+
 .eNtery-item {
     margin-top: -180px;
 }
@@ -2084,13 +2269,31 @@ html .ui-button.ui-state-disabled:active {
     margin-left: 5px;
 }
 .eBar-card .learn-more {
+    /* Propiedades que ya tenías */
     font-size: 15px;
     font-weight: 500;
-    color: var(--color-2);
+    color: var(--color-5);
     transition: 0.5s;
-    display: inline-block;
-    position: relative;
-    margin-top: 6px;
+
+    /* Propiedades para replicar el estilo de botón */
+    display: block; /* Hace que ocupe todo el ancho de su contenedor */
+    width: 100%;    /* Asegura que siempre ocupe el 100% del ancho */
+    padding: 10px 20px; /* Espaciado interno para la altura del botón */
+    text-align: center; /* Centra el texto */
+
+    /* Borde redondeado y color azul claro */
+    border: 1px solid var(--color-5); /* Borde con el mismo color del texto */
+    border-radius: 8px; /* Esquinas redondeadas (ajusta este valor si necesitas más o menos) */
+
+    /* Ajustes visuales */
+    margin-top: 6px; /* Separación de arriba (ya lo tenías) */
+    text-decoration: none; /* Asegura que no haya línea debajo si es un enlace <a> */
+}
+
+/* Opcional: Estilo al pasar el ratón (hover) */
+.eBar-card .learn-more:hover {
+    background: var(--color-5);
+    color: white !important; /* Un ligero fondo azul al pasar el ratón */
 }
 .eBar-card .learn-more::after {
     position: absolute;
@@ -2423,6 +2626,7 @@ html .ui-button.ui-state-disabled:active {
     background-color: var(--bg-white);
     box-shadow: var(--box-shadow-2);
     padding-bottom: 42px;
+    margin-bottom: 1rem;
 }
 .image-panel {
     display: flex;
@@ -2546,21 +2750,16 @@ html .ui-button.ui-state-disabled:active {
     justify-content: flex-end;
 }
 .gradient-border {
-    background: linear-gradient(
-        to right,
-        #2f57ef 0%,
-        #c664ff 51%,
-        #c664ff 100%
-    );
+    background: #e8eef3;
     border-radius: 12px;
     padding: 2px;
     width: 100%;
 }
 .course-sideBar {
     padding: 30px;
+    /*background-color: var(--bg-white);
     border-radius: 10px;
-    background-color: var(--bg-white);
-    box-shadow: var(--box-shadow-2);
+    box-shadow: var(--box-shadow-2);*/
 }
 .course-sideBar p {
     text-transform: uppercase;
@@ -2570,9 +2769,58 @@ html .ui-button.ui-state-disabled:active {
 }
 .couses-tab-list li {
     padding-bottom: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     border-bottom: 1px solid #edf0f7;
+    margin-left: 1rem;
 }
+
+.couses-tab-list li a {
+    margin-top: 8px;
+}
+.couses-tab-list li:hover {
+    background: var(--color-3);
+    border-radius: 15px;
+}
+.couses-tab-list li.active, .couses-tab-list li.active:hover {
+    background: linear-gradient(90deg,rgb(197, 232, 253) 0%, rgb(86, 153, 241) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.boot-active, .couses-tab-list li.boot-active:hover {
+    background: linear-gradient(90deg,rgb(240, 176, 243) 0%, rgb(242, 0, 255) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.team-active, .couses-tab-list li.team-active:hover {
+    background: linear-gradient(90deg,rgb(130, 252, 142) 0%, rgb(16, 247, 39) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.member-active, .couses-tab-list li.member-active:hover {
+    background: linear-gradient(90deg,rgb(255, 198, 123) 0%, rgb(248, 160, 46) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.profile-active, .couses-tab-list li.profile-active:hover {
+    background: linear-gradient(90deg,rgb(104, 209, 204) 0%, rgb(22, 199, 190) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.whish-active, .couses-tab-list li.whish-active:hover {
+    background: linear-gradient(90deg,rgb(238, 143, 241) 0%, rgb(247, 0, 255) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.msg-active, .couses-tab-list li.msg-active:hover {
+    background: linear-gradient(90deg,rgb(255, 160, 160) 0%, rgb(255, 44, 44) 100%);
+    border-radius: 15px;
+}
+
+.couses-tab-list li.history-active, .couses-tab-list li.history-active:hover {
+    background: linear-gradient(90deg,rgb(239, 141, 248) 0%, rgb(215, 20, 233) 100%);
+    border-radius: 15px;
+}
+
 .couses-tab-list li:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -2583,6 +2831,7 @@ html .ui-button.ui-state-disabled:active {
     font-weight: 500;
     color: var(--text-color);
     display: inline-block;
+    margin-left: 0.5rem;
 }
 .couses-tab-list li svg {
     height: 24px;
@@ -2590,19 +2839,190 @@ html .ui-button.ui-state-disabled:active {
     margin-right: 12px;
 }
 .couses-tab-list li.active a {
-    color: var(--color-1);
+    color: var(--color-3);
+    margin-top: 8px;
 }
 .couses-tab-list li.active a svg path {
-    fill: var(--color-1);
+    fill: var(--color-3);
 }
 .couses-tab-list li a:hover svg path,
 .couses-tab-list li a:hover {
-    color: var(--color-1);
-    fill: var(--color-1);
+    color: var(--color-black);
+    fill: var(--color-black);
 }
+
+.sidebar-logout{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-logout a{
+    color: red !important;
+}
+
+.sidebar-logout a:hover{
+    color: var(--color-black) !important;
+}
+
+.disabled-link {
+    pointer-events: none; /* desactiva clic */
+    cursor: default;
+}
+
+.sidebar-menu-izq {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.fi-rr-menu-burger {
+    color: var(--color-black);
+    font-size: x-large;
+}
+
+.fi-rr-menu-burger:hover {
+    color: #ff5722;       /* color al pasar mouse */
+    transform: scale(1.2);
+}
+
+/* Contenedores */
+
+.content-1 {
+    width: 15%;
+}
+
+.content-2 {
+    width: 85%;
+}
+
+.content-3 {
+    width: 95%;
+}
+
+/* Menu lateral */
+.disabled-sidebar {
+    width: 5% !important;
+}
+
+.disabled-sidebar .sidebar-menu-izq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.disabled-sidebar span{
+    display: none;
+}
+
+.disabled-sidebar li{
+    margin-left: -0.5rem;
+    margin-top: 1rem;
+}
+
+/* Burbuja icono perfil */
+.header-bubble-profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+@media all and (max-width:991px) {
+    #sidebar-menu-lateral {
+        display: none;
+    }
+
+    .content-2, .content-3 {
+        width: 100% !important;
+    }
+
+    .details-course-student {
+        display: none;
+    }
+}
+
+@media all and (max-width:1400px) {
+    .svg-info-course {
+        display: none;
+    }
+}
+
+.header-bubble-profile .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+    transform: translateX(0) !important;
+    max-width: 240px;
+}
+
+.img-profile-response {
+    border-radius: 100%;
+}
+
+.disabled-sidebar .sidebar-logout{
+    margin: 5rem auto;
+}
+
+.disabled-sidebar .couses-tab-list li {
+    width: 3.5rem;
+}
+
+/* Contenido dasboard estudiante */
+
+.bg-r {
+    /*background-color: #f5f9ff !important;*/
+    background-color: var(--color-3);
+}
+
+.my-panel-margin {
+    margin: 0 5rem;
+    margin-bottom: 5rem;
+}
+
+/* Cursos estudiante */
+
+.card-course {
+    border-radius: 20px;
+}
+
+.card-info-course {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-info-course .count{
+    font-weight: 900;
+    font-size: x-large;
+    text-align: center;
+}
+
+
+.card-info-course .svg-info-course svg path {
+    fill: var(--bg-white);
+}
+
+.card-info-course .svg-info-course {
+    border-radius: 10px;
+    padding: 0.5rem;
+    background: rgb(86, 153, 241);
+}
+
+
+.header-content-student{
+    padding: 5rem 0;
+}
+
+.header-content-student .g-title {
+    display: inline-flex !important;
+}
+
 .course-content .g-title {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .course-content .g-card {
     padding: 20px !important;
@@ -2667,7 +3087,7 @@ html .ui-button.ui-state-disabled:active {
 ***************************************************************/
 
 .login-area {
-    margin-top: 50px;
+    margin-top: 10%;
 }
 .login-img img {
     height: 630px;
@@ -2962,7 +3382,7 @@ html .ui-button.ui-state-disabled:active {
 .hero-details a {
     height: 46px;
     width: 46px;
-    line-height: 46px;
+    line-height: 50px;
     text-align: center;
     display: inline-block;
     background-color: var(--bg-white);
@@ -2976,7 +3396,7 @@ html .ui-button.ui-state-disabled:active {
 .hero-details a:after,
 .hero-details a:before {
     border-radius: 50%;
-    border: 1px solid #fff;
+    border: 1px solid  var(--color-5);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -3055,7 +3475,7 @@ html .ui-button.ui-state-disabled:active {
 }
 .s_stext {
     font-weight: 500;
-    color: var(--color-1);
+    color: var(--color-5);
     display: inline-block;
     margin-top: 30px;
 }
@@ -3696,25 +4116,7 @@ html .ui-button.ui-state-disabled:active {
 
 /******** Footer  Area Start
 ***************************************************************/
-.footer-area {
-    margin-top: 110px;
-    background-color: #f2f2f2;
-    padding: 50px 0 30px 0;
-    color: #1f1c35;
-}
-.footer-content img {
-    height: 46px;
-    width: 161px;
-    object-fit: cover;
-    margin-bottom: 29px;
-}
-.footer-content p {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 27px;
-    margin-bottom: 30px;
-    color: #212121;
-}
+
 .f-socials {
     gap: 16px;
     margin-bottom: 30px;
@@ -3834,11 +4236,7 @@ html .ui-button.ui-state-disabled:active {
 .newslater-bottom {
     margin-top: 20px;
 }
-.footer-bottom {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid #ffffff38;
-}
+
 .footer-policy {
     display: flex;
 }
@@ -4839,8 +5237,8 @@ bootcamp style end
 badges start
 ==============================*/
 .badge.bg-success{
-    background-color: #17b06d2e !important;
-    color: #17b06d !important;
+    background-color: #17b06e !important;
+    color: #ffff !important;
     border: 1px solid #17b06d2e !important;
     font-weight: 600;
     border-radius: 5px;
@@ -5167,7 +5565,7 @@ a#team-training-header-menu-icon svg{
 }
 
 .pymais-button-gradient:hover {
-    background: linear-gradient(to right, #3C6EE2, #2849E6); /* Efecto al pasar el ratón */
+    background: linear-gradient(to right, #3C6EE2, #2849E6);
     color: #f2f2f2;
 }
 
@@ -5188,3 +5586,440 @@ a#team-training-header-menu-icon svg{
 /* Buttons Css End ***
 *********************/
 /* Sham ended */
+.title-home {
+    color: #0d0d0e !important;
+    text-align: center;
+}
+.title-home_color{
+background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: bold;
+    text-align: center;
+    width: min-content;
+    height: max-content;
+}
+
+.texto-home {
+    text-align: center;
+}
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Hace que sea un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+/* Estilo para la sección principal si la necesitas */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+}
+/* Estilos adicionales para los círculos de íconos en las tarjetas */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo para la sección principal */
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Estilo para la tarjeta principal de la oferta de valor */
+.tv-offer-card {
+    border-radius: 15px;
+    background: #FFFFFF;
+}
+/* Estilos para los Círculos de Íconos (Asegúrate de que sean consistentes) */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para las Tarjetas de Ventajas */
+.tv-advantage-card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+/* Efecto al pasar el mouse (opcional, pero mejora la UX) */
+.tv-advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Estilo para la lista de ecosistema */
+.tv-ecosystem-list {
+    padding-left: 0;
+}
+
+.tv-ecosystem-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.list-item-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+/* Estilo para el recuadro azul claro (tv-highlight-box) */
+.tv-highlight-box {
+    background-color: #E6F2FF;
+    border: 1px solid #B3D9FF;
+    border-radius: 8px;
+    color: #333;
+}
+
+
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Estilo para la tarjeta principal del programa */
+.tv-program-card {
+    border-radius: 10px;
+    border: 1px solid #E0E0E0;
+}
+
+/* Estilo para el recuadro destacado con la estrella */
+.tv-highlight-star-box {
+    background-color: #F0FFF0;
+    border: 1px solid #C8E6C9;
+    border-radius: 8px;
+    color: #333;
+    box-shadow: none;
+}
+
+.tv-highlight-star-box .fa-star {
+    color: #FFD700;
+}
+/* Relleno general para la sección */
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Estilo de la tarjeta de testimonio */
+.tv-testimonial-card {
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo de las comillas grandes y coloridas */
+.quote-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+/* Estilo del punto de color al lado del nombre */
+.dot-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+/* === ESTILOS DEL BANNER CTA === */
+.tv-cta-banner {
+    background: linear-gradient(90deg, #3700b3, #5e35b1);
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Estilo del botón "Contáctanos" */
+.tv-cta-btn {
+    background-color: #FF8C00;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tv-cta-btn:hover {
+    background-color: #FFA040;
+    border-color: #FFA040;
+    color: white;
+}
+
+/* === ESTILOS DEL FOOTER === */
+.tv-footer-bg {
+    background-color: #1E2741;
+    color: white;
+}
+
+/* Estilo de los enlaces del footer */
+.tv-footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    line-height: 2;
+    transition: color 0.2s;
+}
+
+.tv-footer-links a:hover {
+    color: white;
+}
+
+/* Estilos de los iconos sociales */
+.tv-social-icons .social-icon-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #384055;
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.tv-social-icons .social-icon-btn:hover {
+    background-color: #1E90FF;
+}
+
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.tv-welcome-cta-btn {
+    background: linear-gradient(135deg, #1E90FF 0%, #0056B3 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 12px 35px;
+    border-radius: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.tv-welcome-cta-btn:hover {
+    background: linear-gradient(135deg, #0056B3 0%, #1E90FF 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 86, 179, 0.4);
+}
+
+.tatelnto{
+   background: linear-gradient(to right, #688CFD, #5250FB, #6D44FB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.visible {
+    background-image: linear-gradient(
+        to right,
+       #688CFD, #5250FB, #6D44FB,
+        #56A697, #718DB6,
+                #718DB6, #56A697, #2ABB73,
+       #688CFD, #5250FB, #6D44FB
+    );
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: infiniteSlide 10s linear infinite;
+}
+
+
+@keyframes infiniteSlide {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.text-instructures {
+ background: linear-gradient(to right, #679EF9, #84C3EC, #A9DDE7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+.text-expertos {
+    background: linear-gradient(to right, #45C4B5, #00B885, #00C560);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.text-formacion {
+    background: linear-gradient(to right, #0964F7, #3DB5C8, #25C396);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.force-center-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.force-center-col {
+    display: flex;
+    justify-content: center;
+}
+
+
+.botons-red {
+ background-color: #00BFFF;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botons-red:hover {
+    background-color: #00A3D9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.botons-lista {
+     background-color: #ffffff;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botons-red:hover {
+    background-color: #00A3D9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del contenedor principal del botón */
+.btn-primary-course {
+    /* Apariencia: Fuente, color del texto y relleno */
+    font-weight: 500;
+    font-family: sans-serif; /* Puedes cambiar esto por la fuente de tu proyecto */
+    color: white; /* Color del texto y del icono */
+    padding: 12px 25px; /* Relleno vertical y horizontal */
+    border-radius: 50px; /* Bordes muy redondeados (píldora) */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    cursor: pointer;
+
+    /* Configuración para el ícono y el texto en línea */
+    display: inline-flex;
+    align-items: center; /* Alineación vertical centrada */
+    text-align: center;
+    /* Fondo con gradiente naranja (los colores son aproximados al de la imagen) */
+    background: linear-gradient(to right, #FFAC00, #FF7F00);
+
+    /* Transición suave para el efecto hover */
+    transition: background 0.3s ease;
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.btn-primary-course:hover {
+    /* Cambia el gradiente a uno más oscuro o brillante para el efecto visual */
+    background: linear-gradient(to right, #FF7F00, #FFAC00);
+}
+
+
+/* Estilo del contenedor del ícono dentro del título */
+.module-icon-box-title {
+    /* Define el contenedor como un cuadrado */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    margin-right: 15px; /* Espacio entre el ícono y el texto del título */
+    border-radius: 8px; /* Esquinas ligeramente redondeadas */
+
+    /* Fondo con un gradiente suave o color naranja claro */
+    background: #00e1ff; /* Color de fondo base naranja */
+    /* Puedes usar un gradiente si lo prefieres:
+    background: linear-gradient(to bottom right, #ffb347, #ff8c00); */
+
+
+    /* Asegura que no se rompa la línea de texto */
+    vertical-align: middle;
+}
+
+/* Estilo del ícono de libro en sí */
+.module-icon-box-title i.module-icon-symbol {
+    font-size: 18px; /* Tamaño del icono */
+    color: white; /* Color blanco o muy claro del icono */
+}
+
+/* Opcional: Asegura que el título también se alinee bien */
+.g-title {
+    display: flex; /* Usamos flex para alinear el ícono y el texto */
+    align-items: center; /* Alineación vertical */
+}

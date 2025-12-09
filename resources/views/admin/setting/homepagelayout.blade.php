@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <div class="ol-card p-4 ol-card p-4-2">
+        <div class="ol-card2  p-4 ol-card2  p-4-2">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
                     <div class="theme_box">
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="ol-card p-4 ol-card p-4-2">
+        <div class="ol-card2  p-4  ol-card2  p-4-2">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
                     <div class="theme_box">
@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="ol-card p-4 ol-card p-4-2">
+        <div class="ol-card2  p-4 ol-card2  p-4-2">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
                     <div class="theme_box">
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="ol-card p-4 ol-card p-4-2">
+        <div class="ol-card2  p-4 ol-card2  p-4-2">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
                     <div class="theme_box">
@@ -80,7 +80,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="ol-card p-4 ol-card p-4-2">
+        <div class="ol-card2  p-4 ol-card2  p-4-2">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
                     <div class="theme_box">
@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="ol-card p-4 ol-card p-4-2">
+        <div class="ol-card2  ol-card2  p-4-2">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
                     <div class="theme_box">

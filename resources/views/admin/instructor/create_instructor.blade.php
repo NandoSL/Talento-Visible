@@ -27,7 +27,7 @@
     </div>
 
     <!-- Start Admin area -->
-    <div class="ol-card p-4">
+    <div class="ol-card2 p-4">
         <h4 class="title fs-16px mb-20px">{{ get_phrase('Instructor Info') }}</h4>
         <div class="ol-card-body">
             <form action="{{route('admin.instructor.store')}}" method="post" enctype="multipart/form-data">

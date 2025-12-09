@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
 
 <head>
-    {{ config(['app.name' => get_settings('system_title')]) }}
+    <meta charset="UTF-8">{{ config(['app.name' => get_settings('system_title')]) }}
     <title>{{ get_phrase('Home') }} | {{ config('app.name') }}</title>
-
 
     @include('layouts.seo')
     <!-- all the meta tags -->
+
     <meta content="" name="author" />
     <meta content="{{ csrf_token() }}" name="csrf_token" />
 
-    @stack('meta')
+
 
 
     <!-- fav icon -->
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/default/vendors/slick/slick-theme.css') }}">
 
     <!-- FlatIcons Css -->
-    
+
     <link rel="stylesheet" href="{{ asset('assets/global/icons/uicons-regular-rounded/css/uicons-regular-rounded.css') }}" />
 
 
@@ -73,7 +73,6 @@
 
 <body>
 
-
     @php
         if (isset($page_id)) {
             $static_home_page_html = App\Models\Builder_page::where('id', $page_id)->first()->html;
@@ -91,6 +90,7 @@
         }
 
         $dom = new \DOMDocument();
+        $static_home_page_html = mb_convert_encoding($static_home_page_html, 'HTML-ENTITIES', 'UTF-8');
         @$dom->loadHTML($static_home_page_html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
         // Define an array of classes to target
@@ -149,7 +149,9 @@
     @endphp
 
 
-
+    <footer class="ls-footer-one bg-261954">
+        @include('frontend.default.footer')
+    </footer>
 
     <!-- Bootstrap Js -->
     <script src="{{ asset('assets/frontend/default/js/bootstrap.bundle.min.js') }}"></script>

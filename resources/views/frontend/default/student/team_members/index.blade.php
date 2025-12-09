@@ -3,6 +3,9 @@
 @push('meta')@endpush
 @push('css')@endpush
 @section('content')
+    @php
+        $sidebar = session('sidebar', false);
+    @endphp
 <!------------ Team members area start  ------------>
 @if(Auth::user()->role != 'student' )
 <script>
@@ -10,13 +13,20 @@ window.location = "/my-courses";
 </script>
 @endif
 <section class="course-content">
-    <div class="profile-banner-area"></div>
-    <div class="container profile-banner-area-container">
+    {{--<div class="profile-banner-area"></div>--}}
+        {{--<div class="container profile-banner-area-container">--}}
+        <div class="profile-banner-area-container">
         <div class="row">
             @include('frontend.default.student.left_sidebar')
-            <div class="col-lg-9">
-                <h4 class="g-title mb-5">{{ __('Team Members') }}</h4>
-                <div class="my-panel message-panel">
+                <div class="{{ $sidebar ? 'content-3' : 'content-2' }} bg-r" id="profile-contenedor">
+                    <div class="container header-content-student">
+                        <h1>
+                            <span class="g-title mb-2 mt-20 ml-20">{{ get_phrase('Team Members') }} | </span>
+                            {{ get_settings('system_title') }}
+                        </h1>
+                        <h3 class="mt-20 ml-20">Gestiona los miembros de tu equipo</h3>
+                    </div>
+                <div class="my-panel message-panel my-panel-margin">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="pt-4">
@@ -42,7 +52,7 @@ window.location = "/my-courses";
                             {{ __('Add participant') }}
                         </button>
                     </div> --}}
-                   
+
                     @if (count($members) > 0)
                     <div class="table-responsive course_list px-4">
                         <table class="table eTable eTable-2 print-table">

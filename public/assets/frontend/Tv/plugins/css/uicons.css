@@ -31915,7 +31915,7 @@ span[class*="fi-brands-"]:before {
 .fi-rr-note:before {
   content: "\f82c";
 }
-.fi-rr-notebook-alt:before {
+.fi-rr-notebook-alt {
   content: "\f82d";
 }
 .fi-rr-notebook:before {

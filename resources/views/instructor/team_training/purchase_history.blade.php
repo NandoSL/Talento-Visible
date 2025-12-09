@@ -3,16 +3,29 @@
 
 @section('content')
     <div class="ol-card radius-8px">
-        <div class="ol-card-body py-12px px-20px my-3 py-4">
-            <div class="d-flex align-items-center justify-content-between flex-md-nowrap flex-wrap gap-3">
-                <h4 class="title fs-16px">
-                    <i class="fi-rr-settings-sliders me-2"></i>
-                    {{ get_phrase('Purchase History') }}
-                </h4>
+        <div class="col-md-6 d-flex align-items-center gap-3">
+            <div class="d-flex gap-3 my-3">
+                 <a
+                    href="{{ route('instructor.team.packages') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3 fw-bold tab-btn-y">
+                     <span>{{ get_phrase('Manage Packages') }}</span>
+                </a>
+                <a 
+                   href="{{ route('instructor.team.packages.create') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3  fw-bold tab-btn-o">
+                     <span>{{ get_phrase('Add New Package') }}</span>
+                </a>
+                 <a 
+                   href="{{ route('instructor.team.packages.purchase.history') }}"class=" dropdown-header btn btn-light text-black rounded-pill px-5 py-3  fw-bold tab-btn-v">
+                     <span>{{ get_phrase('Purchase History') }}</span>
+                </a>
             </div>
         </div>
     </div>
-
+    <div class="row">
+    <div class="col-12">
+        <div class="ol-card">
+            <div class="ol-card-header d-flex justify-content-between align-items-center p-3">
+                <h4 class="m-0">{{ get_phrase('Purchase History') }}</h4>
+        </div>
     <div class="row">
         <div class="col-12">
             <div class="ol-card">
@@ -21,8 +34,8 @@
                         <div class="col-md-6 pt-md-0 pt-2">
                             <div class="custom-dropdown">
                                 <button class="dropdown-header btn ol-btn-light">
+                                     <i class="fi-rr-download me-2"></i>
                                     {{ get_phrase('Export') }}
-                                    <i class="fi-rr-file-export ms-2"></i>
                                 </button>
                                 <ul class="dropdown-list">
                                     <li>
@@ -35,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-
+                           
                     <!-- Table -->
                     @if (count($purchases) > 0)
                         <div class="admin-tInfo-pagi d-flex justify-content-md-between justify-content-center align-items-center gr-15 flex-wrap">
