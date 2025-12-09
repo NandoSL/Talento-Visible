@@ -203,6 +203,7 @@
     --skinColor6: #ff2458;
     --whiteColor: #FFF;
     --blackColor: #000;
+      --color-5:#00a8e8;
 }
 
 body {
@@ -4458,6 +4459,7 @@ i:not(.fas, .fa, .fab) {
     line-height: 1.5em !important;
     vertical-align: -0.12em !important;
     display: inline-flex;
+    color: var(--color-5);
 }
 i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:before, span[class*="fi-rr-"]:before{
     line-height: 1.5em !important;
@@ -6349,7 +6351,7 @@ i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:bef
     z-index: -1;
 }
 .breadcum-area.bg-white:after, .breadcum-area.bg-default:after{
-    background: linear-gradient(180deg, rgb(255 255 255 / 94%) 0%, rgb(255 255 255 / 68%) 70%) !important;
+    background: #ffff !important;
 }
 
 .profile-banner-area-container {
@@ -6643,19 +6645,31 @@ i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:bef
 }
 
 .color-linkedin {
-    color: #0077b5;
+      color:var(--whiteColor);
+    background-color: var(--color-5);
+    border-radius: 0.75rem;
+    align-items: center;
 }
 
 .color-whatsapp {
-    color: #128c7e;
+    color:var(--whiteColor);
+    background-color: var(--color-5);
+    border-radius: 0.75rem;
+    align-items: center;
 }
 
 .color-twitter {
-    color: #1DA1F2;
+      color:var(--whiteColor);
+    background-color: var(--color-5);
+    border-radius: 0.75rem;
+    align-items: center;
 }
 
 .color-facebook {
-    color: #316FF6;
+       color:var(--whiteColor);
+    background-color: var(--color-5);
+    border-radius: 0.75rem;
+    align-items: center;
 }
 
 .bg-color-e9f6ff {
@@ -6782,8 +6796,8 @@ i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:bef
     color: #131315;
 }
 .nav.nav-bordered .nav-link:hover, .nav.nav-bordered .nav-link.active{
-    border-bottom: 2px solid #2f57f0;
-    color: #2f57f0;
+    border-bottom: 2px solid var(--color-5);
+    color: var(--color-5);
 }
 
 /* overlap content start*/
@@ -6873,3 +6887,18 @@ i[class^="fi-rr-"]:before, i[class*=" fi-rr-"]:before, span[class^="fi-rr-"]:bef
 
 }
 
+.module-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; /* Ajusta el tamaño del contenedor */
+    height: 35px; /* Ajusta el tamaño del contenedor */
+    margin-right: 10px; /* Separación del texto */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #fff4e5; /* Fondo muy claro naranja */
+}
+
+.module-icon-symbol {
+    font-size: 18px; /* Tamaño del icono */
+    color: #ff9900; /* Color naranja del icono */
+}

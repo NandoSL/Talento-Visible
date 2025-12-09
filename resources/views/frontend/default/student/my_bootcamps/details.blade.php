@@ -125,7 +125,7 @@
                                                             <div class="col-md-8">
                                                                 <span class="module-title ellipsis-2 pb-1"
                                                                     data-bs-target="tooltip" title="{{ $module->title }}">
-                                                                    {{ $module->title }}
+                                                                    {{ $module->title }}dss
                                                                 </span>
 
                                                                 <small class="text-12 d-block fw-light text-color">
