@@ -265,6 +265,7 @@
                                         {{ get_phrase('Showing') . ' ' . count($courses) . ' ' . get_phrase('of') . ' ' . $courses->total() . ' ' . get_phrase('data') }}
                                     </p>
                                 </div>
+                                 <table class="table table-striped table-bordered align-middle">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -391,7 +392,7 @@
                                                                 </li>
 
                                                                 @if ($row->status == 'active')
-@@ -339,32 +349,32 @@
+                                                                             {{-- @@ -339,32 +349,32 @@--}}
                                                                     </li>
                                                                 @else
                                                                     <li>
