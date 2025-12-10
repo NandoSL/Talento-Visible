@@ -1,12 +1,9 @@
 @php $current_route = Route::currentRouteName(); @endphp
 <div class="sidebar-logo-area @if(!session('sidebar.collapsed')) sidebar-collapsed @endif">
-    <a href="#" class="sidebar-logos">
         <img class="sidebar-logo-lg" height="50px" src="{{ get_image(get_frontend_settings('dark_logo')) }}" alt="">
-    </a>
-    <div class="logo-text-area">
-         <p class="mb-0 fs-12px text-uppercase fw-bold text-dark">TALENTO VISIBLE</p>
-    </div>
+     
 </div>
+
 <div class="sidebar-nav-area">
     <nav class="sidebar-nav">
         <ul class="px-14px pb-24px">

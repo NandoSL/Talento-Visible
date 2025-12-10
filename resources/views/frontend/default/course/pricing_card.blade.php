@@ -61,9 +61,9 @@
                         <img src="{{ asset('assets/frontend/default/image/enroll.png') }}" alt="...">
                         {{ get_phrase('Start Now') }}</a>
                 @else
-                    <a href="{{ route('purchase.course', $course_details->id) }}" class="btn-primary-course w-100">
+                    <a href="{{ route('purchase.course', $course_details->id) }}" class="btn-primary-course mx-auto w-100">
                         <img src="{{ asset('assets/frontend/default/image/enroll.png') }}" alt="...">
-                        {{ get_phrase($course_details->is_paid ? get_phrase('Buy Now') : get_phrase('Enroll Now')) }}
+                      <h3 class="mx-auto">{{ get_phrase($course_details->is_paid ? get_phrase('Buy Now') : get_phrase('Enroll Now')) }}</h3>
                     </a>
                     @if ($in_cart)
                         <a href="{{ route('cart.delete', ['id' => $course_details->id]) }}" class="eBtn mt-3 gradient w-100">
