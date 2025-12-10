@@ -5,40 +5,61 @@ namespace App\Http\Controllers\instructor;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Payout;
+use App\Models\Payment_gateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class PayoutController extends Controller
 {
     public function index()
-    {
-        $page_data['start_date'] = strtotime('first day of this month');
-        $page_data['end_date']   = strtotime('last day of this month');
+{
+    // Fechas por defecto: primer y último día del mes
+    $start_date = strtotime('first day of this month');
+    $end_date   = strtotime('last day of this month');
 
-// modify date and prepare to compare with database
-        $start_date = strtotime('first day of this month');
-        $end_date   = strtotime('last day of this month');
+    // Guardamos los valores iniciales para la vista
+    $page_data['start_date'] = $start_date;
+    $page_data['end_date']   = $end_date;
 
-        if (request()->has(['sDateRange', 'eDateRange'])) {
+    // Si el usuario envía rango de fechas
+    if (request()->has(['sDateRange', 'eDateRange'])) {
 
-            // Extrae valores
-            $sDate = urldecode(request()->query('sDateRange')); // ejemplo: 01/01/2025
-            $eDate = urldecode(request()->query('eDateRange')); // ejemplo: 01/31/2025
+        $sDate = urldecode(request()->query('sDateRange')); 
+        $eDate = urldecode(request()->query('eDateRange'));
 
-            // Convierte a timestamp
-            $start_date = strtotime($sDate . ' 00:00:00');
-            $end_date   = strtotime($eDate . ' 23:59:59');
-        }
-        $query = Payout::where('user_id', auth()->user()->id)->where('created_at', '>=', date('Y-m-d H:i:s', $page_data['start_date']))
-            ->where('created_at', '<=', date('Y-m-d H:i:s', $page_data['end_date']))->latest('id');
+        $start_date = strtotime($sDate . ' 00:00:00');
+        $end_date   = strtotime($eDate . ' 23:59:59');
 
-        $page_data['payout_reports'] = $query->paginate(10)->appends(request()->query('eDateRange'));
-        $page_data['payout_request'] = Payout::where('user_id', auth()->user()->id)->where('status', 0)->first();
-        $page_data['total_payout']   = instructor_total_payout();
-        $page_data['balance']        = instructor_available_balance();
-
-        return view('instructor.payout_report.index', $page_data);
+        // Se actualiza también para la vista
+        $page_data['start_date'] = $start_date;
+        $page_data['end_date']   = $end_date;
     }
+
+    // Consulta principal de reportes
+    $query = Payout::where('user_id', auth()->user()->id)
+        ->where('created_at', '>=', date('Y-m-d H:i:s', $start_date))
+        ->where('created_at', '<=', date('Y-m-d H:i:s', $end_date))
+        ->latest('id');
+
+    $page_data['payout_reports'] = $query
+        ->paginate(10)
+        ->appends(request()->query()); // guarda el rango en la paginación
+
+    $page_data['payout_request'] = Payout::where('user_id', auth()->user()->id)
+        ->where('status', 0)
+        ->first();
+
+    $page_data['total_payout'] = instructor_total_payout();
+    $page_data['balance']      = instructor_available_balance();
+
+    // 🔥 NUEVO: cargar datos del usuario y pasarlos a la vista
+    $page_data['user_data']        = auth()->user();
+    $page_data['user_keys']        = json_decode($page_data['user_data']->paymentkeys, true);
+    $page_data['payment_gateways'] = Payment_gateway::where('status', '!=', 1)->get();
+
+    return view('instructor.payout_report.index', $page_data);
+}
+
 
     public function store(Request $request)
     {

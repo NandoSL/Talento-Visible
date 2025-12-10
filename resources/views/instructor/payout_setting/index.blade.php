@@ -43,7 +43,8 @@
                 <div class="col-md-6">
                     <div class="ol-card p-3">
                         <div class="ol-card-body">
-                            <div class=" @if ($payment_gateway->status != 1 || (!addon_status($payment_gateway->identifier) && $payment_gateway->is_addon == 1)) d-none @endif">
+                            {{-- <div class=" @if ($payment_gateway->status != 1 || (!addon_status($payment_gateway->identifier) && $payment_gateway->is_addon == 1)) d-none @endif"> --}}
+                            <div class="@if($payment_gateway->status != 1) d-none @endif">
                                 <h4 class="title fs-16px mb-3">{{ $payment_gateway->title }}</h4>
                                 @foreach ($keys as $index => $value)
                                     @php
