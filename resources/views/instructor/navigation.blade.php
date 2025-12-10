@@ -26,7 +26,7 @@
 
 
             <li class="sidebar-first-li  @if (
-               $current_route == 'instructor.courses' || 
+               $current_route == 'instructor.courses' ||
                $current_route == 'instructor.course.create' ||
                 $current_route == 'instructor.course.edit') active  @endif">
                 <a href="{{ route('instructor.courses') }}"class="{{ $current_route == 'instructor.courses' ? 'active' : '' }}">
@@ -39,12 +39,13 @@
             </li>
 
 
+            {{--
            <li class="sidebar-first-li @if (
-              $current_route == 'instructor.bootcamps' || 
-              $current_route == 'instructor.bootcamp.purchase.history' || 
-              $current_route == 'instructor.bootcamp.purchase.invoice' || 
-              $current_route == 'instructor.bootcamp.create' || 
-              $current_route == 'instructor.bootcamp.edit' || 
+              $current_route == 'instructor.bootcamps' ||
+              $current_route == 'instructor.bootcamp.purchase.history' ||
+              $current_route == 'instructor.bootcamp.purchase.invoice' ||
+              $current_route == 'instructor.bootcamp.create' ||
+              $current_route == 'instructor.bootcamp.edit' ||
               $current_route == 'instructor.bootcamp.categories') active @endif">
                <a href="{{ route('instructor.bootcamps') }}"class="{{ $current_route == 'instructor.bootcamps' ? 'active' : '' }}">
                  <span class="icon fi fi-rr-rocket"></span>
@@ -55,11 +56,12 @@
             </li>
 
 
+
             <li class="sidebar-first-li  @if (
-              $current_route == 'instructor.team.packages' || 
-              $current_route == 'instructor.team.packages.create' || 
-              $current_route == 'instructor.team.packages.edit' || 
-              $current_route == 'instructor.team.packages.purchase.history' || 
+              $current_route == 'instructor.team.packages' ||
+              $current_route == 'instructor.team.packages.create' ||
+              $current_route == 'instructor.team.packages.edit' ||
+              $current_route == 'instructor.team.packages.purchase.history' ||
               $current_route == 'instructor.team.packages.purchase.invoice') active  @endif">
                 <a href="{{ route('instructor.team.packages') }}"class="{{ $current_route == 'instructor.team.packages' ? 'active' : '' }}">
                    <span class="icon fi fi-rr-users"></span>
@@ -68,6 +70,7 @@
                     </div>
                 </a>
             </li>
+            --}}
 
 
             <li class="sidebar-first-li {{ $current_route == 'instructor.sales.report' ? 'active' : '' }}">

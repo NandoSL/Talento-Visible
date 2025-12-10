@@ -301,15 +301,15 @@ img {
     display: none;
 }
 .fa-linkedin{
- color: #0077B5 !important;
+ color: #ffff !important;
 }
 
 .fa-twitter{
-   color: #0077B5 !important;
+   color: #fff !important;
 }
 
  .fa-square-facebook {
-       color: #0077B5 !important;
+       color: #ffff !important;
  }
 
 /******** Header Area Start
@@ -3015,6 +3015,10 @@ html .ui-button.ui-state-disabled:active {
     padding: 5rem 0;
 }
 
+.header-content-student .g-title {
+    display: inline-flex !important;
+}
+
 .course-content .g-title {
     font-size: 35px;
     margin-bottom: 12px;
@@ -3378,7 +3382,7 @@ html .ui-button.ui-state-disabled:active {
 .hero-details a {
     height: 46px;
     width: 46px;
-    line-height: 46px;
+    line-height: 50px;
     text-align: center;
     display: inline-block;
     background-color: var(--bg-white);
@@ -3392,7 +3396,7 @@ html .ui-button.ui-state-disabled:active {
 .hero-details a:after,
 .hero-details a:before {
     border-radius: 50%;
-    border: 1px solid #fff;
+    border: 1px solid  var(--color-5);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -3471,7 +3475,7 @@ html .ui-button.ui-state-disabled:active {
 }
 .s_stext {
     font-weight: 500;
-    color: var(--color-1);
+    color: var(--color-5);
     display: inline-block;
     margin-top: 30px;
 }
@@ -5956,4 +5960,66 @@ background: linear-gradient(to right,#8F1EFA, #718CB6,#66C19C);
 .botons-red:hover {
     background-color: #00A3D9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del contenedor principal del botón */
+.btn-primary-course {
+    /* Apariencia: Fuente, color del texto y relleno */
+    font-weight: 500;
+    font-family: sans-serif; /* Puedes cambiar esto por la fuente de tu proyecto */
+    color: white; /* Color del texto y del icono */
+    padding: 12px 25px; /* Relleno vertical y horizontal */
+    border-radius: 50px; /* Bordes muy redondeados (píldora) */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    cursor: pointer;
+
+    /* Configuración para el ícono y el texto en línea */
+    display: inline-flex;
+    align-items: center; /* Alineación vertical centrada */
+    text-align: center;
+    /* Fondo con gradiente naranja (los colores son aproximados al de la imagen) */
+    background: linear-gradient(to right, #FFAC00, #FF7F00);
+
+    /* Transición suave para el efecto hover */
+    transition: background 0.3s ease;
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.btn-primary-course:hover {
+    /* Cambia el gradiente a uno más oscuro o brillante para el efecto visual */
+    background: linear-gradient(to right, #FF7F00, #FFAC00);
+}
+
+
+/* Estilo del contenedor del ícono dentro del título */
+.module-icon-box-title {
+    /* Define el contenedor como un cuadrado */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    margin-right: 15px; /* Espacio entre el ícono y el texto del título */
+    border-radius: 8px; /* Esquinas ligeramente redondeadas */
+
+    /* Fondo con un gradiente suave o color naranja claro */
+    background: #00e1ff; /* Color de fondo base naranja */
+    /* Puedes usar un gradiente si lo prefieres:
+    background: linear-gradient(to bottom right, #ffb347, #ff8c00); */
+
+
+    /* Asegura que no se rompa la línea de texto */
+    vertical-align: middle;
+}
+
+/* Estilo del ícono de libro en sí */
+.module-icon-box-title i.module-icon-symbol {
+    font-size: 18px; /* Tamaño del icono */
+    color: white; /* Color blanco o muy claro del icono */
+}
+
+/* Opcional: Asegura que el título también se alinee bien */
+.g-title {
+    display: flex; /* Usamos flex para alinear el ícono y el texto */
+    align-items: center; /* Alineación vertical */
 }

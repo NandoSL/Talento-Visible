@@ -29,7 +29,10 @@
                                 <a href="{{ route('course.details', $wishitem->slug) }}" class="">
                                     <div class="card Ecard g-card wish-card">
                                         <div class="card-head">
-                                            <img src="{{ get_image($wishitem->course_thumbnail) }}" alt="{{ get_phrase('course_thumbnail') }}">
+                                            <img src="{{ get_image($wishitem->course_thumbnail) }}"
+                                                alt="{{ get_phrase('course_thumbnail') }}"
+                                                onerror="this.src='{{ asset('assets/frontend/default/image/course-1.png') }}'"
+                                            >
                                         </div>
                                         <div class="card-body entry-details">
                                             <div class="info-card">
@@ -55,6 +58,7 @@
                                                         @endif
                                                     @endif
                                                 </h4>
+                                                {{-- TODO: Hace falta hacer la funcion de rankeo --}}
                                                 <p><span>4.8</span><i class="fa fa-star"></i></p>
                                             </div>
                                         </div>

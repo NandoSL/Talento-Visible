@@ -59,6 +59,8 @@
                     </a>
                 </li>
 
+                {{--
+
                 <li class="@if ($current_route == 'my.bootcamps' || $current_route == 'my.bootcamp.details') active boot-active @endif">
                     <a href="{{ route('my.bootcamps') }}">
                         <i class="fi-rr-video-camera text-23px me-3 ms-1"></i>
@@ -68,7 +70,6 @@
                     </a>
                 </li>
 
-                {{--
 
                 <li class="@if (
                     $current_route == 'my.team.packages' ||

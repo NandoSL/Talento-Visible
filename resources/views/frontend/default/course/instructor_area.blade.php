@@ -6,7 +6,7 @@
     <h4 class="g-title mb-20">{{ get_phrase('Instructor') }}</h4>
     <div class="istructor-info">
         <div class="ins-left">
-            <img src="{{ get_image($instructor->photo) }}" alt="...">
+            <img src="{{ get_image($instructor->instructor) }}" alt="...">
             <div class="ins-designation">
                 <h5>{{ ucfirst($instructor->name) }}</h5>
                 <p class="description">

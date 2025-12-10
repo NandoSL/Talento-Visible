@@ -19,7 +19,7 @@
                             {{ get_settings('system_title') }}
                         </h1>
                         <h3 class="mt-20 ml-20">
-                            Cursos que has guardado para comprar más tarde
+                            Todas tus transacciones y facturas
                         </h3>
                     </div>
                     <div class="my-panel purchase-history-panel my-panel-margin">
