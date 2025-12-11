@@ -85,7 +85,7 @@
                                     <div class="card-body card-info-course" style="padding: 3rem">
                                         <div class="text-info-course">
                                             <p class="card-text">Progreso</p>
-                                            <p class="card-text count"> {{ $courses_promedio / $my_courses->total() }} %
+                                            <p class="card-text count"> {{ ($my_courses->total() == 0 || $courses_promedio == 0) ? 0 : ($courses_promedio / $my_courses->total()) }} %
                                             </p>
                                         </div>
                                         <div class="svg-info-course">
