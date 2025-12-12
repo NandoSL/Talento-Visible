@@ -32,7 +32,7 @@
         @foreach ($categories as $category)
             <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="ol-card category-card radious-0.75rem h-100">
-                    <img src="{{ get_image($category->thumbnail) }}" class="card-img-top" alt="...">
+                    <img src="{{ get_image($category->thumbnail) }}" class="card-img-top" alt="..." onerror=" this.src='{{ asset('assets/frontend/default/image/cat-default.png') }}'" >
                     <h6 class="title fs-18px mb-12px px-3 pt-3 d-flex align-baseline font-roboto" >
                         <i class="me-1 {{ $category->icon }}"></i>
                         {{ $category->title }}<span class="d-inline-block ms-auto p-2 rounded-pill bg-info text-white">({{ $category->childs->count() }})</span>

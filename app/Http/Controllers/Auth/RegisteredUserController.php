@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
 
         //TODO: Pendiente por lanzar mensaje de exito
         event(new Registered($user));
-        // Auth::login($user);
+        Auth::login($user);
 
         return redirect()->route('login');
     }
