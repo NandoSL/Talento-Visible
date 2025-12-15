@@ -50,8 +50,7 @@
             </div>
             <div class="col-md-6 text-md-end">
                 <a href="{{ route('terms.condition') }}" class="text-white-50 me-3">Términos y Condiciones</a>
-              <a href="#" class="text-white-50">Política de Privacidad</a>
-                <!-- <a href="{{ route('privacy.policy') }}" class="text-white-50">Política de Privacidad</a> -->
+               <a href="{{ route('privacy.policy') }}" class="text-white-50">Política de Privacidad</a> 
             </div>
         </div>
     </div>
