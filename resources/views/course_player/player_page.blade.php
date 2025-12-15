@@ -83,6 +83,8 @@
         @endif
     @elseif($lesson_details->lesson_type == 'quiz')
         @include('course_player.quiz.index')
+    @elseif($lesson_details->lesson_type == 'exam')
+        @include('course_player.quiz.index')
     @else
         <iframe class="embed-responsive-item" width="100%" src="{{ $lesson_details->lesson_src }}"
             allowfullscreen></iframe>

@@ -51,35 +51,37 @@
                     <ul class="list-group-3">
                         @if ($lessons->count() > 0)
                             @foreach ($lessons as $key => $lesson)
-                                <li>
-                                    <h4 class="title">{{ $lesson->title }}</h4>
+                                @if ( $lesson->lesson_type != 'exam' )
+                                    <li>
+                                        <h4 class="title">{{ $lesson->title }}</h4>
 
-                                    <div class="buttons">
-                                        @if ($lesson->lesson_type == 'quiz')
-                                            <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Result') }}" onclick="ajaxModal('{{ route('modal', ['admin.quiz_result.index', 'id' => $lesson->id]) }}', '{{ get_phrase('Result') }}', 'modal-xl')" class="edit-delete">
-                                                <span class="fi fi-rr-clipboard-list-check"></span>
+                                        <div class="buttons">
+                                            @if ($lesson->lesson_type == 'quiz')
+                                                <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Result') }}" onclick="ajaxModal('{{ route('modal', ['admin.quiz_result.index', 'id' => $lesson->id]) }}', '{{ get_phrase('Result') }}', 'modal-xl')" class="edit-delete">
+                                                    <span class="fi fi-rr-clipboard-list-check"></span>
+                                                </a>
+
+                                                <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Questions') }}" onclick="ajaxModal('{{ route('modal', ['admin.questions.index', 'id' => $lesson->id]) }}', '{{ get_phrase('Questions') }}', 'modal-lg')" class="edit-delete">
+                                                    <span class="fi fi-rr-poll-h"></span>
+                                                </a>
+
+                                                <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Edit quiz') }}" onclick="ajaxModal('{{ route('modal', ['admin.quiz.edit', 'id' => $lesson->id]) }}', '{{ get_phrase('Edit quiz') }}')" class="edit-delete">
+                                                    <span class="fi-rr-pencil"></span>
+                                                </a>
+                                            @endif
+
+                                            @if ($lesson->lesson_type != 'quiz')
+                                                <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Edit lesson') }}" onclick="ajaxModal('{{ route('modal', ['admin.course.lesson_edit', 'id' => $lesson->id]) }}', '{{ get_phrase('Edit lesson') }}')" class="edit-delete">
+                                                    <span class="fi-rr-pencil"></span>
+                                                </a>
+                                            @endif
+
+                                            <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Delete lesson') }}" onclick="confirmModal('{{ route('admin.lesson.delete', $lesson->id) }}')" class="edit-delete">
+                                                <span class="fi-rr-trash"></span>
                                             </a>
-
-                                            <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Questions') }}" onclick="ajaxModal('{{ route('modal', ['admin.questions.index', 'id' => $lesson->id]) }}', '{{ get_phrase('Questions') }}', 'modal-lg')" class="edit-delete">
-                                                <span class="fi fi-rr-poll-h"></span>
-                                            </a>
-
-                                            <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Edit quiz') }}" onclick="ajaxModal('{{ route('modal', ['admin.quiz.edit', 'id' => $lesson->id]) }}', '{{ get_phrase('Edit quiz') }}')" class="edit-delete">
-                                                <span class="fi-rr-pencil"></span>
-                                            </a>
-                                        @endif
-
-                                        @if ($lesson->lesson_type != 'quiz')
-                                            <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Edit lesson') }}" onclick="ajaxModal('{{ route('modal', ['admin.course.lesson_edit', 'id' => $lesson->id]) }}', '{{ get_phrase('Edit lesson') }}')" class="edit-delete">
-                                                <span class="fi-rr-pencil"></span>
-                                            </a>
-                                        @endif
-
-                                        <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Delete lesson') }}" onclick="confirmModal('{{ route('admin.lesson.delete', $lesson->id) }}')" class="edit-delete">
-                                            <span class="fi-rr-trash"></span>
-                                        </a>
-                                    </div>
-                                </li>
+                                        </div>
+                                    </li>
+                                @endif
                             @endforeach
                         @else
                             <li>

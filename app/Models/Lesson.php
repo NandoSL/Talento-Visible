@@ -40,4 +40,9 @@ class Lesson extends Model
         'pass_mark',
         'retake',
     ];
+
+    public function examSetting()
+    {
+        return $this->hasOne(ExamSettings::class, 'exam_id', 'id');
+    }
 }

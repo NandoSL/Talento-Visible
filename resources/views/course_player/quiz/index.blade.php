@@ -61,14 +61,21 @@
         ->where('id', request()->route()->parameter('id'))
         ->first();
 
-    $questions = DB::table('questions')
-        ->where('quiz_id', $quiz->id)
-        ->get();
+    $questions = DB::table('questions')->where('quiz_id', $quiz->id)->get();
 
     $submits = DB::table('quiz_submissions')
         ->where('quiz_id', $quiz->id)
         ->where('user_id', auth()->user()->id)
         ->get();
+
+    $exam = null;
+
+    if ($quiz->lesson_type === 'exam') {
+        $exam = \App\Models\Lesson::with('examSetting')
+            ->where('id', $quiz->id)
+            ->where('lesson_type', 'exam')
+            ->first();
+    }
 @endphp
 
 <div class="row px-4">
@@ -154,6 +161,14 @@
     let description = document.querySelector('.description');
     let resultSection = document.querySelector('.result-section');
     let backBtn = document.querySelector('#backBtn');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const lessonType = "{{ $exam }}";
+
+        if (lessonType) {
+            alert("Esto es un examen D: hay que validar varias cosas ");
+        }
+    });
 
     // start quiz
     starterBtn.addEventListener('click', function() {
