@@ -202,14 +202,6 @@
                     </button>
                 </a>
             </div>
-
-            <div class="examen-btn">
-
-                    <button onclick="stopRecording()">
-                        detener
-                    </button>
-
-            </div>
         </div>
     </div>
 @endif

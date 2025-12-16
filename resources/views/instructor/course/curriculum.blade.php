@@ -56,7 +56,7 @@
                                     <h4 class="title">{{ $lesson->title }}</h4>
 
                                     <div class="buttons">
-                                        @if ($lesson->lesson_type == 'quiz')
+                                        @if ($lesson->lesson_type == 'quiz' || $lesson->lesson_type == 'exam')
                                             <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Result') }}" onclick="ajaxModal('{{ route('modal', ['instructor.quiz_result.index', 'id' => $lesson->id]) }}', '{{ get_phrase('Result') }}', 'modal-xl')" class="edit-delete">
                                                 <span class="fi fi-rr-clipboard-list-check"></span>
                                             </a>
@@ -70,7 +70,7 @@
                                             </a>
                                         @endif
 
-                                        @if ($lesson->lesson_type != 'quiz')
+                                        @if ($lesson->lesson_type != 'quiz' && $lesson->lesson_type != 'exam')
                                             <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Edit lesson') }}" onclick="ajaxModal('{{ route('modal', ['instructor.course.lesson_edit', 'id' => $lesson->id]) }}', '{{ get_phrase('Edit lesson') }}')" class="edit-delete">
                                                 <span class="fi-rr-pencil"></span>
                                             </a>

@@ -158,44 +158,17 @@
     let description = document.querySelector('.description');
     let resultSection = document.querySelector('.result-section');
     let backBtn = document.querySelector('#backBtn');
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const lessonType = "{{ $exam }}";
-        if (lessonType) {
-            alert("Este es el examen");
-
-            if (@json($exam_details->examSetting->keyboard_events)) {
-                console.log("La deteccion de teclado y cambio de pestaña activado...");
-                let count = 0;
-                document.addEventListener("keydown", (ev) => {
-                    //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
-                    if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
-                        alert('tramposito')
-                        ev.preventDefault();
-                    }
-
-                    if (ev.key === "PrintScreen") ev.preventDefault();
-                });
-
-                //
-
-                window.addEventListener('blur', function() {
-                    if (count > 0) {
-                        document.title = "Reprobaste por tramposo xd";
-                    }
-                    count++;
-                });
-            }
-
-            if (@json($exam_details->examSetting->camera_screen_record)) {
-                console.log("La Grabacion de pantalla esta activo");
-                startRecording();
-            }
-        }
-    });
+    let lessonType = "{{ $exam }}";
+    let recordedChunks = [];
+    let mediaRecorder;
 
     // start quiz
     starterBtn.addEventListener('click', function() {
+
+        if (lessonType) {
+            itsExam();
+        }
+
         starterContainer.classList.add('d-none');
         description.classList.add('d-none');
         $.ajax({
@@ -278,22 +251,49 @@
         submitQuiz();
     }
 
-    let mediaRecorder;
-    let recordedChunks = [];
+    function itsExam() {
+        if (@json($exam_details->examSetting->keyboard_events)) {
+            console.log("La deteccion de teclado y cambio de pestaña activado...");
+            let count = 0;
+            // Convinaciones de teclas
+            document.addEventListener("keydown", (ev) => {
+                //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
+                if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
+                    alert('tramposito')
+                    endQuiz();
+                    ev.preventDefault();
+                }
+
+                if (ev.key === "PrintScreen") ev.preventDefault();
+            });
+
+            // Cambio de pestaña
+            window.addEventListener('blur', function() {
+                if (count > 0) {
+                    document.title = "Reprobaste por tramposo xd";
+                    endQuiz();
+                }
+                count++;
+            });
+        }
+
+        if (@json($exam_details->examSetting->camera_screen_record)) {
+            console.log("La Grabacion de pantalla esta activo");
+            startRecording();
+        }
+
+    }
 
     async function startRecording() {
-        // Captura de pantalla
         const screenStream = await navigator.mediaDevices.getDisplayMedia({
             video: true,
-            audio: true // audio del sistema (si el navegador lo permite)
+            audio: true
         });
 
-        // Captura de micrófono
         const micStream = await navigator.mediaDevices.getUserMedia({
             audio: true
         });
 
-        // Combinar audio del sistema + micrófono
         const combinedStream = new MediaStream([
             ...screenStream.getVideoTracks(),
             ...screenStream.getAudioTracks(),
@@ -312,12 +312,19 @@
             const blob = new Blob(recordedChunks, {
                 type: 'video/mp4'
             });
-            const url = URL.createObjectURL(blob);
 
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'grabacion.mp4';
-            a.click();
+            // 👇 Convertimos el blob en archivo
+            const file = new File([blob], 'exam_recording.mp4', {
+                type: 'video/mp4'
+            });
+
+            // 👇 Lo inyectamos al input file
+            const input = document.getElementById('system_video_file');
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            console.log('Video listo para enviarse');
         };
 
         mediaRecorder.start();

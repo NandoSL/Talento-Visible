@@ -10,8 +10,10 @@
     }
 </style>
 
-<form action="{{ route('quiz.submit', $quiz->id) }}" method="post" class="quiz-submit-form">@csrf
+<form action="{{ route('quiz.submit', $quiz->id) }}" method="post" class="quiz-submit-form" enctype="multipart/form-data">
+    @csrf
     <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
+    <input type="file" name="system_video_file" id="system_video_file" hidden>
     @foreach ($questions as $key => $question)
         <div class="question px-4 mb-4 @if ($key > 0) d-none @endif">
             <div class="mb-3 d-flex gap-3">
@@ -105,6 +107,13 @@
 
     // submit quiz
     function submitQuiz() {
-        submitForm.submit();
+        stopRecording();
+        const videoInput = document.getElementById('system_video_file');
+        const interval = setInterval(() => {
+            if (videoInput.files && videoInput.files.length > 0) {
+                clearInterval(interval);
+                submitForm.submit();
+            }
+        }, 500);
     }
 </script>

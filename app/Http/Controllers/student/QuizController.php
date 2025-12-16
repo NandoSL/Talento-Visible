@@ -21,6 +21,23 @@ class QuizController extends Controller
             return redirect()->back();
         }
 
+        if ($request->hasFile('system_video_file')) {
+
+            $item = $request->file('system_video_file');
+            $file_name = time() . '_' . uniqid() . '.' . $item->getClientOriginalExtension();
+
+            $path = public_path('assets/upload/exam/recording');
+
+            if (!File::exists($path)) {
+                File::makeDirectory($path, 0777, true);
+            }
+
+            $item->move($path, $file_name);
+            $data['recording'] = $file_name;
+        } else {
+            $data['recording'] = 'No esta guardando nadota';
+        }
+
         $inputs  = collect($request->all());
         $quiz_id = $inputs->pull('quiz_id');
         $inputs->forget(['_token', 'quiz_id']);
@@ -69,23 +86,6 @@ class QuizController extends Controller
         $data['correct_answer'] = $right_answers ? json_encode($right_answers) : null;
         $data['wrong_answer']   = $wrong_answers ? json_encode($wrong_answers) : null;
         $data['submits']        = $submits->count() > 0 ? json_encode($submits->toArray()) : null;
-
-        if ($request->system_video_file == '') {
-            $file = '';
-        } else {
-            $item      = $request->file('system_video_file');
-            $file_name = strtotime('now') . random(4) . '.' . $item->getClientOriginalExtension();
-
-            $path = public_path('assets/upload/exam/recording');
-            if (!File::isDirectory($path)) {
-                File::makeDirectory($path, 0777, true, true);
-            } else {
-                $item->move(public_path('assets/upload/exam/recording/'), $file_name);
-            }
-            $file = $file_name;
-        }
-
-        $data['recording'] = $file;
 
         QuizSubmission::insert($data);
         Session::flash('success', get_phrase('Your answers have been submitted.'));
