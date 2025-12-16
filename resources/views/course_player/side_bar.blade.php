@@ -16,7 +16,23 @@
     $completed_lesson_arr = json_decode($lesson_history->completed_lesson, true);
     $complated_lesson = is_array($completed_lesson_arr) ? count($completed_lesson_arr) : 0;
     $course_progress_out_of_100 = progress_bar($course_details->id);
+
+    $lessExam = DB::table('lessons')
+        ->where('id', request()->route()->parameter('id'))
+        ->first();
 @endphp
+
+@if ($lessExam->lesson_type == 'exam')
+    <div class="course-content-playlist mt-10">
+        <div class="course-playlist-accordion p-3 header-details-exam">
+            <div class="examen-details">
+                <div class="examen-details-head" style="height: 10rem">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+@endif
 
 <div class="course-content-playlist">
     <div class="header-details">
@@ -185,6 +201,14 @@
                         Empezar examen
                     </button>
                 </a>
+            </div>
+
+            <div class="examen-btn">
+
+                    <button onclick="stopRecording()">
+                        detener
+                    </button>
+
             </div>
         </div>
     </div>

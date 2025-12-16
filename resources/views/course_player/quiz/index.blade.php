@@ -71,10 +71,7 @@
     $exam = null;
 
     if ($quiz->lesson_type === 'exam') {
-        $exam = \App\Models\Lesson::with('examSetting')
-            ->where('id', $quiz->id)
-            ->where('lesson_type', 'exam')
-            ->first();
+        $exam = \App\Models\Lesson::with('examSetting')->where('id', $quiz->id)->where('lesson_type', 'exam')->first();
     }
 @endphp
 
@@ -164,9 +161,36 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         const lessonType = "{{ $exam }}";
-
         if (lessonType) {
-            alert("Esto es un examen D: hay que validar varias cosas ");
+            alert("Este es el examen");
+
+            if (@json($exam_details->examSetting->keyboard_events)) {
+                console.log("La deteccion de teclado y cambio de pestaña activado...");
+                let count = 0;
+                document.addEventListener("keydown", (ev) => {
+                    //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
+                    if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
+                        alert('tramposito')
+                        ev.preventDefault();
+                    }
+
+                    if (ev.key === "PrintScreen") ev.preventDefault();
+                });
+
+                //
+
+                window.addEventListener('blur', function() {
+                    if (count > 0) {
+                        document.title = "Reprobaste por tramposo xd";
+                    }
+                    count++;
+                });
+            }
+
+            if (@json($exam_details->examSetting->camera_screen_record)) {
+                console.log("La Grabacion de pantalla esta activo");
+                startRecording();
+            }
         }
     });
 
@@ -252,5 +276,56 @@
     // end quiz
     function endQuiz() {
         submitQuiz();
+    }
+
+    let mediaRecorder;
+    let recordedChunks = [];
+
+    async function startRecording() {
+        // Captura de pantalla
+        const screenStream = await navigator.mediaDevices.getDisplayMedia({
+            video: true,
+            audio: true // audio del sistema (si el navegador lo permite)
+        });
+
+        // Captura de micrófono
+        const micStream = await navigator.mediaDevices.getUserMedia({
+            audio: true
+        });
+
+        // Combinar audio del sistema + micrófono
+        const combinedStream = new MediaStream([
+            ...screenStream.getVideoTracks(),
+            ...screenStream.getAudioTracks(),
+            ...micStream.getAudioTracks()
+        ]);
+
+        mediaRecorder = new MediaRecorder(combinedStream, {
+            mimeType: 'video/mp4'
+        });
+
+        mediaRecorder.ondataavailable = e => {
+            if (e.data.size > 0) recordedChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks, {
+                type: 'video/mp4'
+            });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'grabacion.mp4';
+            a.click();
+        };
+
+        mediaRecorder.start();
+        console.log('Grabando...');
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+        console.log('Grabación detenida');
     }
 </script>
