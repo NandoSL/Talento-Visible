@@ -259,9 +259,8 @@
             document.addEventListener("keydown", (ev) => {
                 //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
                 if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
-                    alert('tramposito')
-                    endQuiz();
                     ev.preventDefault();
+                    endQuiz();
                 }
 
                 if (ev.key === "PrintScreen") ev.preventDefault();

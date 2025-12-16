@@ -107,10 +107,13 @@
 
     // submit quiz
     function submitQuiz() {
-        stopRecording();
         const videoInput = document.getElementById('system_video_file');
+
+        if (lessonType) {
+            stopRecording();
+        }
         const interval = setInterval(() => {
-            if (videoInput.files && videoInput.files.length > 0) {
+            if (videoInput.files && videoInput.files.length > 0 || !lessonType) {
                 clearInterval(interval);
                 submitForm.submit();
             }
