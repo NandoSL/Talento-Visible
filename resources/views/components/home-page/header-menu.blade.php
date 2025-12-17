@@ -24,10 +24,10 @@
             </div>
             
             <div class="mx-auto order-2 d-flex justify-content-center"> 
-                <div class="mi-header-menu d-flex mt-2 pt-1">
+                <div class="mi-header-menu d-none d-lg-block d-flex mt-2 pt-1">
                     <div class="mi-nav-menu">
-                        <ul class="mi-primary-menu mi-main-menu-ul d-flex align-items-center">
-                            <li><a href="{{ route('home') }}" class="@if ($current_route == 'home') active @endif">{{ get_phrase('Home') }}</a></li>
+                       <ul class="mi-primary-menu mi-main-menu-ul d-flex align-items-center">
+                           {{-- <li><a href="{{ route('home') }}" class="@if ($current_route == 'home') active @endif">{{ get_phrase('Homfdfe') }}</a></li>--}}
                             <li class="mi-have-mega-menu"><a class="mi-menu-parent-a @if ($current_route == 'courses') active @endif" href="{{ route('courses') }}">{{ get_phrase('Courses') }}</a>
                                 <ul class="mi-mega-dropdown-menu mega mi-main-mega-menu">
                                     <div class="mi-mega-menu-items">
@@ -147,16 +147,16 @@
                                 </li>
                             </ul>
                         </div>
-                    @else
-                    <div class="d-flex align-items-center d-none d-lg-flex"> 
+                   @else
+                     <div class="d-flex align-items-center">
+                       <div class="d-none d-lg-flex align-items-center"> 
                          <a href="{{ route('login') }}" class="gradient2">{{ get_phrase('Sign In') }}</a> 
-                        <a href="{{ route('register') }}" class="eBtn btn gradient me-2">{{ get_phrase('Register') }}</a>
-                       
-                    @endif 
+                         <a href="{{ route('register') }}" class="eBtn btn gradient me-2">{{ get_phrase('Register') }}</a>
+                        </div>
                     <span class="toggle-bar text-dark ms-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                         <i class="fa-sharp fa-solid fa-bars"></i>
                     </span>
-                </div>
+                 @endif 
             </div>
         </div>
     </div>
