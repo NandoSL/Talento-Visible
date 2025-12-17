@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\QuizSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 
 class QuizController extends Controller
 {
@@ -18,6 +19,23 @@ class QuizController extends Controller
         if ($submit > $retake) {
             Session::flash('warning', get_phrase('Attempt has been over.'));
             return redirect()->back();
+        }
+
+        if ($request->hasFile('system_video_file')) {
+
+            $item = $request->file('system_video_file');
+            $file_name = time() . '_' . uniqid() . '.' . $item->getClientOriginalExtension();
+
+            $path = public_path('assets/upload/exam/recording');
+
+            if (!File::exists($path)) {
+                File::makeDirectory($path, 0777, true);
+            }
+
+            $item->move($path, $file_name);
+            $data['recording'] = $file_name;
+        } else {
+            $data['recording'] = 'No esta guardando nadota';
         }
 
         $inputs  = collect($request->all());

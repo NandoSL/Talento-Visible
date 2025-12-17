@@ -76,7 +76,7 @@ class PlayerController extends Controller
 
         $page_data['questions'] = $forum_query->get();
 
-        $page_data['exam_details'] = Lesson::with('examSetting')->where('course_id', $course->id)->where('lesson_type', 'exam')->first();
+        $page_data['exam_details'] = Lesson::with('examSetting')->where('course_id', $course->id)->where('lesson_type', 'exam')->where('status', 1)->first();
 
         //Lesson::where('id', $id)->where('status', 1)->where('lesson_type', 'exam')->first();
 

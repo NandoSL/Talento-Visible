@@ -71,10 +71,7 @@
     $exam = null;
 
     if ($quiz->lesson_type === 'exam') {
-        $exam = \App\Models\Lesson::with('examSetting')
-            ->where('id', $quiz->id)
-            ->where('lesson_type', 'exam')
-            ->first();
+        $exam = \App\Models\Lesson::with('examSetting')->where('id', $quiz->id)->where('lesson_type', 'exam')->first();
     }
 @endphp
 
@@ -161,17 +158,17 @@
     let description = document.querySelector('.description');
     let resultSection = document.querySelector('.result-section');
     let backBtn = document.querySelector('#backBtn');
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const lessonType = "{{ $exam }}";
-
-        if (lessonType) {
-            alert("Esto es un examen D: hay que validar varias cosas ");
-        }
-    });
+    let lessonType = "{{ $exam }}";
+    let recordedChunks = [];
+    let mediaRecorder;
 
     // start quiz
     starterBtn.addEventListener('click', function() {
+
+        if (lessonType) {
+            itsExam();
+        }
+
         starterContainer.classList.add('d-none');
         description.classList.add('d-none');
         $.ajax({
@@ -252,5 +249,89 @@
     // end quiz
     function endQuiz() {
         submitQuiz();
+    }
+
+    function itsExam() {
+        if (@json($exam_details->examSetting->keyboard_events)) {
+            console.log("La deteccion de teclado y cambio de pestaña activado...");
+            let count = 0;
+            // Convinaciones de teclas
+            document.addEventListener("keydown", (ev) => {
+                //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
+                if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
+                    ev.preventDefault();
+                    endQuiz();
+                }
+
+                if (ev.key === "PrintScreen") ev.preventDefault();
+            });
+
+            // Cambio de pestaña
+            window.addEventListener('blur', function() {
+                if (count > 0) {
+                    document.title = "Reprobaste por tramposo xd";
+                    endQuiz();
+                }
+                count++;
+            });
+        }
+
+        if (@json($exam_details->examSetting->camera_screen_record)) {
+            console.log("La Grabacion de pantalla esta activo");
+            startRecording();
+        }
+
+    }
+
+    async function startRecording() {
+        const screenStream = await navigator.mediaDevices.getDisplayMedia({
+            video: true,
+            audio: true
+        });
+
+        const micStream = await navigator.mediaDevices.getUserMedia({
+            audio: true
+        });
+
+        const combinedStream = new MediaStream([
+            ...screenStream.getVideoTracks(),
+            ...screenStream.getAudioTracks(),
+            ...micStream.getAudioTracks()
+        ]);
+
+        mediaRecorder = new MediaRecorder(combinedStream, {
+            mimeType: 'video/mp4'
+        });
+
+        mediaRecorder.ondataavailable = e => {
+            if (e.data.size > 0) recordedChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks, {
+                type: 'video/mp4'
+            });
+
+            // 👇 Convertimos el blob en archivo
+            const file = new File([blob], 'exam_recording.mp4', {
+                type: 'video/mp4'
+            });
+
+            // 👇 Lo inyectamos al input file
+            const input = document.getElementById('system_video_file');
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            console.log('Video listo para enviarse');
+        };
+
+        mediaRecorder.start();
+        console.log('Grabando...');
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+        console.log('Grabación detenida');
     }
 </script>
