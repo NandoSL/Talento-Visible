@@ -61,6 +61,29 @@
                                 </p>
                             </div>
                         </div>
+                        {{-- TODO: Obtiene las lecciones tipo exam solo para visualizar las grabaciones, a su tiempo tendran que tener su vista propia /start --}}
+                        @php
+                            $quiz = DB::table('lessons')->where('id', $result->quiz_id)->first();
+                        @endphp
+                        @if ($quiz->lesson_type == 'exam')
+                            @php
+                                $exam = null;
+                                if ($quiz->lesson_type === 'exam') {
+                                    $exam = \App\Models\Lesson::with('examSetting')
+                                        ->where('id', $quiz->id)
+                                        ->where('lesson_type', 'exam')
+                                        ->first();
+                                }
+                            @endphp
+                            @if ($exam != null && $exam->examSetting != null)
+                                <video controls width="50%" style="margin: auto">
+                                    <source src="{{ asset('assets/upload/exam/recording/' . $result->recording) }}"
+                                        type="video/mp4">
+                                </video>
+                                <hr>
+                            @endif
+                        @endif
+                        {{-- TODO: Obtiene las lecciones tipo exam solo para visualizar las grabaciones, a su tiempo tendran que tener su vista propia /end --}}
 
                         @foreach ($questions as $key => $question)
                             @php
