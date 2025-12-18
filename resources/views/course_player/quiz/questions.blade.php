@@ -109,11 +109,12 @@
     function submitQuiz() {
         const videoInput = document.getElementById('system_video_file');
 
-        if (lessonType) {
+        if (existExam && lessonType == 'exam') {
             stopRecording();
         }
+
         const interval = setInterval(() => {
-            if (videoInput.files && videoInput.files.length > 0 || !lessonType) {
+            if (videoInput.files && videoInput.files.length > 0 || lessonType != 'exam') {
                 clearInterval(interval);
                 submitForm.submit();
             }
