@@ -157,7 +157,6 @@ class CourseController extends Controller
         $data['meta_description'] = $request->meta_description;
 
         $data['short_description'] = $request->short_description;
-        $data['description']       = $request->description;
 
         //Remove empty value by using array filter function
         if (isset($request->requirements) && $request->requirements != '') {
@@ -211,7 +210,7 @@ class CourseController extends Controller
     public function edit($course_id = "", Request $request)
     {
         $data['course_details'] = Course::where('id', $course_id)->first();
-        $data['sections']       = Section::where('course_id', $course_id)->orderBy('sort')->get();
+        $data['sections']= Section::where('course_id', $course_id)->orderBy('sort')->get();
         return view('instructor.course.edit', $data);
     }
 
@@ -238,7 +237,6 @@ class CourseController extends Controller
             $data['title']             = $request->title;
             $data['slug']              = slugify($request->title . '-' . $id);
             $data['short_description'] = $request->short_description;
-            $data['description']       = $request->description;
             $data['category_id']       = $request->category_id;
             $data['level']             = $request->level;
             $data['language']          = strtolower($request->language);

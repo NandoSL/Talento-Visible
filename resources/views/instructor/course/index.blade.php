@@ -359,11 +359,11 @@
                                                                     <i class="fi-rr-eye me-2"></i>
                                                                 </a>
                                                                 <a class="dropdown-item"
-                                                                   href="{{ route('admin.course.edit', [$row->id, 'tab' => 'basic']) }}">
+                                                                   href="{{ route('instructor.course.edit', [$row->id, 'tab' => 'basic']) }}">
                                                                         <i class="fi-rr-pencil me-2 icon-blue"></i>
                                                                </a>
                                                                   <a class="dropdown-item"
-                                                                      onclick="confirmModal('{{ route('admin.course.delete', $row->id) }}')"
+                                                                      onclick="confirmModal('{{ route('instructor.course.delete', $row->id) }}')"
                                                                          href="javascript:void(0)">
                                                                           <i class="fi-rr-trash me-2 icon-red"></i>
                                                                      </a>

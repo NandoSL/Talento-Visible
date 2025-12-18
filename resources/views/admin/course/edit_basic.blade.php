@@ -17,7 +17,7 @@
         <textarea name="short_description" rows="3" class="form-control ol-form-control" id="short_description">{{ $course_details->short_description }}</textarea>
     </div>
 </div>
-
+{{-- 
 <div class="row mb-3">
     <label for="description"
         class="form-label ol-form-label col-sm-2 col-form-label">{{ get_phrase('Description') }}</label>
@@ -25,7 +25,7 @@
         <textarea name="description" rows="5" class="form-control ol-form-control text_editor" id="description">{!! removeScripts($course_details->description) !!}</textarea>
     </div>
 </div>
-
+ --}}
 <div class="row mb-3">
     <label class="form-label ol-form-label col-sm-2 col-form-label">{{ get_phrase('Category') }}<span
             class="text-danger ms-1">*</span></label>

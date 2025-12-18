@@ -44,7 +44,6 @@ class CourseController extends Controller
                 $query->orWhere('courses.level', 'LIKE', '%' . request()->input('search') . '%');
                 $query->orWhere('courses.meta_keywords', 'LIKE', '%' . request()->input('search') . '%');
                 $query->orWhere('courses.meta_description', 'LIKE', '%' . request()->input('search') . '%');
-                $query->orWhere('courses.description', 'LIKE', '%' . request()->input('search') . '%');
             });
         }
 

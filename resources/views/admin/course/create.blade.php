@@ -30,11 +30,11 @@
                                     <div class="fpb-7 mb-3">
                                         <label class="form-label ol-form-label" for="short_description">{{ get_phrase('Short Description') }}</label>
                                         <textarea name="short_description" placeholder="{{ get_phrase('Enter Short Description') }}" class="form-control ol-form-control" rows="5"></textarea>
-                                    </div>
+                                    </div>{{-- 
                                     <div class="fpb-7 mb-3">
                                         <label class="form-label ol-form-label" for="description">{{ get_phrase('Description') }}</label>
                                         <textarea name="description" placeholder="{{ get_phrase('Enter Description') }}" class="form-control ol-form-control text_editor"></textarea>
-                                    </div>
+                                    </div> --}}
                                     <div class="fpb-7 mb-2 ">
                                         <label for="course_status" class="col-sm-2 col-form-label">{{ get_phrase('Create as') }}
                                             <span class="text-danger ms-1">*</span></label>
