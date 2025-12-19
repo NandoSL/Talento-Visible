@@ -7,7 +7,7 @@
 </div>
 
 <div class="row mb-3">
-    <label for="title" class="form-label ol-form-label col-sm-2 col-form-label">{{ get_phrase('Twitter') }}</label>
+    <label for="title" class="form-label ol-form-label col-sm-2 col-form-label">Twitter</label>
     <div class="col-sm-8">
         <input type="text" name="twitter" class="form-control ol-form-control" id="title"
             @isset($instructor->twitter) value="{{ $instructor->twitter }}" @endisset>

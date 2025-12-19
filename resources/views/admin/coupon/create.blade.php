@@ -10,9 +10,9 @@
                 </div>
 
                 <div class="fpb-7 mb-3">
-                    <label class="form-label ol-form-label" for="discount">{{ get_phrase('Discount (%)') }}</label>
+                    <label class="form-label ol-form-label" for="discount">{{ __('Discount (%)') }}</label>
                     <input type="number" max="100" min="0" class="form-control ol-form-control" name="discount" id="discount"
-                        placeholder="{{ get_phrase('Enter coupon discount') }}" required>
+                        placeholder="{{ __('Enter coupon discount') }}" required>
                 </div>
 
                 <div class="fpb-7 mb-3">
@@ -25,7 +25,7 @@
                     <label class="form-label ol-form-label" for="status">{{ get_phrase('Status') }}</label>
                     <select for='status' class="form-control ol-form-control ol-select2"
                         name="status" id="status" required>
-                        <option value="">{{ get_phrase('Choose status ...') }}</option>
+                        <option value="">{{ __('Choose status ...') }}</option>
                         <option value="1">{{ get_phrase('Active') }}</option>
                         <option value="0">{{ get_phrase('Inactive') }}</option>
                     </select>
