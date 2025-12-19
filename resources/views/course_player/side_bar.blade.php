@@ -22,16 +22,20 @@
         ->first();
 @endphp
 
-@if ($lessExam->lesson_type == 'exam')
-    <div class="course-content-playlist mt-10">
-        <div class="course-playlist-accordion p-3 header-details-exam">
-            <div class="examen-details">
-                <div class="examen-details-head" style="height: 10rem">
+@if ($lessExam)
+    @if ($lessExam->lesson_type)
+        @if ($lessExam->lesson_type == 'exam')
+        <div class="course-content-playlist mt-10">
+            <div class="course-playlist-accordion p-3 header-details-exam">
+                <div class="examen-details">
+                    <div class="examen-details-head" style="height: 10rem">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br>
+        <br>
+        @endif
+    @endif
 @endif
 
 <div class="course-content-playlist">
