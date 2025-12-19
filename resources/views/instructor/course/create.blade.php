@@ -20,7 +20,7 @@
     </div>
 </div>
 --}}
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-12">
             <div class="ol-card">
                 <div class="ol-card-header d-flex justify-content-between align-items-center p-3">
@@ -53,12 +53,14 @@
                                             <textarea name="short_description" placeholder="{{ get_phrase('Enter Short Description') }}"
                                                 class="form-control ol-form-control" rows="5"></textarea>
                                         </div>
+                                        {{--
                                         <div class="fpb-7 mb-3">
                                             <label class="form-label ol-form-label"
-                                                for="description">{{ get_phrase('Description') }}</label>
+                                            for="description">{{ get_phrase('Description') }}</label>
                                             <textarea name="description" placeholder="{{ get_phrase('Enter Description') }}"
-                                                class="form-control ol-form-control text_editor"></textarea>
+                                            class="form-control ol-form-control text_editor"></textarea>
                                         </div>
+                                        --}}
 
                                     </div>
                                 </div>
