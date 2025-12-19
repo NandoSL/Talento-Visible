@@ -170,25 +170,32 @@
                                     </div>
                                     <div class="fpb-7">
                                         <label for="thumbnail"
-                                            class="form-label ol-form-label">{{ get_phrase('Imagen del curso') }}</label>
+                                            class="form-label ol-form-label">{{ get_phrase('Thumbnail') }}</label>
+                                        <input type="file" name="thumbnail" class="form-control ol-form-control"
+                                            id="thumbnail" accept="image/*" />
+                                    </div>
+                                    {{--
+                                    <div class="fpb-7">
+                                        <label for="thumbnail"
+                                        class="form-label ol-form-label">{{ get_phrase('Imagen del curso') }}</label>
                                         <input type="file" name="thumbnail" id="thumbnail" accept="image/*"
-                                            class="d-none" onchange="previewThumbnailModern(event)" />
+                                        class="d-none" onchange="previewThumbnailModern(event)" />
                                         <div class="upload-modern-box"
-                                            onclick="document.getElementById('thumbnail').click()">
-                                            <!-- Preview -->
-                                            <div id="previewContainer" class="preview-container d-none">
-                                                <img id="previewImage" />
-                                            </div>
-                                            <!-- Placeholder -->
-                                            <div id="placeholderUpload">
-                                                <div class="upload-icon-modern">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                                        onclick="document.getElementById('thumbnail').click()">
+                                        <!-- Preview -->
+                                        <div id="previewContainer" class="preview-container d-none">
+                                            <img id="previewImage" />
+                                        </div>
+                                        <!-- Placeholder -->
+                                        <div id="placeholderUpload">
+                                            <div class="upload-icon-modern">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
                                                         fill="none" stroke="currentColor" stroke-width="2"
                                                         stroke-linecap="round" stroke-linejoin="round">
                                                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                                         <polyline points="17 8 12 3 7 8"></polyline>
                                                         <line x1="12" y1="3" x2="12"
-                                                            y2="15"></line>
+                                                        y2="15"></line>
                                                     </svg>
                                                 </div>
                                                 <p class="upload-text-modern">Haz clic para subir o arrastra la imagen</p>
@@ -196,8 +203,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    --}}
                                 </div>
-                                <div class="d-flex justify-content-end pt-2">
+                                <div class="d-flex justify-content-center pt-2 mt-4">
                                     <button type="submit" class="btn ol-btn-primary2 me-2">
                                         {{ get_phrase('Cancel') }}
                                     </button>
