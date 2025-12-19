@@ -9,8 +9,10 @@
         <span class="fi-rr-cross"></span>
     </button>
 </div>
-<h3 class="sidebar-title fs-12px px-30px pb-20px text-uppercase mt-4">{{ get_phrase('Main Menu') }}</h3>
-<div class="sidebar-nav-area">
+<div>
+    <h3 class="sidebar-title fs-18px " style="display: flex; align-items: center; justify-content: center;">{{ get_phrase('Main Menu') }}</h3>
+</div>
+<div class="sidebar-nav-area mt-4">
     <nav class="sidebar-nav">
         <ul class="px-14px pb-24px">
 

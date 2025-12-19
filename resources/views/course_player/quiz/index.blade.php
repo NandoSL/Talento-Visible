@@ -67,12 +67,6 @@
         ->where('quiz_id', $quiz->id)
         ->where('user_id', auth()->user()->id)
         ->get();
-
-    $exam = null;
-
-    if ($quiz->lesson_type === 'exam') {
-        $exam = \App\Models\Lesson::with('examSetting')->where('id', $quiz->id)->where('lesson_type', 'exam')->first();
-    }
 @endphp
 
 <div class="row px-4">
@@ -158,14 +152,18 @@
     let description = document.querySelector('.description');
     let resultSection = document.querySelector('.result-section');
     let backBtn = document.querySelector('#backBtn');
-    let lessonType = "{{ $exam }}";
+    let existExam = "{{ $exam_details }}";
+    let lessonType = "{{ $quiz->lesson_type }}";
     let recordedChunks = [];
     let mediaRecorder;
+
+    console.log(`Esto es lessonType: ${lessonType}`);
 
     // start quiz
     starterBtn.addEventListener('click', function() {
 
-        if (lessonType) {
+
+        if (existExam && lessonType == 'exam') {
             itsExam();
         }
 
@@ -252,7 +250,7 @@
     }
 
     function itsExam() {
-        if (@json($exam_details->examSetting->keyboard_events)) {
+        if (@json($exam_details?->examSetting?->keyboard_events)) {
             console.log("La deteccion de teclado y cambio de pestaña activado...");
             let count = 0;
             // Convinaciones de teclas
@@ -263,7 +261,9 @@
                     endQuiz();
                 }
 
-                if (ev.key === "PrintScreen") ev.preventDefault();
+                if (ev.key === "PrintScreen") {
+                    ev.preventDefault()
+                }
             });
 
             // Cambio de pestaña
@@ -276,11 +276,10 @@
             });
         }
 
-        if (@json($exam_details->examSetting->camera_screen_record)) {
+        if (@json($exam_details?->examSetting?->camera_screen_record)) {
             console.log("La Grabacion de pantalla esta activo");
             startRecording();
         }
-
     }
 
     async function startRecording() {

@@ -31,7 +31,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="thumbnail" class="form-label ol-form-label">{{ get_phrase('Thumbnail') }} <small class="text-muted">({{ get_phrase('optional') }})</small></label>
+                <label for="thumbnail" class="form-label ol-form-label">{{ get_phrase('Image') }} <small class="text-muted">({{ get_phrase('optional') }})</small></label>
                 <input type="file" name="thumbnail" class="form-control ol-form-control rounded-3" id="thumbnail" accept="image/*" />
             </div>
             

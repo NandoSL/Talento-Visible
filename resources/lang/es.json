@@ -218,7 +218,6 @@
     "Cancel": "Cancelar",
      "See your growth and get consulting support! ": "Vea su crecimiento y obtenga apoyo de consultoría!",
     "Full name": "Nombre completo",
-    "Email": "Correo electrónico",
     "Position in company": "Puesto en la empresa",
     "Cellphone": "Teléfono celular",
     "Company Phone -Ext": "Teléfono de la empresa - Ext.",
@@ -232,7 +231,6 @@
     "Certifications (Current)": "Certificaciones (Actuales)",
     "Companies you supply for": "Empresas a las que suministra",
     "Fiscal Number (RFC)": "Número Fiscal (RFC)",
-    "Address": "Dirección",
     "Instagram": "Instagram",
     "Total employees": "Total de empleados",
     "Operation start date": "Fecha de inicio de operaciones",
@@ -241,10 +239,21 @@
     "Fiscal Name (USA)": "Razón Social (EE. UU.)",
     "NAICS": "NAICS",
     "Facebook": "Facebook",
-    "Website": "Sitio web",
+    "Twitter": "Twitter",
     "Number of employees in Mexico": "Número de empleados en México",
     "Annual Sales (past three years average)": "Ventas Anuales (promedio de los últimos tres años)",
     "Are you a regional manufacturing supplier?": "¿Es usted un proveedor regional de manufactura?",
     "Already have account.": "Ya tengo una cuenta.",
-    "Sign in": "Iniciar sesión"
+    "Sign in": "Iniciar sesión",
+    "Create a new conversation with a new user": "Crear una nueva conversación con un nuevo usuario",
+    "Select a new user": "Selecciona un nuevo usuario",
+    "Select a user":"Selecciona un usuario",
+    "Subject":"Sujeto",
+    "Discount (%)": "Descuento (%)",
+    "Enter coupon discount": "Ingrese el descuento del cupón",
+    "Choose status ...": "Elige el estado ..."
+
+
+
+    
 }

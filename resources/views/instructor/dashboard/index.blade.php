@@ -59,7 +59,7 @@
                         {{--
                         {{ total_enrolled() }}
                         --}}
-                        {{ total_enrolled_by_id(auth()->user()->id) }} {{ get_phrase('Alumno') }}
+                        {{ total_enrolled_by_id(auth()->user()->id) }} {{ get_phrase('Student') }}
                     </p>
                     <p class="sub-title fs-14px">{{ get_phrase('Number of Students') }}</p>
                 </div>

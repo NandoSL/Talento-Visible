@@ -48,7 +48,7 @@
     </div>
 
     <div class="fpb-7 mb-3">
-        <label class="form-label ol-form-label" for="twitter">{{ get_phrase('Twitter') }}</label>
+        <label class="form-label ol-form-label" for="twitter">Twitter</label>
         <input type="text" name = "twitter" id = "twitter" class="form-control ol-form-control" value="{{ get_frontend_settings('twitter') }}">
     </div>
 
