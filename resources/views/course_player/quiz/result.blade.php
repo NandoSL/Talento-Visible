@@ -15,29 +15,90 @@
         $wrong_answers = $result->wrong_answer ? json_decode($result->wrong_answer, true) : [];
     @endphp
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <p>{{ get_phrase('Duration : ') }}
-                @php $duration = explode(':', $quiz->duration); @endphp
-                {{ $duration[0] }} {{ get_phrase('Hour') }}
-                {{ $duration[1] }} {{ get_phrase('Minute') }}
-                {{ $duration[1] }} {{ get_phrase('Second') }}
-            </p>
-            <p>{{ get_phrase('Total Mark : ') }}{{ $quiz->total_mark }}</p>
-            <p>{{ get_phrase('Pass Mark : ') }}{{ $quiz->pass_mark }}</p>
-        </div>
-        <div class="col-md-6">
-            <p>{{ get_phrase('Correct Answer : ') }}{{ count($correct_answers) }}</p>
-            <p>{{ get_phrase('Wrong Answer : ') }}{{ count($wrong_answers) }}</p>
-            <p>{{ get_phrase('Result : ') }}
-                @if (count($correct_answers) >= $quiz->pass_mark)
-                    <span class="text-success">{{ get_phrase('Pass') }}</span>
-                @else
-                    <span class="text-danger">{{ get_phrase('Fail') }}</span>
-                @endif
-            </p>
+    <div class="container my-5">
+
+
+    <div class="text-center mb-4">
+        <h3 class="fw-bold text-dark">{{ get_phrase('¡Examen Completado Exitosamente!') }}</h3>
+        <p class="text-muted">{{ get_phrase('Tu examen ha sido enviado y calificado correctamente.') }}</p>
+    </div>
+
+    
+    <div class="card border-success mb-4 shadow-sm">
+        <div class="card-body text-center">
+
+            <h6 class="mb-1 text-muted">{{ get_phrase('Calificación obtenida') }}</h6>
+
+            @php
+                $score = count($correct_answers);
+                $total = $quiz->total_mark;
+            @endphp
+
+            <h1 class="display-4 text-success fw-bold">
+                {{ $score }}/{{ $total }}
+            </h1>
+
+            @if ($score >= $quiz->pass_mark)
+                <span class="badge bg-info px-4 py-2 fs-6">{{ get_phrase('Aprobado') }}</span>
+            @else
+                <span class="badge bg-danger px-4 py-2 fs-6">{{ get_phrase('Reprobado') }}</span>
+            @endif
+
         </div>
     </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+
+            <h6 class="fw-bold mb-3">{{ get_phrase('Detalles del examen') }}</h6>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>{{ get_phrase('Preguntas totales') }}:</strong> {{ $quiz->total_mark }}</p>
+                    <p class="text-success">
+                        <strong>{{ get_phrase('Respuestas correctas') }}:</strong> {{ count($correct_answers) }}
+                    </p>
+                    <p class="text-danger">
+                        <strong>{{ get_phrase('Respuestas incorrectas') }}:</strong> {{ count($wrong_answers) }}
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    @php $duration = explode(':', $quiz->duration); @endphp
+                    <p>
+                        <strong>{{ get_phrase('Tiempo utilizado') }}:</strong>
+                        {{ $duration[0] }}h {{ $duration[1] }}m {{ $duration[2] ?? 0 }}s
+                    </p>
+
+                    <p>
+                        <strong>{{ get_phrase('Estado') }}:</strong>
+                        @if ($score >= $quiz->pass_mark)
+                            <span class="text-success">{{ get_phrase('Pass') }}</span>
+                        @else
+                            <span class="text-danger">{{ get_phrase('Fail') }}</span>
+                        @endif
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div class="alert alert-info d-flex align-items-center gap-2">
+        <i class="bi bi-check-circle-fill"></i>
+        <span>{{ get_phrase('Las grabaciones de cámara y pantalla se han guardado correctamente como evidencia.') }}</span>
+    </div>
+
+
+    <div class="text-center">
+        <a href="{{ route('course.details', $quiz->course_id) }}" class="btn btn-dark px-4">
+            {{ get_phrase('Volver al curso') }}
+        </a>
+    </div>
+
+</div>
+
     @if ($quiz->lesson_type != 'exam')
         @foreach ($questions as $key => $question)
             @php
