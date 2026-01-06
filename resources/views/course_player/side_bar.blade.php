@@ -25,15 +25,15 @@
 @if ($lessExam)
     @if ($lessExam->lesson_type)
         @if ($lessExam->lesson_type == 'exam')
-        <div class="course-content-playlist mt-10">
-            <div class="course-playlist-accordion p-3 header-details-exam">
-                <div class="examen-details">
-                    <div class="examen-details-head" style="height: 10rem">
+            <div class="course-content-playlist mt-10">
+                <div class="course-playlist-accordion p-3 header-details-exam">
+                    <div class="examen-details">
+                        <div class="examen-details-head" style="height: 10rem">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br>
+            <br>
         @endif
     @endif
 @endif
@@ -177,10 +177,10 @@
                     <div class="exam-requiered">
                         <ul>
                             @if ($exam_details->examSetting->course_completed ?? false)
-                                <li>Examen disponible solo con el 100% del curso completado</li>
+                                <li>Examen disponible solo con el 100% de las lecciones completadas</li>
                             @endif
 
-                            @if ($exam_details->examSetting->camera_detection ?? false)
+                            @if ($exam_details->examSetting->person_detection ?? false)
                                 <li>Cámara web activa durante todo el examen</li>
                             @endif
 
@@ -193,7 +193,11 @@
                             @endif
 
                             @if ($exam_details->examSetting->keyboard_events ?? false)
-                                <li>No cambiar de pestaña ni usar combinaciones de teclas</li>
+                                <li>No intentar copiar las preguntas</li>
+                            @endif
+
+                            @if ($exam_details->examSetting->window_detection ?? false)
+                                <li>No cambiar de pestaña durante el examen</li>
                             @endif
                         </ul>
                     </div>
@@ -206,15 +210,13 @@
                     </button>
                 </a>
             </div>
-           <div class="examen-btn">
-<button 
-    type="button"
-    onclick="ajaxModal1('{{ 'osiii mi tibio' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md', 'fade')"
-    class="bg-orange-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-orange-600 transition">
-    Cancelar Examen
-</button>
-
-</div>
+            <div class="examen-btn d-none">
+                <button type="button"
+                    onclick="ajaxModal1('{{ 'osiii mi tibio' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md', 'fade')"
+                    class="bg-orange-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-orange-600 transition">
+                    Cancelar Examen
+                </button>
+            </div>
         </div>
     </div>
 @endif

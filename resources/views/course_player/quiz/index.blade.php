@@ -62,18 +62,29 @@
         ->first();
 
     $questions = DB::table('questions')->where('quiz_id', $quiz->id)->get();
-    $questions = DB::table('questions')->where('quiz_id', $quiz->id)->get();
 
     $submits = DB::table('quiz_submissions')
         ->where('quiz_id', $quiz->id)
         ->where('user_id', auth()->user()->id)
         ->get();
 
-    $exam = null;
+    $completed_lesson =
+        json_decode(
+            App\Models\Watch_history::where('course_id', $course_details->id)
+                ->where('student_id', Auth()->user()->id)
+                ->value('completed_lesson'),
+            true,
+        ) ?? [];
 
-    if ($quiz->lesson_type === 'exam') {
-        $exam = \App\Models\Lesson::with('examSetting')->where('id', $quiz->id)->where('lesson_type', 'exam')->first();
-    }
+    $lesson_history = App\Models\Watch_history::where('course_id', $course_details->id)
+        ->where('student_id', auth()->user()->id)
+        ->firstOrNew();
+
+    $completed_lesson_arr = json_decode($lesson_history->completed_lesson, true);
+    $complated_lesson = is_array($completed_lesson_arr) ? count($completed_lesson_arr) : 0;
+
+    // <p> {{ $complated_lesson }} / {{ lesson_count($course_details->id) }}</p>
+
 @endphp
 
 <div class="row px-4">
@@ -142,8 +153,21 @@
         @endforeach
 
         @if ($submits->count() < $quiz->retake)
-            <button type="button" class="eBtn gradient border-0"
-                id="starterBtn">{{ get_phrase('Start Quiz') }}</button>
+            @if ($quiz->lesson_type == 'exam')
+                @if ($exam_details?->examSetting?->course_completed && $complated_lesson != (lesson_count($course_details->id)-1))
+                    <p>
+                        <span class="">Es necesario terminar todas las lecciones del curso para realizar el examen</span>
+                    </p>
+                @else
+                    <button type="button" class="eBtn gradient border-0" id="starterBtn">
+                        {{ get_phrase('Start Exam') }}
+                    </button>
+                @endif
+            @else
+                <button type="button" class="eBtn gradient border-0" id="starterBtn">
+                    {{ get_phrase('Start Quiz') }}
+                </button>
+            @endif
         @endif
     </div>
 </div>
@@ -257,46 +281,57 @@
     }
 
     function itsExam() {
-        if (@json($exam_details->examSetting->keyboard_events)) {
-            console.log("La deteccion de teclado y cambio de pestaña activado...");
+        // camera screen record
+        if (@json($exam_details?->examSetting?->camera_screen_record)) {
+            console.log("Grabacion de pantalla...");
+            startRecording();
+        }
+
+        // person detection
+        if (@json($exam_details?->examSetting?->person_detection)) {
+            console.log("Deteccion de persona...");
+        }
+
+        // window detection
+        if (@json($exam_details?->examSetting?->window_detection)) {
+            console.log("Deteccion de cambio de pestaña...");
             let count = 0;
-            // Convinaciones de teclas
+            // Cambio de pestaña
+            window.addEventListener('blur', function() {
+                console.log("Cambio de pestaña detectado", count);
+                if (count > 1) {
+                    //document.title = "Reprobaste por tramposo xd";
+                    ajaxModal1('{{ 'Cambio de Pestaña' }}', '{{ 'Examen Cancelado' }}', 'modal-md', 'fade')
+                    setTimeout(() => {
+                        endQuiz();
+                    }, 3000);
+
+                }
+                count++;
+            });
+
+        }
+
+        // keyboard events
+        if (@json($exam_details?->examSetting?->keyboard_events)) {
+            console.log("La deteccion de teclado...");
+            // Convinaciones de teclas ctrl + c o x
             document.addEventListener("keydown", (ev) => {
                 //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
-                if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
+                if (ev.ctrlKey && ev.key.toLowerCase() === "c" || ev.key.toLowerCase() === "x") {
                     ev.preventDefault();
-                     
-                    ajaxModal1('{{ 'Convinacion de Tecla' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md', 'fade')
+
+                    ajaxModal1('{{ 'Convinacion de Tecla' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md',
+                        'fade')
 
                     setTimeout(() => {
                         endQuiz();
-                    }, 3000); 
+                    }, 3000);
                 }
 
                 if (ev.key === "PrintScreen") ev.preventDefault();
             });
 
-            // Cambio de pestaña
-            window.addEventListener('blur', function() {
-                if (count > 1) {
-                    console.log("Cambio de pestaña detectado",count);
-                    
-                    document.title = "Reprobaste por tramposo xd";
-                
-                    ajaxModal1('{{ 'Cambio de Pestaña' }}', '{{ 'Examen Cancelado' }}', 'modal-md', 'fade')
-
-                    setTimeout(() => {
-                        endQuiz();
-                    }, 3000); 
-                            
-                }
-                count++;
-            });
-        }
-
-        if (@json($exam_details->examSetting->camera_screen_record)) {
-            console.log("La Grabacion de pantalla esta activo");
-            startRecording();
         }
 
     }
