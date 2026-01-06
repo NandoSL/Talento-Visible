@@ -8,7 +8,7 @@
     <div class="mb-3">
         <label class="form-label ol-form-label">{{ get_phrase('Parent category') }}</label>
         <select class="form-control ol-form-control ol-select2" name="parent_id">
-            <option value="0" @if ($category->parent_id == 0) selected @endif>{{ get_phrase('- Mark it as parent -') }}</option>
+            <option value="0" @if ($category->parent_id == 0) selected @endif>{{ get_phrase('Parent category') }}</option>
             @foreach ($parent_categories as $parent_category)
                 <option value="{{ $parent_category->id }}" @if ($category->parent_id == $parent_category->id) selected @endif>{{ $parent_category->title }}</option>
             @endforeach

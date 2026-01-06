@@ -206,6 +206,15 @@
                     </button>
                 </a>
             </div>
+           <div class="examen-btn">
+<button 
+    type="button"
+    onclick="ajaxModal1('{{ 'osiii mi tibio' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md', 'fade')"
+    class="bg-orange-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-orange-600 transition">
+    Cancelar Examen
+</button>
+
+</div>
         </div>
     </div>
 @endif
@@ -215,3 +224,4 @@
     <input type="hidden" class="course_id" name="course_id" value="{{ $course_details->id }}">
     <input type="hidden" class="lesson_id" name="lesson_id">
 </form>
+@include('course_player.modal')

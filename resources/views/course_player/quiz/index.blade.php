@@ -62,11 +62,18 @@
         ->first();
 
     $questions = DB::table('questions')->where('quiz_id', $quiz->id)->get();
+    $questions = DB::table('questions')->where('quiz_id', $quiz->id)->get();
 
     $submits = DB::table('quiz_submissions')
         ->where('quiz_id', $quiz->id)
         ->where('user_id', auth()->user()->id)
         ->get();
+
+    $exam = null;
+
+    if ($quiz->lesson_type === 'exam') {
+        $exam = \App\Models\Lesson::with('examSetting')->where('id', $quiz->id)->where('lesson_type', 'exam')->first();
+    }
 @endphp
 
 <div class="row px-4">
@@ -250,7 +257,7 @@
     }
 
     function itsExam() {
-        if (@json($exam_details?->examSetting?->keyboard_events)) {
+        if (@json($exam_details->examSetting->keyboard_events)) {
             console.log("La deteccion de teclado y cambio de pestaña activado...");
             let count = 0;
             // Convinaciones de teclas
@@ -258,28 +265,40 @@
                 //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
                 if (ev.ctrlKey && ev.key.toLowerCase() === "c") {
                     ev.preventDefault();
-                    endQuiz();
+                     
+                    ajaxModal1('{{ 'Convinacion de Tecla' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md', 'fade')
+
+                    setTimeout(() => {
+                        endQuiz();
+                    }, 3000); 
                 }
 
-                if (ev.key === "PrintScreen") {
-                    ev.preventDefault()
-                }
+                if (ev.key === "PrintScreen") ev.preventDefault();
             });
 
             // Cambio de pestaña
             window.addEventListener('blur', function() {
-                if (count > 0) {
+                if (count > 1) {
+                    console.log("Cambio de pestaña detectado",count);
+                    
                     document.title = "Reprobaste por tramposo xd";
-                    endQuiz();
+                
+                    ajaxModal1('{{ 'Cambio de Pestaña' }}', '{{ 'Examen Cancelado' }}', 'modal-md', 'fade')
+
+                    setTimeout(() => {
+                        endQuiz();
+                    }, 3000); 
+                            
                 }
                 count++;
             });
         }
 
-        if (@json($exam_details?->examSetting?->camera_screen_record)) {
+        if (@json($exam_details->examSetting->camera_screen_record)) {
             console.log("La Grabacion de pantalla esta activo");
             startRecording();
         }
+
     }
 
     async function startRecording() {
@@ -334,3 +353,4 @@
         console.log('Grabación detenida');
     }
 </script>
+@include('course_player.modal')
