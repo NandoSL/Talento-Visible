@@ -227,14 +227,14 @@
                                                 <span class="far fa-clock me-2"></span>Duración (minutos)
                                             </label>
                                             <input type="number" name="duration" value="{{ $exam->duration }}" class="form-control ol-form-control new-input" min="1" disabled>
-                                            <label class="tag">Tiempo límite para completar</label>
+                                            <label class="tag mt-2">Tiempo límite para completar</label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="title" class="form-label ol-form-label col-form-label sub-title-2">
                                                 <span class="far fa-check-circle me-2"></span>Puntaje aprobatorio
                                             </label>
                                             <input type="number" name="minScore" value="{{ $exam->pass_mark }}" class="form-control ol-form-control new-input" min="0" disabled>
-                                            <label class="tag">Mínimo para aprobar</label>
+                                            <label class="tag mt-2">Mínimo para aprobar</label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="opens" class="form-label ol-form-label col-form-label sub-title-2">
@@ -246,7 +246,7 @@
                                                 <option value="3" {{ $exam->retake == 3 ? 'selected' : '' }}>3 intentos</option>
                                                 <option value="4" {{ $exam->retake == 4 ? 'selected' : '' }}>Ilimitados</option>
                                             </select>
-                                            <label class="tag">Veces que puede repetir</label>
+                                            <label class="tag mt-2">Veces que puede repetir</label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="waitingTime" class="form-label ol-form-label col-form-label sub-title-2">
@@ -259,7 +259,7 @@
                                                 <option value="12" {{ $exam->hours == 12 ? 'selected' : '' }}>12 horas</option>
                                                 <option value="24" {{ $exam->hours == 24 ? 'selected' : '' }}>24 horas</option>
                                             </select>
-                                            <label class="tag">Periodo de espera para nuevo intento</label>
+                                            <label class="tag mt-2">Periodo de espera para nuevo intento</label>
                                         </div>
                                     </div>
                                 </div>

@@ -24,10 +24,12 @@ class ExamController extends Controller
             ->get();
         
         if($data['exams']->isNotEmpty()) {
-            $time = $data['exams'][0]->duration;
-            [$hours, $minutes, $seconds] = array_map('intval', explode(':', $time));
-            $totalMinutes = ($hours * 60) + $minutes;
-            $data['exams'][0]->duration = $totalMinutes;
+            foreach ($data['exams'] as $index => $exam) {
+                $time = $exam->duration;
+                [$hours, $minutes, $seconds] = array_map('intval', explode(':', $time));
+                $totalMinutes = ($hours * 60) + $minutes;
+                $data['exams'][$index]->duration = $totalMinutes;
+            }
         }
 
         return view('admin.exam.index', $data);
