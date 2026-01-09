@@ -118,6 +118,11 @@
                                     <span class="fi-rr-note-medical"></span>
                                     <span>{{ get_phrase('SEO') }}</span>
                                 </a>
+
+                                <a class="nav-link {{ request()->routeIs('admin.exam.*') ? 'active' : '' }}" href="{{ route('admin.exam.index', $param) }}">
+                                    <span class="far fa-file-code"></span>
+                                    <span>{{ get_phrase('Exam') }}</span>
+                                </a>
                             </div>
                         </div>
                         <div class="tab-content w-100">

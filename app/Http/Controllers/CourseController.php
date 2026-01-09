@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Mail\Mailer;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\ExamSettings;
 use App\Models\FileUploader;
+use App\Models\Lesson;
 use App\Models\Section;
 use App\Models\SeoField;
 use App\Models\User;
@@ -216,6 +218,7 @@ class CourseController extends Controller
 
         $data['course_details'] = Course::where('id', $course_id)->first();
         $data['sections']       = Section::where('course_id', $course_id)->orderBy('sort')->get();
+
         return view('admin.course.edit', $data);
     }
 
