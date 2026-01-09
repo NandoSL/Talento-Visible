@@ -19,11 +19,22 @@ class Lesson extends Model
         return $this->belongsTo(Section::class);
     }
 
+    public function examSettings()
+    {
+        return $this->belongsTo(ExamSettings::class);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'quiz_id');
+    }
+
     protected $fillable = [
         'title',
         'user_id',
         'course_id',
         'section_id',
+        'exam_id',
         'lesson_type',
         'duration',
         'lesson_src',
