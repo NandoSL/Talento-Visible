@@ -5987,3 +5987,157 @@ i:not(.fas, .fa, .fab) {
     vertical-align: -0.12em !important;
     display: inline-flex;
 }
+
+    .btn-disabled {
+   display: flex;           /* Necesario para que align-items funcione */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center;     /* Centra el texto verticalmente */
+    
+    padding: 1rem;
+    border-radius: 10px;
+    border: lightgray solid 1px;
+    background-color: #6c757d;
+    color: white;
+    text-align: center;
+}
+
+.btn-enabled {
+display: flex;           /* Necesario para que align-items funcione */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center;     /* Centra el texto verticalmente */
+    
+    padding: 1rem;
+    border-radius: 10px;
+    border: lightgray solid 1px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+}
+/*  timer*/
+.exam-wait-card {
+    border: 2px solid #6ec1ff;
+    border-radius: 12px;
+    padding: 14px;
+    max-width: 320px;
+    margin: 20px auto;
+    background: #ffffff;
+    font-family: inherit;
+}
+
+.exam-wait-top {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.exam-wait-icon {
+    color: #2da8ff;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.exam-wait-text strong {
+    color: #2da8ff;
+    font-size: 14px;
+    display: block;
+}
+
+.exam-wait-text p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #6b6b6b;
+}
+
+.exam-wait-timer {
+    margin: 12px auto;
+    text-align: center;
+    border: 2px solid #a7d9ff;
+    border-radius: 10px;
+    padding: 10px 6px;
+    width: 85%;
+}
+
+.exam-wait-timer span {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: #2da8ff;
+}
+
+.exam-wait-timer small {
+    font-size: 11px;
+    color: #6b6b6b
+}
+
+.exam-wait-progress {
+    margin-top: 6px;
+    height: 5px;
+    background: #e4f3ff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.exam-wait-progress div {
+    height: 100%;
+    width: 0%;
+    background: #2da8ff;
+    transition: width 1s linear;
+}
+
+/* Estilos generales del contenedor de tarjetas */
+.card-custom {
+    border-radius: 15px;
+    padding: 20px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+/* Colores por sección */
+.card-red {
+    background-color: #fffafa;
+    border-color: #ffcccc;
+}
+.card-orange {
+    background-color: #fff;
+    border-color: #ffcc80;
+}
+.card-blue {
+    background-color: #f0faff;
+    border-color: #ccebff;
+}
+
+/* Detalles de elementos internos */
+.card-header-title {
+    color: #b03a2e;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.badge-number {
+    background-color: #dc3545;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.orange-text { color: #f39c12; }
+.blue-text { color: #3498db; }
+
+.time-box {
+    background-color: #fff;
+    border: 1px solid #ffcc80 !important;
+}
+
+/* Ajuste del botón de cerrar */
+.btn-dark {
+    border-radius: 10px;
+    padding: 10px 40px;
+}

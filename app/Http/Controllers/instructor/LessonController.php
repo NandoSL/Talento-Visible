@@ -5,6 +5,7 @@ namespace App\Http\Controllers\instructor;
 use App\Http\Controllers\Controller;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
@@ -250,4 +251,14 @@ class LessonController extends Controller
         Session::flash('success', get_phrase('Delete successfully'));
         return redirect()->back();
     }
+public function updateRetake(Request $request)
+{
+  DB::table('lessons')
+    ->where('id', $request->lesson_id)
+    ->increment('retake');
+
+    return response()->json(['success' => true]);
+}
+
+
 }

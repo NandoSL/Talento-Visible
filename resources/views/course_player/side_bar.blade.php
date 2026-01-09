@@ -37,7 +37,9 @@
         @endif
     @endif
 @endif
+<style>
 
+</style>
 <div class="course-content-playlist">
     <div class="header-details">
         <div class="" style="display: flex; flex-direction: column">
@@ -132,6 +134,8 @@
     </div>
 </div>
 <br>
+
+
 {{-- NOTE: Se agrega aparto para el examen final --}}
 @if ($exam_details)
     <div class="course-content-playlist mt-10">
@@ -160,6 +164,30 @@
                     </div>
                 </div>
             </div>
+            <!-- TIEMPO DE ESPERA -->
+            <div id="waitExamBox" class="exam-wait-card d-none">
+
+                <div class="exam-wait-top">
+                    <div class="exam-wait-icon">
+                        ⏳
+                    </div>
+                    <div class="exam-wait-text">
+                        <strong>Tiempo de espera</strong>
+                        <p>Debes esperar antes de poder iniciar el examen nuevamente</p>
+                    </div>
+                </div>
+
+                <div class="exam-wait-timer">
+                    <span id="timer">00:00:00</span>
+                    <small>horas : minutos : segundos</small>
+                </div>
+
+                <div class="exam-wait-progress">
+                    <div id="timerProgress"></div>
+                </div>
+
+            </div>
+
             <div class="examen-details">
                 <div class="examen-details-head">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -174,6 +202,7 @@
                     </p>
                 </div>
                 @if ($exam_details->examSetting)
+             
                     <div class="exam-requiered">
                         <ul>
                             @if ($exam_details->examSetting->course_completed ?? false)
@@ -203,20 +232,28 @@
                     </div>
                 @endif
             </div>
-            <div class="examen-btn">
-                <a href="{{ route('course.player', ['slug' => $course_details->slug, 'id' => $exam_details->id]) }}">
-                    <button>
-                        Empezar examen
-                    </button>
-                </a>
-            </div>
-            <div class="examen-btn d-none">
-                <button type="button"
-                    onclick="ajaxModal1('{{ 'osiii mi tibio' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md', 'fade')"
-                    class="bg-orange-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-orange-600 transition">
-                    Cancelar Examen
-                </button>
-            </div>
+       <div class="d-flex justify-content-center my-4">
+            <button id="startExamBtn" class="btn-disabled" disabled>
+                Empezar examen
+            </button>
+        </div>
+           <div class="examen-btn">
+</div>
+<div>
+    <button onclick="ajaxModal1(
+        'Motivo de ejemplo',
+        'Examen cancelado',
+        2,
+        5,
+        '24 horas',
+        'modal-lg',
+        'fade'
+    )" class="btn btn-primary">
+        Mostrar modal de examen cancelado
+
+    </button>
+</div>
+
         </div>
     </div>
 @endif
@@ -226,4 +263,79 @@
     <input type="hidden" class="course_id" name="course_id" value="{{ $course_details->id }}">
     <input type="hidden" class="lesson_id" name="lesson_id">
 </form>
+<script>
+const waitBox = document.getElementById('waitExamBox');
+const timerEl = document.getElementById('timer');
+const progressBar = document.getElementById('timerProgress');
+const btn = document.getElementById('startExamBtn');
+
+const retake = Number("{{ $lessExam->retake }}");
+const duration = Number("{{ $exam_details->examSetting->hours }}"); // horas
+
+
+   console.log("duaration",duration);
+   
+if (retake === 1) {
+    // ❌ NO se muestra la tarjeta
+    waitBox.classList.add('d-none');
+
+    btn.disabled = false;
+    btn.classList.remove('btn-disabled');
+    btn.classList.add('btn-enabled');
+
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        startTimer(duration * 3600);
+    });
+}
+
+function startTimer(totalSeconds) {
+
+    waitBox.classList.remove('d-none');
+    btn.disabled = true;
+
+    let endTime = parseInt(localStorage.getItem('examWaitEnd'), 10);
+
+    // 🔐 VALIDACIÓN CLAVE
+    if (isNaN(endTime) || endTime <= Date.now()) {
+        endTime = Date.now() + totalSeconds * 1000;
+        localStorage.setItem('examWaitEnd', endTime);
+    }
+
+    const interval = setInterval(() => {
+        const remainingMs = endTime - Date.now();
+
+        if (remainingMs <= 0) {
+            clearInterval(interval);
+            localStorage.removeItem('examWaitEnd');
+
+            waitBox.classList.add('d-none');
+            btn.disabled = false;
+            btn.classList.add('btn-enabled');
+            return;
+        }
+
+        const remaining = Math.floor(remainingMs / 1000);
+
+        const h = String(Math.floor(remaining / 3600)).padStart(2, '0');
+        const m = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
+        const s = String(remaining % 60).padStart(2, '0');
+
+        timerEl.textContent = `${h}:${m}:${s}`;
+        progressBar.style.width =
+            `${((totalSeconds - remaining) / totalSeconds) * 100}%`;
+
+    }, 1000);
+      btn.addEventListener('click', () => {
+        if (!btn.disabled) 
+            console.log("entrando");
+            
+        window.location.href =
+            "{{ route('course.player', ['slug' => $course_details->slug, 'id' => $exam_details->id]) }}";
+    });
+}
+
+
+</script>
+
 @include('course_player.modal')

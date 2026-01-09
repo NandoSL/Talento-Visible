@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\pymais\frontend\saveFileController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\instructor\LessonController;
 use App\Http\Controllers\student\TeamMembersController;
 
 //Cache clear route
@@ -79,3 +80,6 @@ Route::get('set-password/{id}', [TeamMembersController::class, 'showSetPassword'
     
 Route::post('set-password/{id}', [TeamMembersController::class, 'setPassword'])
     ->name('set.password.sett');
+
+    Route::post('/lesson/update-retake', [LessonController::class, 'updateRetake'])
+    ->name('lesson.updateRetake');

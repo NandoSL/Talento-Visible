@@ -185,9 +185,14 @@
     let backBtn = document.querySelector('#backBtn');
     let existExam = "{{ $exam_details }}";
     let lessonType = "{{ $quiz->lesson_type }}";
+    let retake1 = "{{ $quiz->retake }}";
+    let time = "{{ $exam_details->examSetting->hours}}";
     let recordedChunks = [];
     let mediaRecorder;
 
+    console.log("estas son las horas", time);
+      console.log("estas son las horas", retake1);
+    
     console.log(`Esto es lessonType: ${lessonType}`);
 
     // start quiz
@@ -277,7 +282,21 @@
 
     // end quiz
     function endQuiz() {
-        submitQuiz();
+         $.ajax({
+        url: "{{ route('lesson.updateRetake') }}",
+        type: "POST",
+        data: {
+            _token: "{{ csrf_token() }}",
+            lesson_id: "{{ $quiz->id }}" 
+        },
+        success: function () {
+            submitQuiz(); 
+        },
+        error: function () {
+            console.error('No se pudo actualizar retake');
+            submitQuiz();
+        }
+    });
     }
 
     function itsExam() {
@@ -299,9 +318,18 @@
             // Cambio de pestaña
             window.addEventListener('blur', function() {
                 console.log("Cambio de pestaña detectado", count);
-                if (count > 1) {
+                if (count > 3) {
                     //document.title = "Reprobaste por tramposo xd";
-                    ajaxModal1('{{ 'Cambio de Pestaña' }}', '{{ 'Examen Cancelado' }}', 'modal-md', 'fade')
+                  // CORREGIDO:
+                    ajaxModal1(
+                        'Combinación de Tecla Prohibida', 
+                        'Examen Cancelado', 
+                        retake1, 
+                        3, 
+                        time, 
+                        'modal-md', 
+                        'fade'
+                    );
                     setTimeout(() => {
                         endQuiz();
                     }, 3000);
@@ -320,9 +348,17 @@
                 //console.log("Has pulsado la tecla ", ev.key, ` (${ev.code})`);
                 if (ev.ctrlKey && ev.key.toLowerCase() === "c" || ev.key.toLowerCase() === "x") {
                     ev.preventDefault();
-
-                    ajaxModal1('{{ 'Convinacion de Tecla' }}', '{{ 'Examen Canceladoooo' }}', 'modal-md',
-                        'fade')
+                     
+                   // CORREGIDO:
+                    ajaxModal1(
+                        'Combinación de Tecla Prohibida', 
+                        'Examen Cancelado', 
+                        retake1, 
+                        3, 
+                        time, 
+                        'modal-md', 
+                        'fade'
+                    );
 
                     setTimeout(() => {
                         endQuiz();
@@ -332,6 +368,34 @@
                 if (ev.key === "PrintScreen") ev.preventDefault();
             });
 
+            // Cambio de pestaña
+            window.addEventListener('blur', function() {
+                if (count > 3) {
+                    console.log("Cambio de pestaña detectado",count);
+                    
+                    document.title = "Reprobaste por tramposo xd";
+                        ajaxModal1(
+                    'Cambio de Pestaña Detectado', 
+                    'Examen Cancelado', 
+                    retake1, 
+                    3, 
+                    time, 
+                    'modal-md', 
+                    'fade'
+                );
+
+                    setTimeout(() => {
+                        endQuiz();
+                    }, 600000); 
+                            
+                }
+                count++;
+            });
+        }
+
+        if (@json($exam_details->examSetting->camera_screen_record)) {
+            console.log("La Grabacion de pantalla esta activo");
+            startRecording();
         }
 
     }
