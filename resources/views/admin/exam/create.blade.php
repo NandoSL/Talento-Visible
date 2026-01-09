@@ -232,14 +232,14 @@
                                                 <span class="far fa-clock me-2"></span>Duración (minutos)
                                             </label>
                                             <input type="number" name="duration" class="form-control ol-form-control new-input" min="1" required>
-                                            <label class="tag">Tiempo límite para completar</label>
+                                            <label class="tag mt-2">Tiempo límite para completar</label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="title" class="form-label ol-form-label col-form-label sub-title-2">
                                                 <span class="far fa-check-circle me-2"></span>Puntaje aprobatorio
                                             </label>
                                             <input type="number" name="minScore" class="form-control ol-form-control new-input" min="1" required>
-                                            <label class="tag">Mínimo para aprobar</label>
+                                            <label class="tag mt-2">Mínimo para aprobar</label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="opens" class="form-label ol-form-label col-form-label sub-title-2">
@@ -252,7 +252,7 @@
                                                 <option value="3">3 intentos</option>
                                                 <option value="4">Ilimitados</option>
                                             </select>
-                                            <label class="tag">Veces que puede repetir</label>
+                                            <label class="tag mt-2">Veces que puede repetir</label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="waitingTime" class="form-label ol-form-label col-form-label sub-title-2">
@@ -266,7 +266,7 @@
                                                 <option value="12">12 horas</option>
                                                 <option value="24">24 horas</option>
                                             </select>
-                                            <label class="tag">Periodo de espera para nuevo intento</label>
+                                            <label class="tag mt-2">Periodo de espera para nuevo intento</label>
                                         </div>
                                     </div>
                                 </div>
