@@ -43,6 +43,6 @@ class Lesson extends Model
 
     public function examSetting()
     {
-        return $this->hasOne(ExamSettings::class, 'exam_id', 'id');
+        return $this->hasOne(ExamSettings::class, 'id', 'exam_id');
     }
 }

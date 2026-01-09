@@ -10,11 +10,14 @@ class ExamSettings extends Model
     use HasFactory;
 
     protected $fillable = [
-        'exam_id',
+        'type',
+        'hours',
+        'show_results',
         'course_completed',
-        'camera_detection',
+        'person_detection',
         'camera_screen_record',
         'microphone_required',
         'keyboard_events',
+        'window_detection'
     ];
 }
