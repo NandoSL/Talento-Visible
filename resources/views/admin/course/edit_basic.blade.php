@@ -1,4 +1,3 @@
-<input type="hidden" name="course_type" value="general" required>
 
 
 <div class="row mb-3">

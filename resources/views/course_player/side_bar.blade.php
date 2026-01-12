@@ -239,7 +239,7 @@
         </div>
            <div class="examen-btn">
 </div>
-<div>
+<!-- <div>
     <button onclick="ajaxModal1(
         'Motivo de ejemplo',
         'Examen cancelado',
@@ -252,7 +252,7 @@
         Mostrar modal de examen cancelado
 
     </button>
-</div>
+</div> -->
 
         </div>
     </div>
@@ -263,30 +263,75 @@
     <input type="hidden" class="course_id" name="course_id" value="{{ $course_details->id }}">
     <input type="hidden" class="lesson_id" name="lesson_id">
 </form>
+
 <script>
 const waitBox = document.getElementById('waitExamBox');
 const timerEl = document.getElementById('timer');
 const progressBar = document.getElementById('timerProgress');
 const btn = document.getElementById('startExamBtn');
 
-const retake = Number("{{ $lessExam->retake }}");
-const duration = Number("{{ $exam_details->examSetting->hours }}"); // horas
+// DATOS DESDE BACKEND
+const retake = Number("{{ $lessExam->retake }}"); // intentos permitidos (0 = infinito)
+const durationHours = Number("{{ $exam_details->examSetting->hours }}"); // horas de espera
 
+// INTENTOS USADOS (persistente)
+let attempts = Number(localStorage.getItem('examAttempts')) || 0;
+console.log("ateps",attempts);
 
-   console.log("duaration",duration);
-   
-if (retake === 1) {
-    // ❌ NO se muestra la tarjeta
+// =======================
+// LÓGICA PRINCIPAL
+// =======================
+
+// ♾️ Retake infinito
+if (retake === 0) {
+    enableExam();
+}
+
+// 🟢 Primer intento (NUNCA bloquea)
+else if (attempts === 0) {
+    enableExam();
+}
+
+// ❌ Ya no tiene intentos
+else if (attempts >= retake) {
+    disableExam();
+}
+
+// ⏳ Tiene intentos disponibles pero debe esperar
+else {
+    startTimer(durationHours * 3600);
+}
+
+// =======================
+// EVENTO BOTÓN
+// =======================
+
+btn.addEventListener('click', () => {
+    if (btn.disabled) return;
+
+    attempts++;
+    localStorage.setItem('examAttempts', attempts);
+
+    window.location.href =
+        "{{ route('course.player', ['slug' => $course_details->slug, 'id' => $exam_details->id]) }}";
+});
+
+// =======================
+// FUNCIONES
+// =======================
+
+function enableExam() {
     waitBox.classList.add('d-none');
-
     btn.disabled = false;
     btn.classList.remove('btn-disabled');
     btn.classList.add('btn-enabled');
+}
 
-} else {
-    document.addEventListener('DOMContentLoaded', () => {
-        startTimer(duration * 3600);
-    });
+function disableExam() {
+    waitBox.classList.add('d-none');
+    btn.disabled = true;
+    btn.classList.remove('btn-enabled');
+    btn.classList.add('btn-disabled');
 }
 
 function startTimer(totalSeconds) {
@@ -294,10 +339,10 @@ function startTimer(totalSeconds) {
     waitBox.classList.remove('d-none');
     btn.disabled = true;
 
-    let endTime = parseInt(localStorage.getItem('examWaitEnd'), 10);
+    let endTime = Number(localStorage.getItem('examWaitEnd'));
 
-    // 🔐 VALIDACIÓN CLAVE
-    if (isNaN(endTime) || endTime <= Date.now()) {
+    // Crear tiempo de espera solo si no existe
+    if (!endTime || endTime <= Date.now()) {
         endTime = Date.now() + totalSeconds * 1000;
         localStorage.setItem('examWaitEnd', endTime);
     }
@@ -308,10 +353,7 @@ function startTimer(totalSeconds) {
         if (remainingMs <= 0) {
             clearInterval(interval);
             localStorage.removeItem('examWaitEnd');
-
-            waitBox.classList.add('d-none');
-            btn.disabled = false;
-            btn.classList.add('btn-enabled');
+            enableExam();
             return;
         }
 
@@ -326,16 +368,8 @@ function startTimer(totalSeconds) {
             `${((totalSeconds - remaining) / totalSeconds) * 100}%`;
 
     }, 1000);
-      btn.addEventListener('click', () => {
-        if (!btn.disabled) 
-            console.log("entrando");
-            
-        window.location.href =
-            "{{ route('course.player', ['slug' => $course_details->slug, 'id' => $exam_details->id]) }}";
-    });
 }
-
-
 </script>
+
 
 @include('course_player.modal')

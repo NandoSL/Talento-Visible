@@ -20,6 +20,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\frontend\LanguageController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LiveClassController;
@@ -314,6 +315,20 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
         //seo settings
         Route::get('seo_settings/{route?}', 'seo_settings')->name('seo.settings');
         Route::post('seo_settings/update/{route}', 'seo_settings_update')->name('seo.settings.update');
+    });
+
+    Route::controller(ExamController::class)->group(function () {
+        Route::get('course/edit/{course_id}/exam', 'index')->name('exam.index');
+        Route::get('course/edit/{course_id}/exam/create', 'create')->name('exam.create');
+        Route::post('course/edit/{course_id}/exam/store', 'store')->name('exam.store');
+        Route::get('course/edit/{course_id}/exam/view/{exam_id}', 'view')->name('exam.view');
+        Route::get('course/{course_id}/exam/security/{exam_id}', 'securityGet')->name('exam.security.modal');
+        Route::post('course/{course_id}/exam/security/{exam_id}', 'securityUpdate')->name('exam.security');
+        Route::get('course/{course_id}/exam/questions/{exam_id}', 'questionsGet')->name('exam.questions.modal');
+        Route::post('course/{course_id}/exam/questions/{exam_id}', 'questionsUpdate')->name('exam.questions');
+        Route::get('course/edit/{course_id}/exam/edit/{exam_id}', 'edit')->name('exam.edit');
+        Route::post('course/edit/{course_id}/exam/update/{exam_id}', 'update')->name('exam.update');
+        Route::get('course/edit/{course_id}/exam/delete/{exam_id}', 'delete')->name('exam.delete');
     });
 
     //API Configurations

@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="fpb-7 mb-3 mt-3">
-                            <label class="form-label ol-form-label">{{ get_phrase('Would you like to designate it as popular?') }}</label>
+                            <label class="form-label ol-form-label">{{ get_phrase('Would you like to designate it as popular??????') }}</label>
 
                             <div class="d-flex gap-4">
                                 <div class="d-flex align-items-center gap-2">
