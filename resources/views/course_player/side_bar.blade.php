@@ -202,7 +202,7 @@
                     </p>
                 </div>
                 @if ($exam_details->examSetting)
-             
+
                     <div class="exam-requiered">
                         <ul>
                             @if ($exam_details->examSetting->course_completed ?? false)
@@ -271,8 +271,8 @@ const progressBar = document.getElementById('timerProgress');
 const btn = document.getElementById('startExamBtn');
 
 // DATOS DESDE BACKEND
-const retake = Number("{{ $lessExam->retake }}"); // intentos permitidos (0 = infinito)
-const durationHours = Number("{{ $exam_details->examSetting->hours }}"); // horas de espera
+const retake = Number("{{ $lessExam->retake ?? 0}}"); // intentos permitidos (0 = infinito)
+const durationHours = Number("{{ $exam_details->examSetting->hours ?? 0 }}"); // horas de espera
 
 // INTENTOS USADOS (persistente)
 let attempts = Number(localStorage.getItem('examAttempts')) || 0;

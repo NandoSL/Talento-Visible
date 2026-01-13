@@ -16,13 +16,14 @@ class ExamController extends Controller
     public function index($course_id) {
         $data['course_details'] = Course::where('id', $course_id)->first();
         $data['exams'] = Lesson::join('exam_settings', 'lessons.exam_id', 'exam_settings.id')
-            ->join('questions', 'exam_settings.id', 'questions.quiz_id')
+            //->join('questions', 'exam_settings.id', 'questions.quiz_id')
+            ->join('questions', 'lessons.id', 'questions.quiz_id')
             ->where('lessons.course_id', $course_id)
             ->where('lesson_type', 'exam')
             ->select('lessons.id as lesson_id','lessons.title','lessons.pass_mark','lessons.retake','lessons.duration','exam_settings.id as exam_id','exam_settings.type as exam_type',DB::raw('COUNT(questions.id) as questions_count'))
             ->groupBy('lessons.id','lessons.title','lessons.pass_mark','lessons.retake','lessons.duration','exam_settings.id','exam_settings.type')
             ->get();
-        
+
         if($data['exams']->isNotEmpty()) {
             foreach ($data['exams'] as $index => $exam) {
                 $time = $exam->duration;
@@ -72,7 +73,7 @@ class ExamController extends Controller
         $durationFormatted = sprintf('%02d:%02d:00', $hours, $mins);
 
         $status = $request->action == 'publish' ? 'published' : 'draft';
-        
+
         $examSettingsData = [
             'type' => $status,
             'hours' => $request->waitingTime,
@@ -95,10 +96,12 @@ class ExamController extends Controller
 
         if($status == 'draft') {
             $examDraft = $this->validateDuplicated($course_id, 'draft');
-            
+
             if($examDraft->isNotEmpty()) {
                 $exam_id = $examDraft[0]->exam_id;
                 $lesson = Lesson::where('exam_id', $examDraft[0]->exam_id)->first();
+                // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
+                $lesson_id = $lesson->id;
                 $lesson->update($lessonUpdateData);
                 ExamSettings::where('id', $examDraft[0]->exam_id)->update($examSettingsData);
             } else {
@@ -113,6 +116,8 @@ class ExamController extends Controller
                     'status' => 1,
                     'total_mark' => 10
                 ]));
+                // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
+                $lesson_id = $lesson->id;
             }
         } elseif($request->action == 'publish') {
             $examSettings = ExamSettings::create($examSettingsData);
@@ -126,6 +131,8 @@ class ExamController extends Controller
                 'status' => 1,
                 'total_mark' => 10
             ]));
+            // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
+            $lesson_id = $lesson->id;
         }
 
         foreach ($questions as $index => $q) {
@@ -161,7 +168,8 @@ class ExamController extends Controller
             if ($q['type'] === 'fill_blanks') { $answer = null; }
 
             Question::insert([
-                'quiz_id' => $exam_id,
+                // TODO: Se utiliza la variable lesson_id en vez de exam_id
+                'quiz_id' => $lesson_id, //$exam_id,
                 'title'   => $q['question'],
                 'type'    => $q['type'],
                 'answer'  => $answer,
@@ -169,7 +177,9 @@ class ExamController extends Controller
                 'sort'    => $index + 1
             ]);
         }
-        
+
+
+
         return redirect(route('admin.exam.index', $course_id))->with('success', get_phrase('Exam created successfully'));
     }
 
@@ -215,8 +225,8 @@ class ExamController extends Controller
             'security'  => $examSettings,
         ]);
     }
-    
-    
+
+
     public function securityUpdate($course_id, $exam_id, Request $request) {
         $examSettingsData = [
             'course_completed' => $request->fullCourse ?? 0,
@@ -224,7 +234,7 @@ class ExamController extends Controller
             'microphone_required' => $request->recording ?? 0,
             'person_detection' => $request->personDetection ?? 0,
             'window_detection' => $request->windowDetection ?? 0,
-            'keyboard_events' => $request->block ?? 0, 
+            'keyboard_events' => $request->block ?? 0,
         ];
 
         ExamSettings::where('id', $exam_id)->update($examSettingsData);
@@ -255,8 +265,8 @@ class ExamController extends Controller
             'questions'  => $questions,
         ]);
     }
-    
-    
+
+
     public function questionsUpdate($course_id, $exam_id, Request $request) {
         $examSettingsData = [
             'course_completed' => $request->fullCourse ?? 0,
@@ -264,7 +274,7 @@ class ExamController extends Controller
             'microphone_required' => $request->recording ?? 0,
             'person_detection' => $request->personDetection ?? 0,
             'window_detection' => $request->windowDetection ?? 0,
-            'keyboard_events' => $request->block ?? 0, 
+            'keyboard_events' => $request->block ?? 0,
         ];
 
         ExamSettings::where('id', $exam_id)->update($examSettingsData);
@@ -282,7 +292,9 @@ class ExamController extends Controller
 
         $published = $this->validateDuplicated($course_id, 'published');
         $data['examPublished'] = $published->isNotEmpty();
-        $data['questions'] = Question::where('quiz_id', $data['exam']->exam_id)
+        // TODO: Ls preguntas se  obtienen por medio del id de la seccion
+        //$data['questions'] = Question::where('quiz_id', $data['exam']->exam_id)
+        $data['questions'] = Question::where('quiz_id', $data['exam']->lesson_id)
             ->orderBy('sort')
             ->get()
             ->map(function ($q) {
@@ -348,7 +360,7 @@ class ExamController extends Controller
         $durationFormatted = sprintf('%02d:%02d:00', $hours, $mins);
 
         $status = $request->action == 'publish' ? 'published' : 'draft';
-        
+
         $examSettingsData = [
             'type' => $status,
             'hours' => $request->waitingTime,
@@ -378,18 +390,24 @@ class ExamController extends Controller
                 $targetExamId = $examDraft[0]->exam_id;
 
                 Lesson::where('exam_id', $targetExamId)->update($lessonUpdateData);
+                // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
+                $lesson = Lesson::where('exam_id', $examDraft[0]->exam_id)->first();
+                $lesson_id = $lesson->id;
                 ExamSettings::where('id', $targetExamId)->update($examSettingsData);
             } else {
                 $examSettings = ExamSettings::create($examSettingsData);
                 $targetExamId = $examSettings->id;
 
-                Lesson::create(array_merge($lessonUpdateData, [
+                $lesson = Lesson::create(array_merge($lessonUpdateData, [
                     'user_id' => auth()->id(),
                     'course_id' => $course_id,
                     'exam_id' => $targetExamId,
                     'lesson_type' => 'exam',
                     'status' => 1,
                 ]));
+                // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
+                $lesson = Lesson::where('exam_id', $examDraft[0]->exam_id)->first();
+                $lesson_id = $lesson->id;
             }
         } elseif ($request->action == 'publish') {
             $examPublish = $this->validateDuplicated($course_id, 'published');
@@ -400,13 +418,15 @@ class ExamController extends Controller
 
             $examSettings = ExamSettings::create($examSettingsData);
             $targetExamId = $examSettings->id;
-            Lesson::create(array_merge($lessonUpdateData, [
+            $lesson = Lesson::create(array_merge($lessonUpdateData, [
                 'user_id' => auth()->id(),
                 'course_id' => $course_id,
                 'exam_id' => $targetExamId,
                 'lesson_type' => 'exam',
                 'status' => 1,
             ]));
+            // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
+            $lesson_id = $lesson->id;
         }
 
         $incomingIds = collect($questions)
@@ -437,7 +457,8 @@ class ExamController extends Controller
             }
 
             $questionData = [
-                'quiz_id' => $targetExamId,
+                // TODO: Se utiliza la variable lesson_id en vez de exam_id
+                'quiz_id' => $lesson_id, //$targetExamId,
                 'title'   => $q['question'],
                 'type'    => $q['type'],
                 'answer'  => $answer,
@@ -455,10 +476,11 @@ class ExamController extends Controller
         return redirect(route('admin.exam.index', $course_id))->with('success', get_phrase('Exam updated successfully'));
     }
 
-    public function delete($course_id, $exam_id)
+    public function delete($course_id, $exam_id, $lesson_id)
     {
+        //TODO: las pegruntas se eliminan por medio del id de la leccion
         Lesson::where('exam_id', $exam_id)->delete();
-        Question::where('quiz_id', $exam_id)->delete();
+        Question::where('quiz_id', $lesson_id)->delete();
         ExamSettings::where('id', $exam_id)->delete();
 
         return redirect(route('admin.exam.index', $course_id))->with('success', get_phrase('Exam deleted successfully'));

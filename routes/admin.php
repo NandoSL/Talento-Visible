@@ -328,7 +328,7 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
         Route::post('course/{course_id}/exam/questions/{exam_id}', 'questionsUpdate')->name('exam.questions');
         Route::get('course/edit/{course_id}/exam/edit/{exam_id}', 'edit')->name('exam.edit');
         Route::post('course/edit/{course_id}/exam/update/{exam_id}', 'update')->name('exam.update');
-        Route::get('course/edit/{course_id}/exam/delete/{exam_id}', 'delete')->name('exam.delete');
+        Route::get('course/edit/{course_id}/exam/delete/{exam_id}/{lesson_id}', 'delete')->name('exam.delete');
     });
 
     //API Configurations

@@ -148,8 +148,8 @@
                                                             <span class="fi-rr-pencil" style="color: #4a5565"></span>
                                                         </a>
                                                         @endif
-                                                        <a data-bs-toggle="tooltip" title="{{ get_phrase('Delete exam') }}" class="btn py-0 px-1 text-danger" onclick="confirmModal('{{ route('admin.exam.delete', [$course_details->id, $exam->exam_id]) }}')">
-                                                            <span class="fi-rr-trash"></span>
+                                                        <a data-bs-toggle="tooltip" title="{{ get_phrase('Delete exam') }}" class="btn py-0 px-1 text-danger" onclick="confirmModal('{{ route('admin.exam.delete', [$course_details->id, $exam->exam_id, $exam->lesson_id]) }}')">
+                                                            <span class="fi-rr-trash"></span>                                                            
                                                         </a>
                                                     </div>
                                                 </div>
