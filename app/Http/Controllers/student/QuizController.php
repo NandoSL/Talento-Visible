@@ -7,6 +7,7 @@ use App\Models\Lesson;
 use App\Models\Question;
 use App\Models\QuizSubmission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
 
@@ -112,4 +113,6 @@ class QuizController extends Controller
             ->get();
         return view('course_player.quiz.questions', $page_data);
     }
+
+
 }

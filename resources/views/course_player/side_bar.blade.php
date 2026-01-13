@@ -271,40 +271,36 @@ const progressBar = document.getElementById('timerProgress');
 const btn = document.getElementById('startExamBtn');
 
 // DATOS DESDE BACKEND
-const retake = Number("{{ $lessExam->retake ?? 0}}"); // intentos permitidos (0 = infinito)
-const durationHours = Number("{{ $exam_details->examSetting->hours ?? 0 }}"); // horas de espera
+const retake = Number("{{ $lessExam->retake }}");
+const durationHours = Number("{{ $exam_details->examSetting->hours }}");
+const retakeExamFailed = @json($lessExam->retake_exam_failed);
+const fishTime1 = @json($lessExam->finish_time);
+console.log("estos son los datosss", fishTime1);
+const examtype = "{{ $lessExam->lesson_type }}";
 
-// INTENTOS USADOS (persistente)
-let attempts = Number(localStorage.getItem('examAttempts')) || 0;
-console.log("ateps",attempts);
 
-// =======================
-// LÓGICA PRINCIPAL
-// =======================
-
-// ♾️ Retake infinito
-if (retake === 0) {
-    enableExam();
+if (examtype== "exam") {
+    
+    if (retake === 4) {
+        enableExam();
+    }
+    else if (retakeExamFailed === 0) {
+        enableExam();
+    }
+    else if (fishTime1 === 0 && retakeExamFailed > 0) {
+        console.log("entra aqui sss");
+        
+        disableExam();
+        startTimer1(durationHours * 60);
+    }
+    else if (retakeExamFailed <= retake && fishTime1 === 1) {
+        enableExam();
+    }
+    else {
+        disableExam();
+    }
 }
 
-// 🟢 Primer intento (NUNCA bloquea)
-else if (attempts === 0) {
-    enableExam();
-}
-
-// ❌ Ya no tiene intentos
-else if (attempts >= retake) {
-    disableExam();
-}
-
-// ⏳ Tiene intentos disponibles pero debe esperar
-else {
-    startTimer(durationHours * 3600);
-}
-
-// =======================
-// EVENTO BOTÓN
-// =======================
 
 btn.addEventListener('click', () => {
     if (btn.disabled) return;
@@ -316,9 +312,7 @@ btn.addEventListener('click', () => {
         "{{ route('course.player', ['slug' => $course_details->slug, 'id' => $exam_details->id]) }}";
 });
 
-// =======================
 // FUNCIONES
-// =======================
 
 function enableExam() {
     waitBox.classList.add('d-none');
@@ -334,7 +328,7 @@ function disableExam() {
     btn.classList.add('btn-disabled');
 }
 
-function startTimer(totalSeconds) {
+function startTimer1(totalSeconds) {
 
     waitBox.classList.remove('d-none');
     btn.disabled = true;
@@ -353,7 +347,19 @@ function startTimer(totalSeconds) {
         if (remainingMs <= 0) {
             clearInterval(interval);
             localStorage.removeItem('examWaitEnd');
+              $.ajax({
+                url: "{{ route('lesson.updateFinishTime') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    lesson_id: "{{ $lessExam->id }}" 
+                },
+                success: function () {
+                alert('Intento registrado');
+                }
+            });
             enableExam();
+            window.location.reload();
             return;
         }
 

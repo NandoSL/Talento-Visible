@@ -255,7 +255,7 @@ public function updateRetake(Request $request)
 {
   DB::table('lessons')
     ->where('id', $request->lesson_id)
-    ->increment('retake');
+    ->increment('retake_exam_failed');
 
     return response()->json(['success' => true]);
 }

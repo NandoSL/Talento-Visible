@@ -185,22 +185,41 @@
     let backBtn = document.querySelector('#backBtn');
     let existExam = "{{ $exam_details }}";
     let lessonType = "{{ $quiz->lesson_type }}";
-    let retake1 = "{{ $quiz->retake }}";
+    let retake1 = @json($quiz->retake);
     let time = "{{ $exam_details->examSetting->hours}}";
+   let retakeExamStart = @json($quiz->retake_exam_failed);
+let fishTime = @json($quiz->finish_time);
     let recordedChunks = [];
     let mediaRecorder;
-
-    console.log("estas son las horas", time);
-      console.log("estas son las horas", retake1);
+    console.log("borrar",fishTime);
     
-    console.log(`Esto es lessonType: ${lessonType}`);
-
-    // start quiz
+    
+            console.log(`Esto es lessonType: ${lessonType}`);
+            if (lessonType === "exam") {
+                
+                if (retake1 === 4) {
+                    starterBtn.disabled = false;
+                }
+                else if (retakeExamStart === 0) {
+                    starterBtn.disabled = false;
+                }
+                else if (retakeExamStart <= retake1 && fishTime === 0) {
+                    starterBtn.disabled = true;
+                }
+                else if (retakeExamStart <= retake1 && fishTime === 1) {
+                    starterBtn.disabled = false;
+                }
+                else {
+                    starterBtn.disabled = true;
+                }
+            }
+            // start quiz
     starterBtn.addEventListener('click', function() {
 
 
         if (existExam && lessonType == 'exam') {
             itsExam();
+            
         }
 
         starterContainer.classList.add('d-none');
@@ -282,21 +301,8 @@
 
     // end quiz
     function endQuiz() {
-         $.ajax({
-        url: "{{ route('lesson.updateRetake') }}",
-        type: "POST",
-        data: {
-            _token: "{{ csrf_token() }}",
-            lesson_id: "{{ $quiz->id }}" 
-        },
-        success: function () {
-            submitQuiz(); 
-        },
-        error: function () {
-            console.error('No se pudo actualizar retake');
-            submitQuiz();
-        }
-    });
+    retakeIncrement();
+    finisTimeDesactive();
     }
 
     function itsExam() {
@@ -324,8 +330,8 @@
                     ajaxModal1(
                         'Combinación de Tecla Prohibida', 
                         'Examen Cancelado', 
+                        retakeExamStart, 
                         retake1, 
-                        3, 
                         time, 
                         'modal-md', 
                         'fade'
@@ -353,8 +359,8 @@
                     ajaxModal1(
                         'Combinación de Tecla Prohibida', 
                         'Examen Cancelado', 
+                        retakeExamStart, 
                         retake1, 
-                        3, 
                         time, 
                         'modal-md', 
                         'fade'
@@ -377,8 +383,8 @@
                         ajaxModal1(
                     'Cambio de Pestaña Detectado', 
                     'Examen Cancelado', 
+                    retakeExamStart, 
                     retake1, 
-                    3, 
                     time, 
                     'modal-md', 
                     'fade'
@@ -451,5 +457,40 @@
         mediaRecorder.stop();
         console.log('Grabación detenida');
     }
+
+    function finisTimeDesactive() {
+         $.ajax({
+        url: "{{ route('lesson. updateFinishTimeDesactive') }}",
+        type: "POST",
+        data: {
+            _token: "{{ csrf_token() }}",
+            lesson_id: "{{ $quiz->id }}" 
+        },
+        success: function () {
+            console.log('finish_time desactivado');
+        },
+        error: function () {
+            console.error('No se pudo desactivar finish_time');
+        }
+    });
+    }
+    function retakeIncrement() {
+        $.ajax({
+        url: "{{ route('lesson.updateRetake') }}",
+        type: "POST",
+        data: {
+            _token: "{{ csrf_token() }}",
+            lesson_id: "{{ $quiz->id }}" 
+        },
+        success: function () {
+            submitQuiz(); 
+        },
+        error: function () {
+            console.error('No se pudo actualizar retake');
+            submitQuiz();
+        }
+    });
+}
+            
 </script>
 @include('course_player.modal')

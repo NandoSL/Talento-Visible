@@ -82,16 +82,10 @@ function ajaxModal1(motivo, title, intentosRestantes, intentosTotales, textoHora
     $('#ajaxModal1 .modal-title').html(title);
     $('#ajaxModal1 .motivo').html(motivo);
 
-    // Inyectamos solo el número en el display grande
     $('#intentos-restantes').text(intentosRestantes);
-
-    // Inyectamos la frase "de X intentos totales" sin saltos
     $('#intentos-totales-container').html('de'+' ' + intentosTotales +' '+ 'intentos totales');
-
-    // Inyectamos el resumen inferior en una sola línea fluida
     let textoResumen = '⏱️ Tienes <strong style="color: #f39c12;">' + textoHoras + '</strong> para completar el examen con tus ' + intentosRestantes + ' intentos restantes.';
     $('#resumen-final-container').html(textoResumen);
-
     let porcentaje = (intentosRestantes / intentosTotales) * 100;
     $('#barra-intentos').css('width', porcentaje + '%');
 
