@@ -113,7 +113,7 @@ class ExamController extends Controller
                     'section_id' => null,
                     'exam_id' => $examSettings->id,
                     'lesson_type' => 'exam',
-                    'status' => 1,
+                    'status' => 0,
                     'total_mark' => 10
                 ]));
                 // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
@@ -403,7 +403,7 @@ class ExamController extends Controller
                     'course_id' => $course_id,
                     'exam_id' => $targetExamId,
                     'lesson_type' => 'exam',
-                    'status' => 1,
+                    'status' => 0,
                 ]));
                 // TODO: Se crea variable que guarda el id de la seccion para su uso al guardar las preguntas
                 $lesson = Lesson::where('exam_id', $examDraft[0]->exam_id)->first();
