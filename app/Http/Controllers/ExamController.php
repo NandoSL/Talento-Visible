@@ -176,7 +176,7 @@ class ExamController extends Controller
     public function view($course_id, $exam_id) {
         $data['course_details'] = Course::where('id', $course_id)->first();
         $data['exam'] = Lesson::join('exam_settings', 'lessons.exam_id', '=', 'exam_settings.id')->where('lessons.course_id', $course_id)->select('lessons.*','exam_settings.*')->first();
-        $data['questions'] = Question::where('quiz_id', $data['exam']->exam_id)
+        $data['questions'] = Question::where('quiz_id', $exam_id)
             ->orderBy('sort')
             ->get()
             ->map(function ($q) {
@@ -192,10 +192,6 @@ class ExamController extends Controller
                 ];
             });
 
-        if ($data['exam']) {
-            $data['exam']->id = $exam_id;
-        }
-
         $time = $data['exam']->duration;
         [$hours, $minutes, $seconds] = array_map('intval', explode(':', $time));
         $totalMinutes = ($hours * 60) + $minutes;
@@ -205,7 +201,7 @@ class ExamController extends Controller
         return view('admin.exam.view', $data);
     }
 
-    public function securityGet($course_id, $exam_id, Request $request) {
+    public function securityGet($course_id, $exam_id) {
 
         $examSettings = ExamSettings::where('id', $exam_id)->firstOrFail();
 
@@ -218,13 +214,14 @@ class ExamController extends Controller
     
     
     public function securityUpdate($course_id, $exam_id, Request $request) {
+
         $examSettingsData = [
             'course_completed' => $request->fullCourse ?? 0,
             'camera_screen_record' => $request->recording ?? 0,
             'microphone_required' => $request->recording ?? 0,
             'person_detection' => $request->personDetection ?? 0,
             'window_detection' => $request->windowDetection ?? 0,
-            'keyboard_events' => $request->block ?? 0, 
+            'keyboard_events' => $request->block ?? 0,
         ];
 
         ExamSettings::where('id', $exam_id)->update($examSettingsData);
@@ -232,7 +229,40 @@ class ExamController extends Controller
         return redirect(route('admin.exam.index', $course_id))->with('success', get_phrase('Exam security updated successfully'));
     }
 
-    public function questionsGet($course_id, $exam_id) {
+    public function modalQuestionsGet($exam_id) {
+        $data['exam_id'] = $exam_id;
+        $data['questions'] = Question::where('quiz_id', $exam_id)
+            ->orderBy('sort')
+            ->get()
+            ->map(function ($q) {
+                return [
+                    'id'       => $q->id,
+                    'type'     => $q->type,
+                    'question' => $q->title,
+                    'options'  => $q->options ? json_decode($q->options, true) : [],
+                    'correct'  => $q->type === 'mcq'
+                        ? json_decode($q->answer, true)
+                        : ($q->answer !== null ? [$q->answer] : []),
+                ];
+            });
+
+        return view('admin.exam.questions', $data);
+    }
+    
+    
+    public function modalQuestionsAdd(Request $request, $exam_id) {
+        Question::create([
+            'quiz_id' => $exam_id,
+            'type'    => $request->type,
+            'title'   => $request->question,
+            'options' => $request->type === 'mcq'
+                ? json_encode($request->options)
+                : null,
+            'answer'  => $request->type === 'mcq'
+                ? json_encode($request->correct)
+                : $request->correct[0] ?? null,
+            'sort'    => Question::where('quiz_id', $exam_id)->max('sort') + 1
+        ]);
 
         $questions = Question::where('quiz_id', $exam_id)
             ->orderBy('sort')
@@ -249,27 +279,9 @@ class ExamController extends Controller
                 ];
             });
 
-        return view('admin.exam.questions', [
-            'course_id' => $course_id,
-            'exam_id'   => $exam_id,
-            'questions'  => $questions,
+        return response()->json([
+            'questions' => $questions
         ]);
-    }
-    
-    
-    public function questionsUpdate($course_id, $exam_id, Request $request) {
-        $examSettingsData = [
-            'course_completed' => $request->fullCourse ?? 0,
-            'camera_screen_record' => $request->recording ?? 0,
-            'microphone_required' => $request->recording ?? 0,
-            'person_detection' => $request->personDetection ?? 0,
-            'window_detection' => $request->windowDetection ?? 0,
-            'keyboard_events' => $request->block ?? 0, 
-        ];
-
-        ExamSettings::where('id', $exam_id)->update($examSettingsData);
-
-        return redirect(route('admin.exam.index', $course_id))->with('success', get_phrase('Exam security updated successfully'));
     }
 
     public function edit($course_id, $exam_id) {
@@ -290,7 +302,6 @@ class ExamController extends Controller
                     'id'       => $q->id,
                     'type'     => $q->type,
                     'question' => $q->title,
-                    'points'   => $q->points,
                     'options'  => $q->options ? json_decode($q->options, true) : [],
                     'correct'  => $q->type === 'mcq'
                         ? json_decode($q->answer, true)

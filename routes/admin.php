@@ -324,8 +324,8 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
         Route::get('course/edit/{course_id}/exam/view/{exam_id}', 'view')->name('exam.view');
         Route::get('course/{course_id}/exam/security/{exam_id}', 'securityGet')->name('exam.security.modal');
         Route::post('course/{course_id}/exam/security/{exam_id}', 'securityUpdate')->name('exam.security');
-        Route::get('course/{course_id}/exam/questions/{exam_id}', 'questionsGet')->name('exam.questions.modal');
-        Route::post('course/{course_id}/exam/questions/{exam_id}', 'questionsUpdate')->name('exam.questions');
+        Route::get('course/exam/{exam_id}/questions', 'modalQuestionsGet')->name('exam.questions.modal');
+        Route::post('course/exam/{exam_id}/questions', 'modalQuestionsAdd')->name('exam.questions');
         Route::get('course/edit/{course_id}/exam/edit/{exam_id}', 'edit')->name('exam.edit');
         Route::post('course/edit/{course_id}/exam/update/{exam_id}', 'update')->name('exam.update');
         Route::get('course/edit/{course_id}/exam/delete/{exam_id}', 'delete')->name('exam.delete');

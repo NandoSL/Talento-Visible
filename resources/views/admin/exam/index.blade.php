@@ -140,7 +140,7 @@
                                                         <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Security') }}" class="btn py-0 px-1" onclick="ajaxModal('{{ route('admin.exam.security.modal', [$course_details->id, $exam->exam_id]) }}', '{{ get_phrase('Sistema de seguridad') }}', 'modal-md')">
                                                             <span class="fas fa-lock" style="color: #4a5565"></span>
                                                         </a>
-                                                        <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Questions') }}" class="btn py-0 px-1" onclick="ajaxModal('{{ route('admin.exam.questions.modal', [$course_details->id, $exam->exam_id]) }}', '{{ get_phrase('Constructor de preguntas') }}', 'modal-lg')">
+                                                        <a href="#" data-bs-toggle="tooltip" title="{{ get_phrase('Questions') }}" class="btn py-0 px-1" onclick="ajaxModal('{{ route('admin.exam.questions.modal', $exam->exam_id) }}', '{{ get_phrase('Constructor de preguntas') }}', 'modal-lg')">
                                                             <span class="far fa-file-alt" style="color: #4a5565"></span>
                                                         </a>
                                                         @if($exam->exam_type == 'draft')

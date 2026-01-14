@@ -117,6 +117,12 @@
         if (!form) return;
         form.reset();
         document.getElementById('mcq-options').innerHTML = '';
+        document.querySelectorAll('input[name="response"]').forEach(r => r.checked = false);
+        document.querySelectorAll('.tf-label').forEach(l => {
+            l.style.borderColor = '#d1d5dc';
+            l.style.backgroundColor = '#fff';
+            l.querySelector('.true_false_radio').innerHTML = '';
+        });
         document.getElementById('js-alert-container').innerHTML = '';
         const mcqRadio = document.getElementById('btn1');
         mcqRadio.checked = true;
@@ -255,8 +261,14 @@
         }
 
         if (type === 'true_false') {
-            const response = document.querySelector('input[name="response"]:checked')?.value;
-            question.correct = [response];
+            const responseInput = document.querySelector('input[name="response"]:checked');
+
+            if (!responseInput) {
+                showJsError('Selecciona la respuesta correcta (Verdadero o Falso)');
+                return;
+            }
+
+            question.correct = [responseInput.value];
         }
 
         if (type === 'fill_blanks') {
